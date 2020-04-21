@@ -1,21 +1,83 @@
 <script>
   //   export let name;
   import Project from "./Project.svelte";
-  import { current, projectArray } from "./stores.js";
+  import { current, currentPos, projectArray, projectList } from "./stores.js";
 
-  console.log($projectArray.length);
-  console.log($current);
+  console.log($currentPos);
 
   function handleProjects(direction) {
     if (direction == "next") {
+      //if it's "next" project
       $current < $projectArray.length - 1
         ? current.update(n => n + 1)
         : current.set(0);
+
+      // trying new current pos
+      if (
+        //if it's not the last story in a project
+        $currentPos.story <
+        $projectList[$currentPos.project].stories.length - 1
+      ) {
+        currentPos.update(pos => {
+          pos.story++;
+          return pos;
+        });
+      } else {
+        //if it's the last story in a project
+        if ($currentPos.project < $projectList.length - 1) {
+          //if it's not the last project
+          currentPos.update(pos => {
+            pos.project++;
+            pos.story = 0;
+            return pos;
+          });
+        } else {
+          //if it's the last project
+          currentPos.update(pos => {
+            pos.project = 0;
+            pos.story = 0;
+            return pos;
+          });
+        }
+      }
     } else {
+      //if it's "previous" project
       $current > 0
         ? current.update(n => n - 1)
         : current.set($projectArray.length - 1);
+
+      //new positioning
+      if (
+        //if it's not the first story in a project
+        $currentPos.story > 0
+      ) {
+        currentPos.update(pos => {
+          pos.story--;
+          return pos;
+        });
+      } else {
+        //if it's the first story in a project
+        if ($currentPos.project > 0) {
+          //if it's not the first project
+          currentPos.update(pos => {
+            pos.project--;
+            pos.story = $projectList[$currentPos.project].stories.length - 1;
+            //does this pick up on the updated value like… in the function? what is happening
+            //this is the error
+            return pos;
+          });
+        } else {
+          //if it's the first project
+          currentPos.update(pos => {
+            pos.project = $projectList.length - 1;
+            pos.story =
+              $projectList[$projectList.length - 1].stories.length - 1;
+            return pos;
+          });
+        }
+      }
     }
+    console.log($currentPos);
   }
 
   function handleKeydown(event) {
@@ -43,6 +105,7 @@
 
 <main>
   <h1>{$current}</h1>
+  <h2>{$currentPos.project} {$currentPos.story}</h2>
   <button
     on:click={() => {
       handleProjects('prev');
@@ -62,9 +125,19 @@
 <!-- loop through all projects here; leave the 'onMount' to something in each project? -->
 <!-- also... this is where i could only loop through the like projects around the current index... 
 	don't necesarily have to loop through all projects... -->
-{#each $projectArray as project, i}
-  <Project projectIndex={i} projectName={project} extraContent={false} />
+
+<!-- could be some function here to make an array of just the stories in scope... -->
+{#each $projectList as { name, type, stories }, i}
+  {#each stories as story, j}
+    <Project
+      projectIndex={i}
+      storyIndex={j}
+      storyContent={story}
+      projectName={name} />
+  {/each}
 {/each}
+
+<!-- extracontent goes down here -->
 
 <!-- 
 {:if}

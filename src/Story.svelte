@@ -1,10 +1,10 @@
 <script>
   import { onMount, beforeUpdate } from "svelte";
-  import { current } from "./stores.js";
+  import { currentArray, projectList } from "./stores.js";
 
   export let projectIndex = 0; //prop so that you can pass which project from App
-  export let projectName = "project name"; //prop to pass project name from App
-  export let extraContent = false; //prop to pass from app
+  // export let projectName = "project name"; //prop to pass project name from App
+  // export let extraContent = false; //prop to pass from app
 
   let displayPosition = "none";
   let photos = [];
@@ -19,12 +19,12 @@
 
   //there's probably a better way of doing this than just using afterUpdate...
   beforeUpdate(() => {
-    if (projectIndex == $current) {
-      displayPosition = "currentProject";
-    } else if (projectIndex == $current + 1) {
-      displayPosition = "nextProject";
-    } else if (projectIndex == $current - 1) {
-      displayPosition = "prevProject";
+    if (projectIndex == $currentArray.story) {
+      displayPosition = "currentStory";
+    } else if (projectIndex == $currentArray.story + 1) {
+      displayPosition = "nextStory";
+    } else if (projectIndex == $currentArray.story - 1) {
+      displayPosition = "prevStory";
     } else {
       displayPosition = "none";
     }
@@ -33,7 +33,7 @@
 
 <style>
   .photos {
-    border: 1px solid red;
+    border: 1px solid purple;
     width: 180px;
     display: inline-block;
     vertical-align: top;
@@ -48,14 +48,14 @@
   .none {
     opacity: 0.5;
   }
-  .prevProject {
+  .prevStory {
     color: red;
   }
-  .currentProject {
+  .currentStory {
     border: 5px solid black;
     width: 300px;
   }
-  .nextProject {
+  .nextStory {
     color: blue;
   }
 
@@ -73,7 +73,6 @@
 <div class="photos {displayPosition}">
   <!-- probably a slot here for content tbh… videos, photos, text, etc -->
 
-  <p>{projectName}</p>
   {#each photos as photo}
     <figure>
       <img src={photo.thumbnailUrl} alt={photo.title} />
