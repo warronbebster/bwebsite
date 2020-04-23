@@ -17,7 +17,6 @@
       currentPos.set(getNext($currentPos));
 
       // console.log("position after update: Project: " + nextStory.project + " Story: " + nextStory.story);
-
     } else {
       //if it's "previous"
       // currentPos.update(pos => {
@@ -26,7 +25,8 @@
       // });
       currentPos.set(getPrev($currentPos));
     }
-
+    nextPos.set(getNext($currentPos));
+    prevPos.set(getPrev($currentPos));
     // const nextie = $currentPos;
     // nextPos.update(nextPosie =>{
     //   nextPosie = getNext(nextie)
@@ -43,7 +43,7 @@
     // console.log(getNext($currentPos));
     // const what = $currentPos;
     // console.log(getNext(what));
-    
+
     // console.log($nextPos);
   }
 
@@ -87,9 +87,12 @@
   </button>
   <button
     on:click={() => {
-      <!-- console.log($prevPos); -->
+      console.log('$prevPos:');
+      console.log($prevPos);
+      console.log('$currentPos:');
       console.log($currentPos);
-      <!-- console.log($nextPos); -->
+      console.log('$nextPos');
+      console.log($nextPos);
     }}>
     loggy time
   </button>

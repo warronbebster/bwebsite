@@ -35,13 +35,14 @@
 
     //write function here to return current story + 2 to the left or right
     //also this should happen not just on beforeUpdate
+
     if (projectIndex == $nextPos.project && storyIndex == $nextPos.story) {
-      displayPosition == "nextProject";
+      displayPosition = "nextProject";
     } else if (
       projectIndex == $prevPos.project &&
       storyIndex == $prevPos.story
     ) {
-      displayPosition == "prevProject";
+      displayPosition = "prevProject";
     } else if (
       projectIndex == $currentPos.project &&
       storyIndex == $currentPos.story

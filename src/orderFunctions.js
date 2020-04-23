@@ -7,13 +7,16 @@ projectList.subscribe((value) => {
 });
 
 export const getNext = function (posToCheck) {
-	console.log(
-		'position getNext is checking: Project: ' +
-			posToCheck.project +
-			' Story: ' +
-			posToCheck.story
-	);
-	let nextPos = posToCheck; //start by making them equal
+	// console.log(
+	// 	'position getNext is checking: Project: ' +
+	// 		posToCheck.project +
+	// 		' Story: ' +
+	// 		posToCheck.story
+	// );
+	let nextPos = { project: 0, story: 0 };
+	nextPos.project = posToCheck.project; //start by setting a new variable to what we're checking against
+	nextPos.story = posToCheck.story; //start by setting a new variable to what we're checking against
+	//is the error that this basically *makes* nextPos $currentPos? like the whole object? and it updates?
 	if (
 		//if it's not the last story in a project
 		posToCheck.story <
@@ -36,7 +39,9 @@ export const getNext = function (posToCheck) {
 };
 
 export const getPrev = function (posToCheck) {
-	let prevPos = posToCheck;
+	let prevPos = { project: 0, story: 0 };
+	prevPos.project = posToCheck.project; //start by setting a new variable to what we're checking against
+	prevPos.story = posToCheck.story;
 	if (
 		//if it's not the first story in a project
 		posToCheck.story > 0
@@ -47,7 +52,8 @@ export const getPrev = function (posToCheck) {
 		if (posToCheck.project > 0) {
 			//if it's not the first project
 			prevPos.project--;
-			prevPos.story = projectList_value[posToCheck.project].stories.length - 1;
+			prevPos.story =
+				projectList_value[posToCheck.project - 1].stories.length - 1;
 		} else {
 			//if it's the first project
 			prevPos.project = projectList_value.length - 1;
