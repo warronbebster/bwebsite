@@ -9,24 +9,22 @@
   // $: nextPos = getNext($currentPos);
 
   function handleProjects(direction) {
-    // console.log(getNext($currentPos)); //something about logging it changes the state
     if (direction == "next") {
-      //if it's "previous"
-      
-      const nextStory = getNext($currentPos); //get next position
-      currentPos.update(pos => {
-        pos = nextStory;
-        return pos;
-      });
+      // currentPos.update(pos => {
+      //   pos = getNext(pos);
+      //   return pos;
+      // });
+      currentPos.set(getNext($currentPos));
+
+      // console.log("position after update: Project: " + nextStory.project + " Story: " + nextStory.story);
 
     } else {
       //if it's "previous"
-      const prevStory = getPrev($currentPos); //get next position
-      currentPos.update(pos => {
-        pos = prevStory;
-        return pos;
-      })
-      ;
+      // currentPos.update(pos => {
+      //   pos = getPrev(pos);
+      //   return pos;
+      // });
+      currentPos.set(getPrev($currentPos));
     }
 
     // const nextie = $currentPos;

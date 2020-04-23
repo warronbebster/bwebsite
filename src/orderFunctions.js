@@ -7,7 +7,12 @@ projectList.subscribe((value) => {
 });
 
 export const getNext = function (posToCheck) {
-	console.log(posToCheck);
+	console.log(
+		'position getNext is checking: Project: ' +
+			posToCheck.project +
+			' Story: ' +
+			posToCheck.story
+	);
 	let nextPos = posToCheck; //start by making them equal
 	if (
 		//if it's not the last story in a project
