@@ -1,6 +1,6 @@
 <script>
   import { onMount, beforeUpdate } from "svelte";
-  import { current, currentPos } from "./stores.js";
+  import { currentPos, nextPos, prevPos } from "./stores.js";
   //   import { Story } from "./Story.svelte";
 
   export let projectIndex = 0; //prop so that you can pass which project from App
@@ -11,6 +11,7 @@
   let displayPosition = "none";
   let photos = [];
 
+  //move this into a deeper level component that only mounts when this project is next/previous
   onMount(async () => {
     const res = await fetch(
       `https://jsonplaceholder.typicode.com/photos?_limit=6&albumId=` +
@@ -33,14 +34,19 @@
     // }
 
     //write function here to return current story + 2 to the left or right
-
-    if (projectIndex == $currentPos.project) {
-      console.log(storyIndex);
-      if (storyIndex == $currentPos.story) {
-        displayPosition = "currentProject";
-      } else {
-        displayPosition = "none";
-      }
+    //also this should happen not just on beforeUpdate
+    if (projectIndex == $nextPos.project && storyIndex == $nextPos.story) {
+      displayPosition == "nextProject";
+    } else if (
+      projectIndex == $prevPos.project &&
+      storyIndex == $prevPos.story
+    ) {
+      displayPosition == "prevProject";
+    } else if (
+      projectIndex == $currentPos.project &&
+      storyIndex == $currentPos.story
+    ) {
+      displayPosition = "currentProject";
     } else {
       displayPosition = "none";
     }
@@ -90,12 +96,13 @@
   }
 </style>
 
-<!-- <svelte:options immutable={true} /> -->
 <div class="photos {displayPosition}">
   <!-- probably a slot here for content tbh… videos, photos, text, etc -->
 
   <p>{projectName}</p>
 
+  <!-- could component-ize this to only load photo content when the project is "active"... 
+    it could be a bit flip—starts with the first 5 set to true, then as you tap through the ones coming next get set to true  -->
   {#each photos as photo}
     <figure>
       <img src={photo.thumbnailUrl} alt={photo.title} />

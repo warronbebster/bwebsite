@@ -1,83 +1,52 @@
 <script>
   //   export let name;
   import Project from "./Project.svelte";
-  import { current, currentPos, projectArray, projectList } from "./stores.js";
+  import { getNext, getPrev } from "./orderFunctions.js";
+  import { currentPos, projectList, nextPos, prevPos } from "./stores.js";
 
   console.log($currentPos);
+  // $: prevPos = getPrev($currentPos);
+  // $: nextPos = getNext($currentPos);
 
   function handleProjects(direction) {
+    // console.log(getNext($currentPos)); //something about logging it changes the state
     if (direction == "next") {
-      //if it's "next" project
-      $current < $projectArray.length - 1
-        ? current.update(n => n + 1)
-        : current.set(0);
+      //if it's "previous"
+      
+      const nextStory = getNext($currentPos); //get next position
+      currentPos.update(pos => {
+        pos = nextStory;
+        return pos;
+      });
 
-      // trying new current pos
-      if (
-        //if it's not the last story in a project
-        $currentPos.story <
-        $projectList[$currentPos.project].stories.length - 1
-      ) {
-        currentPos.update(pos => {
-          pos.story++;
-          return pos;
-        });
-      } else {
-        //if it's the last story in a project
-        if ($currentPos.project < $projectList.length - 1) {
-          //if it's not the last project
-          currentPos.update(pos => {
-            pos.project++;
-            pos.story = 0;
-            return pos;
-          });
-        } else {
-          //if it's the last project
-          currentPos.update(pos => {
-            pos.project = 0;
-            pos.story = 0;
-            return pos;
-          });
-        }
-      }
     } else {
-      //if it's "previous" project
-      $current > 0
-        ? current.update(n => n - 1)
-        : current.set($projectArray.length - 1);
-
-      //new positioning
-      if (
-        //if it's not the first story in a project
-        $currentPos.story > 0
-      ) {
-        currentPos.update(pos => {
-          pos.story--;
-          return pos;
-        });
-      } else {
-        //if it's the first story in a project
-        if ($currentPos.project > 0) {
-          //if it's not the first project
-          currentPos.update(pos => {
-            pos.project--;
-            pos.story = $projectList[$currentPos.project].stories.length - 1;
-            //does this pick up on the updated value like… in the function? what is happening
-            //this is the error
-            return pos;
-          });
-        } else {
-          //if it's the first project
-          currentPos.update(pos => {
-            pos.project = $projectList.length - 1;
-            pos.story =
-              $projectList[$projectList.length - 1].stories.length - 1;
-            return pos;
-          });
-        }
-      }
+      //if it's "previous"
+      const prevStory = getPrev($currentPos); //get next position
+      currentPos.update(pos => {
+        pos = prevStory;
+        return pos;
+      })
+      ;
     }
-    console.log($currentPos);
+
+    // const nextie = $currentPos;
+    // nextPos.update(nextPosie =>{
+    //   nextPosie = getNext(nextie)
+    //   return nextPosie;
+    // });
+
+    // const previe = $currentPos
+    // prevPos.update(prevPosie =>{
+    //   prevPosie = getPrev($currentPos)
+    //   return prevPosie;
+    // });
+
+    // console.log($prevPos);
+    // console.log(getNext($currentPos));
+    // const what = $currentPos;
+    // console.log(getNext(what));
+    
+    // console.log($nextPos);
   }
 
   function handleKeydown(event) {
@@ -88,6 +57,7 @@
       //left key
       handleProjects("prev");
     }
+    console.log($currentPos);
   }
 </script>
 
@@ -104,7 +74,6 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <main>
-  <h1>{$current}</h1>
   <h2>{$currentPos.project} {$currentPos.story}</h2>
   <button
     on:click={() => {
@@ -117,6 +86,14 @@
       handleProjects('next');
     }}>
     Next project
+  </button>
+  <button
+    on:click={() => {
+      <!-- console.log($prevPos); -->
+      console.log($currentPos);
+      <!-- console.log($nextPos); -->
+    }}>
+    loggy time
   </button>
 </main>
 

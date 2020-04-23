@@ -1,15 +1,7 @@
-import { writable } from 'svelte/store';
+import { writable, derived } from 'svelte/store';
 
-export const current = writable(1); //export current number... and total number so it knows when to cycle?
-export const currentPos = writable({ project: 0, story: 1 }); //export current number... and total number so it knows when to cycle?
-export const projectArray = writable([
-	'project 1',
-	'project 2',
-	'project 333',
-	'projecr 4',
-	'proejh 55,',
-	'projer 6',
-]); //export current number... and total number so it knows when to cycle?
+// export const current = writable(1); //export current number... and total number so it knows when to cycle?
+export const currentPos = writable({ project: 0, story: 0 }); //export current number... and total number so it knows when to cycle?
 
 export const projectList = writable([
 	{ name: 'project 0', type: 'image', stories: [1] },
@@ -18,4 +10,5 @@ export const projectList = writable([
 	{ name: 'project 3', type: 'image', stories: [9, 10, 11, 12] },
 ]);
 
-//store projects here?
+export const prevPos = writable({ project: 0, story: 1 }); //export current number... and total number so it knows when to cycle?
+export const nextPos = writable({ project: 0, story: 1 }); //export current number... and total number so it knows when to cycle?
