@@ -1,30 +1,32 @@
 <script>
   import { onMount, beforeUpdate } from "svelte";
-  import { currentArray, projectList } from "./stores.js";
+  import { currentPos, nextPos, prevPos } from "./stores.js";
+  import Content from "./Content.svelte";
 
   export let projectIndex = 0; //prop so that you can pass which project from App
-  // export let projectName = "project name"; //prop to pass project name from App
-  // export let extraContent = false; //prop to pass from app
+  export let storyIndex = 0; //prop so that you can pass which project from App
+  export let storyContent = 0; //prop so that you can pass which project from App
+  export let projectName = "project name"; //prop to pass project name from App
 
   let displayPosition = "none";
-  let photos = [];
-
-  onMount(async () => {
-    const res = await fetch(
-      `https://jsonplaceholder.typicode.com/photos?_limit=10&albumId=` +
-        (projectIndex + 1)
-    );
-    photos = await res.json();
-  });
 
   //there's probably a better way of doing this than just using afterUpdate...
+
   beforeUpdate(() => {
-    if (projectIndex == $currentArray.story) {
-      displayPosition = "currentStory";
-    } else if (projectIndex == $currentArray.story + 1) {
-      displayPosition = "nextStory";
-    } else if (projectIndex == $currentArray.story - 1) {
-      displayPosition = "prevStory";
+    //also this should happen not just on beforeUpdate
+
+    if (projectIndex == $nextPos.project && storyIndex == $nextPos.story) {
+      displayPosition = "nextProject";
+    } else if (
+      projectIndex == $prevPos.project &&
+      storyIndex == $prevPos.story
+    ) {
+      displayPosition = "prevProject";
+    } else if (
+      projectIndex == $currentPos.project &&
+      storyIndex == $currentPos.story
+    ) {
+      displayPosition = "currentProject";
     } else {
       displayPosition = "none";
     }
@@ -32,9 +34,11 @@
 </script>
 
 <style>
-  .photos {
-    border: 1px solid purple;
+  .story {
+    border: 1px solid red;
     width: 180px;
+    height: 300px;
+    overflow: hidden;
     display: inline-block;
     vertical-align: top;
     animation-name: example;
@@ -42,20 +46,17 @@
     animation-fill-mode: forwards;
     transition: 0.5s width;
   }
-  img {
-    width: 90%;
-  }
   .none {
     opacity: 0.5;
   }
-  .prevStory {
+  .prevProject {
     color: red;
   }
-  .currentStory {
+  .currentProject {
     border: 5px solid black;
     width: 300px;
   }
-  .nextStory {
+  .nextProject {
     color: blue;
   }
 
@@ -69,17 +70,22 @@
   }
 </style>
 
-<!-- <svelte:options immutable={true} /> -->
-<div class="photos {displayPosition}">
+<div class="story {displayPosition}">
   <!-- probably a slot here for content tbh… videos, photos, text, etc -->
 
-  {#each photos as photo}
+  <p>{projectName}</p>
+
+  <!-- could component-ize this to only load photo content when the project is "active"... 
+    it could be a bit flip—starts with the first 5 set to true, then as you tap through the ones coming next get set to true  -->
+
+  <!-- if active show content component here -->
+  <Content {projectIndex} {storyIndex} />
+  <!-- {#each photos as photo}
     <figure>
       <img src={photo.thumbnailUrl} alt={photo.title} />
       <figcaption>{photo.title}</figcaption>
     </figure>
   {:else}
-    <!-- this block renders when photos.length === 0 -->
     <p>loading...</p>
-  {/each}
+  {/each} -->
 </div>

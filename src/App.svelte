@@ -1,8 +1,16 @@
 <script>
   //   export let name;
-  import Project from "./Project.svelte";
-  import { getNext, getPrev } from "./orderFunctions.js";
-  import { currentPos, projectList, nextPos, prevPos } from "./stores.js";
+  import Story from "./Story.svelte";
+  // import { getNext, getPrev } from "./orderFunctions.js";
+  import {
+    currentPos,
+    projectList,
+    projectArray,
+    nextPos,
+    prevPos,
+    getNext,
+    getPrev
+  } from "./stores.js";
 
   console.log($currentPos);
 
@@ -12,8 +20,6 @@
     } else {
       currentPos.set(getPrev($currentPos));
     }
-    nextPos.set(getNext($currentPos));
-    prevPos.set(getPrev($currentPos));
   }
 
   function handleKeydown(event) {
@@ -72,10 +78,10 @@
 	don't necesarily have to loop through all projects... -->
 
 <!-- could be some function here to make an array of just the stories in scope... -->
-{#each $projectList as { name, type, stories }, i}
+{#each projectArray as { name, type, stories }, i}
   <!-- here's where ui for the project lives  —title, swipe up/more, etc-->
   {#each stories as story, j}
-    <Project
+    <Story
       projectIndex={i}
       storyIndex={j}
       storyContent={story}

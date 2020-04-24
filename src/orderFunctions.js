@@ -1,10 +1,10 @@
-import { projectList } from './stores.js';
+import { projectList, projectArray } from './stores.js';
 
-let projectList_value;
+let projectList_value = projectArray;
 
-projectList.subscribe((value) => {
-	projectList_value = value;
-});
+// projectList.subscribe((value) => {
+// 	projectList_value = value;
+// });
 
 export const getNext = function (posToCheck) {
 	// console.log(
