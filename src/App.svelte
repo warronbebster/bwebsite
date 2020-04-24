@@ -60,17 +60,7 @@
     }}>
     Next project
   </button>
-  <button
-    on:click={() => {
-      console.log('$prevPos:');
-      console.log($prevPos);
-      console.log('$currentPos:');
-      console.log($currentPos);
-      console.log('$nextPos');
-      console.log($nextPos);
-    }}>
-    loggy time
-  </button>
+
 </main>
 
 <!-- loop through all projects here; leave the 'onMount' to something in each project? -->

@@ -9,6 +9,7 @@
   export let projectName = "project name"; //prop to pass project name from App
 
   let displayPosition = "none";
+  let showStoryContent = false;
 
   //there's probably a better way of doing this than just using afterUpdate...
 
@@ -17,16 +18,19 @@
 
     if (projectIndex == $nextPos.project && storyIndex == $nextPos.story) {
       displayPosition = "nextProject";
+      showStoryContent = true;
     } else if (
       projectIndex == $prevPos.project &&
       storyIndex == $prevPos.story
     ) {
       displayPosition = "prevProject";
+      showStoryContent = true;
     } else if (
       projectIndex == $currentPos.project &&
       storyIndex == $currentPos.story
     ) {
       displayPosition = "currentProject";
+      showStoryContent = true;
     } else {
       displayPosition = "none";
     }
@@ -79,7 +83,10 @@
     it could be a bit flip—starts with the first 5 set to true, then as you tap through the ones coming next get set to true  -->
 
   <!-- if active show content component here -->
-  <Content {projectIndex} {storyIndex} />
+  {#if showStoryContent}
+    <Content {projectIndex} {storyIndex} {storyContent} />
+  {/if}
+
   <!-- {#each photos as photo}
     <figure>
       <img src={photo.thumbnailUrl} alt={photo.title} />

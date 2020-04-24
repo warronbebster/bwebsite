@@ -4,7 +4,7 @@
 
   export let projectIndex = 0; //prop so that you can pass which project from App
   export let storyIndex = 0; //prop so that you can pass which project from App
-  //   export let storyContent = 0; //prop so that you can pass which project from App
+  export let storyContent = 0; //prop so that you can pass which project from App
 
   let type = "image"; //prop to pass project name from App
 
