@@ -1,5 +1,5 @@
 <script>
-  import { onMount, beforeUpdate } from "svelte";
+  import { onMount } from "svelte";
   //   import { currentPos, nextPos, prevPos } from "./stores.js";
 
   export let projectIndex = 0; //prop so that you can pass which project from App

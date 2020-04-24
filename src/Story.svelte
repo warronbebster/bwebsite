@@ -1,5 +1,5 @@
 <script>
-  import { onMount, beforeUpdate } from "svelte";
+  import { beforeUpdate } from "svelte";
   import { currentPos, nextPos, prevPos } from "./stores.js";
   import Content from "./Content.svelte";
 
@@ -79,20 +79,7 @@
 
   <p>{projectName}</p>
 
-  <!-- could component-ize this to only load photo content when the project is "active"... 
-    it could be a bit flip—starts with the first 5 set to true, then as you tap through the ones coming next get set to true  -->
-
-  <!-- if active show content component here -->
   {#if showStoryContent}
     <Content {projectIndex} {storyIndex} {storyContent} />
   {/if}
-
-  <!-- {#each photos as photo}
-    <figure>
-      <img src={photo.thumbnailUrl} alt={photo.title} />
-      <figcaption>{photo.title}</figcaption>
-    </figure>
-  {:else}
-    <p>loading...</p>
-  {/each} -->
 </div>

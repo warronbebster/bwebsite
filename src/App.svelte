@@ -1,10 +1,11 @@
 <script>
   //   export let name;
   import Story from "./Story.svelte";
+  import Nav from "./Nav.svelte";
   // import { getNext, getPrev } from "./orderFunctions.js";
   import {
     currentPos,
-    projectList,
+    // projectList,
     projectArray,
     nextPos,
     prevPos,
@@ -67,9 +68,11 @@
 <!-- also... this is where i could only loop through the like projects around the current index... 
 	don't necesarily have to loop through all projects... -->
 
+<Nav projectIndex={$currentPos.project} />
 <!-- could be some function here to make an array of just the stories in scope... -->
 {#each projectArray as { name, type, stories }, i}
   <!-- here's where ui for the project lives  —title, swipe up/more, etc-->
+  <!-- <p>{name}</p> -->
   {#each stories as story, j}
     <Story
       projectIndex={i}
@@ -77,6 +80,8 @@
       storyContent={story}
       projectName={name} />
   {/each}
+
+  <!-- Swipe up bit here -->
 {/each}
 
 <!-- extracontent goes down here -->
