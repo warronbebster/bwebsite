@@ -5,46 +5,15 @@
   import { currentPos, projectList, nextPos, prevPos } from "./stores.js";
 
   console.log($currentPos);
-  // $: prevPos = getPrev($currentPos);
-  // $: nextPos = getNext($currentPos);
 
   function handleProjects(direction) {
     if (direction == "next") {
-      // currentPos.update(pos => {
-      //   pos = getNext(pos);
-      //   return pos;
-      // });
       currentPos.set(getNext($currentPos));
-
-      // console.log("position after update: Project: " + nextStory.project + " Story: " + nextStory.story);
     } else {
-      //if it's "previous"
-      // currentPos.update(pos => {
-      //   pos = getPrev(pos);
-      //   return pos;
-      // });
       currentPos.set(getPrev($currentPos));
     }
     nextPos.set(getNext($currentPos));
     prevPos.set(getPrev($currentPos));
-    // const nextie = $currentPos;
-    // nextPos.update(nextPosie =>{
-    //   nextPosie = getNext(nextie)
-    //   return nextPosie;
-    // });
-
-    // const previe = $currentPos
-    // prevPos.update(prevPosie =>{
-    //   prevPosie = getPrev($currentPos)
-    //   return prevPosie;
-    // });
-
-    // console.log($prevPos);
-    // console.log(getNext($currentPos));
-    // const what = $currentPos;
-    // console.log(getNext(what));
-
-    // console.log($nextPos);
   }
 
   function handleKeydown(event) {
@@ -98,14 +67,13 @@
   </button>
 </main>
 
-<!-- component here for nav? that could be where the "project title" sits? -->
-
 <!-- loop through all projects here; leave the 'onMount' to something in each project? -->
 <!-- also... this is where i could only loop through the like projects around the current index... 
 	don't necesarily have to loop through all projects... -->
 
 <!-- could be some function here to make an array of just the stories in scope... -->
 {#each $projectList as { name, type, stories }, i}
+  <!-- here's where ui for the project lives  —title, swipe up/more, etc-->
   {#each stories as story, j}
     <Project
       projectIndex={i}

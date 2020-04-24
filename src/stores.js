@@ -12,3 +12,5 @@ export const projectList = writable([
 
 export const prevPos = writable({ project: 0, story: 1 }); //export current number... and total number so it knows when to cycle?
 export const nextPos = writable({ project: 0, story: 1 }); //export current number... and total number so it knows when to cycle?
+
+//could I make a derived store if I didn't make projectlist a store? and just a static json file?
