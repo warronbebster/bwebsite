@@ -3,8 +3,6 @@
   //   import { beforeUpdate } from "svelte";
   import { projectArray, currentPos } from "./stores.js";
 
-  console.log(projectIndex);
-
   let navOpen = false;
 
   function setCurrentPos(projectToSet, storyToSet) {
@@ -21,6 +19,15 @@
     left: 0px;
     z-index: 3;
   }
+  .navItem {
+    padding: 10px;
+    margin: 0;
+    font-size: 22px;
+    background: rgba(164, 119, 255, 0.303);
+  }
+  .activeNavItem {
+    color: red;
+  }
   .hidden {
     display: none;
   }
@@ -30,34 +37,42 @@
 </style>
 
 <div
+  class="nav"
   on:mouseover={() => {
-    navOpen = true;
+    if (window.innerWidth > 640) {
+      navOpen = true;
+    }
   }}
   on:mouseleave={() => {
-    navOpen = false;
-  }}
-  class="nav">
+    if (window.innerWidth > 640) {
+      navOpen = false;
+    }
+  }}>
   <!-- probably a slot here for content tbh… videos, photos, text, etc -->
-  {#each projectArray as project, i}
-    {#if projectIndex == i}
-      <h1
-        class="navItem activeNavItem"
-        on:click={() => {
-          currentPos.set({ project: i, story: 0 });
-          navOpen = !navOpen;
-        }}>
-        {project.name}
-      </h1>
-    {:else}
-      <p
-        class="navItem inactiveNavItem {navOpen ? 'visible' : 'hidden'}"
-        on:click={() => {
-          currentPos.set({ project: i, story: 0 });
-          navOpen = false;
-        }}>
-        {project.name}
-      </p>
-    {/if}
-  {/each}
+  <ol>
+    {#each projectArray as project, i}
+      {#if projectIndex == i}
+        <li
+          class="navItem activeNavItem"
+          on:click={() => {
+            currentPos.set({ project: i, story: 0 });
+            navOpen = !navOpen;
+            console.log(navOpen);
+          }}>
+          {project.name}
+        </li>
+      {:else}
+        <li
+          class="navItem inactiveNavItem {navOpen ? 'visible' : 'hidden'}"
+          on:click={() => {
+            currentPos.set({ project: i, story: 0 });
+            navOpen = false;
+            console.log(navOpen);
+          }}>
+          {project.name}
+        </li>
+      {/if}
+    {/each}
+  </ol>
 
 </div>
