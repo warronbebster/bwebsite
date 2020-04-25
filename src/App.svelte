@@ -5,7 +5,6 @@
   // import { getNext, getPrev } from "./orderFunctions.js";
   import {
     currentPos,
-    // projectList,
     projectArray,
     nextPos,
     prevPos,
@@ -25,22 +24,26 @@
 
   function handleKeydown(event) {
     if (event.keyCode == 39) {
-      //right key
       handleProjects("next");
     } else if (event.keyCode == 37) {
-      //left key
       handleProjects("prev");
     }
-    console.log($currentPos);
   }
 </script>
 
 <style>
-  main {
-    text-align: center;
-    max-width: 240px;
-    margin: 0 auto;
-    overflow-y: scroll;
+  button {
+    padding: 20px;
+    position: absolute;
+    bottom: 20px;
+    background-color: rgb(255, 139, 212);
+    font-size: 20px;
+  }
+  #nextButton {
+    right: 20px;
+  }
+  #prevButton {
+    left: 20px;
   }
 </style>
 
@@ -48,41 +51,38 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <main>
-  <h2>{$currentPos.project} {$currentPos.story}</h2>
-  <button
-    on:click={() => {
-      handleProjects('prev');
-    }}>
-    prev project
-  </button>
-  <button
-    on:click={() => {
-      handleProjects('next');
-    }}>
-    Next project
-  </button>
+  <div class="buttons">
+    <button
+      id="prevButton"
+      on:click={() => {
+        handleProjects('prev');
+      }}>
+      prev project
+    </button>
+    <button
+      id="nextButton"
+      on:click={() => {
+        handleProjects('next');
+      }}>
+      Next project
+    </button>
+  </div>
 
-</main>
+  <Nav projectIndex={$currentPos.project} />
+  {#each projectArray as { name, type, stories }, i}
+    <!-- here's where ui for the project lives  —title, swipe up/more, etc-->
+    <!-- <p>{name}</p> -->
+    {#each stories as story, j}
+      <Story
+        projectIndex={i}
+        storyIndex={j}
+        storyContent={story}
+        projectName={name} />
+    {/each}
 
-<!-- loop through all projects here; leave the 'onMount' to something in each project? -->
-<!-- also... this is where i could only loop through the like projects around the current index... 
-	don't necesarily have to loop through all projects... -->
-
-<Nav projectIndex={$currentPos.project} />
-<!-- could be some function here to make an array of just the stories in scope... -->
-{#each projectArray as { name, type, stories }, i}
-  <!-- here's where ui for the project lives  —title, swipe up/more, etc-->
-  <!-- <p>{name}</p> -->
-  {#each stories as story, j}
-    <Story
-      projectIndex={i}
-      storyIndex={j}
-      storyContent={story}
-      projectName={name} />
+    <!-- Swipe up bit here -->
   {/each}
-
-  <!-- Swipe up bit here -->
-{/each}
+</main>
 
 <!-- extracontent goes down here -->
 

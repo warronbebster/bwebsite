@@ -25,6 +25,10 @@
     font-size: 22px;
     background: rgba(164, 119, 255, 0.303);
   }
+  .navItem:hover {
+    cursor: pointer;
+    background-color: rgb(127, 127, 244);
+  }
   .activeNavItem {
     color: red;
   }
