@@ -76,9 +76,6 @@
 
 <div class="story {displayPosition}">
   <!-- probably a slot here for content tbh… videos, photos, text, etc -->
-
-  <p>{projectName}</p>
-
   {#if showStoryContent}
     <Content {projectIndex} {storyIndex} {storyContent} />
   {/if}
