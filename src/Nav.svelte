@@ -34,7 +34,7 @@
     transition: height 0.4s, padding 0.4s;
   }
   .activeNavItem {
-    color: red;
+    color: purple;
   }
   .hidden {
     height: 0px;
@@ -62,31 +62,6 @@
   <!-- probably a slot here for content tbh… videos, photos, text, etc -->
   <ol>
 
-    <!-- {#each projectArray as project, i}
-      {#if projectIndex == i}
-        <li
-          class="navItem activeNavItem"
-          on:click={() => {
-            currentPos.set({ project: i, story: 0 });
-            navOpen = !navOpen;
-            console.log(navOpen);
-          }}>
-          {project.name}
-        </li>
-      {:else}
-        <li
-          transition:slide
-          class="navItem inactiveNavItem {navOpen ? 'visible' : 'hidden'}"
-          on:click={() => {
-            currentPos.set({ project: i, story: 0 });
-            navOpen = false;
-            console.log(navOpen);
-          }}>
-          {project.name}
-        </li>
-      {/if}
-    {/each} -->
-
     {#each projectArray as project, i}
       <li
         class=" navItem {projectIndex == i ? 'activeNavItem' : 'inactiveNavItem'}
@@ -94,8 +69,10 @@
         "
         on:click={() => {
           currentPos.set({ project: i, story: 0 });
-          projectIndex == i ? (navOpen = !navOpen) : (navOpen = false);
-          console.log(navOpen);
+          if (window.innerWidth < 640) {
+            projectIndex == i ? (navOpen = !navOpen) : (navOpen = false);
+            console.log(navOpen);
+          }
         }}>
         {project.name}
       </li>

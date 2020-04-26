@@ -12,6 +12,11 @@
     getPrev
   } from "./stores.js";
 
+  import { apiRequest } from "./figma.js";
+
+  apiRequest("/files/Fgv9nN04eSsH7qJopKgUML").then(apiResponse => {
+    console.log(apiResponse.document.children);
+  });
   console.log($currentPos);
 
   function handleProjects(direction) {
