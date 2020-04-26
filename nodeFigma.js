@@ -26,39 +26,42 @@ const vectorList = [];
 const vectorTypes = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'ELLIPSE', 'STAR'];
 
 function preprocessTree(node) {
-	let vectorsOnly = node.name.charAt(0) !== '#';
+	//this code runs once per frame with #
+	let vectorsOnly = node.name.charAt(0) !== '#'; //things that don't start with #
 	let vectorVConstraint = null;
 	let vectorHConstraint = null;
 
+	//this function just returns true if paints exist
 	function paintsRequireRender(paints) {
-		if (!paints) return false;
-
+		if (!paints) return false; //if no paints
 		let numPaints = 0;
 		for (const paint of paints) {
 			if (paint.visible === false) continue; //jump this section of loop
-
 			numPaints++;
 			if (paint.type === 'EMOJI') return true; //wat
 		}
-
 		return numPaints > 1;
 	}
 
 	if (
+		//if paints exist, fill or stroke
 		paintsRequireRender(node.fills) ||
 		paintsRequireRender(node.strokes) ||
 		(node.blendMode != null &&
 			['PASS_THROUGH', 'NORMAL'].indexOf(node.blendMode) < 0)
 	) {
-		node.type = 'VECTOR';
+		node.type = 'VECTOR'; //set node type to vector?
 	}
 
 	const children =
 		node.children && node.children.filter((child) => child.visible !== false);
 	if (children) {
+		//if there are children in the node
 		for (let j = 0; j < children.length; j++) {
-			if (vectorTypes.indexOf(children[j].type) < 0) vectorsOnly = false;
-			else {
+			if (vectorTypes.indexOf(children[j].type) < 0) {
+				//if it's not one of the types listed above
+				vectorsOnly = false; //set no vectors?
+			} else {
 				if (
 					vectorVConstraint != null &&
 					children[j].constraints.vertical != vectorVConstraint
@@ -74,9 +77,10 @@ function preprocessTree(node) {
 			}
 		}
 	}
-	node.children = children;
+	node.children = children; //rewrite node.children with new thing
 
 	if (children && children.length > 0 && vectorsOnly) {
+		//if there are children, and "vectorsOnly"
 		node.type = 'VECTOR';
 		node.constraints = {
 			vertical: vectorVConstraint,
@@ -92,8 +96,9 @@ function preprocessTree(node) {
 	}
 
 	if (node.children) {
+		//if there are children
 		for (const child of node.children) {
-			preprocessTree(child);
+			preprocessTree(child); //oh it's recursive baybee
 		}
 	}
 }
@@ -150,7 +155,7 @@ async function main() {
 	}
 
 	const componentMap = {}; //empty object for putting stuff in?
-	let contents = `import React, { PureComponent } from 'react';\n`;
+	let contents = ``;
 	let nextSection = '';
 
 	for (let i = 0; i < canvas.children.length; i++) {
@@ -163,47 +168,47 @@ async function main() {
 			//does it put the results in componentMap?
 
 			//below is the crazy text manipulation
-			nextSection += `export class Master${child.name.replace(
-				/\W+/g,
-				''
-			)} extends PureComponent {\n`;
-			nextSection += '  render() {\n';
-			nextSection += `    return <div className="master" style={{backgroundColor: "${figma.colorString(
-				child.backgroundColor
-			)}"}}>\n`;
-			nextSection += `      <C${child.name.replace(
-				/\W+/g,
-				''
-			)} {...this.props} nodeId="${child.id}" />\n`;
-			nextSection += '    </div>\n';
-			nextSection += '  }\n';
-			nextSection += '}\n\n';
+			// nextSection += `export class Master${child.name.replace(
+			// 	/\W+/g,
+			// 	''
+			// )} extends PureComponent {\n`;
+			// nextSection += '  render() {\n';
+			// nextSection += `    return <div className="master" style={{backgroundColor: "${figma.colorString(
+			// 	child.backgroundColor
+			// )}"}}>\n`;
+			// nextSection += `      <C${child.name.replace(
+			// 	/\W+/g,
+			// 	''
+			// )} {...this.props} nodeId="${child.id}" />\n`;
+			// nextSection += '    </div>\n';
+			// nextSection += '  }\n';
+			// nextSection += '}\n\n';
 		}
 	}
 
-	const imported = {};
-	for (const key in componentMap) {
-		//looking through componentMap array
-		const component = componentMap[key];
-		const name = component.name;
-		if (!imported[name]) {
-			//if name doesn't already exist in imported
-			contents += `import { ${name} } from './components/${name}';\n`;
-		}
-		imported[name] = true; //imported is now true for that
-	}
-	contents += '\n';
-	contents += nextSection;
-	nextSection = ''; //reset nextSection
+	// const imported = {};
+	// for (const key in componentMap) {
+	// 	//looking through componentMap array
+	// 	const component = componentMap[key];
+	// 	const name = component.name;
+	// 	if (!imported[name]) {
+	// 		//if name doesn't already exist in imported
+	// 		contents += `import { ${name} } from './components/${name}';\n`;
+	// 	}
+	// 	imported[name] = true; //imported is now true for that
+	// }
+	// contents += '\n';
+	// contents += nextSection;
+	// nextSection = ''; //reset nextSection
 
-	contents += `export function getComponentFromId(id) {\n`;
+	// contents += `export function getComponentFromId(id) {\n`;
 
 	for (const key in componentMap) {
-		contents += `  if (id === "${key}") return ${componentMap[key].instance};\n`;
+		// contents += `  if (id === "${key}") return ${componentMap[key].instance};\n`;
 		nextSection += componentMap[key].doc + '\n';
 	}
 
-	contents += '  return null;\n}\n\n';
+	// contents += '  return null;\n}\n\n';
 	contents += nextSection; //append nextSection to contents
 
 	const path = './src/figmaComponents.js';
