@@ -1,6 +1,5 @@
 <script>
   import { projectArray, currentPos } from "./stores.js";
-  import { slide } from "svelte/transition";
 
   export let projectIndex = 0; //prop so that you can pass which project from App
 
@@ -21,9 +20,9 @@
     z-index: 3;
   }
   .navItem {
+    margin: 0;
     height: 20px;
     padding: 10px;
-    margin: 0;
     font-size: 22px;
     background: rgba(164, 119, 255, 0.303);
     overflow: hidden;
@@ -38,12 +37,13 @@
     color: red;
   }
   .hidden {
-    /* display: none; */
     height: 0px;
-    padding: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
   .visible {
-    color: blue;
+    height: 20px;
+    padding: 10px;
   }
 </style>
 
@@ -62,7 +62,7 @@
   <!-- probably a slot here for content tbh… videos, photos, text, etc -->
   <ol>
 
-    {#each projectArray as project, i}
+    <!-- {#each projectArray as project, i}
       {#if projectIndex == i}
         <li
           class="navItem activeNavItem"
@@ -85,6 +85,20 @@
           {project.name}
         </li>
       {/if}
+    {/each} -->
+
+    {#each projectArray as project, i}
+      <li
+        class=" navItem {projectIndex == i ? 'activeNavItem' : 'inactiveNavItem'}
+        {navOpen ? 'visible' : projectIndex !== i ? 'hidden' : 'visible'}
+        "
+        on:click={() => {
+          currentPos.set({ project: i, story: 0 });
+          projectIndex == i ? (navOpen = !navOpen) : (navOpen = false);
+          console.log(navOpen);
+        }}>
+        {project.name}
+      </li>
     {/each}
 
   </ol>

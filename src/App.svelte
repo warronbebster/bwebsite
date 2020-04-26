@@ -47,6 +47,8 @@
   }
 </style>
 
+<!-- could you do some code that triggers a function to check if the figma file has been updated? and update the store accordingly? -->
+<!-- maybe do it at the end of loading the page… so it changes in the background after the page has loaded so the next load gets the updated version -->
 <svelte:options immutable={true} />
 <svelte:window on:keydown={handleKeydown} />
 
