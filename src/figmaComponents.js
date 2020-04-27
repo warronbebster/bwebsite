@@ -1,6 +1,3 @@
-class CFrame44D12 extends PureComponent {
-  render() {
-    return (
       <div>
         <div style={{"zIndex":1}} className="outerDiv">
           <div
@@ -45,13 +42,7 @@ class CFrame44D12 extends PureComponent {
           </div>
         </div>
       </div>
-    );
-  }
-}
 
-class CProject2frame116D0 extends PureComponent {
-  render() {
-    return (
       <div>
         <div style={{}} className="outerDiv">
           <div
@@ -59,20 +50,12 @@ class CProject2frame116D0 extends PureComponent {
             style={{"marginLeft":85,"width":126,"minWidth":126,"height":null,"marginTop":222,"marginBottom":372,"minHeight":126}}
             className="innerDiv"
           >
-            <div className="vector" dangerouslySetInnerHTML={{__html: `<svg preserveAspectRatio="none" width="126" height="126" viewBox="0 0 126 126" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="63" cy="63" r="63" fill="#56CCF2"/>
-</svg>
-`}} />
+            <div>
+            </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
 
-class Cnewname9D0 extends PureComponent {
-  render() {
-    return (
       <div>
         <div style={{}} className="outerDiv">
           <div
@@ -114,7 +97,4 @@ class Cnewname9D0 extends PureComponent {
           </div>
         </div>
       </div>
-    );
-  }
-}
 
