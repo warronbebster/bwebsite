@@ -117,8 +117,7 @@ async function main() {
 
 	const doc = data.document; //figma document
 	const canvas = doc.children[0]; //only grabbing first child = first page in project
-	const canvas2 = doc.children[0]; //only grabbing first child = first page in project
-	console.dir(canvas);
+	// const canvas2 = doc.children[0]; //only grabbing first child = first page in project
 
 	//DON'T DELETE
 	//DON'T DELETE
@@ -174,22 +173,23 @@ async function main() {
 	}
 
 	const componentMap = {}; //empty object for putting stuff in?
-	let contents = ``; //this is what gets written to the file
-	let nextSection = '';
+	let contents = ``; //this is what eventually gets written to filesystem
+	let nextSection = ''; //container for what is to be added to 'contents'
 
 	for (let i = 0; i < canvas.children.length; i++) {
-		//for each
+		//for each artboard
 		const child = canvas.children[i]; //child variable
 		if (child.name.charAt(0) === '#' && child.visible !== false) {
 			//if named & visible
 			figma.createComponent(child, images, componentMap);
 			//hit figma lib
 			//pass the frame and images?
-			//returns/changes componentMap object
+			//returns object & updates componentMap object
 		}
 	}
 
-	console.log(componentMap);
+	// console.log(componentMap);
+	//so at this point, componentMap has {name, doc(aka html to write), instance} plus a key i don't understand (16:0?)
 
 	for (const key in componentMap) {
 		// contents += `  if (id === "${key}") return ${componentMap[key].instance};\n`;
@@ -199,7 +199,8 @@ async function main() {
 
 	contents += nextSection; //append nextSection to contents
 
-	const path = './src/figmaComponents.js';
+	const path = './src/figmaComponents.js'; //so here, it writes one file.
+	//here is where it could change to multiple files, one per project/frame
 	fs.writeFile(path, contents, function (err) {
 		//write the file
 		if (err) console.log(err);
