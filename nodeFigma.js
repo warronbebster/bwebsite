@@ -112,7 +112,9 @@ const vectorTypes = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'ELLIPSE', 'STAR'];
 //DON'T DELETE
 
 async function main() {
-	let resp = await fetch(`${baseUrl}/v1/files/${fileKey}`, { headers });
+	let resp = await fetch(`${baseUrl}/v1/files/${fileKey}?geometry=paths`, {
+		headers,
+	});
 	let data = await resp.json(); //data is what comes back from API request
 
 	const doc = data.document; //figma document
