@@ -34,7 +34,7 @@
         <div style="z-index: 2; " className="outerDiv">
           <div
             id="22:0"
-            style="position: absolute; left: 18px; width: 151px; min-width: 151px; height: 101px; bottom: 58px; min-height: 101px; background-image: url(https://s3-alpha-sig.figma.com/img/1a0d/8092/b641474d17a2ebdc6a4ff8cea70cdef1); background-size: cover; border-radius: 8px 8px 8px 8px; "
+            style="position: absolute; left: 18px; width: 151px; min-width: 151px; height: 101px; bottom: 58px; min-height: 101px; background-image: url(https://s3-alpha-sig.figma.com/img/1a0d/8092/b641474d17a2ebdc6a4ff8cea70cdef1?Expires=1589155200&Signature=UqzPxaHCGkEMxbMXCDgiUnhHCxJV9vXwYkfvuCWAewUVft8aCFLiF~aRWo6tNiZfjr5QN3sBkrfxIBHoK1CAeEXSJJe7PdFy~wvfri1~PNGSUnu9R~N3Ps9LG5HJMpqfXklzXBXJdztnOuka~k8SeWy2Bt0P-sRThwa-YtGhpamH1ykxgA8GVwMQLE5LUw~OGQwPJ9KXtGR5HXpkALk7zFcjVtZePZPmcLp2B8OkZWJosA1IaEUnLsuBlECkeqKudwPKkGyJHlNs4AQ5XYT7EKxblLK~4FkFTT8raQM3EaVi6Ye9tSjpfvgQmMDxWD6QhKUXaV7pWNvvKoTyYI-9hg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA); background-size: cover; border-radius: 8px 8px 8px 8px; "
             className="innerDiv"
           >
             <div>

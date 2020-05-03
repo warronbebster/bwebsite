@@ -121,6 +121,15 @@ async function main() {
 	const canvas = doc.children[0]; //only grabbing first child = first page in project
 	// const canvas2 = doc.children[0]; //only grabbing first child = first page in project
 
+	//GRAB THE BACKGROUND IMAGES???
+	let respImages = await fetch(`${baseUrl}/v1/files/${fileKey}/images`, {
+		headers,
+	});
+	let imageFillJSON = await respImages.json(); //data is what comes back from API request
+	// if (!imageFills.error && imageFills.meta.images)
+	const imageFills = imageFillJSON.meta.images || {};
+
+	debugger;
 	//DON'T DELETE
 	//DON'T DELETE
 	// for (let i = 0; i < canvas.children.length; i++) {
@@ -183,7 +192,7 @@ async function main() {
 		const child = canvas.children[i]; //child variable
 		if (child.name.charAt(0) === '#' && child.visible !== false) {
 			//if named & visible
-			figma.createComponent(child, images, componentMap);
+			figma.createComponent(child, images, imageFills, componentMap);
 			//hit figma lib
 			//pass the frame and images?
 			//returns object & updates componentMap object
