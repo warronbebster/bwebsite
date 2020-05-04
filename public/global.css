@@ -8,10 +8,15 @@ body {
 body {
 	margin: 0;
 	padding: 0;
+	height: 100vh;
+	background-color: rgb(205, 240, 209);
 	box-sizing: border-box;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	font-size: 20px;
+	position: relative;
+	display: flex;
+	align-items: stretch;
 }
 
 a {

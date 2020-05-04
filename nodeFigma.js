@@ -121,7 +121,7 @@ async function main() {
 	const canvas = doc.children[0]; //only grabbing first child = first page in project
 	// const canvas2 = doc.children[0]; //only grabbing first child = first page in project
 
-	//GRAB THE BACKGROUND IMAGES???
+	//GRAB THE BACKGROUND IMAGES:
 	let respImages = await fetch(`${baseUrl}/v1/files/${fileKey}/images`, {
 		headers,
 	});
@@ -129,7 +129,6 @@ async function main() {
 	// if (!imageFills.error && imageFills.meta.images)
 	const imageFills = imageFillJSON.meta.images || {};
 
-	debugger;
 	//DON'T DELETE
 	//DON'T DELETE
 	// for (let i = 0; i < canvas.children.length; i++) {
@@ -208,9 +207,12 @@ async function main() {
 		//write that thing in componentMap to nextSection
 	}
 
+	contents +=
+		'<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /><title>Svelte app</title><link rel="stylesheet" href="./global.css" /></head><body>';
 	contents += nextSection; //append nextSection to contents
+	contents += '</body></html>';
 
-	const path = './src/figmaComponents.js'; //so here, it writes one file.
+	const path = './public/indexTest.html'; //so here, it writes one file.
 	//here is where it could change to multiple files, one per project/frame
 	fs.writeFile(path, contents, function (err) {
 		//write the file
