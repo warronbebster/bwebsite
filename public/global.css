@@ -20,8 +20,7 @@ body {
 }
 
 a {
-	color: rgb(0, 100, 200);
-	text-decoration: none;
+	color: inherit;
 }
 
 button {
