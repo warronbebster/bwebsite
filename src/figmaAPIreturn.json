@@ -408,17 +408,16 @@
 								"styleOverrideTable": {}
 							},
 							{
-								"id": "61:1",
-								"name": "Ellipse 2",
-								"type": "ELLIPSE",
+								"id": "92:0",
+								"name": "Vector 1",
+								"type": "VECTOR",
 								"blendMode": "PASS_THROUGH",
 								"absoluteBoundingBox": {
-									"x": 292,
-									"y": -81,
-									"width": 72,
-									"height": 129
+									"x": 429,
+									"y": -245,
+									"width": 66,
+									"height": 90.5
 								},
-								"preserveRatio": true,
 								"constraints": {
 									"vertical": "TOP",
 									"horizontal": "LEFT"
@@ -428,16 +427,112 @@
 										"blendMode": "NORMAL",
 										"type": "SOLID",
 										"color": {
-											"r": 0.8999999761581421,
-											"g": 0.17250001430511475,
-											"b": 0.17250001430511475,
+											"r": 0,
+											"g": 0,
+											"b": 0,
 											"a": 1
 										}
 									}
 								],
 								"strokes": [],
 								"strokeWeight": 1,
+								"strokeAlign": "CENTER",
+								"effects": []
+							},
+							{
+								"id": "92:2",
+								"name": "Ellipse Group",
+								"type": "GROUP",
+								"blendMode": "PASS_THROUGH",
+								"children": [
+									{
+										"id": "61:1",
+										"name": "Ellipse 2",
+										"type": "ELLIPSE",
+										"blendMode": "PASS_THROUGH",
+										"absoluteBoundingBox": {
+											"x": 292,
+											"y": -81,
+											"width": 72,
+											"height": 129
+										},
+										"preserveRatio": true,
+										"constraints": {
+											"vertical": "TOP",
+											"horizontal": "LEFT"
+										},
+										"fills": [
+											{
+												"blendMode": "NORMAL",
+												"type": "SOLID",
+												"color": {
+													"r": 0.8999999761581421,
+													"g": 0.17250001430511475,
+													"b": 0.17250001430511475,
+													"a": 1
+												}
+											}
+										],
+										"strokes": [],
+										"strokeWeight": 1,
+										"strokeAlign": "INSIDE",
+										"effects": []
+									},
+									{
+										"id": "92:1",
+										"name": "Ellipse inside",
+										"type": "ELLIPSE",
+										"blendMode": "PASS_THROUGH",
+										"absoluteBoundingBox": {
+											"x": 329,
+											"y": -40,
+											"width": 24,
+											"height": 18
+										},
+										"constraints": {
+											"vertical": "TOP",
+											"horizontal": "LEFT"
+										},
+										"fills": [
+											{
+												"blendMode": "NORMAL",
+												"type": "SOLID",
+												"color": {
+													"r": 0.7686274647712708,
+													"g": 0.7686274647712708,
+													"b": 0.7686274647712708,
+													"a": 1
+												}
+											}
+										],
+										"strokes": [],
+										"strokeWeight": 1,
+										"strokeAlign": "INSIDE",
+										"effects": []
+									}
+								],
+								"absoluteBoundingBox": {
+									"x": 292,
+									"y": -81,
+									"width": 72,
+									"height": 129
+								},
+								"constraints": {
+									"vertical": "TOP",
+									"horizontal": "LEFT"
+								},
+								"clipsContent": false,
+								"background": [],
+								"fills": [],
+								"strokes": [],
+								"strokeWeight": 1,
 								"strokeAlign": "INSIDE",
+								"backgroundColor": {
+									"r": 0,
+									"g": 0,
+									"b": 0,
+									"a": 0
+								},
 								"effects": []
 							}
 						],
@@ -870,8 +965,8 @@
 		}
 	},
 	"name": "Website",
-	"lastModified": "2020-05-08T01:21:14.131561Z",
-	"thumbnailUrl": "https://s3-alpha-sig.figma.com/thumbnails/56583c7e-8dc3-4c1b-bfe0-27d26ae91da7?Expires=1589760000&Signature=SDOJ0CyTu0psvpJGNHq64HDwuXRbErWphBdDJKFhkiOQxT8GRIrxRQsShq0ts1AJkjP3gamRjcw7MAlbeBDaasjHKBwpzhSP39oQF24yswkfEN~KocPSs7q4cYXBt8tRMOCi2R8N7jXQez7mV1Cue1dHo-zi7LyRikS7o6sHZvWTiG7DhZhGDiZS9NApxzTiqgG5Ohl3y4QQIcrqFbk-UKL7jzuBBo2~jV94boJbNveoFs69JwwHX1zq5t~WP5ZiJ3OUON~sBV1~6kNbsOHpsoDtdnfWntJv71TmW1rB4-6WuhlZkFUMbnhrIeRPNXkvI913FT0bxkghpTvIdIstVA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-	"version": "319684263",
+	"lastModified": "2020-05-08T02:47:18.232145Z",
+	"thumbnailUrl": "https://s3-alpha-sig.figma.com/thumbnails/f6cfccd3-aefc-4ec5-b190-72d4c63c266e?Expires=1589760000&Signature=X5mtkuCYm7hDphNp1TLizLRZ49GRhz5kG9xVaB8LNRJ8R~5txE8Jaf~7BWVYUaLpeSY72BHVRybCxFHlMH6lGEwphTwh~voVUgqxBinDJcVxbKttxPE59ar2iFT1v3fddNh44ryA7XtLXldRLHbGCuy1T-CNcQObKxwsR8ShaRaX~EmEdAGelbK2BDytWu6BbsEBPBJFY4c0PzlsqnYUOxatmKT-lXj~wxU0MmBuFOrRGolneQFRWJxjc9EtqBZKqsRKPw3-nMPw-csqQdGyoxgefD-PkiPRhVOGEVH26ptKbJ~WveXfYcAx9emi8zrorv3omJMscShZi1lFFIhN1g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+	"version": "319718394",
 	"role": "owner"
 }
