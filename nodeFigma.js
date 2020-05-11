@@ -21,7 +21,7 @@ headers.append('X-Figma-Token', devToken);
 const fileKey = process.argv[2];
 const baseUrl = 'https://api.figma.com';
 
-const vectorMap = {};
+// const vectorMap = {};
 const vectorList = [];
 const vectorTypes = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'STAR'];
 
@@ -38,65 +38,65 @@ function preprocessTree(node) {
 	let vectorHConstraint = null;
 
 	//this function just returns true if paints exist
-	function paintsRequireRender(paints) {
-		if (!paints) return false; //if no paints
-		let numPaints = 0;
-		for (const paint of paints) {
-			if (paint.visible === false) continue; //jump this section of loop
-			numPaints++;
-			if (paint.type === 'EMOJI') return true; //wat
-		}
-		return numPaints > 1;
-	}
+	// function paintsRequireRender(paints) {
+	// 	if (!paints) return false; //if no paints
+	// 	let numPaints = 0;
+	// 	for (const paint of paints) {
+	// 		if (paint.visible === false) continue; //jump this section of loop
+	// 		numPaints++;
+	// 		if (paint.type === 'EMOJI') return true; //wat
+	// 	}
+	// 	return numPaints > 1;
+	// }
 
-	if (
-		//if paints exist, fill or stroke
-		paintsRequireRender(node.fills) ||
-		paintsRequireRender(node.strokes) ||
-		(node.blendMode != null &&
-			['PASS_THROUGH', 'NORMAL'].indexOf(node.blendMode) < 0)
-	) {
-		// node.type = 'VECTOR'; //set node type to vector?
-	}
+	// if (
+	// 	//if paints exist, fill or stroke
+	// 	paintsRequireRender(node.fills) ||
+	// 	paintsRequireRender(node.strokes) ||
+	// 	(node.blendMode != null &&
+	// 		['PASS_THROUGH', 'NORMAL'].indexOf(node.blendMode) < 0)
+	// ) {
+	// 	// node.type = 'VECTOR'; //set node type to vector?
+	// }
 
-	const children =
-		node.children && node.children.filter((child) => child.visible !== false);
-	if (children) {
-		//if there are children in the node
-		for (let j = 0; j < children.length; j++) {
-			if (vectorTypes.indexOf(children[j].type) < 0) {
-				//if it's not one of the types listed above
-				vectorsOnly = false; //set no vectors?
-			} else {
-				if (
-					vectorVConstraint != null &&
-					children[j].constraints.vertical != vectorVConstraint
-				)
-					vectorsOnly = false;
-				if (
-					vectorHConstraint != null &&
-					children[j].constraints.horizontal != vectorHConstraint
-				)
-					vectorsOnly = false;
-				vectorVConstraint = children[j].constraints.vertical;
-				vectorHConstraint = children[j].constraints.horizontal;
-			}
-		}
-	}
-	node.children = children; //rewrite node.children with new thing
+	// const children =
+	// 	node.children && node.children.filter((child) => child.visible !== false);
+	// if (children) {
+	// 	//if there are children in the node
+	// 	for (let j = 0; j < children.length; j++) {
+	// 		if (vectorTypes.indexOf(children[j].type) < 0) {
+	// 			//if it's not one of the types listed above
+	// 			vectorsOnly = false; //set no vectors?
+	// 		} else {
+	// 			if (
+	// 				vectorVConstraint != null &&
+	// 				children[j].constraints.vertical != vectorVConstraint
+	// 			)
+	// 				vectorsOnly = false;
+	// 			if (
+	// 				vectorHConstraint != null &&
+	// 				children[j].constraints.horizontal != vectorHConstraint
+	// 			)
+	// 				vectorsOnly = false;
+	// 			vectorVConstraint = children[j].constraints.vertical;
+	// 			vectorHConstraint = children[j].constraints.horizontal;
+	// 		}
+	// 	}
+	// }
+	// node.children = children; //rewrite node.children with new thing
 
-	if (children && children.length > 0 && vectorsOnly) {
-		//if there are children, and "vectorsOnly"
-		// node.type = 'VECTOR';
-		node.constraints = {
-			vertical: vectorVConstraint,
-			horizontal: vectorHConstraint,
-		};
-	}
+	// if (children && children.length > 0 && vectorsOnly) {
+	// 	//if there are children, and "vectorsOnly"
+	// 	// node.type = 'VECTOR';
+	// 	node.constraints = {
+	// 		vertical: vectorVConstraint,
+	// 		horizontal: vectorHConstraint,
+	// 	};
+	// }
 
 	if (vectorTypes.indexOf(node.type) >= 0) {
 		// node.type = 'VECTOR';
-		vectorMap[node.id] = node;
+		// vectorMap[node.id] = node;
 		vectorList.push(node.id); //adds to vectorlist
 		node.children = [];
 	}
@@ -151,18 +151,14 @@ async function main() {
 	//does it get populated by preprocess?
 	//GU IDS ??
 	let guids = vectorList.join(','); //this grabs the vectors?
-	debugger;
 
 	let svgData = await fetch(
 		`${baseUrl}/v1/images/${fileKey}?ids=${guids}&format=svg`,
 		{ headers }
 	);
-	debugger;
 
 	//grabs svgs of vectorList
 	const svgJSON = await svgData.json(); //makes json out of them
-
-	debugger;
 
 	const svgs = svgJSON.images || {}; //if images exist?
 	if (svgs) {
