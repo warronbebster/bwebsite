@@ -154,8 +154,8 @@
 								"type": "TEXT",
 								"blendMode": "PASS_THROUGH",
 								"absoluteBoundingBox": {
-									"x": 194,
-									"y": -281,
+									"x": 213,
+									"y": -268,
 									"width": 58,
 									"height": 14
 								},
@@ -404,17 +404,50 @@
 									"lineHeightPercent": 100,
 									"lineHeightUnit": "INTRINSIC_%"
 								},
-								"characterStyleOverrides": [],
-								"styleOverrideTable": {}
+								"characterStyleOverrides": [0, 0, 0, 0, 0, 0, 0, 38, 38],
+								"styleOverrideTable": {
+									"37": {
+										"fills": [
+											{
+												"blendMode": "NORMAL",
+												"type": "SOLID",
+												"color": {
+													"r": 0.545083224773407,
+													"g": 0,
+													"b": 0.8791666626930237,
+													"a": 1
+												}
+											}
+										]
+									},
+									"38": {
+										"fontFamily": "Roboto",
+										"fontPostScriptName": "Roboto-BoldItalic",
+										"italic": true,
+										"fontWeight": 700,
+										"fills": [
+											{
+												"blendMode": "NORMAL",
+												"type": "SOLID",
+												"color": {
+													"r": 0.545083224773407,
+													"g": 0,
+													"b": 0.8791666626930237,
+													"a": 1
+												}
+											}
+										]
+									}
+								}
 							},
 							{
 								"id": "106:0",
-								"name": "Let’s try a <a href=”http://barronwebster.com”>link</a> inline in a text box boyyyy",
+								"name": "Let’s try a <a href=\"http://barronwebster.com\">link</a> inline in a text box boyyyy",
 								"type": "TEXT",
 								"blendMode": "PASS_THROUGH",
 								"absoluteBoundingBox": {
-									"x": 237,
-									"y": 139,
+									"x": 227,
+									"y": 144,
 									"width": 260,
 									"height": 77
 								},
@@ -438,7 +471,7 @@
 								"strokeWeight": 1,
 								"strokeAlign": "OUTSIDE",
 								"effects": [],
-								"characters": "Let’s try a <a href=”http://barronwebster.com”>link</a> inline in a text box boyyyy",
+								"characters": "Let’s try a <a href=\"http://barronwebster.com\">link</a> inline in a text box boyyyy",
 								"style": {
 									"fontFamily": "Roboto",
 									"fontPostScriptName": "Roboto-Bold",
@@ -665,8 +698,8 @@
 	"schemaVersion": 0,
 	"styles": {},
 	"name": "Website",
-	"lastModified": "2020-05-11T00:27:31.533349Z",
-	"thumbnailUrl": "https://s3-alpha-sig.figma.com/thumbnails/b8172803-c2ef-4505-8d9f-a07adbf6f443?Expires=1590364800&Signature=HCXUtoIlxJ-pQIHf8NCV75Fm3DbmrXCVlA1nXC37mzvP5TLShyV1qZ768WPcIvtt6~70u7p-j7vnzTuUFkfbe-CZRqIB6bHt9fowW4lkXMNxlHdAPFsSbUSpno5JJfIoA6HgI5Wq6OevJMIDAFp7QqjGJSasXu9zao5SvQroG6GRd5288xR9pwO0ePKLZx1vkcHHuOtU~IEnvUhrzHzXqMvCmqgvMy0a8g--Zo7w4PdjDanKGWZmRiabe6Qxwzsnxvygl1LoODkINDWPeWhodODt5tRpfSKdrYkoI6jpQtxtxKyeuQcOhQD7ODr6sf4MMB4fOH-x7qnqSHm2TLmJGA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-	"version": "321577396",
+	"lastModified": "2020-05-11T18:39:30.732305Z",
+	"thumbnailUrl": "https://s3-alpha-sig.figma.com/thumbnails/b3df871f-d338-47ab-93eb-239a03c4bb22?Expires=1590364800&Signature=Bcqeo2qqqihtfBlBNsOzxtOfBw20lQ4YeK2rlWrxVtK7dvTLBYwtshcH7MQA7dL~72zfh6sT-Db1hZCNN5osf-rtIzKAtCBO7vtdTUXQ25qHBg31cD6iMlzdQCA7s0GjKAikCY7RzkP7RZ-BWvCst3CjzMxVSMKynv8ftAsaRf0Khvn3kfr-uKsyaJ2e061GcR6GlK30ChCqSb4~CLAFivznY1iGxiAbYvY6Y7iV0fsC0YYbcCNzEh42XAGXT-iC5C0nuIJOmP~-MwKxXEeq0DbKjBjCTA-bzKPyWFxSmIyi6Fg5mu8tAnHB9xfDZG6WcQXGNU4BJ8qFIfjsmMg93A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+	"version": "322442206",
 	"role": "owner"
 }
