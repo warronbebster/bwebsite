@@ -118,7 +118,8 @@ async function main() {
 	let data = await resp.json(); //data is what comes back from API request
 
 	const doc = data.document; //figma document
-	const canvas = doc.children[0]; //only grabbing first child = first page in project
+	const figmaFile = doc.children; //only grabbing first child = first page in project
+	// const canvas = doc.children[0]; //only grabbing first child = first page in project
 	//this is where I gotta call diffo pages
 
 	// const canvas2 = doc.children[0]; //only grabbing first child = first page in project
@@ -133,13 +134,14 @@ async function main() {
 
 	//DON'T DELETE
 	//DON'T DELETE
-
-	for (let i = 0; i < canvas.children.length; i++) {
-		//for each child  of canvas
-		const child = canvas.children[i];
-		if (child.name.charAt(0) === '#' && child.visible !== false) {
-			preprocessTree(child); //run preprocess function?
-			//for each frame
+	for (let j = 0; j < figmaFile.length; j++) {
+		for (let i = 0; i < figmaFile[j].children.length; i++) {
+			//for each child  of canvas
+			const child = figmaFile[j].children[i];
+			if (child.name.charAt(0) === '#' && child.visible !== false) {
+				preprocessTree(child); //run preprocess function?
+				//for each frame
+			}
 		}
 	}
 
@@ -187,38 +189,43 @@ async function main() {
 		}
 	}
 
-	const componentMap = {}; //empty object for putting stuff in?
-	let contents = ``; //this is what eventually gets written to filesystem
-	let nextSection = ''; //container for what is to be added to 'contents'
+	let contents = `export const projectArray = [`; //this is what eventually gets written to filesystem
 
-	for (let i = 0; i < canvas.children.length; i++) {
-		//for each artboard
-		const child = canvas.children[i]; //child variable
-		if (child.name.charAt(0) === '#' && child.visible !== false) {
-			//if named & visible
-			figma.createComponent(child, svgs, imageFills, componentMap);
-			//hit figma lib
-			//pass the frame and images?
-			//returns object & updates componentMap object
+	for (let j = 0; j < figmaFile.length; j++) {
+		const componentMap = {}; //empty object for putting stuff in?
+
+		let nextSection = ''; //container for what is to be added to 'contents'
+
+		for (let i = 0; i < figmaFile[j].children.length; i++) {
+			//for each artboard
+			const child = figmaFile[j].children[i]; //child variable
+			if (child.name.charAt(0) === '#' && child.visible !== false) {
+				//if named & visible
+				figma.createComponent(child, svgs, imageFills, componentMap);
+				//hit figma lib
+				//pass the frame and images?
+				//returns object & updates componentMap object
+			}
 		}
+
+		// console.log(componentMap);
+		//so at this point, componentMap has {name, doc(aka html to write), instance} plus a key i don't understand (16:0?)
+
+		for (const key in componentMap) {
+			// contents += `  if (id === "${key}") return ${componentMap[key].instance};\n`;
+			nextSection += "'" + componentMap[key].doc + "',";
+			//write that thing in componentMap to nextSection
+		}
+
+		//here is where to start json
+		contents +=
+			// '<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /><title>Svelte app</title><link rel="stylesheet" href="./global.css" /></head><body>';
+			`{ name: "${figmaFile[j].name}", stories:[`;
+		contents += nextSection; //append nextSection to contents
+		// contents += '</body></html>';
+		contents += ']}, ';
 	}
-
-	// console.log(componentMap);
-	//so at this point, componentMap has {name, doc(aka html to write), instance} plus a key i don't understand (16:0?)
-
-	for (const key in componentMap) {
-		// contents += `  if (id === "${key}") return ${componentMap[key].instance};\n`;
-		nextSection += "'" + componentMap[key].doc + "',";
-		//write that thing in componentMap to nextSection
-	}
-
-	//here is where to start json
-	contents +=
-		// '<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /><title>Svelte app</title><link rel="stylesheet" href="./global.css" /></head><body>';
-		`export const projectArray = [{ name: "${canvas.name}", type: "image", stories:[`;
-	contents += nextSection; //append nextSection to contents
-	// contents += '</body></html>';
-	contents += ']} ];';
+	contents += ' ];';
 
 	//here is where to end json
 
