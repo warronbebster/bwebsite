@@ -189,7 +189,7 @@ async function main() {
 		}
 	}
 
-	let contents = `export const projectArray = [`; //this is what eventually gets written to filesystem
+	let contents = `export const figmaProject = [`; //this is what eventually gets written to filesystem
 
 	for (let j = 0; j < figmaFile.length; j++) {
 		const componentMap = {}; //empty object for putting stuff in?
@@ -230,7 +230,7 @@ async function main() {
 	//here is where to end json
 
 	// const path = './public/indexTest.html'; //so here, it writes one file.
-	const path = './public/test.js'; //so here, it writes one file.
+	const path = './src/test.js'; //so here, it writes one file.
 	//here is where it could change to multiple files, one per project/frame
 	fs.writeFile(path, contents, function (err) {
 		//write the file

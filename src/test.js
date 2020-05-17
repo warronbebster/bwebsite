@@ -1,4 +1,4 @@
-export const projectArray = [
+export const figmaProject = [
 	{
 		name: 'Figma Project 1',
 		stories: [

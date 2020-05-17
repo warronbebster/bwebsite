@@ -5,7 +5,7 @@
 
   export let projectIndex = 0; //prop so that you can pass which project from App
   export let storyIndex = 0; //prop so that you can pass which project from App
-  export let storyContent = 0; //prop so that you can pass which project from App
+  export let storyContent = "<section>loading…</section"; //prop so that you can pass which project from App
   export let projectName = "project name"; //prop to pass project name from App
 
   let displayPosition = "none";
@@ -41,7 +41,8 @@
   .story {
     border: 1px solid red;
     width: 180px;
-    height: 300px;
+    height: 600px;
+    position: relative;
     overflow: hidden;
     display: inline-block;
     vertical-align: top;

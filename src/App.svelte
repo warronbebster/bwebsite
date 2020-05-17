@@ -12,11 +12,11 @@
     getPrev
   } from "./stores.js";
 
-  import { apiRequest } from "./figma.js";
+  // import { apiRequest } from "./figma.js";
 
-  apiRequest("/files/Fgv9nN04eSsH7qJopKgUML").then(apiResponse => {
-    console.log(apiResponse.document.children);
-  });
+  // apiRequest("/files/Fgv9nN04eSsH7qJopKgUML").then(apiResponse => {
+  //   console.log(apiResponse.document.children);
+  // });
   console.log($currentPos);
 
   function handleProjects(direction) {
@@ -76,7 +76,7 @@
   </div>
 
   <Nav projectIndex={$currentPos.project} />
-  {#each projectArray as { name, type, stories }, i}
+  {#each projectArray as { name, stories }, i}
     <!-- here's where ui for the project lives  —title, swipe up/more, etc-->
     <!-- <p>{name}</p> -->
     {#each stories as story, j}
