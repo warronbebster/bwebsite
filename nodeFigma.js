@@ -119,6 +119,8 @@ async function main() {
 
 	const doc = data.document; //figma document
 	const canvas = doc.children[0]; //only grabbing first child = first page in project
+	//this is where I gotta call diffo pages
+
 	// const canvas2 = doc.children[0]; //only grabbing first child = first page in project
 
 	//GRAB THE BACKGROUND IMAGES:
@@ -159,7 +161,6 @@ async function main() {
 
 	//grabs svgs of vectorList
 	const svgJSON = await svgData.json(); //makes json out of them
-
 	const svgs = svgJSON.images || {}; //if images exist?
 	if (svgs) {
 		//if images exist, process like this?
@@ -180,10 +181,9 @@ async function main() {
 		responses = await Promise.all(promises);
 		for (let i = 0; i < responses.length; i++) {
 			//replace svg with svg preserveAspectRatio none
-			svgs[guids[i]] = responses[i].replace(
-				'<svg ',
-				'<svg preserveAspectRatio="none" '
-			);
+			svgs[guids[i]] = responses[i]
+				.replace('<svg ', '<svg preserveAspectRatio="none" ')
+				.replace(/[\n\r]+/g, '');
 		}
 	}
 
@@ -208,16 +208,22 @@ async function main() {
 
 	for (const key in componentMap) {
 		// contents += `  if (id === "${key}") return ${componentMap[key].instance};\n`;
-		nextSection += componentMap[key].doc + '\n';
+		nextSection += "'" + componentMap[key].doc + "',";
 		//write that thing in componentMap to nextSection
 	}
 
+	//here is where to start json
 	contents +=
-		'<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /><title>Svelte app</title><link rel="stylesheet" href="./global.css" /></head><body>';
+		// '<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /><title>Svelte app</title><link rel="stylesheet" href="./global.css" /></head><body>';
+		`export const projectArray = [{ name: "${canvas.name}", type: "image", stories:[`;
 	contents += nextSection; //append nextSection to contents
-	contents += '</body></html>';
+	// contents += '</body></html>';
+	contents += ']} ];';
 
-	const path = './public/indexTest.html'; //so here, it writes one file.
+	//here is where to end json
+
+	// const path = './public/indexTest.html'; //so here, it writes one file.
+	const path = './public/test.js'; //so here, it writes one file.
 	//here is where it could change to multiple files, one per project/frame
 	fs.writeFile(path, contents, function (err) {
 		//write the file
