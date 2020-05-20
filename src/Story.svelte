@@ -1,6 +1,6 @@
 <script>
   import { beforeUpdate } from "svelte";
-  import { currentPos, nextPos, prevPos } from "./stores.js";
+  import { currentPos, plus1, minus1, plus2, minus2 } from "./stores.js";
   import Content from "./Content.svelte";
 
   export let projectIndex = 0; //prop so that you can pass which project from App
@@ -10,26 +10,31 @@
 
   let displayPosition = "none";
   let showStoryContent = false;
+  console.log(minus2);
 
   //there's probably a better way of doing this than just using afterUpdate...
 
   beforeUpdate(() => {
     //also this should happen not just on beforeUpdate
+    console.log(minus2);
 
-    if (projectIndex == $nextPos.project && storyIndex == $nextPos.story) {
-      displayPosition = "nextProject";
+    if (projectIndex == $plus2.project && storyIndex == $plus2.story) {
+      displayPosition = "plus2";
       showStoryContent = true;
-    } else if (
-      projectIndex == $prevPos.project &&
-      storyIndex == $prevPos.story
-    ) {
-      displayPosition = "prevProject";
+    } else if (projectIndex == $plus1.project && storyIndex == $plus1.story) {
+      displayPosition = "plus1";
       showStoryContent = true;
     } else if (
       projectIndex == $currentPos.project &&
       storyIndex == $currentPos.story
     ) {
       displayPosition = "currentProject";
+      showStoryContent = true;
+    } else if (projectIndex == $minus1.project && storyIndex == $minus1.story) {
+      displayPosition = "minus1";
+      showStoryContent = true;
+    } else if (projectIndex == $minus2.project && storyIndex == $minus2.story) {
+      displayPosition = "minus2";
       showStoryContent = true;
     } else {
       displayPosition = "none";
@@ -38,40 +43,82 @@
 </script>
 
 <style>
+  :root {
+    --width-border: 412px;
+    --height-border: 830px;
+  }
   .story {
-    border: 1px solid red;
-    width: 180px;
-    height: 600px;
+    width: 100vw;
+    height: 100vh;
+    max-width: var(--width-border);
+    max-height: var(--height-border);
+    padding: 0;
+    margin: 10px;
     position: relative;
     overflow: hidden;
-    display: inline-block;
+    /* display: inline-block; */
+    /* float: left; */
     vertical-align: top;
-    animation-name: example;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
+    /* animation-name: example; */
+    /* animation-duration: 5s; */
+    /* animation-fill-mode: forwards; */
     transition: 0.5s width;
+    border-radius: 16px;
+    transition: 0.5s all;
   }
+  @media screen and (max-width: 412px) {
+    .story {
+      border-radius: 0px;
+      margin: 0;
+    }
+  }
+  /* @media screen and (max-height: 830px) {
+    .story {
+      border-radius: 0px;
+      margin: 0;
+    }
+  } */
   .none {
     opacity: 0.5;
+    display: none;
+    width: 0px;
+    margin: 0;
+    /* this could work to only show the current, previous, & next project; */
   }
-  .prevProject {
-    color: red;
+  .minus2 {
+    opacity: 0.5;
+    transform: scale(0.4, 0.4);
+    /* order: 1; */
+    display: none;
+  }
+  .minus1 {
+    opacity: 0.5;
+    transform: scale(0.7, 0.7);
+    /* order: 2; */
+    /* display: none; */
   }
   .currentProject {
-    border: 5px solid black;
-    width: 300px;
-  }
-  .nextProject {
-    color: blue;
-  }
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* order: 3; */
+    position: fixed;
 
-  @keyframes example {
-    from {
-      background-color: yellow;
-    }
-    to {
-      background-color: white;
-    }
+    /* center the element */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .plus1 {
+    opacity: 0.5;
+    transform: scale(0.7, 0.7);
+    /* order: 4; */
+    /* display: none; */
+  }
+  .plus2 {
+    opacity: 0.2;
+    transform: scale(0.4, 0.4);
+    /* order: 5; */
+    display: none;
   }
 </style>
 

@@ -4,14 +4,7 @@ import { figmaProject } from './test.js';
 // export const current = writable(1); //export current number... and total number so it knows when to cycle?
 export const currentPos = writable({ project: 0, story: 0 }); //export current number... and total number so it knows when to cycle?
 
-// export const projectArray = [
-// 	{ name: 'project 0', type: 'image', stories: [1] },
-// 	{ name: 'project 1', type: 'image', stories: [4, 5] },
-// 	{ name: 'project 2', type: 'image', stories: [6, 7, 8] },
-// 	{ name: 'project 3', type: 'image', stories: [9, 10, 11, 12] },
-// ];
-
-export const projectArray = figmaProject;
+export const projectArray = figmaProject; //write output of figma script here
 
 export const getNext = function (posToCheck) {
 	let nextPos = { project: posToCheck.project, story: posToCheck.story };
@@ -60,10 +53,10 @@ export const getPrev = function (posToCheck) {
 	return prevPos;
 };
 
-export const nextPos = derived(currentPos, ($currentPos) =>
-	getNext($currentPos)
-);
+export const plus1 = derived(currentPos, ($currentPos) => getNext($currentPos));
 
-export const prevPos = derived(currentPos, ($currentPos) =>
-	getPrev($currentPos)
-);
+export const plus2 = derived(plus1, ($plus1) => getNext($plus1));
+
+export const minus1 = derived(currentPos, ($currentPos) => getPrev($currentPos));
+
+export const minus2 = derived(minus1, ($minus1) => getPrev($minus1));

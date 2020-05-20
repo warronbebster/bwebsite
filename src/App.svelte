@@ -2,15 +2,9 @@
   //   export let name;
   import Story from "./Story.svelte";
   import Nav from "./Nav.svelte";
+
   // import { getNext, getPrev } from "./orderFunctions.js";
-  import {
-    currentPos,
-    projectArray,
-    nextPos,
-    prevPos,
-    getNext,
-    getPrev
-  } from "./stores.js";
+  import { currentPos, projectArray, getNext, getPrev } from "./stores.js";
 
   // import { apiRequest } from "./figma.js";
 
@@ -38,17 +32,24 @@
 
 <style>
   button {
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     bottom: 20px;
     background-color: rgb(255, 139, 212);
     font-size: 20px;
+    z-index: 999;
   }
   #nextButton {
     right: 20px;
   }
   #prevButton {
     left: 20px;
+  }
+  main {
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    display: flex;
   }
 </style>
 
@@ -57,25 +58,25 @@
 <svelte:options immutable={true} />
 <svelte:window on:keydown={handleKeydown} />
 
-<main>
-  <div class="buttons">
-    <button
-      id="prevButton"
-      on:click={() => {
-        handleProjects('prev');
-      }}>
-      prev project
-    </button>
-    <button
-      id="nextButton"
-      on:click={() => {
-        handleProjects('next');
-      }}>
-      Next project
-    </button>
-  </div>
+<div class="buttons">
+  <button
+    id="prevButton"
+    on:click={() => {
+      handleProjects('prev');
+    }}>
+    prev project
+  </button>
+  <button
+    id="nextButton"
+    on:click={() => {
+      handleProjects('next');
+    }}>
+    Next project
+  </button>
+</div>
+<Nav projectIndex={$currentPos.project} />
 
-  <Nav projectIndex={$currentPos.project} />
+<main>
   {#each projectArray as { name, stories }, i}
     <!-- here's where ui for the project lives  —title, swipe up/more, etc-->
     <!-- <p>{name}</p> -->
@@ -86,7 +87,6 @@
         storyContent={story}
         projectName={name} />
     {/each}
-
     <!-- Swipe up bit here -->
   {/each}
 </main>

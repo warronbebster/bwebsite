@@ -2,8 +2,8 @@
   import { onMount } from "svelte";
   //   import { currentPos, nextPos, prevPos } from "./stores.js";
 
-  export let projectIndex = 0; //prop so that you can pass which project from App
-  export let storyIndex = 0; //prop so that you can pass which project from App
+  // export let projectIndex = 0; //prop so that you can pass which project from App
+  // export let storyIndex = 0; //prop so that you can pass which project from App
   export let storyContent = "<section>loading…</section>"; //prop so that you can pass which project from App
 
   let type = "image"; //prop to pass project name from App
@@ -23,18 +23,7 @@
 </script>
 
 <style>
-  .photos {
-    border: 1px solid rgb(128, 255, 128);
-    /* width: 180px; */
-    height: 500px;
-    overflow: scroll;
-  }
-  img,
-  figure {
-    width: 100%;
-    padding: 5px;
-    margin: 0;
-  }
+
 </style>
 
 <!-- <div class="photos"> -->

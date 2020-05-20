@@ -17,13 +17,12 @@
     top: 0px;
     background-color: white;
     left: 0px;
-    z-index: 3;
+    z-index: 999;
   }
   .navItem {
     margin: 0;
-    height: 20px;
+    height: 40px;
     padding: 10px;
-    font-size: 22px;
     background: rgba(164, 119, 255, 0.303);
     overflow: hidden;
     transition: height 0.4s, padding 0.4s;
@@ -33,6 +32,11 @@
     background-color: rgb(127, 127, 244);
     transition: height 0.4s, padding 0.4s;
   }
+  ol {
+    /* padding-inline-start: 20px; */
+    padding: 0;
+    margin: 0;
+  }
   .activeNavItem {
     color: purple;
   }
@@ -40,10 +44,6 @@
     height: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
-  }
-  .visible {
-    height: 20px;
-    padding: 10px;
   }
 </style>
 
