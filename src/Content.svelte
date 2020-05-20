@@ -8,17 +8,6 @@
 
   let type = "image"; //prop to pass project name from App
 
-  let photos = [];
-
-  //move this into a deeper level component that only mounts when this project is next/previous
-  onMount(async () => {
-    const res = await fetch(
-      `https://jsonplaceholder.typicode.com/photos?_limit=6&albumId=` +
-        (storyIndex + 1)
-    );
-    photos = await res.json();
-  });
-
   //there's probably a better way of doing this than just using afterUpdate...
 </script>
 

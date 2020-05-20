@@ -49,7 +49,7 @@
   }
   .story {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 20px);
     max-width: var(--width-border);
     max-height: var(--height-border);
     padding: 0;
@@ -62,14 +62,16 @@
     /* animation-name: example; */
     /* animation-duration: 5s; */
     /* animation-fill-mode: forwards; */
-    transition: 0.5s width;
     border-radius: 16px;
-    transition: 0.5s all;
+
+    transition: 0.5s translate, 0.5s transform, 0.5s left, 0.5s right,
+      0.5s opacity;
   }
   @media screen and (max-width: 412px) {
     .story {
       border-radius: 0px;
       margin: 0;
+      height: 100vh;
     }
   }
   /* @media screen and (max-height: 830px) {
@@ -86,43 +88,48 @@
     /* this could work to only show the current, previous, & next project; */
   }
   .minus2 {
-    opacity: 0.5;
-    transform: scale(0.4, 0.4);
-    /* order: 1; */
-    display: none;
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    left: -10vw;
+    transform: translateY(-50%) scale(0.7);
   }
   .minus1 {
-    opacity: 0.5;
-    transform: scale(0.7, 0.7);
-    /* order: 2; */
-    /* display: none; */
+    opacity: 0.2;
+    position: fixed;
+    top: 50%;
+    left: calc(50vw - var(--width-border) * 1.5 - 20px);
+
+    transform: translateY(-50%) scale(0.9);
   }
   .currentProject {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    /* order: 3; */
     position: fixed;
+    z-index: 5;
+    margin: 0;
 
-    /* center the element */
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .plus1 {
     opacity: 0.5;
-    transform: scale(0.7, 0.7);
-    /* order: 4; */
-    /* display: none; */
+
+    position: fixed;
+    top: 50%;
+    right: calc(50vw - var(--width-border) * 1.5 - 20px);
+    transform: translateY(-50%) scale(0.9);
   }
   .plus2 {
-    opacity: 0.2;
-    transform: scale(0.4, 0.4);
-    /* order: 5; */
-    display: none;
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    right: -10vw;
+    transform: translateY(-50%) scale(0.5);
   }
 </style>
 
-<div class="story {displayPosition}">
+<div class="story {displayPosition} ">
   <!-- probably a slot here for content tbh… videos, photos, text, etc -->
   {#if showStoryContent}
     <Content {projectIndex} {storyIndex} {storyContent} />
