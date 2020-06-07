@@ -32,18 +32,24 @@
 
 <style>
   button {
-    padding: 10px;
     position: absolute;
-    bottom: 20px;
+    top: 0px;
     background-color: rgb(255, 139, 212);
     font-size: 20px;
-    z-index: 999;
+    z-index: 40;
+    opacity: 0;
   }
   #nextButton {
-    right: 20px;
+    right: 0px;
+    width: 50vw;
+    height: 100vh;
+    cursor: e-resize;
   }
   #prevButton {
-    left: 20px;
+    left: 0px;
+    width: 50vw;
+    height: 100vh;
+    cursor: w-resize;
   }
   main {
     align-items: center;
@@ -61,15 +67,21 @@
 <div class="buttons">
   <button
     id="prevButton"
-    on:click={() => {
+    on:mouseup={() => {
       handleProjects('prev');
+    }}
+    on:mousedown={() => {
+      console.log('mouse down bb');
     }}>
     prev project
   </button>
   <button
     id="nextButton"
-    on:click={() => {
+    on:mouseup={() => {
       handleProjects('next');
+    }}
+    on:mousedown={() => {
+      console.log('mouse down bb');
     }}>
     Next project
   </button>
