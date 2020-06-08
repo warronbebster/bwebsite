@@ -36,7 +36,7 @@
     top: 0px;
     background-color: rgb(255, 139, 212);
     font-size: 20px;
-    z-index: 40;
+    z-index: 20;
     opacity: 0;
   }
   #nextButton {
