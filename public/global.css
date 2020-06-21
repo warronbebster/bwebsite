@@ -34,9 +34,5 @@ body {
 a {
 	position: relative;
 	color: inherit;
-	z-index: 401;
-}
-
-button {
-	outline: none;
+	z-index: 401 !important;
 }

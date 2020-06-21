@@ -155,14 +155,14 @@
 							},
 							{
 								"id": "4:16",
-								"name": "http://barronwebster.com/",
+								"name": "hellooooo",
 								"type": "TEXT",
 								"blendMode": "PASS_THROUGH",
 								"absoluteBoundingBox": {
-									"x": 213,
-									"y": -268,
-									"width": 58,
-									"height": 14
+									"x": 216.50146484375,
+									"y": -246.4200439453125,
+									"width": 58.997066497802734,
+									"height": 34.84006881713867
 								},
 								"constraints": {
 									"vertical": "TOP",
@@ -189,8 +189,12 @@
 									"fontFamily": "Roboto",
 									"fontPostScriptName": null,
 									"fontWeight": 400,
-									"hyperlink": {},
+									"hyperlink": {
+										"type": "URL",
+										"url": "http://figma.com"
+									},
 									"textAutoResize": "WIDTH_AND_HEIGHT",
+									"textDecoration": "UNDERLINE",
 									"fontSize": 12,
 									"textAlignHorizontal": "LEFT",
 									"textAlignVertical": "TOP",
@@ -201,122 +205,6 @@
 								},
 								"characterStyleOverrides": [],
 								"styleOverrideTable": {}
-							},
-							{
-								"id": "67:0",
-								"name": "😭",
-								"type": "TEXT",
-								"blendMode": "PASS_THROUGH",
-								"absoluteBoundingBox": {
-									"x": 236,
-									"y": -210,
-									"width": 42,
-									"height": 42
-								},
-								"constraints": {
-									"vertical": "TOP",
-									"horizontal": "LEFT"
-								},
-								"fills": [
-									{
-										"blendMode": "NORMAL",
-										"type": "SOLID",
-										"color": {
-											"r": 0,
-											"g": 0,
-											"b": 0,
-											"a": 1
-										}
-									}
-								],
-								"strokes": [],
-								"strokeWeight": 1,
-								"strokeAlign": "OUTSIDE",
-								"effects": [],
-								"characters": "😭",
-								"style": {
-									"fontFamily": "Roboto",
-									"fontPostScriptName": null,
-									"fontWeight": 400,
-									"hyperlink": {},
-									"textAutoResize": "WIDTH_AND_HEIGHT",
-									"fontSize": 42,
-									"textAlignHorizontal": "LEFT",
-									"textAlignVertical": "TOP",
-									"letterSpacing": 0,
-									"lineHeightPx": 49.21875,
-									"lineHeightPercent": 100,
-									"lineHeightUnit": "INTRINSIC_%"
-								},
-								"characterStyleOverrides": [],
-								"styleOverrideTable": {
-									"1": {
-										"fills": [
-											{
-												"blendMode": "NORMAL",
-												"type": "IMAGE",
-												"scaleMode": "STRETCH",
-												"imageRef": null,
-												"imageTransform": [
-													[1, 0, 0],
-													[0, 1, 0]
-												]
-											}
-										]
-									}
-								}
-							},
-							{
-								"id": "22:0",
-								"name": "image 1",
-								"type": "RECTANGLE",
-								"blendMode": "PASS_THROUGH",
-								"absoluteBoundingBox": {
-									"x": 212,
-									"y": 280,
-									"width": 151,
-									"height": 101
-								},
-								"preserveRatio": true,
-								"constraints": {
-									"vertical": "BOTTOM",
-									"horizontal": "LEFT"
-								},
-								"fills": [
-									{
-										"blendMode": "NORMAL",
-										"type": "SOLID",
-										"color": {
-											"r": 1,
-											"g": 0,
-											"b": 0,
-											"a": 1
-										}
-									},
-									{
-										"blendMode": "NORMAL",
-										"type": "IMAGE",
-										"scaleMode": "FILL",
-										"imageRef": "1a0d8092b641474d17a2ebdc6a4ff8cea70cdef1"
-									}
-								],
-								"strokes": [
-									{
-										"blendMode": "NORMAL",
-										"type": "SOLID",
-										"color": {
-											"r": 0,
-											"g": 0,
-											"b": 0,
-											"a": 1
-										}
-									}
-								],
-								"strokeWeight": 2,
-								"strokeAlign": "INSIDE",
-								"effects": [],
-								"cornerRadius": 8,
-								"rectangleCornerRadii": [8, 8, 8, 8]
 							},
 							{
 								"id": "49:0",
@@ -451,7 +339,7 @@
 							},
 							{
 								"id": "106:0",
-								"name": "Let’s try a link inline in a text box boyyyy",
+								"name": "Link inline",
 								"type": "TEXT",
 								"blendMode": "PASS_THROUGH",
 								"absoluteBoundingBox": {
@@ -582,134 +470,6 @@
 										]
 									}
 								}
-							},
-							{
-								"id": "92:0",
-								"name": "Vector 1",
-								"type": "VECTOR",
-								"blendMode": "PASS_THROUGH",
-								"absoluteBoundingBox": {
-									"x": 379,
-									"y": -245,
-									"width": 66,
-									"height": 90.5
-								},
-								"constraints": {
-									"vertical": "TOP",
-									"horizontal": "LEFT"
-								},
-								"fills": [
-									{
-										"blendMode": "NORMAL",
-										"type": "SOLID",
-										"color": {
-											"r": 0,
-											"g": 0,
-											"b": 0,
-											"a": 1
-										}
-									}
-								],
-								"strokes": [],
-								"strokeWeight": 1,
-								"strokeAlign": "CENTER",
-								"effects": []
-							},
-							{
-								"id": "92:2",
-								"name": "Ellipse Group",
-								"type": "GROUP",
-								"blendMode": "PASS_THROUGH",
-								"children": [
-									{
-										"id": "61:1",
-										"name": "Ellipse 2",
-										"type": "ELLIPSE",
-										"blendMode": "PASS_THROUGH",
-										"absoluteBoundingBox": {
-											"x": 242,
-											"y": -81,
-											"width": 72,
-											"height": 129
-										},
-										"preserveRatio": true,
-										"constraints": {
-											"vertical": "TOP",
-											"horizontal": "LEFT"
-										},
-										"fills": [
-											{
-												"blendMode": "NORMAL",
-												"type": "SOLID",
-												"color": {
-													"r": 0.8999999761581421,
-													"g": 0.17250001430511475,
-													"b": 0.17250001430511475,
-													"a": 1
-												}
-											}
-										],
-										"strokes": [],
-										"strokeWeight": 1,
-										"strokeAlign": "INSIDE",
-										"effects": []
-									},
-									{
-										"id": "92:1",
-										"name": "Ellipse inside",
-										"type": "ELLIPSE",
-										"blendMode": "PASS_THROUGH",
-										"absoluteBoundingBox": {
-											"x": 279,
-											"y": -40,
-											"width": 24,
-											"height": 18
-										},
-										"constraints": {
-											"vertical": "TOP",
-											"horizontal": "LEFT"
-										},
-										"fills": [
-											{
-												"blendMode": "NORMAL",
-												"type": "SOLID",
-												"color": {
-													"r": 0.7686274647712708,
-													"g": 0.7686274647712708,
-													"b": 0.7686274647712708,
-													"a": 1
-												}
-											}
-										],
-										"strokes": [],
-										"strokeWeight": 1,
-										"strokeAlign": "INSIDE",
-										"effects": []
-									}
-								],
-								"absoluteBoundingBox": {
-									"x": 242,
-									"y": -81,
-									"width": 72,
-									"height": 129
-								},
-								"constraints": {
-									"vertical": "TOP",
-									"horizontal": "LEFT"
-								},
-								"clipsContent": false,
-								"background": [],
-								"fills": [],
-								"strokes": [],
-								"strokeWeight": 1,
-								"strokeAlign": "INSIDE",
-								"backgroundColor": {
-									"r": 0,
-									"g": 0,
-									"b": 0,
-									"a": 0
-								},
-								"effects": []
 							}
 						],
 						"absoluteBoundingBox": {
@@ -756,6 +516,38 @@
 							"b": 0.7583333253860474,
 							"a": 1
 						},
+						"effects": []
+					},
+					{
+						"id": "92:0",
+						"name": "Vector 1",
+						"type": "VECTOR",
+						"blendMode": "PASS_THROUGH",
+						"absoluteBoundingBox": {
+							"x": 374,
+							"y": -448,
+							"width": 66,
+							"height": 90.5
+						},
+						"constraints": {
+							"vertical": "TOP",
+							"horizontal": "LEFT"
+						},
+						"fills": [
+							{
+								"blendMode": "NORMAL",
+								"type": "SOLID",
+								"color": {
+									"r": 0,
+									"g": 0,
+									"b": 0,
+									"a": 1
+								}
+							}
+						],
+						"strokes": [],
+						"strokeWeight": 1,
+						"strokeAlign": "CENTER",
 						"effects": []
 					},
 					{
@@ -1567,8 +1359,8 @@
 		}
 	},
 	"name": "Website",
-	"lastModified": "2020-06-07T23:23:00.060169Z",
-	"thumbnailUrl": "https://s3-alpha-sig.figma.com/thumbnails/4b3432d9-668b-4d48-b839-01ba13e564ed?Expires=1592179200&Signature=gaMAjrQ5qseRmAKFvptGg88SGhGi-soqnMmZ6iXqolcrzznCEScnbBtv7dnum1YvozFxaqkK2Sviv3O~Ffv7wHD06I4BIInmXGdeckB2KSjjNMQpnxjprUNUq3KZj53gaL9F6BCsKEccQpRpTyOPGrdpBj9tQ3dveb54UJyEze2snjP-PH5azTcSoqSIj3DSsOnDvGbA~EW9lD7P6wvy~YtVxQ7ddE0r0jXF~2kHMoNJFdhc8FbyrghPsZyFVE651D9pDLiyUtge77LOiouI~t58MC3VgpzJDqPARzP4wq~M10JJsYsqQjjRXtpVvEmtEUcfwubdx5fmCHPXVHW2fg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-	"version": "349158971",
+	"lastModified": "2020-06-21T22:04:58.358242Z",
+	"thumbnailUrl": "https://s3-alpha-sig.figma.com/thumbnails/63ccf864-61a4-4024-962d-6ff197fbbed3?Expires=1593388800&Signature=H0RbOYmK1~eHlh0ng0~YRBfVGGmzVm7VszzxTlTzUfZuse5Pt4BMHjwwKFM~NYa-JSMFB6NvolOS8nzr2Mz0Dyhuz-95I9YciaeRDTrTyXn4fHuARSDtwzOlElaMcKiU~QtHJ8Uyal62JlC9ZzjJQqRDVyGCxcumSIWW65DryhP6At2bUGeuJQW9O95Ow3qXw7ZxOWqiQ3rAaaxEbQo1LIXnJkTv-tLy7TNhRk58juphpfZ7LLBQ34cXKKMM4IupWnRjpyW4XG~GRG6Sb3uHLCWLtx3W~WumkYWu7bKrDFz5TI90BiYrOKJSdQyzZYa0Y-EDSWAVglGN5yiYsL3jUw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+	"version": "364106542",
 	"role": "owner"
 }

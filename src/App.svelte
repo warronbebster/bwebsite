@@ -38,6 +38,7 @@
     font-size: 20px;
     z-index: 20;
     opacity: 0;
+    outline: none;
   }
   #nextButton {
     right: 0px;

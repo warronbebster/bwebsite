@@ -95,6 +95,7 @@ function preprocessTree(node) {
 	// }
 
 	if (vectorTypes.indexOf(node.type) >= 0) {
+		//if the node is vector
 		// node.type = 'VECTOR';
 		// vectorMap[node.id] = node;
 		vectorList.push(node.id); //adds to vectorlist
@@ -156,10 +157,7 @@ async function main() {
 	//GU IDS ??
 	let guids = vectorList.join(','); //this grabs the vectors?
 
-	let svgData = await fetch(
-		`${baseUrl}/v1/images/${fileKey}?ids=${guids}&format=svg`,
-		{ headers }
-	);
+	let svgData = await fetch(`${baseUrl}/v1/images/${fileKey}?ids=${guids}&format=svg`, { headers });
 
 	//grabs svgs of vectorList
 	const svgJSON = await svgData.json(); //makes json out of them
