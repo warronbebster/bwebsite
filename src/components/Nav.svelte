@@ -11,23 +11,27 @@
   nav {
     border: 1px solid black;
     position: absolute;
-    top: 0px;
+    top: 8px;
+    left: 8px;
     background-color: white;
-    left: 0px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
     z-index: 9999;
   }
   .navItem {
-    margin: 0;
-    height: 40px;
-    padding: 10px;
-    background: rgba(164, 119, 255, 0.303);
+    margin: 4px;
+    /* height: 40px; */
+    padding: 8px;
     overflow: hidden;
     transition: height 0.4s, padding 0.4s;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+    font-size: 16px;
   }
   .navItem:hover {
     cursor: pointer;
-    background-color: rgb(127, 127, 244);
-    transition: height 0.4s, padding 0.4s;
+    background-color: rgb(245, 229, 216);
+    transition: all 0.4s ease;
   }
   ol {
     /* padding-inline-start: 20px; */
@@ -35,12 +39,16 @@
     margin: 0;
   }
   .activeNavItem {
-    color: purple;
+    /* color: red; */
   }
   .hidden {
     height: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
+    color: white;
+    transition: all 0.5s ease;
   }
 </style>
 
