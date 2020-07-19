@@ -228,7 +228,7 @@ async function main() {
 	//here is where to end json
 
 	// const path = './public/indexTest.html'; //so here, it writes one file.
-	const path = './src/test.js'; //so here, it writes one file.
+	const path = './src/figmaExport.js'; //so here, it writes one file.
 	//here is where it could change to multiple files, one per project/frame
 	fs.writeFile(path, contents, function (err) {
 		//write the file

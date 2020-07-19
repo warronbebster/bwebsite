@@ -6,17 +6,15 @@
   import routes from "./routes.js";
 
   function routeLoaded(event) {
-    console.log(event.detail.location);
-    let loadedRoute = event.detail.location.split("/");
-    loadedRoute.shift();
-    console.log(loadedRoute);
+    let loadedRoute = event.detail.location.split("/"); //route
+    loadedRoute.shift(); //delete first item
 
     if (loadedRoute[0]) {
       //if there's even a value there
       if (Number.isInteger(parseInt(loadedRoute[0]))) {
         //if it's a number
         if (
-          //if it's higher than the number of projects
+          //if first number is out of range
           parseInt(loadedRoute[0]) >= projectArray.length ||
           parseInt(loadedRoute[0]) < 0
         ) {
@@ -45,20 +43,10 @@
         }
       } else {
         //if first value is not even a number
-        replace("/");
+        replace("/"); //BAIL
       }
     }
   }
 </script>
 
-<!--ROUTE-->
 <Router {routes} on:routeLoaded={routeLoaded} />
-<!--ROUTE DONE-->
-
-<!-- Module context… sharing variables across all instances of a module? -->
-<!-- <script context="module">
-	let current; //basically… this is a shared variable between all of those types of modules?
-</script> -->
-
-<!-- pause execution to debug -->
-<!-- {@debug [value to inspect]} -->

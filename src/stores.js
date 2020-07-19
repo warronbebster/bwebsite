@@ -1,8 +1,6 @@
 import { writable, derived } from 'svelte/store';
-import { replace, push } from 'svelte-spa-router';
-import { figmaProject } from './test.js';
+import { figmaProject } from './figmaExport.js';
 
-// export const current = writable(1); //export current number... and total number so it knows when to cycle?
 export const currentPos = writable({ project: 0, story: 0 }); //export current number... and total number so it knows when to cycle?
 
 export const projectArray = figmaProject; //write output of figma script here
@@ -78,10 +76,10 @@ export const getPrev = function (posToCheck) {
 	}
 };
 
-export const plus1 = derived(currentPos, ($currentPos) => getNext($currentPos));
+// export const plus1 = derived(currentPos, ($currentPos) => getNext($currentPos));
 
-export const plus2 = derived(plus1, ($plus1) => getNext($plus1));
+// export const plus2 = derived(plus1, ($plus1) => getNext($plus1));
 
-export const minus1 = derived(currentPos, ($currentPos) => getPrev($currentPos));
+// export const minus1 = derived(currentPos, ($currentPos) => getPrev($currentPos));
 
-export const minus2 = derived(minus1, ($minus1) => getPrev($minus1));
+// export const minus2 = derived(minus1, ($minus1) => getPrev($minus1));

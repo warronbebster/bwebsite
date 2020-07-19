@@ -3,6 +3,8 @@
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
   export let params = { project: 0, story: 0 };
+  $: next = getNext(params);
+  $: prev = getPrev(params);
 
   import { push } from "svelte-spa-router";
 
@@ -56,11 +58,6 @@
 <svelte:window on:keydown={handleKeydown} />
 <svelte:options immutable={true} />
 
-<p
-  style="position: fixed; top:10px; right:10px; background: pink; padding: 10px;">
-  params: {params.project} {params.story}
-</p>
-
 <div class="buttons">
   <button
     id="prevButton"
@@ -83,12 +80,29 @@
 <main>
   {#each projectArray as { name, stories }, i}
     {#each stories as story, j}
-      <Story
-        {params}
-        projectIndex={i}
-        storyIndex={j}
-        storyContent={story}
-        projectName={name} />
+      {#if params.project == i && params.story == j}
+        <Story
+          projectIndex={i}
+          storyIndex={j}
+          storyContent={story}
+          current={true} />
+      {:else if next.project == i && next.story == j}
+        <Story
+          projectIndex={i}
+          storyIndex={j}
+          storyContent={story}
+          next={true} />
+      {:else if prev.project == i && prev.story == j}
+        <Story
+          projectIndex={i}
+          storyIndex={j}
+          storyContent={story}
+          prev={true} />
+      {:else}
+        <Story projectIndex={i} storyIndex={j} storyContent={story} />
+      {/if}
     {/each}
   {/each}
 </main>
+
+<!-- might be better to do the "current, plus1, minus1" calculations here -->
