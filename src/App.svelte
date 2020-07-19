@@ -1,178 +1,59 @@
 <script>
-  //   export let name;
-  import Story from "./Story.svelte";
-  import Nav from "./Nav.svelte";
+  import Router from "svelte-spa-router";
+  import { projectArray } from "./stores.js";
+  import { replace } from "svelte-spa-router";
 
-  // import { getNext, getPrev } from "./orderFunctions.js";
-  import { currentPos, projectArray, getNext, getPrev } from "./stores.js";
+  import routes from "./routes.js";
 
-  // import { apiRequest } from "./figma.js";
+  function routeLoaded(event) {
+    console.log(event.detail.location);
+    let loadedRoute = event.detail.location.split("/");
+    loadedRoute.shift();
+    console.log(loadedRoute);
 
-  // apiRequest("/files/Fgv9nN04eSsH7qJopKgUML").then(apiResponse => {
-  //   console.log(apiResponse.document.children);
-  // });
-  console.log($currentPos);
-
-  function handleProjects(direction) {
-    if (direction == "next") {
-      currentPos.set(getNext($currentPos));
-    } else {
-      currentPos.set(getPrev($currentPos));
-    }
-  }
-
-  function handleKeydown(event) {
-    if (event.keyCode == 39) {
-      handleProjects("next");
-    } else if (event.keyCode == 37) {
-      handleProjects("prev");
+    if (loadedRoute[0]) {
+      //if there's even a value there
+      if (Number.isInteger(parseInt(loadedRoute[0]))) {
+        //if it's a number
+        if (
+          //if it's higher than the number of projects
+          parseInt(loadedRoute[0]) >= projectArray.length ||
+          parseInt(loadedRoute[0]) < 0
+        ) {
+          replace("/");
+        } else {
+          //if the first number is in range
+          if (loadedRoute.length == 2) {
+            //if there's a second value
+            if (Number.isInteger(parseInt(loadedRoute[1]))) {
+              //& it's a number
+              if (
+                parseInt(loadedRoute[1]) >=
+                projectArray[parseInt(loadedRoute[0])].stories.length
+              ) {
+                // if it's higher than the amount of stories in that project
+                replace("/" + loadedRoute[0] + "/0");
+              }
+            } else {
+              //if second value is not a number
+              replace("/" + loadedRoute[0] + "/0");
+            }
+          } else if ((loadedRoute.length = 1)) {
+            //if there's only the first number
+            replace("/" + loadedRoute[0] + "/0");
+          }
+        }
+      } else {
+        //if first value is not even a number
+        replace("/");
+      }
     }
   }
 </script>
 
-<style>
-  button {
-    position: absolute;
-    top: 0px;
-    background-color: rgb(255, 139, 212);
-    font-size: 20px;
-    z-index: 20;
-    opacity: 0;
-    outline: none;
-  }
-  #nextButton {
-    right: 0px;
-    width: 50vw;
-    height: 100vh;
-    cursor: e-resize;
-  }
-  #prevButton {
-    left: 0px;
-    width: 50vw;
-    height: 100vh;
-    cursor: w-resize;
-  }
-  main {
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-    display: flex;
-  }
-</style>
-
-<!-- could you do some code that triggers a function to check if the figma file has been updated? and update the store accordingly? -->
-<!-- maybe do it at the end of loading the page… so it changes in the background after the page has loaded so the next load gets the updated version -->
-<svelte:options immutable={true} />
-<svelte:window on:keydown={handleKeydown} />
-
-<div class="buttons">
-  <button
-    id="prevButton"
-    on:mouseup={() => {
-      handleProjects('prev');
-    }}
-    on:mousedown={() => {
-      console.log('mouse down bb');
-    }}>
-    prev project
-  </button>
-  <button
-    id="nextButton"
-    on:mouseup={() => {
-      handleProjects('next');
-    }}
-    on:mousedown={() => {
-      console.log('mouse down bb');
-    }}>
-    Next project
-  </button>
-</div>
-<Nav projectIndex={$currentPos.project} />
-
-<main>
-  {#each projectArray as { name, stories }, i}
-    <!-- here's where ui for the project lives  —title, swipe up/more, etc-->
-    <!-- <p>{name}</p> -->
-    {#each stories as story, j}
-      <Story
-        projectIndex={i}
-        storyIndex={j}
-        storyContent={story}
-        projectName={name} />
-    {/each}
-    <!-- Swipe up bit here -->
-  {/each}
-</main>
-
-<!-- extracontent goes down here -->
-
-<!-- 
-{:if}
-{:else}
-{/if} -->
-
-<!-- event listeners: -->
-<!-- <div on:mousemove = {handleMousemove}> </div> -->
-<!-- u can also run functions inline: -->
-<!-- <div on:mousemove={e => m = {x: e.clientX, y: e.clientY}}> -->
-<!-- also there are modifiers -->
-<!-- <button on:click|once={handleClick}></button> -->
-
-<!-- loops:
-{:each cats as cat, i} (i is optional if you want to use index)
-{:/each } -->
-
-<!-- 
-{#each things as thing (thing.id)} (id if you want to like… only check the one thing?)
-{/each} -->
-
-<!-- <Component {...props}/> -->
-<!-- passing an object of props -->
-
-<!-- <Component on:message/> -->
-<!-- forwarding events ("message", here) up the component stack -->
-
-<!-- <input bind:value={name}> -->
-<!-- binding variables so data can flow up from components (and down? at the same time? wat) -->
-
-<!-- 
-{#await promise}
-	<p>{promise}</p>
-{:then number}
-	<p>the numnber is {number}</p>
-{/await} -->
-
-<!-- onMount in <script> for only loading images when the component mounts  -->
-
-<!-- onMount(async () => {
-	const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=20`);
-	photos = await res.json();
-}) -->
-
-<!-- transitions! -->
-<!-- <p transition:fade on:introstart="{() => status = 'intro started'}"></p> -->
-
-<!-- Classes = this listens to if "big" is truthy -->
-<!-- <div class:big></div> -->
-
-<!-- Slots : this allows components to accept info from their parents -->
-<!-- <div class="box">
-	<slot>
-		<p>default content if nothing is put in the slot</p>
-	</slot>
-</div> -->
-
-<!-- So you can do things like this:  -->
-<!-- <Box>
-	<h2>Hello!</h2>
-	<p>This is a box. It can contain anything.</p>
-</Box> -->
-
-<!-- This allows you to switch between different components without a bunch of "ifs" -->
-<!-- <svelte:component this={selected.component}/> -->
-
-<!-- window event listeners (useful for stories) -->
-<!-- <svelte:window on:keydown={handleKeydown}/> -->
+<!--ROUTE-->
+<Router {routes} on:routeLoaded={routeLoaded} />
+<!--ROUTE DONE-->
 
 <!-- Module context… sharing variables across all instances of a module? -->
 <!-- <script context="module">

@@ -1,43 +1,40 @@
 <script>
   import { beforeUpdate } from "svelte";
-  import { currentPos, plus1, minus1, plus2, minus2 } from "./stores.js";
   import Content from "./Content.svelte";
+  import { getNext, getPrev } from "../stores.js";
 
+  export let params = { project: 0, story: 0 };
   export let projectIndex = 0; //prop so that you can pass which project from App
   export let storyIndex = 0; //prop so that you can pass which project from App
   export let storyContent = "<section>loading…</section"; //prop so that you can pass which project from App
-  export let projectName = "project name"; //prop to pass project name from App
+  // export const projectName = "project name"; //prop to pass project name from App
 
   let displayPosition = "none";
   let showStoryContent = false;
+
+  let plus1 = getNext(params);
+  let minus1 = getPrev(params);
 
   //there's probably a better way of doing this than just using afterUpdate...
 
   beforeUpdate(() => {
     //also this should happen not just on beforeUpdate
+    plus1 = getNext(params);
+    minus1 = getPrev(params);
 
-    // if (projectIndex == $plus2.project && storyIndex == $plus2.story) {
-    //   displayPosition = "plus2";
-    //   showStoryContent = true;
-    // } else
-    if (projectIndex == $plus1.project && storyIndex == $plus1.story) {
+    if (projectIndex == plus1.project && storyIndex == plus1.story) {
       displayPosition = "plus1";
       showStoryContent = true;
     } else if (
-      projectIndex == $currentPos.project &&
-      storyIndex == $currentPos.story
+      projectIndex == parseInt(params.project) &&
+      storyIndex == parseInt(params.story)
     ) {
       displayPosition = "currentProject";
       showStoryContent = true;
-    } else if (projectIndex == $minus1.project && storyIndex == $minus1.story) {
+    } else if (projectIndex == minus1.project && storyIndex == minus1.story) {
       displayPosition = "minus1";
       showStoryContent = true;
-    }
-    // else if (projectIndex == $minus2.project && storyIndex == $minus2.story) {
-    //   displayPosition = "minus2";
-    //   showStoryContent = true;
-    // }
-    else {
+    } else {
       displayPosition = "none";
     }
   });
@@ -57,11 +54,7 @@
     margin: 10px;
     position: relative;
     overflow: hidden;
-
     border-radius: 12px;
-
-    /* transition: 0.5s translate, 0.5s transform, 0.5s left, 0.5s right,
-      0.5s opacity; */
   }
   @media screen and (max-width: 550px) {
     .story {
@@ -87,21 +80,9 @@
     }
   } */
   .none {
-    /* opacity: 0.5; */
-    display: none;
-    /* width: 0px; */
-    /* margin: 0; */
-    /* this could work to only show the current, previous, & next project; */
-  }
-  .minus2 {
-    /* opacity: 0.7;
-    position: fixed;
-    top: 50%;
-    left: -20vw;
-    transform: translateY(-50%) scale(0.5); */
-    /* above is if I want transitions */
     display: none;
   }
+
   .minus1 {
     /* opacity: 0.2;
     position: fixed;
@@ -114,14 +95,7 @@
   }
   .currentProject {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
     margin: 0;
-
-    /* below is if I want transitions */
-    /* position: fixed; */
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
   }
   .plus1 {
     /* opacity: 0.5;
@@ -132,20 +106,10 @@
     /* above is if I want transitions */
     display: none;
   }
-  .plus2 {
-    /* opacity: 0.7;
-    position: fixed;
-    top: 50%;
-    right: -20vw;
-    transform: translateY(-50%) scale(0.5); */
-    /* above is if I want transitions */
-    display: none;
-  }
 </style>
 
 <div class="story {displayPosition} ">
-  <!-- probably a slot here for content tbh… videos, photos, text, etc -->
   {#if showStoryContent}
-    <Content {projectIndex} {storyIndex} {storyContent} />
+    <Content {storyContent} />
   {/if}
 </div>

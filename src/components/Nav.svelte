@@ -1,13 +1,10 @@
 <script>
-  import { projectArray, currentPos } from "./stores.js";
+  import { projectArray } from "../stores.js";
+  import { push } from "svelte-spa-router";
 
   export let projectIndex = 0; //prop so that you can pass which project from App
 
   let navOpen = false;
-
-  function setCurrentPos(projectToSet, storyToSet) {
-    currentPos.set({ project: projectToSet, story: storyToSet });
-  }
 </script>
 
 <style>
@@ -17,7 +14,7 @@
     top: 0px;
     background-color: white;
     left: 0px;
-    z-index: 999;
+    z-index: 9999;
   }
   .navItem {
     margin: 0;
@@ -68,7 +65,7 @@
         {navOpen ? 'visible' : projectIndex !== i ? 'hidden' : 'visible'}
         "
         on:click={() => {
-          currentPos.set({ project: i, story: 0 });
+          push('/' + i + '/0');
           if (window.innerWidth < 640) {
             projectIndex == i ? (navOpen = !navOpen) : (navOpen = false);
             console.log(navOpen);
