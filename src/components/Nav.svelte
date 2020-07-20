@@ -14,8 +14,8 @@
     padding: 0;
     margin: 0;
     min-height: 44px;
-    bottom: 8px;
-    right: 8px;
+    top: 8px;
+    left: 8px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);

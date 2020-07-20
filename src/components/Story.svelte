@@ -44,6 +44,8 @@
     position: relative;
     overflow: hidden;
     border-radius: 12px;
+    transition: 0.3s max-height ease, 0.3s max-width ease, 0.3s height ease,
+      0.3s width ease, 0.3s border-radius ease;
   }
   @media screen and (max-width: 550px) {
     .story {
@@ -52,7 +54,6 @@
       height: 100vh;
       max-height: 100vh;
       max-width: 100vw;
-      transition: none;
     }
     .currentProject {
       top: 0;
