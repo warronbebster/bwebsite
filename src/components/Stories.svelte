@@ -10,9 +10,9 @@
 
   function handleProjects(direction) {
     if (direction == "next") {
-      push("/" + getNext(params).project + "/" + getNext(params).story);
+      push("/" + next.project + "/" + next.story);
     } else {
-      push("/" + getPrev(params).project + "/" + getPrev(params).story);
+      push("/" + prev.project + "/" + prev.story);
     }
   }
 
