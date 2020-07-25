@@ -2,11 +2,31 @@
   import Story from "./Story.svelte";
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
+  // import { gestures } from "@composi/gestures";
+  import { push } from "svelte-spa-router";
+
+  // gestures();
+
   export let params = { project: 0, story: 0 };
   $: next = getNext(params);
   $: prev = getPrev(params);
 
-  import { push } from "svelte-spa-router";
+  let touch = false;
+  let gesture_tracker = { pageX: 0, pageY: 0 };
+  let gesture_active = { pageX: 0, pageY: 0 };
+  let gesture_gap = { pageX: 0, pageY: 0 };
+
+  // $: gesture_gap = {
+  //   pageX: gesture_active.pageX - gesture_tracker.pageX,
+  //   pageY: gesture_active.pageY - gesture_tracker.pageY
+  // };
+  let held = false;
+  let swipeSensitivity = screen.width / 3;
+  window.onresize = () => {
+    swipeSensitivity = screen.width / 3;
+  };
+
+  let timedout = true;
 
   function handleProjects(direction) {
     if (direction == "next") {
@@ -15,6 +35,133 @@
       push("/" + prev.project + "/" + prev.story);
     }
   }
+
+  function gestureDown(e) {
+    //when a gesture starts
+    if (e.type == "touchstart") {
+      //if it'a a touch event
+      touch = true;
+      gesture_tracker.pageX = Math.round(e.changedTouches[0].pageX);
+      gesture_tracker.pageY = Math.round(e.changedTouches[0].pageY);
+    } else {
+      //if it's a mouse
+      touch = false;
+      gesture_tracker.pageX = e.pageX;
+      gesture_tracker.pageY = e.pageY;
+    }
+    held = true; //start holding gesture
+    timedout = false;
+    setTimeout(() => {
+      timedout = true;
+    }, 1000);
+  }
+
+  function gestureMove(e) {
+    //when ya movin
+    if (e.type == "touchmove") {
+      //if it'a a touch event
+      touch = true;
+      gesture_active.pageX = Math.round(e.changedTouches[0].pageX);
+      gesture_active.pageY = Math.round(e.changedTouches[0].pageY);
+    } else {
+      //if it's a mouse
+      touch = false;
+      gesture_active.pageX = e.pageX;
+      gesture_active.pageY = e.pageY;
+    }
+    gesture_gap = {
+      pageX: gesture_active.pageX - gesture_tracker.pageX,
+      pageY: gesture_active.pageY - gesture_tracker.pageY
+    };
+    console.log(gesture_active.pageX + ", " + gesture_active.pageY);
+  }
+
+  function gestureUp(e, direction) {
+    held = false; //end holding gesture
+    if (e.type == "touchend") {
+      //if it's a touch event
+      touch = true;
+    } else {
+      touch = false;
+    }
+
+    if (!timedout) {
+      //if the gesture hasn't timed out
+      if (gesture_active.pageX > gesture_tracker.pageX + swipeSensitivity) {
+        //RIGHT SWIPEY
+        console.log("right swipey");
+        console.log(parseInt(params.project) > 0);
+        parseInt(params.project) > 0 // if current project ain't last
+          ? push("/" + (parseInt(params.project) - 1) + "/0") //next project
+          : push("/" + (projectArray.length - 1) + "/0"); //last project
+      } else if (
+        gesture_active.pageX <
+        gesture_tracker.pageX - swipeSensitivity
+      ) {
+        //LEFT SWIPEY
+        console.log("left swipey");
+        parseInt(params.project) <= projectArray.length // if current project ain't last
+          ? push("/" + (parseInt(params.project) + 1) + "/0") //next project
+          : push("/0/0"); //first project
+      } else {
+        //JUST GO NEXT OR PREV
+        handleProjects(direction);
+      }
+    }
+    //clear out gesture tracking
+    gesture_tracker = { pageX: 0, pageY: 0 };
+    gesture_active = { pageX: 0, pageY: 0 };
+    gesture_gap = { pageX: 0, pageY: 0 };
+  }
+
+  // function mouseDown(e) {
+  //   //this fires on mousedown, but at the end of a touch event
+  //   if (!touch) {
+  //     held = true;
+  //     gestureDown(Math.round(e.pageX), Math.round(e.pageY));
+  //   }
+  // }
+
+  // function touchStart(e) {
+  //   touch = true; //hey this client is using touch events
+  //   held = true;
+  //   console.dir(e);
+  //   console.log("touch started");
+  //   gestureDown(
+  //     Math.round(Math.round(e.changedTouches[0].pageX)),
+  //     Math.round(Math.round(e.changedTouches[0].pageY))
+  //   );
+  // }
+
+  // function mouseUp(e) {
+  //   held = false;
+  //   if (e.pageX > gesture_tracker.pageX + 50) {
+  //     console.log("uhhh more than 50");
+  //   }
+  // }
+
+  // function touchEnd(e) {
+  //   held = false;
+  // }
+
+  // function swipeListener(e) {
+  //   if (e.data == "left") {
+  //     console.log("eyyy left swipey");
+  //     console.log(parseInt(params.project));
+  //     console.log(parseInt(params.project) + 1);
+  //     parseInt(params.project) <= projectArray.length // if current project ain't last
+  //       ? push("/" + (parseInt(params.project) + 1) + "/0") //next project
+  //       : push("/0/0"); //first project
+  //   } else if (e.data == "right") {
+  //     console.log("eyyy right swipey");
+  //     console.log(parseInt(params.project));
+  //     console.log(parseInt(params.project) - 1);
+  //     console.log(projectArray.length);
+  //     parseInt(params.project) > 0 // if current project ain't last
+  //       ? push("/" + (parseInt(params.project) - 1) + "/0") //next project
+  //       : push("/" + projectArray.length + "/0"); //next project; //first project
+  //   }
+  // }
 
   function handleKeydown(event) {
     if (event.keyCode == 39) {
@@ -31,6 +178,7 @@
     justify-content: center;
     flex-wrap: nowrap;
     display: flex;
+    /* overflow: hidden; */
   }
   button {
     position: absolute;
@@ -61,48 +209,75 @@
 <div class="buttons">
   <button
     id="prevButton"
-    on:mouseup={() => {
-      handleProjects('prev');
-    }}>
-    prev project
-  </button>
+    on:touchstart|preventDefault={e => gestureDown(e)}
+    on:mousedown|preventDefault={e => {
+      if (!touch) {
+        gestureDown(e);
+      }
+    }}
+    on:touchmove|preventDefault={e => {
+      if (held) {
+        gestureMove(e);
+      }
+    }}
+    on:mousemove|preventDefault={e => {
+      if (held) {
+        gestureMove(e);
+      }
+    }}
+    on:touchend|preventDefault={e => gestureUp(e, 'prev')}
+    on:mouseup={e => {
+      if (!touch) {
+        gestureUp(e, 'prev');
+      }
+    }} />
   <button
     id="nextButton"
-    on:mouseup={() => {
-      handleProjects('next');
-    }}>
-    Next project
-  </button>
+    on:touchstart|preventDefault={e => gestureDown(e)}
+    on:mousedown|preventDefault={e => {
+      if (!touch) {
+        gestureDown(e);
+      }
+    }}
+    on:touchmove|preventDefault={e => {
+      if (held) {
+        gestureMove(e);
+      }
+    }}
+    on:mousemove|preventDefault={e => {
+      if (held) {
+        gestureMove(e);
+      }
+    }}
+    on:touchend|preventDefault={e => gestureUp(e, 'next')}
+    on:mouseup={e => {
+      if (!touch) {
+        gestureUp(e, 'next');
+      }
+    }} />
 </div>
 
 <Nav projectIndex={parseInt(params.project)} />
-
 <main>
-  {#each projectArray as { name, stories }, i}
-    {#each stories as story, j}
-      {#if params.project == i && params.story == j}
-        <Story
-          projectIndex={i}
-          storyIndex={j}
-          storyContent={story}
-          current={true} />
-      {:else if next.project == i && next.story == j}
-        <Story
-          projectIndex={i}
-          storyIndex={j}
-          storyContent={story}
-          next={true} />
-      {:else if prev.project == i && prev.story == j}
-        <Story
-          projectIndex={i}
-          storyIndex={j}
-          storyContent={story}
-          prev={true} />
-      {:else}
-        <Story projectIndex={i} storyIndex={j} storyContent={story} />
-      {/if}
+  <div
+    style="position: relative; overflow: hidden; transition: top {held ? 0 : 0.15}s
+    ease, left {held ? 0 : 0.15}s ease; left: {held ? gesture_gap.pageX / 2 : 0}px;
+    top: {held ? gesture_gap.pageY / 2 : 0}px; ">
+
+    {#each projectArray as { name, stories }, i}
+      {#each stories as story, j}
+        {#if params.project == i && params.story == j}
+          <Story storyContent={story} current={true} />
+        {:else if next.project == i && next.story == j}
+          <Story storyContent={story} next={true} />
+        {:else if prev.project == i && prev.story == j}
+          <Story storyContent={story} prev={true} />
+        {:else}
+          <Story storyContent={story} />
+        {/if}
+      {/each}
     {/each}
-  {/each}
+  </div>
 </main>
 
 <!-- might be better to do the "current, plus1, minus1" calculations here -->

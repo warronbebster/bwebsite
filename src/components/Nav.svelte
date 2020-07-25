@@ -77,7 +77,6 @@
           push('/' + i + '/0');
           if (window.innerWidth < 640) {
             projectIndex == i ? (navOpen = !navOpen) : (navOpen = false);
-            console.log(navOpen);
           }
         }}>
         {project.name}

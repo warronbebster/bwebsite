@@ -2,8 +2,8 @@
   // import { beforeUpdate } from "svelte";
   import Content from "./Content.svelte";
 
-  export const projectIndex = 0; //prop so that you can pass which project from App
-  export const storyIndex = 0; //prop so that you can pass which project from App
+  // export const projectIndex = 0; //prop so that you can pass which project from App
+  // export const storyIndex = 0; //prop so that you can pass which project from App
   export let storyContent = "<section>loading…</section"; //prop so that you can pass which project from App
   export let current = false;
   export let next = false;
