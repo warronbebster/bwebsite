@@ -1,20 +1,21 @@
 <script>
   import Story from "./Story.svelte";
+  import { onMount } from "svelte";
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
   import { gestures } from "@composi/gestures";
   import { push } from "svelte-spa-router";
 
-  gestures();
+  gestures(); //figure this shit out at some point lol
 
   export let params = { project: 0, story: 0 };
   $: next = getNext(params);
   $: prev = getPrev(params);
 
   let touch = false;
-  let gesture_tracker = { pageX: 0, pageY: 0 };
+  let gesture_start = { pageX: 0, pageY: 0 };
   let gesture_active = { pageX: 0, pageY: 0 };
-  let gesture_gap = { pageX: 0, pageY: 0 };
+  let gesture_gap = { pageX: 0, pageY: 0 }; //why can't i make this a reactive svelte thingy
 
   let held = false;
   let swipeSensitivity = screen.width / 3;
@@ -23,6 +24,7 @@
   };
 
   let timedout = true;
+  let gesturetimer;
 
   function handleProjects(direction) {
     if (direction == "next") {
@@ -37,71 +39,57 @@
     if (e.type == "touchstart") {
       //if it'a a touch event
       touch = true;
-      gesture_tracker.pageX = Math.round(e.changedTouches[0].pageX);
-      gesture_tracker.pageY = Math.round(e.changedTouches[0].pageY);
-      gesture_active.pageX = Math.round(e.changedTouches[0].pageX);
-      gesture_active.pageY = Math.round(e.changedTouches[0].pageY);
+      gesture_start.pageX = Math.round(e.changedTouches[0].pageX); //where the event starts
+      gesture_start.pageY = Math.round(e.changedTouches[0].pageY);
     } else {
       //if it's a mouse
       touch = false;
-      gesture_tracker.pageX = e.pageX;
-      gesture_tracker.pageY = e.pageY;
-      gesture_active.pageX = e.pageX;
-      gesture_active.pageY = e.pageY;
+      gesture_start.pageX = e.pageX;
+      gesture_start.pageY = e.pageY;
     }
+    gesture_active.pageX = gesture_start.pageX;
+    gesture_active.pageY = gesture_start.pageY;
     held = true; //start holding gesture
-    timedout = false;
-    setTimeout(() => {
+    timedout = false; //reset timedout, hasn't timed out yet
+    gesturetimer = setTimeout(() => {
+      //start timer
       timedout = true;
-    }, 1000);
+    }, 500);
   }
 
   function gestureMove(e) {
     //when ya movin
     if (e.type == "touchmove") {
       //if it'a a touch event
-      touch = true;
       gesture_active.pageX = Math.round(e.changedTouches[0].pageX);
       gesture_active.pageY = Math.round(e.changedTouches[0].pageY);
     } else {
       //if it's a mouse
-      touch = false;
+      // touch = false;
       gesture_active.pageX = e.pageX;
       gesture_active.pageY = e.pageY;
     }
     gesture_gap = {
-      pageX: gesture_active.pageX - gesture_tracker.pageX,
-      pageY: gesture_active.pageY - gesture_tracker.pageY
+      //set the gap between start and where you've dragged
+      pageX: gesture_active.pageX - gesture_start.pageX,
+      pageY: gesture_active.pageY - gesture_start.pageY
     };
-    console.log(gesture_active.pageX + ", " + gesture_active.pageY);
   }
 
   function gestureUp(e, direction) {
     held = false; //end holding gesture
-    if (e.type == "touchend") {
-      //if it's a touch event
-      touch = true;
-    } else {
-      touch = false;
-    }
-
     if (!timedout) {
       //if the gesture hasn't timed out
-      console.log(gesture_active.pageX);
-      console.log(gesture_tracker.pageX - swipeSensitivity);
-      if (gesture_active.pageX > gesture_tracker.pageX + swipeSensitivity) {
+      if (gesture_active.pageX > gesture_start.pageX + swipeSensitivity) {
         //RIGHT SWIPEY
-        console.log("right swipey");
-        console.log(parseInt(params.project) > 0);
         parseInt(params.project) > 0 // if current project ain't last
           ? push("/" + (parseInt(params.project) - 1) + "/0") //next project
           : push("/" + (projectArray.length - 1) + "/0"); //last project
       } else if (
         gesture_active.pageX <
-        gesture_tracker.pageX - swipeSensitivity
+        gesture_start.pageX - swipeSensitivity
       ) {
         //LEFT SWIPEY
-        console.log("left swipey");
         parseInt(params.project) <= projectArray.length // if current project ain't last
           ? push("/" + (parseInt(params.project) + 1) + "/0") //next project
           : push("/0/0"); //first project
@@ -110,8 +98,10 @@
         handleProjects(direction);
       }
     }
-    //clear out gesture tracking
-    gesture_tracker = { pageX: 0, pageY: 0 };
+    //reset timer
+    clearTimeout(gesturetimer);
+    //reset gesture tracking
+    gesture_start = { pageX: 0, pageY: 0 };
     gesture_active = { pageX: 0, pageY: 0 };
     gesture_gap = { pageX: 0, pageY: 0 };
   }
@@ -137,7 +127,7 @@
 
   // function mouseUp(e) {
   //   held = false;
-  //   if (e.pageX > gesture_tracker.pageX + 50) {
+  //   if (e.pageX > gesture_start.pageX + 50) {
   //     console.log("uhhh more than 50");
   //   }
   // }
@@ -176,9 +166,9 @@
 
 <style>
   main {
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
-    flex-wrap: nowrap;
+    /* flex-wrap: nowrap; */
     display: flex;
     /* overflow: hidden; */
   }
@@ -212,74 +202,54 @@
   <button
     id="prevButton"
     on:touchstart|preventDefault={e => gestureDown(e)}
-    on:mousedown|preventDefault={e => {
-      if (!touch) {
-        gestureDown(e);
-      }
-    }}
+    on:mousedown|preventDefault={e => gestureDown(e)}
     on:touchmove|preventDefault={e => {
-      if (held) {
-        gestureMove(e);
-      }
+      if (held) gestureMove(e);
     }}
     on:mousemove|preventDefault={e => {
-      if (held) {
-        gestureMove(e);
-      }
+      if (held) gestureMove(e);
     }}
     on:touchend|preventDefault={e => gestureUp(e, 'prev')}
-    on:mouseup={e => {
-      if (!touch) {
-        gestureUp(e, 'prev');
-      }
-    }} />
+    on:mouseup={e => gestureUp(e, 'prev')} />
   <button
     id="nextButton"
     on:touchstart|preventDefault={e => gestureDown(e)}
-    on:mousedown|preventDefault={e => {
-      if (!touch) {
-        gestureDown(e);
-      }
-    }}
+    on:mousedown|preventDefault={e => gestureDown(e)}
     on:touchmove|preventDefault={e => {
-      if (held) {
-        gestureMove(e);
-      }
+      if (held) gestureMove(e);
     }}
     on:mousemove|preventDefault={e => {
-      if (held) {
-        gestureMove(e);
-      }
+      if (held) gestureMove(e);
     }}
     on:touchend|preventDefault={e => gestureUp(e, 'next')}
-    on:mouseup={e => {
-      if (!touch) {
-        gestureUp(e, 'next');
-      }
-    }} />
+    on:mouseup={e => gestureUp(e, 'next')} />
 </div>
 
 <Nav projectIndex={parseInt(params.project)} />
-<main>
-  <div
-    style="position: relative; overflow: hidden; transition: top {held ? 0 : 0.15}s
-    ease, left {held ? 0 : 0.15}s ease; left: {held ? gesture_gap.pageX / 2 : 0}px;
-    top: {held ? gesture_gap.pageY / 2 : 0}px; ">
-    <!-- could add a css animation/transition here; change class when "held" is off to do an animation … 
+<div
+  style="overflow:hidden; width: 100vw; height: 100vh; display: flex;
+  justify-content: center; align-items: center;">
+  <main>
+    <div
+      style="position: relative; overflow: hidden; transition: top {held ? 0 : 0.15}s
+      ease, left {held ? 0 : 0.15}s ease; left: {held ? gesture_gap.pageX / 2 : 0}px;
+      top: {held ? gesture_gap.pageY / 2 : 0}px; ">
+      <!-- could add a css animation/transition here; change class when "held" is off to do an animation … 
     but only if i also only do it on successful swipes -->
 
-    {#each projectArray as { name, stories }, i}
-      {#each stories as story, j}
-        {#if params.project == i && params.story == j}
-          <Story storyContent={story} current={true} />
-        {:else if next.project == i && next.story == j}
-          <Story storyContent={story} next={true} />
-        {:else if prev.project == i && prev.story == j}
-          <Story storyContent={story} prev={true} />
-        {:else}
-          <Story storyContent={story} />
-        {/if}
+      {#each projectArray as { name, stories }, i}
+        {#each stories as story, j}
+          {#if params.project == i && params.story == j}
+            <Story storyContent={story} current={true} />
+          {:else if next.project == i && next.story == j}
+            <Story storyContent={story} next={true} />
+          {:else if prev.project == i && prev.story == j}
+            <Story storyContent={story} prev={true} />
+          {:else}
+            <Story storyContent={story} />
+          {/if}
+        {/each}
       {/each}
-    {/each}
-  </div>
-</main>
+    </div>
+  </main>
+</div>

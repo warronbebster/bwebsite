@@ -7,6 +7,7 @@
 		"start": "sirv public --single"
 	},
 	"devDependencies": {
+		"@composi/gestures": "^1.0.9",
 		"@rollup/plugin-commonjs": "11.0.2",
 		"@rollup/plugin-node-resolve": "^7.0.0",
 		"rollup": "^1.20.0",
