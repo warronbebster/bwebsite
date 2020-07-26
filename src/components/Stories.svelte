@@ -12,19 +12,24 @@
   $: next = getNext(params);
   $: prev = getPrev(params);
 
-  let touch = false;
+  // let touch = false;//whether the gestures
   let gesture_start = { pageX: 0, pageY: 0 };
   let gesture_active = { pageX: 0, pageY: 0 };
   let gesture_gap = { pageX: 0, pageY: 0 }; //why can't i make this a reactive svelte thingy
 
   let held = false;
-  let swipeSensitivity = screen.width / 3;
+  let swipeSensitivity = Math.min(screen.width / 3, 300);
   window.onresize = () => {
-    swipeSensitivity = screen.width / 3;
+    swipeSensitivity = Math.min(screen.width / 3, 300);
   };
 
-  let timedout = true;
-  let gesturetimer;
+  let timedout = true; //whether a gesture has timed out
+  let gesturetimer; //timer object to time that
+
+  let navOpen = false;
+  function handleNav(event) {
+    navOpen = event.detail.open;
+  }
 
   function handleProjects(direction) {
     if (direction == "next") {
@@ -36,14 +41,13 @@
 
   function gestureDown(e) {
     //when a gesture starts
+    navOpen = false;
     if (e.type == "touchstart") {
       //if it'a a touch event
-      touch = true;
       gesture_start.pageX = Math.round(e.changedTouches[0].pageX); //where the event starts
       gesture_start.pageY = Math.round(e.changedTouches[0].pageY);
     } else {
       //if it's a mouse
-      touch = false;
       gesture_start.pageX = e.pageX;
       gesture_start.pageY = e.pageY;
     }
@@ -65,7 +69,6 @@
       gesture_active.pageY = Math.round(e.changedTouches[0].pageY);
     } else {
       //if it's a mouse
-      // touch = false;
       gesture_active.pageX = e.pageX;
       gesture_active.pageY = e.pageY;
     }
@@ -166,11 +169,8 @@
 
 <style>
   main {
-    /* align-items: center; */
     justify-content: center;
-    /* flex-wrap: nowrap; */
     display: flex;
-    /* overflow: hidden; */
   }
   button {
     position: absolute;
@@ -225,7 +225,7 @@
     on:mouseup={e => gestureUp(e, 'next')} />
 </div>
 
-<Nav projectIndex={parseInt(params.project)} />
+<Nav projectIndex={parseInt(params.project)} {navOpen} on:message={handleNav} />
 <div
   style="overflow:hidden; width: 100vw; height: 100vh; display: flex;
   justify-content: center; align-items: center;">

@@ -4,7 +4,17 @@
 
   export let projectIndex = 0; //prop so that you can pass which project from App
 
-  let navOpen = false;
+  export let navOpen = false;
+
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
+  function showNav(openOrNot) {
+    dispatch("message", {
+      open: openOrNot
+    });
+  }
 </script>
 
 <style>
@@ -33,7 +43,7 @@
   }
   .navItem:hover {
     cursor: pointer;
-    background-color: rgb(220, 208, 198);
+    background-color: rgb(225, 206, 224);
     transition: all 0.4s ease;
   }
   ol {
@@ -58,12 +68,12 @@
 <nav
   on:mouseover={() => {
     if (window.innerWidth > 640) {
-      navOpen = true;
+      showNav(true);
     }
   }}
   on:mouseleave={() => {
     if (window.innerWidth > 640) {
-      navOpen = false;
+      showNav(false);
     }
   }}>
   <ol>
@@ -74,9 +84,11 @@
         {navOpen ? 'visible' : projectIndex !== i ? 'hidden' : 'visible'}
         "
         on:click={() => {
-          push('/' + i + '/0');
           if (window.innerWidth < 640) {
-            projectIndex == i ? (navOpen = !navOpen) : (navOpen = false);
+            if (navOpen) push('/' + i + '/0');
+            projectIndex == i ? showNav(!navOpen) : showNav(false);
+          } else {
+            push('/' + i + '/0');
           }
         }}>
         {project.name}
