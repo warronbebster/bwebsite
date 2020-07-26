@@ -108,56 +108,6 @@
     gesture_active = { pageX: 0, pageY: 0 };
     gesture_gap = { pageX: 0, pageY: 0 };
   }
-
-  // function mouseDown(e) {
-  //   //this fires on mousedown, but at the end of a touch event
-  //   if (!touch) {
-  //     held = true;
-  //     gestureDown(Math.round(e.pageX), Math.round(e.pageY));
-  //   }
-  // }
-
-  // function touchStart(e) {
-  //   touch = true; //hey this client is using touch events
-  //   held = true;
-  //   console.dir(e);
-  //   console.log("touch started");
-  //   gestureDown(
-  //     Math.round(Math.round(e.changedTouches[0].pageX)),
-  //     Math.round(Math.round(e.changedTouches[0].pageY))
-  //   );
-  // }
-
-  // function mouseUp(e) {
-  //   held = false;
-  //   if (e.pageX > gesture_start.pageX + 50) {
-  //     console.log("uhhh more than 50");
-  //   }
-  // }
-
-  // function touchEnd(e) {
-  //   held = false;
-  // }
-
-  // function swipeListener(e) {
-  //   if (e.data == "left") {
-  //     console.log("eyyy left swipey");
-  //     console.log(parseInt(params.project));
-  //     console.log(parseInt(params.project) + 1);
-  //     parseInt(params.project) <= projectArray.length // if current project ain't last
-  //       ? push("/" + (parseInt(params.project) + 1) + "/0") //next project
-  //       : push("/0/0"); //first project
-  //   } else if (e.data == "right") {
-  //     console.log("eyyy right swipey");
-  //     console.log(parseInt(params.project));
-  //     console.log(parseInt(params.project) - 1);
-  //     console.log(projectArray.length);
-  //     parseInt(params.project) > 0 // if current project ain't last
-  //       ? push("/" + (parseInt(params.project) - 1) + "/0") //next project
-  //       : push("/" + projectArray.length + "/0"); //next project; //first project
-  //   }
-  // }
-
   function handleKeydown(event) {
     if (event.keyCode == 39) {
       handleProjects("next");
@@ -175,8 +125,8 @@
   button {
     position: absolute;
     top: 0px;
+    height: 100vh;
     background-color: rgb(255, 139, 212);
-    font-size: 20px;
     z-index: 20;
     opacity: 0;
     outline: none;
@@ -184,13 +134,11 @@
   #nextButton {
     right: 0px;
     width: 50vw;
-    height: 100vh;
     cursor: e-resize;
   }
   #prevButton {
     left: 0px;
     width: 50vw;
-    height: 100vh;
     cursor: w-resize;
   }
 </style>
@@ -229,27 +177,30 @@
 <div
   style="overflow:hidden; width: 100vw; height: 100vh; display: flex;
   justify-content: center; align-items: center;">
-  <main>
-    <div
+  <main
+    style="position: relative; overflow: hidden; transition: top {held ? 0 : 0.15}s
+    ease, left {held ? 0 : 0.15}s ease; left: {held ? gesture_gap.pageX / 2 : 0}px;
+    top: {held ? gesture_gap.pageY / 2 : 0}px; ">
+    <!-- <div
       style="position: relative; overflow: hidden; transition: top {held ? 0 : 0.15}s
       ease, left {held ? 0 : 0.15}s ease; left: {held ? gesture_gap.pageX / 2 : 0}px;
-      top: {held ? gesture_gap.pageY / 2 : 0}px; ">
-      <!-- could add a css animation/transition here; change class when "held" is off to do an animation … 
+      top: {held ? gesture_gap.pageY / 2 : 0}px; "> -->
+    <!-- could add a css animation/transition here; change class when "held" is off to do an animation … 
     but only if i also only do it on successful swipes -->
 
-      {#each projectArray as { name, stories }, i}
-        {#each stories as story, j}
-          {#if params.project == i && params.story == j}
-            <Story storyContent={story} current={true} />
-          {:else if next.project == i && next.story == j}
-            <Story storyContent={story} next={true} />
-          {:else if prev.project == i && prev.story == j}
-            <Story storyContent={story} prev={true} />
-          {:else}
-            <Story storyContent={story} />
-          {/if}
-        {/each}
+    {#each projectArray as { name, stories }, i}
+      {#each stories as story, j}
+        {#if params.project == i && params.story == j}
+          <Story storyContent={story} current={true} />
+        {:else if next.project == i && next.story == j}
+          <Story storyContent={story} next={true} />
+        {:else if prev.project == i && prev.story == j}
+          <Story storyContent={story} prev={true} />
+        {:else}
+          <Story storyContent={story} />
+        {/if}
       {/each}
-    </div>
+    {/each}
+    <!-- </div> -->
   </main>
 </div>

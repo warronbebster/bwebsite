@@ -43,7 +43,8 @@
   }
   .navItem:hover {
     cursor: pointer;
-    background-color: rgb(225, 206, 224);
+    color: rgb(154, 24, 160);
+    /* background-color: rgb(225, 206, 224); */
     transition: all 0.4s ease;
   }
   ol {
