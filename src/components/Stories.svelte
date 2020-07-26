@@ -2,10 +2,10 @@
   import Story from "./Story.svelte";
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
-  // import { gestures } from "@composi/gestures";
+  import { gestures } from "@composi/gestures";
   import { push } from "svelte-spa-router";
 
-  // gestures();
+  gestures();
 
   export let params = { project: 0, story: 0 };
   $: next = getNext(params);
@@ -16,10 +16,6 @@
   let gesture_active = { pageX: 0, pageY: 0 };
   let gesture_gap = { pageX: 0, pageY: 0 };
 
-  // $: gesture_gap = {
-  //   pageX: gesture_active.pageX - gesture_tracker.pageX,
-  //   pageY: gesture_active.pageY - gesture_tracker.pageY
-  // };
   let held = false;
   let swipeSensitivity = screen.width / 3;
   window.onresize = () => {
@@ -43,11 +39,15 @@
       touch = true;
       gesture_tracker.pageX = Math.round(e.changedTouches[0].pageX);
       gesture_tracker.pageY = Math.round(e.changedTouches[0].pageY);
+      gesture_active.pageX = Math.round(e.changedTouches[0].pageX);
+      gesture_active.pageY = Math.round(e.changedTouches[0].pageY);
     } else {
       //if it's a mouse
       touch = false;
       gesture_tracker.pageX = e.pageX;
       gesture_tracker.pageY = e.pageY;
+      gesture_active.pageX = e.pageX;
+      gesture_active.pageY = e.pageY;
     }
     held = true; //start holding gesture
     timedout = false;
@@ -87,6 +87,8 @@
 
     if (!timedout) {
       //if the gesture hasn't timed out
+      console.log(gesture_active.pageX);
+      console.log(gesture_tracker.pageX - swipeSensitivity);
       if (gesture_active.pageX > gesture_tracker.pageX + swipeSensitivity) {
         //RIGHT SWIPEY
         console.log("right swipey");
@@ -263,6 +265,8 @@
     style="position: relative; overflow: hidden; transition: top {held ? 0 : 0.15}s
     ease, left {held ? 0 : 0.15}s ease; left: {held ? gesture_gap.pageX / 2 : 0}px;
     top: {held ? gesture_gap.pageY / 2 : 0}px; ">
+    <!-- could add a css animation/transition here; change class when "held" is off to do an animation … 
+    but only if i also only do it on successful swipes -->
 
     {#each projectArray as { name, stories }, i}
       {#each stories as story, j}
@@ -279,5 +283,3 @@
     {/each}
   </div>
 </main>
-
-<!-- might be better to do the "current, plus1, minus1" calculations here -->
