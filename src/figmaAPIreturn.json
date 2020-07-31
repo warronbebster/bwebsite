@@ -295,8 +295,8 @@
 										"type": "RECTANGLE",
 										"blendMode": "PASS_THROUGH",
 										"absoluteBoundingBox": {
-											"x": 143,
-											"y": 234,
+											"x": 115,
+											"y": 285,
 											"width": 31,
 											"height": 47
 										},
@@ -328,8 +328,8 @@
 										"type": "RECTANGLE",
 										"blendMode": "PASS_THROUGH",
 										"absoluteBoundingBox": {
-											"x": 190,
-											"y": 234,
+											"x": 162,
+											"y": 285,
 											"width": 31,
 											"height": 76
 										},
@@ -361,8 +361,8 @@
 										"type": "RECTANGLE",
 										"blendMode": "PASS_THROUGH",
 										"absoluteBoundingBox": {
-											"x": 237,
-											"y": 263,
+											"x": 209,
+											"y": 314,
 											"width": 32,
 											"height": 47
 										},
@@ -394,8 +394,8 @@
 										"type": "RECTANGLE",
 										"blendMode": "PASS_THROUGH",
 										"absoluteBoundingBox": {
-											"x": 285,
-											"y": 234,
+											"x": 257,
+											"y": 285,
 											"width": 50,
 											"height": 76
 										},
@@ -423,8 +423,8 @@
 									}
 								],
 								"absoluteBoundingBox": {
-									"x": 135,
-									"y": 220,
+									"x": 107,
+									"y": 271,
 									"width": 208,
 									"height": 104
 								},
@@ -669,7 +669,7 @@
 								"type": "RECTANGLE",
 								"blendMode": "PASS_THROUGH",
 								"absoluteBoundingBox": {
-									"x": 239,
+									"x": 219,
 									"y": 12,
 									"width": 64,
 									"height": 36
@@ -694,6 +694,37 @@
 								"strokeWeight": 1,
 								"strokeAlign": "INSIDE",
 								"effects": []
+							},
+							{
+								"id": "366:0",
+								"name": "bw_prof_red 1",
+								"type": "RECTANGLE",
+								"blendMode": "PASS_THROUGH",
+								"absoluteBoundingBox": {
+									"x": 325,
+									"y": 106,
+									"width": 128,
+									"height": 128
+								},
+								"preserveRatio": true,
+								"constraints": {
+									"vertical": "TOP",
+									"horizontal": "LEFT"
+								},
+								"fills": [
+									{
+										"blendMode": "NORMAL",
+										"type": "IMAGE",
+										"scaleMode": "FILL",
+										"imageRef": "1f6aaf7263c607f855a6db99b23eb09c56e048bb"
+									}
+								],
+								"strokes": [],
+								"strokeWeight": 1,
+								"strokeAlign": "INSIDE",
+								"effects": [],
+								"cornerRadius": 250,
+								"rectangleCornerRadii": [250, 250, 250, 250]
 							}
 						],
 						"absoluteBoundingBox": {
@@ -750,14 +781,14 @@
 						"children": [
 							{
 								"id": "9:4",
-								"name": "Hello there",
+								"name": "Hello this is a longer text box",
 								"type": "TEXT",
 								"blendMode": "PASS_THROUGH",
 								"absoluteBoundingBox": {
 									"x": 572,
 									"y": -237,
-									"width": 274,
-									"height": 70
+									"width": 296,
+									"height": 210
 								},
 								"constraints": {
 									"vertical": "TOP",
@@ -779,13 +810,13 @@
 								"strokeWeight": 1,
 								"strokeAlign": "OUTSIDE",
 								"effects": [],
-								"characters": "Hello there ",
+								"characters": "Hello this is a longer text box",
 								"style": {
 									"fontFamily": "IBM Plex Sans",
 									"fontPostScriptName": "IBMPlexSans-Medium",
 									"fontWeight": 500,
 									"hyperlink": {},
-									"textAutoResize": "WIDTH_AND_HEIGHT",
+									"textAutoResize": "HEIGHT",
 									"fontSize": 54,
 									"textAlignHorizontal": "LEFT",
 									"textAlignVertical": "TOP",
@@ -835,8 +866,8 @@
 								"type": "RECTANGLE",
 								"blendMode": "PASS_THROUGH",
 								"absoluteBoundingBox": {
-									"x": 488,
-									"y": -166,
+									"x": 491,
+									"y": -42,
 									"width": 326.1282043457031,
 									"height": 416.2506103515625
 								},
@@ -1798,8 +1829,8 @@
 		}
 	},
 	"name": "Bwebsite",
-	"lastModified": "2020-07-26T18:37:38.426693Z",
-	"thumbnailUrl": "https://s3-alpha-sig.figma.com/thumbnails/ea6277d7-67e6-4931-84e4-1deb5f2ab194?Expires=1596412800&Signature=f4wYYL0BRD1deShsY0B7bHSnU8k442kZcmttTfXul-o4paiMAJzH83ubcyiofvfDAN7h-NsSTXpDO23rAPl-FaWudSgcBpP2H8DE3d-SBjMOeDpzXSugPCyPdhKaWO1RCVRPPDzP~8-bjXwl67H-XSkziqIVws4A-EmB-ZmPiWTqWdGwmn4JRwT56nhtEtcr6ZqIDwdNBh9qTucAnWAIGntxpYIghGMqBo-sQGycJ14BCrHBTeZ0FUbnSQNf48Fjneh7IF71W9goPHi0lQGv73LvzBg8SoPAJYvmoPf2nH~fjHOLHVQ5BZ67ctsoZp35yrf-uFvKH2q7ulL6lcHJvw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-	"version": "401444529",
+	"lastModified": "2020-07-29T23:43:41.282875Z",
+	"thumbnailUrl": "https://s3-alpha-sig.figma.com/thumbnails/cb0a4632-ca1c-4628-9540-aab2be6d0ca1?Expires=1597017600&Signature=UoA0GOIxhs82PkF7elaZxjx4lYthHG1xygqW5~YCTtjBpnRQMQEblrLTYK9WKBiUlj4kBZpzWcjcTZX-g7sU12EGqtMWzQc7YtFJEVbeNY0wkiW~8I-CYTke19RT9V3WydSNv8uAAqgv~oZMj2uJwuofwMLVkeH-2oELDsHPwE1hpyJ~L5jOWZR-MHL6vno5Jv5pcI3kBs5iX7y9MCnkjFAXVFcpulj95czJXhdVa1A14OxFbNDdtPLdDzwCSthzvVbol2yFXSjHGdGNpjVBQmZg5gObUrB9xf2ZTyXWjcLehCqf09s95b68WjexJrTpfCvGwIXbawR30jV0waJKoQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+	"version": "405692059",
 	"role": "owner"
 }

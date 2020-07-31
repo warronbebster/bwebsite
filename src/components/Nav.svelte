@@ -23,7 +23,7 @@
     position: absolute;
     padding: 0;
     margin: 0;
-    min-height: 44px;
+    min-height: 38px;
     top: 8px;
     left: 8px;
     background-color: white;
@@ -35,7 +35,7 @@
   }
   .navItem {
     margin: 4px;
-    padding: 8px;
+    padding: 4px;
     overflow: hidden;
     border-radius: 5px;
     transition: all 0.5s ease;

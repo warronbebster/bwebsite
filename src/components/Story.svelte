@@ -43,7 +43,7 @@
     margin: 10px;
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 8px;
     transition: 0.3s max-height ease, 0.3s max-width ease, 0.3s height ease,
       0.3s width ease, 0.3s border-radius ease;
   }
