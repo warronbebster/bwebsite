@@ -132,21 +132,23 @@
   }
   button {
     position: absolute;
-    top: 0px;
-    height: 100vh;
-    background-color: rgb(255, 139, 212);
-    z-index: 20;
-    opacity: 0;
-    outline: none;
+    top: -20px;
+    bottom: -20px;
+    /* height: 100%; */
+    z-index: 2;
+    opacity: 0.3;
+    width: 50vw;
+    /* outline: none; */
   }
   #nextButton {
-    right: 0px;
-    width: 50vw;
+    background-color: rgb(255, 139, 212);
+    right: calc(-50vw + 50%);
+
     cursor: e-resize;
   }
   #prevButton {
-    left: 0px;
-    width: 50vw;
+    background-color: rgb(139, 255, 211);
+    left: calc(-50vw + 50%);
     cursor: w-resize;
   }
 </style>
@@ -154,62 +156,58 @@
 <svelte:window on:keydown={handleKeydown} />
 <svelte:options immutable={true} />
 
-<div class="buttons">
-  <button
-    id="prevButton"
-    on:touchstart|preventDefault={e => gestureDown(e)}
-    on:mousedown|preventDefault={e => gestureDown(e)}
-    on:touchmove|preventDefault={e => {
-      if (held) gestureMove(e);
-    }}
-    on:mousemove|preventDefault={e => {
-      if (held) gestureMove(e);
-    }}
-    on:touchend|preventDefault={e => gestureUp(e, 'prev')}
-    on:mouseup={e => gestureUp(e, 'prev')} />
-  <button
-    id="nextButton"
-    on:touchstart|preventDefault={e => gestureDown(e)}
-    on:mousedown|preventDefault={e => gestureDown(e)}
-    on:touchmove|preventDefault={e => {
-      if (held) gestureMove(e);
-    }}
-    on:mousemove|preventDefault={e => {
-      if (held) gestureMove(e);
-    }}
-    on:touchend|preventDefault={e => gestureUp(e, 'next')}
-    on:mouseup={e => gestureUp(e, 'next')} />
-</div>
-
 <Nav projectIndex={parseInt(params.project)} {navOpen} on:message={handleNav} />
 <div
-  style="overflow:hidden; width: 100vw; height: 100vh; display: flex;
-  justify-content: center; align-items: center; perspective: 360px;">
+  style=" width: 100vw; height: 100vh; display: flex; justify-content: center;
+  align-items: center; perspective: 360px;">
   <main
-    style="position: relative; overflow: hidden; left: {held ? gesture_gap.pageX / 1.2 : 0}px;
-    transition: left {held ? 0 : 0.2}s ease, transform {held ? 0 : 0.2}s ease;
-    transform-style: preserve-3d; backface-visibility: hidden; transform:
-    rotateY({held ? Math.max(Math.min(gesture_gap.pageX / 10, 45), -45) : 0}deg);
-    transform-origin: center {swipeDirection == 'right' ? 'right' : 'left'}; ">
+    style="position: relative; left: {held ? gesture_gap.pageX / 1.2 : 0}px;
+    transition: left {held ? 0 : 0.2}s ease;">
+    <!-- overflow: hidden; -->
 
-    <!-- top: {held ? gesture_gap.pageY / 1.2 : 0}px; 
-    top {held ? 0 : 0.2}s ease,
-    -->
-    <!-- could add a css animation/transition here; change class when "held" is off to do an animation … 
-    but only if i also only do it on successful swipes -->
-
-    {#each projectArray as { name, stories }, i}
-      {#each stories as story, j}
-        {#if params.project == i && params.story == j}
-          <Story storyContent={story} current={true} />
-        {:else if next.project == i && next.story == j}
-          <Story storyContent={story} next={true} />
-        {:else if prev.project == i && prev.story == j}
-          <Story storyContent={story} prev={true} />
-        {:else}
-          <Story storyContent={story} />
-        {/if}
+    <button
+      id="prevButton"
+      on:touchstart|preventDefault={e => gestureDown(e)}
+      on:mousedown|preventDefault={e => gestureDown(e)}
+      on:touchmove|preventDefault={e => {
+        if (held) gestureMove(e);
+      }}
+      on:mousemove|preventDefault={e => {
+        if (held) gestureMove(e);
+      }}
+      on:touchend|preventDefault={e => gestureUp(e, 'prev')}
+      on:mouseup={e => gestureUp(e, 'prev')} />
+    <button
+      id="nextButton"
+      on:touchstart|preventDefault={e => gestureDown(e)}
+      on:mousedown|preventDefault={e => gestureDown(e)}
+      on:touchmove|preventDefault={e => {
+        if (held) gestureMove(e);
+      }}
+      on:mousemove|preventDefault={e => {
+        if (held) gestureMove(e);
+      }}
+      on:touchend|preventDefault={e => gestureUp(e, 'next')}
+      on:mouseup={e => gestureUp(e, 'next')} />
+    <div
+      style="backface-visibility: hidden;transform: {held ? 'rotateY(' + Math.max(Math.min(gesture_gap.pageX / 10, 45), -45) + 'deg)' : 'none'};
+      transform-origin: center {swipeDirection == 'right' ? 'right' : 'left'};
+      transition: transform {held ? 0 : 0.2}s ease;">
+      <!--       transform-style: preserve-3d; 
+       -->
+      {#each projectArray as { name, stories }, i}
+        {#each stories as story, j}
+          {#if params.project == i && params.story == j}
+            <Story storyContent={story} current={true} />
+          {:else if next.project == i && next.story == j}
+            <Story storyContent={story} next={true} />
+          {:else if prev.project == i && prev.story == j}
+            <Story storyContent={story} prev={true} />
+          {:else}
+            <Story storyContent={story} />
+          {/if}
+        {/each}
       {/each}
-    {/each}
+    </div>
   </main>
 </div>

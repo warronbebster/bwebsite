@@ -1977,7 +1977,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (209:8) {:else}
+    // (206:10) {:else}
     function create_else_block$1(ctx) {
     	let current;
 
@@ -2013,14 +2013,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(209:8) {:else}",
+    		source: "(206:10) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (207:55) 
+    // (204:57) 
     function create_if_block_2(ctx) {
     	let current;
 
@@ -2059,14 +2059,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(207:55) ",
+    		source: "(204:57) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (205:55) 
+    // (202:57) 
     function create_if_block_1(ctx) {
     	let current;
 
@@ -2105,14 +2105,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(205:55) ",
+    		source: "(202:57) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (203:8) {#if params.project == i && params.story == j}
+    // (200:10) {#if params.project == i && params.story == j}
     function create_if_block$2(ctx) {
     	let current;
 
@@ -2151,14 +2151,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(203:8) {#if params.project == i && params.story == j}",
+    		source: "(200:10) {#if params.project == i && params.story == j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (202:6) {#each stories as story, j}
+    // (199:8) {#each stories as story, j}
     function create_each_block_1(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -2231,14 +2231,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(202:6) {#each stories as story, j}",
+    		source: "(199:8) {#each stories as story, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (201:4) {#each projectArray as { name, stories }
+    // (198:6) {#each projectArray as { name, stories }
     function create_each_block$1(ctx) {
     	let each_1_anchor;
     	let current;
@@ -2327,7 +2327,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(201:4) {#each projectArray as { name, stories }",
+    		source: "(198:6) {#each projectArray as { name, stories }",
     		ctx
     	});
 
@@ -2335,14 +2335,14 @@ var app = (function () {
     }
 
     function create_fragment$4(ctx) {
-    	let div0;
-    	let button0;
     	let t0;
-    	let button1;
-    	let t1;
-    	let t2;
     	let div1;
     	let main;
+    	let button0;
+    	let t1;
+    	let button1;
+    	let t2;
+    	let div0;
     	let current;
     	let dispose;
 
@@ -2369,67 +2369,64 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div0 = element("div");
-    			button0 = element("button");
-    			t0 = space();
-    			button1 = element("button");
-    			t1 = space();
     			create_component(nav.$$.fragment);
-    			t2 = space();
+    			t0 = space();
     			div1 = element("div");
     			main = element("main");
+    			button0 = element("button");
+    			t1 = space();
+    			button1 = element("button");
+    			t2 = space();
+    			div0 = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
     			attr_dev(button0, "id", "prevButton");
-    			attr_dev(button0, "class", "svelte-197ckdd");
-    			add_location(button0, file$2, 157, 2, 4505);
+    			attr_dev(button0, "class", "svelte-8y0so0");
+    			add_location(button0, file$2, 167, 4, 4946);
     			attr_dev(button1, "id", "nextButton");
-    			attr_dev(button1, "class", "svelte-197ckdd");
-    			add_location(button1, file$2, 169, 2, 4907);
-    			attr_dev(div0, "class", "buttons");
-    			add_location(div0, file$2, 156, 0, 4481);
+    			attr_dev(button1, "class", "svelte-8y0so0");
+    			add_location(button1, file$2, 179, 4, 5372);
+    			set_style(div0, "backface-visibility", "hidden");
+
+    			set_style(div0, "transform", /*held*/ ctx[2]
+    			? "rotateY(" + Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 10, 45), -45) + "deg)"
+    			: "none");
+
+    			set_style(div0, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
+    			set_style(div0, "transition", "transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
+    			add_location(div0, file$2, 191, 4, 5798);
     			set_style(main, "position", "relative");
-    			set_style(main, "overflow", "hidden");
     			set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX / 1.2 : 0) + "px");
-    			set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease, transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
-    			set_style(main, "transform-style", "preserve-3d");
-    			set_style(main, "backface-visibility", "hidden");
-
-    			set_style(main, "transform", "rotateY(" + (/*held*/ ctx[2]
-    			? Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 10, 45), -45)
-    			: 0) + "deg)");
-
-    			set_style(main, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
-    			attr_dev(main, "class", "svelte-197ckdd");
-    			add_location(main, file$2, 187, 2, 5543);
-    			set_style(div1, "overflow", "hidden");
+    			set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
+    			attr_dev(main, "class", "svelte-8y0so0");
+    			add_location(main, file$2, 162, 2, 4780);
     			set_style(div1, "width", "100vw");
     			set_style(div1, "height", "100vh");
     			set_style(div1, "display", "flex");
     			set_style(div1, "justify-content", "center");
     			set_style(div1, "align-items", "center");
     			set_style(div1, "perspective", "360px");
-    			add_location(div1, file$2, 184, 0, 5396);
+    			add_location(div1, file$2, 159, 0, 4649);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor, remount) {
-    			insert_dev(target, div0, anchor);
-    			append_dev(div0, button0);
-    			append_dev(div0, t0);
-    			append_dev(div0, button1);
-    			insert_dev(target, t1, anchor);
     			mount_component(nav, target, anchor);
-    			insert_dev(target, t2, anchor);
+    			insert_dev(target, t0, anchor);
     			insert_dev(target, div1, anchor);
     			append_dev(div1, main);
+    			append_dev(main, button0);
+    			append_dev(main, t1);
+    			append_dev(main, button1);
+    			append_dev(main, t2);
+    			append_dev(main, div0);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(main, null);
+    				each_blocks[i].m(div0, null);
     			}
 
     			current = true;
@@ -2472,7 +2469,7 @@ var app = (function () {
     						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
-    						each_blocks[i].m(main, null);
+    						each_blocks[i].m(div0, null);
     					}
     				}
 
@@ -2486,21 +2483,25 @@ var app = (function () {
     			}
 
     			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
+    				set_style(div0, "transform", /*held*/ ctx[2]
+    				? "rotateY(" + Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 10, 45), -45) + "deg)"
+    				: "none");
+    			}
+
+    			if (!current || dirty[0] & /*swipeDirection*/ 8) {
+    				set_style(div0, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
+    			}
+
+    			if (!current || dirty[0] & /*held*/ 4) {
+    				set_style(div0, "transition", "transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
+    			}
+
+    			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
     				set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX / 1.2 : 0) + "px");
     			}
 
     			if (!current || dirty[0] & /*held*/ 4) {
-    				set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease, transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
-    			}
-
-    			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
-    				set_style(main, "transform", "rotateY(" + (/*held*/ ctx[2]
-    				? Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 10, 45), -45)
-    				: 0) + "deg)");
-    			}
-
-    			if (!current || dirty[0] & /*swipeDirection*/ 8) {
-    				set_style(main, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
+    				set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
     			}
     		},
     		i: function intro(local) {
@@ -2524,10 +2525,8 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div0);
-    			if (detaching) detach_dev(t1);
     			destroy_component(nav, detaching);
-    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(div1);
     			destroy_each(each_blocks, detaching);
     			run_all(dispose);
