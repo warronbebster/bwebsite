@@ -1964,25 +1964,25 @@ var app = (function () {
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[33] = list[i];
-    	child_ctx[35] = i;
+    	child_ctx[34] = list[i];
+    	child_ctx[36] = i;
     	return child_ctx;
     }
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[29] = list[i].name;
-    	child_ctx[30] = list[i].stories;
-    	child_ctx[32] = i;
+    	child_ctx[30] = list[i].name;
+    	child_ctx[31] = list[i].stories;
+    	child_ctx[33] = i;
     	return child_ctx;
     }
 
-    // (199:8) {:else}
+    // (209:8) {:else}
     function create_else_block$1(ctx) {
     	let current;
 
     	const story = new Story({
-    			props: { storyContent: /*story*/ ctx[33] },
+    			props: { storyContent: /*story*/ ctx[34] },
     			$$inline: true
     		});
 
@@ -2013,20 +2013,20 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(199:8) {:else}",
+    		source: "(209:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (197:55) 
+    // (207:55) 
     function create_if_block_2(ctx) {
     	let current;
 
     	const story = new Story({
     			props: {
-    				storyContent: /*story*/ ctx[33],
+    				storyContent: /*story*/ ctx[34],
     				prev: true
     			},
     			$$inline: true
@@ -2059,20 +2059,20 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(197:55) ",
+    		source: "(207:55) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (195:55) 
+    // (205:55) 
     function create_if_block_1(ctx) {
     	let current;
 
     	const story = new Story({
     			props: {
-    				storyContent: /*story*/ ctx[33],
+    				storyContent: /*story*/ ctx[34],
     				next: true
     			},
     			$$inline: true
@@ -2105,20 +2105,20 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(195:55) ",
+    		source: "(205:55) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (193:8) {#if params.project == i && params.story == j}
+    // (203:8) {#if params.project == i && params.story == j}
     function create_if_block$2(ctx) {
     	let current;
 
     	const story = new Story({
     			props: {
-    				storyContent: /*story*/ ctx[33],
+    				storyContent: /*story*/ ctx[34],
     				current: true
     			},
     			$$inline: true
@@ -2151,14 +2151,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(193:8) {#if params.project == i && params.story == j}",
+    		source: "(203:8) {#if params.project == i && params.story == j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (192:6) {#each stories as story, j}
+    // (202:6) {#each stories as story, j}
     function create_each_block_1(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -2168,9 +2168,9 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*params*/ ctx[0].project == /*i*/ ctx[32] && /*params*/ ctx[0].story == /*j*/ ctx[35]) return 0;
-    		if (/*next*/ ctx[4].project == /*i*/ ctx[32] && /*next*/ ctx[4].story == /*j*/ ctx[35]) return 1;
-    		if (/*prev*/ ctx[5].project == /*i*/ ctx[32] && /*prev*/ ctx[5].story == /*j*/ ctx[35]) return 2;
+    		if (/*params*/ ctx[0].project == /*i*/ ctx[33] && /*params*/ ctx[0].story == /*j*/ ctx[36]) return 0;
+    		if (/*next*/ ctx[5].project == /*i*/ ctx[33] && /*next*/ ctx[5].story == /*j*/ ctx[36]) return 1;
+    		if (/*prev*/ ctx[6].project == /*i*/ ctx[33] && /*prev*/ ctx[6].story == /*j*/ ctx[36]) return 2;
     		return 3;
     	}
 
@@ -2231,18 +2231,18 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(192:6) {#each stories as story, j}",
+    		source: "(202:6) {#each stories as story, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (191:4) {#each projectArray as { name, stories }
+    // (201:4) {#each projectArray as { name, stories }
     function create_each_block$1(ctx) {
     	let each_1_anchor;
     	let current;
-    	let each_value_1 = /*stories*/ ctx[30];
+    	let each_value_1 = /*stories*/ ctx[31];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -2271,8 +2271,8 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*params, next, prev*/ 49) {
-    				each_value_1 = /*stories*/ ctx[30];
+    			if (dirty[0] & /*params, next, prev*/ 97) {
+    				each_value_1 = /*stories*/ ctx[31];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -2327,7 +2327,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(191:4) {#each projectArray as { name, stories }",
+    		source: "(201:4) {#each projectArray as { name, stories }",
     		ctx
     	});
 
@@ -2349,12 +2349,12 @@ var app = (function () {
     	const nav = new Nav({
     			props: {
     				projectIndex: parseInt(/*params*/ ctx[0].project),
-    				navOpen: /*navOpen*/ ctx[3]
+    				navOpen: /*navOpen*/ ctx[4]
     			},
     			$$inline: true
     		});
 
-    	nav.$on("message", /*handleNav*/ ctx[6]);
+    	nav.$on("message", /*handleNav*/ ctx[7]);
     	let each_value = projectArray;
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -2385,26 +2385,34 @@ var app = (function () {
 
     			attr_dev(button0, "id", "prevButton");
     			attr_dev(button0, "class", "svelte-197ckdd");
-    			add_location(button0, file$2, 149, 2, 4301);
+    			add_location(button0, file$2, 157, 2, 4505);
     			attr_dev(button1, "id", "nextButton");
     			attr_dev(button1, "class", "svelte-197ckdd");
-    			add_location(button1, file$2, 161, 2, 4703);
+    			add_location(button1, file$2, 169, 2, 4907);
     			attr_dev(div0, "class", "buttons");
-    			add_location(div0, file$2, 148, 0, 4277);
+    			add_location(div0, file$2, 156, 0, 4481);
     			set_style(main, "position", "relative");
     			set_style(main, "overflow", "hidden");
-    			set_style(main, "transition", "top " + (/*held*/ ctx[2] ? 0 : 0.15) + "s\n    ease, left " + (/*held*/ ctx[2] ? 0 : 0.15) + "s ease");
-    			set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX / 2 : 0) + "px");
-    			set_style(main, "top", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageY / 2 : 0) + "px");
+    			set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX / 1.2 : 0) + "px");
+    			set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease, transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
+    			set_style(main, "transform-style", "preserve-3d");
+    			set_style(main, "backface-visibility", "hidden");
+
+    			set_style(main, "transform", "rotateY(" + (/*held*/ ctx[2]
+    			? Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 10, 45), -45)
+    			: 0) + "deg)");
+
+    			set_style(main, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
     			attr_dev(main, "class", "svelte-197ckdd");
-    			add_location(main, file$2, 179, 2, 5319);
+    			add_location(main, file$2, 187, 2, 5543);
     			set_style(div1, "overflow", "hidden");
     			set_style(div1, "width", "100vw");
     			set_style(div1, "height", "100vh");
     			set_style(div1, "display", "flex");
     			set_style(div1, "justify-content", "center");
     			set_style(div1, "align-items", "center");
-    			add_location(div1, file$2, 176, 0, 5192);
+    			set_style(div1, "perspective", "360px");
+    			add_location(div1, file$2, 184, 0, 5396);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2428,28 +2436,28 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(window_1, "keydown", /*handleKeydown*/ ctx[10], false, false, false),
-    				listen_dev(button0, "touchstart", prevent_default(/*touchstart_handler*/ ctx[17]), false, true, false),
-    				listen_dev(button0, "mousedown", prevent_default(/*mousedown_handler*/ ctx[18]), false, true, false),
-    				listen_dev(button0, "touchmove", prevent_default(/*touchmove_handler*/ ctx[19]), false, true, false),
-    				listen_dev(button0, "mousemove", prevent_default(/*mousemove_handler*/ ctx[20]), false, true, false),
-    				listen_dev(button0, "touchend", prevent_default(/*touchend_handler*/ ctx[21]), false, true, false),
-    				listen_dev(button0, "mouseup", /*mouseup_handler*/ ctx[22], false, false, false),
-    				listen_dev(button1, "touchstart", prevent_default(/*touchstart_handler_1*/ ctx[23]), false, true, false),
-    				listen_dev(button1, "mousedown", prevent_default(/*mousedown_handler_1*/ ctx[24]), false, true, false),
-    				listen_dev(button1, "touchmove", prevent_default(/*touchmove_handler_1*/ ctx[25]), false, true, false),
-    				listen_dev(button1, "mousemove", prevent_default(/*mousemove_handler_1*/ ctx[26]), false, true, false),
-    				listen_dev(button1, "touchend", prevent_default(/*touchend_handler_1*/ ctx[27]), false, true, false),
-    				listen_dev(button1, "mouseup", /*mouseup_handler_1*/ ctx[28], false, false, false)
+    				listen_dev(window_1, "keydown", /*handleKeydown*/ ctx[11], false, false, false),
+    				listen_dev(button0, "touchstart", prevent_default(/*touchstart_handler*/ ctx[18]), false, true, false),
+    				listen_dev(button0, "mousedown", prevent_default(/*mousedown_handler*/ ctx[19]), false, true, false),
+    				listen_dev(button0, "touchmove", prevent_default(/*touchmove_handler*/ ctx[20]), false, true, false),
+    				listen_dev(button0, "mousemove", prevent_default(/*mousemove_handler*/ ctx[21]), false, true, false),
+    				listen_dev(button0, "touchend", prevent_default(/*touchend_handler*/ ctx[22]), false, true, false),
+    				listen_dev(button0, "mouseup", /*mouseup_handler*/ ctx[23], false, false, false),
+    				listen_dev(button1, "touchstart", prevent_default(/*touchstart_handler_1*/ ctx[24]), false, true, false),
+    				listen_dev(button1, "mousedown", prevent_default(/*mousedown_handler_1*/ ctx[25]), false, true, false),
+    				listen_dev(button1, "touchmove", prevent_default(/*touchmove_handler_1*/ ctx[26]), false, true, false),
+    				listen_dev(button1, "mousemove", prevent_default(/*mousemove_handler_1*/ ctx[27]), false, true, false),
+    				listen_dev(button1, "touchend", prevent_default(/*touchend_handler_1*/ ctx[28]), false, true, false),
+    				listen_dev(button1, "mouseup", /*mouseup_handler_1*/ ctx[29], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
     			const nav_changes = {};
     			if (dirty[0] & /*params*/ 1) nav_changes.projectIndex = parseInt(/*params*/ ctx[0].project);
-    			if (dirty[0] & /*navOpen*/ 8) nav_changes.navOpen = /*navOpen*/ ctx[3];
+    			if (dirty[0] & /*navOpen*/ 16) nav_changes.navOpen = /*navOpen*/ ctx[4];
     			nav.$set(nav_changes);
 
-    			if (dirty[0] & /*params, next, prev*/ 49) {
+    			if (dirty[0] & /*params, next, prev*/ 97) {
     				each_value = projectArray;
     				validate_each_argument(each_value);
     				let i;
@@ -2477,16 +2485,22 @@ var app = (function () {
     				check_outros();
     			}
 
+    			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
+    				set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX / 1.2 : 0) + "px");
+    			}
+
     			if (!current || dirty[0] & /*held*/ 4) {
-    				set_style(main, "transition", "top " + (/*held*/ ctx[2] ? 0 : 0.15) + "s\n    ease, left " + (/*held*/ ctx[2] ? 0 : 0.15) + "s ease");
+    				set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease, transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
     			}
 
     			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
-    				set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX / 2 : 0) + "px");
+    				set_style(main, "transform", "rotateY(" + (/*held*/ ctx[2]
+    				? Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 10, 45), -45)
+    				: 0) + "deg)");
     			}
 
-    			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
-    				set_style(main, "top", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageY / 2 : 0) + "px");
+    			if (!current || dirty[0] & /*swipeDirection*/ 8) {
+    				set_style(main, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
     			}
     		},
     		i: function intro(local) {
@@ -2541,6 +2555,7 @@ var app = (function () {
     	let gesture_active = { pageX: 0, pageY: 0 };
     	let gesture_gap = { pageX: 0, pageY: 0 }; //why can't i make this a reactive svelte thingy
     	let held = false;
+    	let swipeDirection = "right";
     	let swipeSensitivity = Math.min(screen.width / 3, 300);
 
     	window.onresize = () => {
@@ -2552,7 +2567,7 @@ var app = (function () {
     	let navOpen = false;
 
     	function handleNav(event) {
-    		$$invalidate(3, navOpen = event.detail.open);
+    		$$invalidate(4, navOpen = event.detail.open);
     	}
 
     	function handleProjects(direction) {
@@ -2565,7 +2580,7 @@ var app = (function () {
 
     	function gestureDown(e) {
     		//when a gesture starts
-    		$$invalidate(3, navOpen = false);
+    		$$invalidate(4, navOpen = false);
 
     		if (e.type == "touchstart") {
     			//if it'a a touch event
@@ -2589,7 +2604,7 @@ var app = (function () {
     				//start timer
     				timedout = true;
     			},
-    			500
+    			400
     		);
     	}
 
@@ -2612,6 +2627,10 @@ var app = (function () {
     			pageX: gesture_active.pageX - gesture_start.pageX,
     			pageY: gesture_active.pageY - gesture_start.pageY
     		});
+
+    		gesture_gap.pageX > 0
+    		? $$invalidate(3, swipeDirection = "left")
+    		: $$invalidate(3, swipeDirection = "right");
     	}
 
     	function gestureUp(e, direction) {
@@ -2620,14 +2639,16 @@ var app = (function () {
     		if (!timedout) {
     			//if the gesture hasn't timed out
     			if (gesture_active.pageX > gesture_start.pageX + swipeSensitivity) {
-    				//RIGHT SWIPEY
+    				//LEFT SWIPEY
+    				// swipeDirection = "left";
     				parseInt(params.project) > 0
     				? push("/" + (parseInt(params.project) - 1) + "/0")
-    				: push("/" + (projectArray.length - 1) + "/0"); // if current project ain't last
+    				: push("/" + (projectArray.length - 1) + "/0"); // if current project ain't first
     				//next project
     				//last project
     			} else if (gesture_active.pageX < gesture_start.pageX - swipeSensitivity) {
-    				//LEFT SWIPEY
+    				//RIGHT SWIPEY
+    				// swipeDirection = "right";
     				parseInt(params.project) <= projectArray.length
     				? push("/" + (parseInt(params.project) + 1) + "/0")
     				: push("/0/0"); // if current project ain't last
@@ -2710,6 +2731,7 @@ var app = (function () {
     		gesture_active,
     		gesture_gap,
     		held,
+    		swipeDirection,
     		swipeSensitivity,
     		timedout,
     		gesturetimer,
@@ -2730,12 +2752,13 @@ var app = (function () {
     		if ("gesture_active" in $$props) gesture_active = $$props.gesture_active;
     		if ("gesture_gap" in $$props) $$invalidate(1, gesture_gap = $$props.gesture_gap);
     		if ("held" in $$props) $$invalidate(2, held = $$props.held);
+    		if ("swipeDirection" in $$props) $$invalidate(3, swipeDirection = $$props.swipeDirection);
     		if ("swipeSensitivity" in $$props) swipeSensitivity = $$props.swipeSensitivity;
     		if ("timedout" in $$props) timedout = $$props.timedout;
     		if ("gesturetimer" in $$props) gesturetimer = $$props.gesturetimer;
-    		if ("navOpen" in $$props) $$invalidate(3, navOpen = $$props.navOpen);
-    		if ("next" in $$props) $$invalidate(4, next = $$props.next);
-    		if ("prev" in $$props) $$invalidate(5, prev = $$props.prev);
+    		if ("navOpen" in $$props) $$invalidate(4, navOpen = $$props.navOpen);
+    		if ("next" in $$props) $$invalidate(5, next = $$props.next);
+    		if ("prev" in $$props) $$invalidate(6, prev = $$props.prev);
     	};
 
     	let next;
@@ -2747,11 +2770,11 @@ var app = (function () {
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty[0] & /*params*/ 1) {
-    			 $$invalidate(4, next = getNext(params));
+    			 $$invalidate(5, next = getNext(params));
     		}
 
     		if ($$self.$$.dirty[0] & /*params*/ 1) {
-    			 $$invalidate(5, prev = getPrev(params));
+    			 $$invalidate(6, prev = getPrev(params));
     		}
     	};
 
@@ -2759,6 +2782,7 @@ var app = (function () {
     		params,
     		gesture_gap,
     		held,
+    		swipeDirection,
     		navOpen,
     		next,
     		prev,

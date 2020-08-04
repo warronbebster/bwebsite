@@ -18,6 +18,7 @@
   let gesture_gap = { pageX: 0, pageY: 0 }; //why can't i make this a reactive svelte thingy
 
   let held = false;
+  let swipeDirection = "right";
   let swipeSensitivity = Math.min(screen.width / 3, 300);
   window.onresize = () => {
     swipeSensitivity = Math.min(screen.width / 3, 300);
@@ -58,7 +59,7 @@
     gesturetimer = setTimeout(() => {
       //start timer
       timedout = true;
-    }, 500);
+    }, 400);
   }
 
   function gestureMove(e) {
@@ -72,11 +73,15 @@
       gesture_active.pageX = e.pageX;
       gesture_active.pageY = e.pageY;
     }
+
     gesture_gap = {
       //set the gap between start and where you've dragged
       pageX: gesture_active.pageX - gesture_start.pageX,
       pageY: gesture_active.pageY - gesture_start.pageY
     };
+    gesture_gap.pageX > 0
+      ? (swipeDirection = "left")
+      : (swipeDirection = "right");
   }
 
   function gestureUp(e, direction) {
@@ -84,15 +89,18 @@
     if (!timedout) {
       //if the gesture hasn't timed out
       if (gesture_active.pageX > gesture_start.pageX + swipeSensitivity) {
-        //RIGHT SWIPEY
-        parseInt(params.project) > 0 // if current project ain't last
+        //LEFT SWIPEY
+        // swipeDirection = "left";
+
+        parseInt(params.project) > 0 // if current project ain't first
           ? push("/" + (parseInt(params.project) - 1) + "/0") //next project
           : push("/" + (projectArray.length - 1) + "/0"); //last project
       } else if (
         gesture_active.pageX <
         gesture_start.pageX - swipeSensitivity
       ) {
-        //LEFT SWIPEY
+        //RIGHT SWIPEY
+        // swipeDirection = "right";
         parseInt(params.project) <= projectArray.length // if current project ain't last
           ? push("/" + (parseInt(params.project) + 1) + "/0") //next project
           : push("/0/0"); //first project
@@ -176,15 +184,17 @@
 <Nav projectIndex={parseInt(params.project)} {navOpen} on:message={handleNav} />
 <div
   style="overflow:hidden; width: 100vw; height: 100vh; display: flex;
-  justify-content: center; align-items: center;">
+  justify-content: center; align-items: center; perspective: 360px;">
   <main
-    style="position: relative; overflow: hidden; transition: top {held ? 0 : 0.15}s
-    ease, left {held ? 0 : 0.15}s ease; left: {held ? gesture_gap.pageX / 2 : 0}px;
-    top: {held ? gesture_gap.pageY / 2 : 0}px; ">
-    <!-- <div
-      style="position: relative; overflow: hidden; transition: top {held ? 0 : 0.15}s
-      ease, left {held ? 0 : 0.15}s ease; left: {held ? gesture_gap.pageX / 2 : 0}px;
-      top: {held ? gesture_gap.pageY / 2 : 0}px; "> -->
+    style="position: relative; overflow: hidden; left: {held ? gesture_gap.pageX / 1.2 : 0}px;
+    transition: left {held ? 0 : 0.2}s ease, transform {held ? 0 : 0.2}s ease;
+    transform-style: preserve-3d; backface-visibility: hidden; transform:
+    rotateY({held ? Math.max(Math.min(gesture_gap.pageX / 10, 45), -45) : 0}deg);
+    transform-origin: center {swipeDirection == 'right' ? 'right' : 'left'}; ">
+
+    <!-- top: {held ? gesture_gap.pageY / 1.2 : 0}px; 
+    top {held ? 0 : 0.2}s ease,
+    -->
     <!-- could add a css animation/transition here; change class when "held" is off to do an animation … 
     but only if i also only do it on successful swipes -->
 
@@ -201,6 +211,5 @@
         {/if}
       {/each}
     {/each}
-    <!-- </div> -->
   </main>
 </div>
