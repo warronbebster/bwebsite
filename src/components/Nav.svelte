@@ -25,7 +25,7 @@
     margin: 0;
     min-height: 38px;
     top: 10px;
-    left: 8px;
+    left: 10px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
@@ -33,6 +33,7 @@
     -moz-box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
     z-index: 9999;
   }
+
   .navItem {
     margin: 4px;
     padding: 4px;
@@ -62,6 +63,11 @@
     padding-bottom: 0px;
     color: white;
     transition: all 0.5s ease;
+  }
+  @media screen and (max-width: 550px) {
+    nav {
+      top: 18px;
+    }
   }
 </style>
 

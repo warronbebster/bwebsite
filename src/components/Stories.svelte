@@ -186,14 +186,6 @@
       handleProjects("next");
     }, storyTimerTime);
   });
-
-  // afterUpdate(() => {
-  //   console.log("afterUpdate");
-  //   storyTimer.clear();
-  //   storyTimer = new Timer(function() {
-  //     handleProjects("next");
-  //   }, 5000);
-  // });
 </script>
 
 <style>
@@ -227,35 +219,31 @@
 
   #indicators {
     height: 2px;
-    top: 4px;
-    left: 8px;
-    right: 8px;
+    background-color: rgba(0, 0, 0, 0.33);
+    top: 8px;
+    left: 6px;
+    right: 6px;
     z-index: 1;
     position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     column-gap: 4px;
+    box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.9);
   }
 
   #indicators div {
     background-color: white;
     height: 100%;
     flex-grow: 1;
-    border-radius: 1px;
+    border-radius: 2px;
   }
-
-  @keyframes -global-progress {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 100%;
-    }
+  .nextIndicators {
+    opacity: 0.5;
   }
 
   #indicators #currentIndicator {
-    background-color: rgba(255, 255, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.5);
     position: relative;
     overflow: hidden;
   }
@@ -267,6 +255,9 @@
     height: 100%;
     background: white;
     animation: progress 5s linear;
+    -webkit-animation: progress 5s linear;
+    -moz-animation: progress 5s linear;
+    -o-animation: progress 5s linear;
     animation-fill-mode: forwards;
   }
 
@@ -275,6 +266,39 @@
     -moz-animation-play-state: paused !important;
     -o-animation-play-state: paused !important;
     animation-play-state: paused !important;
+  }
+
+  @keyframes -global-progress {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  @-webkit-keyframes -global-progress {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  @-moz-keyframes -global-progress {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  @-o-keyframes -global-progress {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
   }
 </style>
 
@@ -323,19 +347,23 @@
       transition: transform {held ? 0 : 0.2}s ease;">
 
       <div id="indicators">
-        {#each projectArray[params.project].stories as { story }, p}
+        {#each projectArray[params.project].stories as story, p}
           {#if params.story > p}
-            <div style="opacity:1;" />
+            <div />
           {:else if params.story == p}
-            <div id="currentIndicator" class={held ? 'paused' : 'no'} />
+            <div
+              id="currentIndicator"
+              class={held || navOpen ? 'paused' : 'no'} />
           {:else}
-            <div style="opacity:.65;" />
+            <div class="nextIndicators" />
           {/if}
         {/each}
       </div>
 
       {#each projectArray as { name, stories }, i}
+        <!-- each project -->
         {#each stories as story, j}
+          <!-- each story -->
           {#if params.project == i && params.story == j}
             <Story storyContent={story} current={true} />
           {:else if next.project == i && next.story == j}

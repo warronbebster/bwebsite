@@ -1538,7 +1538,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-l5ecd3");
+    			attr_dev(div, "class", div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-8pjrcb");
     			add_location(div, file, 82, 0, 1853);
     		},
     		l: function claim(nodes) {
@@ -1570,7 +1570,7 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (!current || dirty & /*displayPosition*/ 2 && div_class_value !== (div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-l5ecd3")) {
+    			if (!current || dirty & /*displayPosition*/ 2 && div_class_value !== (div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-8pjrcb")) {
     				attr_dev(div, "class", div_class_value);
     			}
     		},
@@ -1726,7 +1726,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (82:4) {#each projectArray as project, i}
+    // (88:4) {#each projectArray as project, i}
     function create_each_block(ctx) {
     	let li;
     	let t0_value = /*project*/ ctx[7].name + "";
@@ -1751,9 +1751,9 @@ var app = (function () {
     			? "visible"
     			: /*projectIndex*/ ctx[0] !== /*i*/ ctx[9]
     				? "hidden"
-    				: "visible") + "\n        " + " svelte-133mai8");
+    				: "visible") + "\n        " + " svelte-rgg20e");
 
-    			add_location(li, file$1, 82, 6, 1667);
+    			add_location(li, file$1, 88, 6, 1747);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, li, anchor);
@@ -1771,7 +1771,7 @@ var app = (function () {
     			? "visible"
     			: /*projectIndex*/ ctx[0] !== /*i*/ ctx[9]
     				? "hidden"
-    				: "visible") + "\n        " + " svelte-133mai8")) {
+    				: "visible") + "\n        " + " svelte-rgg20e")) {
     				attr_dev(li, "class", li_class_value);
     			}
     		},
@@ -1785,7 +1785,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(82:4) {#each projectArray as project, i}",
+    		source: "(88:4) {#each projectArray as project, i}",
     		ctx
     	});
 
@@ -1813,10 +1813,10 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(ol, "class", "svelte-133mai8");
-    			add_location(ol, file$1, 79, 2, 1616);
-    			attr_dev(nav, "class", "svelte-133mai8");
-    			add_location(nav, file$1, 68, 0, 1424);
+    			attr_dev(ol, "class", "svelte-rgg20e");
+    			add_location(ol, file$1, 85, 2, 1696);
+    			attr_dev(nav, "class", "svelte-rgg20e");
+    			add_location(nav, file$1, 74, 0, 1504);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2009,21 +2009,20 @@ var app = (function () {
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[36] = list[i].story;
+    	child_ctx[36] = list[i];
     	child_ctx[40] = i;
     	return child_ctx;
     }
 
-    // (331:10) {:else}
+    // (357:10) {:else}
     function create_else_block_1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			set_style(div, "opacity", ".65");
-    			attr_dev(div, "class", "svelte-11nu9u6");
-    			add_location(div, file$2, 331, 12, 9242);
+    			attr_dev(div, "class", "nextIndicators svelte-ji0fy0");
+    			add_location(div, file$2, 357, 12, 9655);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2038,14 +2037,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(331:10) {:else}",
+    		source: "(357:10) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (329:38) 
+    // (353:38) 
     function create_if_block_4(ctx) {
     	let div;
     	let div_class_value;
@@ -2054,14 +2053,14 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "id", "currentIndicator");
-    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "paused" : "no") + " svelte-11nu9u6"));
-    			add_location(div, file$2, 329, 12, 9151);
+    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*held*/ ctx[2] || /*navOpen*/ ctx[4] ? "paused" : "no") + " svelte-ji0fy0"));
+    			add_location(div, file$2, 353, 12, 9525);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*held*/ 4 && div_class_value !== (div_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "paused" : "no") + " svelte-11nu9u6"))) {
+    			if (dirty[0] & /*held, navOpen*/ 20 && div_class_value !== (div_class_value = "" + (null_to_empty(/*held*/ ctx[2] || /*navOpen*/ ctx[4] ? "paused" : "no") + " svelte-ji0fy0"))) {
     				attr_dev(div, "class", div_class_value);
     			}
     		},
@@ -2074,23 +2073,22 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(329:38) ",
+    		source: "(353:38) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (327:10) {#if params.story > p}
+    // (351:10) {#if params.story > p}
     function create_if_block_3(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			set_style(div, "opacity", "1");
-    			attr_dev(div, "class", "svelte-11nu9u6");
-    			add_location(div, file$2, 327, 12, 9073);
+    			attr_dev(div, "class", "svelte-ji0fy0");
+    			add_location(div, file$2, 351, 12, 9466);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2105,14 +2103,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(327:10) {#if params.story > p}",
+    		source: "(351:10) {#if params.story > p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (326:8) {#each projectArray[params.project].stories as { story }
+    // (350:8) {#each projectArray[params.project].stories as story, p}
     function create_each_block_2(ctx) {
     	let if_block_anchor;
 
@@ -2157,14 +2155,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(326:8) {#each projectArray[params.project].stories as { story }",
+    		source: "(350:8) {#each projectArray[params.project].stories as story, p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (345:10) {:else}
+    // (373:10) {:else}
     function create_else_block$1(ctx) {
     	let current;
 
@@ -2200,14 +2198,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(345:10) {:else}",
+    		source: "(373:10) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (343:57) 
+    // (371:57) 
     function create_if_block_2(ctx) {
     	let current;
 
@@ -2246,14 +2244,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(343:57) ",
+    		source: "(371:57) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (341:57) 
+    // (369:57) 
     function create_if_block_1(ctx) {
     	let current;
 
@@ -2292,14 +2290,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(341:57) ",
+    		source: "(369:57) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (339:10) {#if params.project == i && params.story == j}
+    // (367:10) {#if params.project == i && params.story == j}
     function create_if_block$2(ctx) {
     	let current;
 
@@ -2338,14 +2336,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(339:10) {#if params.project == i && params.story == j}",
+    		source: "(367:10) {#if params.project == i && params.story == j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (338:8) {#each stories as story, j}
+    // (365:8) {#each stories as story, j}
     function create_each_block_1(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -2418,14 +2416,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(338:8) {#each stories as story, j}",
+    		source: "(365:8) {#each stories as story, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (337:6) {#each projectArray as { name, stories }
+    // (363:6) {#each projectArray as { name, stories }
     function create_each_block$1(ctx) {
     	let each_1_anchor;
     	let current;
@@ -2514,7 +2512,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(337:6) {#each projectArray as { name, stories }",
+    		source: "(363:6) {#each projectArray as { name, stories }",
     		ctx
     	});
 
@@ -2590,14 +2588,14 @@ var app = (function () {
     			}
 
     			attr_dev(button0, "id", "prevButton");
-    			attr_dev(button0, "class", button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-11nu9u6"));
-    			add_location(button0, file$2, 292, 4, 7772);
+    			attr_dev(button0, "class", button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-ji0fy0"));
+    			add_location(button0, file$2, 316, 4, 8169);
     			attr_dev(button1, "id", "nextButton");
-    			attr_dev(button1, "class", button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-11nu9u6"));
-    			add_location(button1, file$2, 305, 4, 8223);
+    			attr_dev(button1, "class", button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-ji0fy0"));
+    			add_location(button1, file$2, 329, 4, 8620);
     			attr_dev(div0, "id", "indicators");
-    			attr_dev(div0, "class", "svelte-11nu9u6");
-    			add_location(div0, file$2, 324, 6, 8937);
+    			attr_dev(div0, "class", "svelte-ji0fy0");
+    			add_location(div0, file$2, 348, 6, 9334);
     			set_style(div1, "backface-visibility", "hidden");
 
     			set_style(div1, "transform", /*held*/ ctx[2]
@@ -2606,12 +2604,12 @@ var app = (function () {
 
     			set_style(div1, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
     			set_style(div1, "transition", "transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
-    			add_location(div1, file$2, 319, 4, 8675);
+    			add_location(div1, file$2, 343, 4, 9072);
     			set_style(main, "position", "relative");
     			set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX : 0) + "px");
     			set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
-    			attr_dev(main, "class", "svelte-11nu9u6");
-    			add_location(main, file$2, 287, 2, 7612);
+    			attr_dev(main, "class", "svelte-ji0fy0");
+    			add_location(main, file$2, 311, 2, 8009);
     			set_style(div2, "width", "100vw");
     			set_style(div2, "height", "100vh");
     			set_style(div2, "display", "flex");
@@ -2619,7 +2617,7 @@ var app = (function () {
     			set_style(div2, "overflow", "hidden");
     			set_style(div2, "align-items", "center");
     			set_style(div2, "perspective", "360px");
-    			add_location(div2, file$2, 284, 0, 7464);
+    			add_location(div2, file$2, 308, 0, 7861);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2671,15 +2669,15 @@ var app = (function () {
     			if (dirty[0] & /*navOpen*/ 16) nav_changes.navOpen = /*navOpen*/ ctx[4];
     			nav.$set(nav_changes);
 
-    			if (!current || dirty[0] & /*held*/ 4 && button0_class_value !== (button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-11nu9u6"))) {
+    			if (!current || dirty[0] & /*held*/ 4 && button0_class_value !== (button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-ji0fy0"))) {
     				attr_dev(button0, "class", button0_class_value);
     			}
 
-    			if (!current || dirty[0] & /*held*/ 4 && button1_class_value !== (button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-11nu9u6"))) {
+    			if (!current || dirty[0] & /*held*/ 4 && button1_class_value !== (button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-ji0fy0"))) {
     				attr_dev(button1, "class", button1_class_value);
     			}
 
-    			if (dirty[0] & /*params, held*/ 5) {
+    			if (dirty[0] & /*params, held, navOpen*/ 21) {
     				each_value_2 = projectArray[/*params*/ ctx[0].project].stories;
     				validate_each_argument(each_value_2);
     				let i;
