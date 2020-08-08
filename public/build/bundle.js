@@ -42,6 +42,9 @@ var app = (function () {
     function component_subscribe(component, store, callback) {
         component.$$.on_destroy.push(subscribe(store, callback));
     }
+    function null_to_empty(value) {
+        return value == null ? '' : value;
+    }
 
     function append(target, node) {
         target.appendChild(node);
@@ -135,6 +138,9 @@ var app = (function () {
     }
     function onMount(fn) {
         get_current_component().$$.on_mount.push(fn);
+    }
+    function afterUpdate(fn) {
+        get_current_component().$$.after_update.push(fn);
     }
     function createEventDispatcher() {
         const component = get_current_component();
@@ -1279,7 +1285,31 @@ var app = (function () {
     	}
     }
 
-    const figmaProject = [{ name: "Figma Project 1", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(255, 193, 193, 1);  width:100%; height:100%; display:block;" ><div id="21:2" style="z-index: 21; transform: matrix(0.9612616896629333,-0.2756373882293701,0.27563732862472534,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 128px; position: absolute; right: 33.270599365234375px; height: 78px; top: 177.15158081054688px; background-color: rgba(196, 196, 196, 1); "><div id="21:0" style="position: absolute; left: 13px; height: 18px; top: 11px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end"><a href="http://barronwebster.com">Inside another</a></span></div><div id="61:2" style="transform: matrix(0.9612616896629333,0.27563735842704773,-0.27563735842704773,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 14.134858131408691px; height: 12px; top: 42.38649368286133px; background-color: rgba(170, 38, 38, 1); "></div></div><div id="106:0" style="z-index: 21; position: absolute; left: calc(50% - 130.5px - -0.5px); height: 18px; top: 350px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span style="font-weight: 500; font-family: IBM Plex Sans; font-style: normal; " key="12">Let’s try a </span><span style="font-size: 14px; font-weight: 500; font-family: IBM Plex Sans; font-style: normal; line-height: 125%; color: rgba(0, 68, 204, 1); " key="16"> <a href="http://barronwebster.com">link</a></span><span style="font-weight: 500; font-family: IBM Plex Sans; font-style: normal; " key="29"> inline in a </span><span style="font-weight: 700; font-family: IBM Plex Sans; font-style: normal; " key="end">text box boyyyy</span></div><div id="345:3" style="width: 208px; position: absolute; left: 43px; height: 104px; top: 552px; display: flex; flex-direction: row; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="345:1" style="width: 31px; position: static; left: 8px; height: 47px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="349:1" style="width: 31px; position: static; left: 55px; height: 76px; top: 14px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="345:4" style="width: 32px; position: static; left: 102px; height: 47px; top: 43px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="345:2" style="width: 50px; position: static; left: 150px; height: 76px; top: 14px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="352:0" style="width: 104px; position: absolute; left: 43px; height: 156px; top: 54px; display: flex; flex-direction: column; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="352:1" style="width: 31px; position: static; left: 8px; height: 20px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="352:2" style="width: 88px; position: static; left: 8px; height: 15px; top: 50px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="352:3" style="width: 32px; position: static; left: 64px; height: 16px; top: 81px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="352:4" style="width: 88px; position: static; left: 8px; height: 29px; top: 113px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="366:0" style="width: 128px; position: absolute; left: 261px; height: 128px; top: 407px; background-image: url(./images/bw_prof_red_1); background-size: cover; border-radius: 250px 250px 250px 250px; "></div><div id="392:0" style="width: 154px; position: absolute; left: 45px; height: 116px; top: 401px; overflow: hidden; background-color: rgba(196, 196, 196, 1); border-radius: 8px 8px 8px 8px; "><video autoplay loop muted style="width: 100%; height: auto; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%)"><source src="./videos/test.mp4" type="video/mp4"/>Your browser does not support the video tag. I suggest you upgrade your browser.</video></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(255, 0, 0, 1);  width:100%; height:100%; display:block;" ><div id="9:4" style="width: 296px; position: absolute; left: 46px; height: 288px; top: 44px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 190.40000915527344%; "><span key="end">Hello this is a longer text box</span></div><div id="9:5" style="transform: matrix(0.9466003775596619,-0.32240918278694153,0.3224092423915863,0.9466003775596619,0,0); transform-origin: 0% 0%; width: 133px; position: absolute; right: 87px; height: 134px; bottom: 11.11956787109375px; background-color: rgba(156, 189, 238, 1); "></div><div id="289:2" style="transform: matrix(0.9548656940460205,0.29703789949417114,-0.29703789949417114,0.9548656940460205,0,0); transform-origin: 0% 0%; width: 228px; position: absolute; left: 46.4188346862793px; height: 365px; top: 252px; background-image: url(./images/Data_Pane_Image); background-size: cover; "></div><div id="294:0" style="transform: matrix(0.948660135269165,-0.3162972033023834,0.3162972033023834,0.948660135269165,0,0); transform-origin: 0% 0%; width: 158.5342254638672px; position: absolute; left: 172px; height: 129.4781036376953px; top: 482.1439208984375px; background-image: url(./images/no_spaces); background-size: cover; "></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(203, 47, 47, 1);  width:100%; height:100%; display:block;" ><div id="175:1" style="transform: matrix(0.00878943782299757,-0.9999613761901855,0.9999613761901855,0.00878943782299757,0,0); transform-origin: 0% 0%; width: 228px; position: absolute; left: 96.00043487548828px; height: 140px; top: 360.4418640136719px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">What’s up </span></div><div id="345:0" style="transform: matrix(0.9396926164627075,-0.3420201539993286,0.34202009439468384,0.9396926164627075,0,0); transform-origin: 0% 0%; width: 80px; position: absolute; right: 27px; height: 120px; bottom: -17.36163330078125px; background-color: rgba(206, 176, 176, 1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); border-radius: 8px 0px 0px 0px; "></div><div id="292:0" style="width: 121px; position: absolute; left: 46px; height: 144px; top: 446px; overflow: hidden; background-color: rgba(187, 57, 57, 1); border: 4px solid rgba(0, 0, 0, 1); border-radius: 12px 12px 12px 12px; "><div id="297:0" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 30.584253311157227px; height: 45px; top: 52.869659423828125px; overflow: hidden; background-color: rgba(0, 68, 204, 1); "></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(233, 158, 158, 1);  width:100%; height:100%; display:block;" ><div id="175:5" style="width: 228px; position: absolute; left: 46px; height: 140px; top: 44px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">And another</span></div></section>',]}, { name: "Project 2", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(255, 255, 255, 1);  width:100%; height:100%; display:block;" ><div id="4:25" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(98, 170, 64, 1);  width:100%; height:100%; display:block;" ><div id="161:2" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">WHAT</span></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(199, 238, 180, 1);  width:100%; height:100%; display:block;" ><div id="161:4" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A new one</span></div></section>',]}, { name: "Project threee", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="163:2" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>',]},  ];
+    const figmaProject = [
+    	{
+    		name: 'Figma Project 1',
+    		stories: [
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(255, 193, 193, 1);  width:100%; height:100%; display:block;" ><div id="21:2" style="z-index: 21; transform: matrix(0.9612616896629333,-0.2756373882293701,0.27563732862472534,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 128px; position: absolute; right: 33.270599365234375px; height: 78px; top: 177.15158081054688px; background-color: rgba(196, 196, 196, 1); "><div id="21:0" style="position: absolute; left: 13px; height: 18px; top: 11px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end"><a href="http://barronwebster.com">Inside another</a></span></div><div id="61:2" style="transform: matrix(0.9612616896629333,0.27563735842704773,-0.27563735842704773,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 14.134858131408691px; height: 12px; top: 42.38649368286133px; background-color: rgba(170, 38, 38, 1); "></div></div><div id="106:0" style="z-index: 21; position: absolute; left: calc(50% - 130.5px - -0.5px); height: 18px; top: 350px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span style="font-weight: 500; font-family: IBM Plex Sans; font-style: normal; " key="12">Let’s try a </span><span style="font-size: 14px; font-weight: 500; font-family: IBM Plex Sans; font-style: normal; line-height: 125%; color: rgba(0, 68, 204, 1); " key="16"> <a href="http://barronwebster.com">link</a></span><span style="font-weight: 500; font-family: IBM Plex Sans; font-style: normal; " key="29"> inline in a </span><span style="font-weight: 700; font-family: IBM Plex Sans; font-style: normal; " key="end">text box boyyyy</span></div><div id="345:3" style="width: 208px; position: absolute; left: 43px; height: 104px; top: 552px; display: flex; flex-direction: row; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="345:1" style="width: 31px; position: static; left: 8px; height: 47px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="349:1" style="width: 31px; position: static; left: 55px; height: 76px; top: 14px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="345:4" style="width: 32px; position: static; left: 102px; height: 47px; top: 43px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="345:2" style="width: 50px; position: static; left: 150px; height: 76px; top: 14px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="352:0" style="width: 104px; position: absolute; left: 43px; height: 156px; top: 54px; display: flex; flex-direction: column; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="352:1" style="width: 31px; position: static; left: 8px; height: 20px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="352:2" style="width: 88px; position: static; left: 8px; height: 15px; top: 50px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="352:3" style="width: 32px; position: static; left: 64px; height: 16px; top: 81px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="352:4" style="width: 88px; position: static; left: 8px; height: 29px; top: 113px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="366:0" style="width: 128px; position: absolute; left: 261px; height: 128px; top: 407px; background-image: url(./images/bw_prof_red_1); background-size: cover; border-radius: 250px 250px 250px 250px; "></div><div id="392:0" style="width: 154px; position: absolute; left: 45px; height: 116px; top: 401px; overflow: hidden; background-color: rgba(196, 196, 196, 1); border-radius: 8px 8px 8px 8px; "><video autoplay loop muted style="width: 100%; height: auto; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%)"><source src="./videos/test.mp4" type="video/mp4"/>Your browser does not support the video tag. I suggest you upgrade your browser.</video></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(255, 0, 0, 1);  width:100%; height:100%; display:block;" ><div id="9:4" style="width: 296px; position: absolute; left: 46px; height: 288px; top: 44px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 190.40000915527344%; "><span key="end">Hello this is a longer text box</span></div><div id="9:5" style="transform: matrix(0.9466003775596619,-0.32240918278694153,0.3224092423915863,0.9466003775596619,0,0); transform-origin: 0% 0%; width: 133px; position: absolute; right: 87px; height: 134px; bottom: 11.11956787109375px; background-color: rgba(156, 189, 238, 1); "></div><div id="289:2" style="transform: matrix(0.9548656940460205,0.29703789949417114,-0.29703789949417114,0.9548656940460205,0,0); transform-origin: 0% 0%; width: 228px; position: absolute; left: 46.4188346862793px; height: 365px; top: 252px; background-image: url(./images/Data_Pane_Image); background-size: cover; "></div><div id="294:0" style="transform: matrix(0.948660135269165,-0.3162972033023834,0.3162972033023834,0.948660135269165,0,0); transform-origin: 0% 0%; width: 158.5342254638672px; position: absolute; left: 172px; height: 129.4781036376953px; top: 482.1439208984375px; background-image: url(./images/no_spaces); background-size: cover; "></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(203, 47, 47, 1);  width:100%; height:100%; display:block;" ><div id="175:1" style="transform: matrix(0.00878943782299757,-0.9999613761901855,0.9999613761901855,0.00878943782299757,0,0); transform-origin: 0% 0%; width: 228px; position: absolute; left: 96.00043487548828px; height: 140px; top: 360.4418640136719px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">What’s up </span></div><div id="345:0" style="transform: matrix(0.9396926164627075,-0.3420201539993286,0.34202009439468384,0.9396926164627075,0,0); transform-origin: 0% 0%; width: 80px; position: absolute; right: 27px; height: 120px; bottom: -17.36163330078125px; background-color: rgba(206, 176, 176, 1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); border-radius: 8px 0px 0px 0px; "></div><div id="292:0" style="width: 121px; position: absolute; left: 46px; height: 144px; top: 446px; overflow: hidden; background-color: rgba(187, 57, 57, 1); border: 4px solid rgba(0, 0, 0, 1); border-radius: 12px 12px 12px 12px; "><div id="297:0" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 30.584253311157227px; height: 45px; top: 52.869659423828125px; overflow: hidden; background-color: rgba(0, 68, 204, 1); "></div></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(233, 158, 158, 1);  width:100%; height:100%; display:block;" ><div id="175:5" style="width: 228px; position: absolute; left: 46px; height: 140px; top: 44px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">And another</span></div></section>',
+    		],
+    	},
+    	{
+    		name: 'Project 2',
+    		stories: [
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(255, 255, 255, 1);  width:100%; height:100%; display:block;" ><div id="4:25" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(98, 170, 64, 1);  width:100%; height:100%; display:block;" ><div id="161:2" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">WHAT</span></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(199, 238, 180, 1);  width:100%; height:100%; display:block;" ><div id="161:4" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A new one</span></div></section>',
+    		],
+    	},
+    	{
+    		name: 'Project threee',
+    		stories: [
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="163:2" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>',
+    		],
+    	},
+    ];
 
     const projectArray = figmaProject; //write output of figma script here
 
@@ -1721,9 +1751,9 @@ var app = (function () {
     			? "visible"
     			: /*projectIndex*/ ctx[0] !== /*i*/ ctx[9]
     				? "hidden"
-    				: "visible") + "\n        " + " svelte-1dsmji5");
+    				: "visible") + "\n        " + " svelte-133mai8");
 
-    			add_location(li, file$1, 82, 6, 1666);
+    			add_location(li, file$1, 82, 6, 1667);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, li, anchor);
@@ -1741,7 +1771,7 @@ var app = (function () {
     			? "visible"
     			: /*projectIndex*/ ctx[0] !== /*i*/ ctx[9]
     				? "hidden"
-    				: "visible") + "\n        " + " svelte-1dsmji5")) {
+    				: "visible") + "\n        " + " svelte-133mai8")) {
     				attr_dev(li, "class", li_class_value);
     			}
     		},
@@ -1783,10 +1813,10 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(ol, "class", "svelte-1dsmji5");
-    			add_location(ol, file$1, 79, 2, 1615);
-    			attr_dev(nav, "class", "svelte-1dsmji5");
-    			add_location(nav, file$1, 68, 0, 1423);
+    			attr_dev(ol, "class", "svelte-133mai8");
+    			add_location(ol, file$1, 79, 2, 1616);
+    			attr_dev(nav, "class", "svelte-133mai8");
+    			add_location(nav, file$1, 68, 0, 1424);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1959,30 +1989,187 @@ var app = (function () {
 
     /* src/components/Stories.svelte generated by Svelte v3.20.1 */
 
-    const { window: window_1 } = globals;
+    const { console: console_1$1, window: window_1 } = globals;
     const file$2 = "src/components/Stories.svelte";
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[34] = list[i];
-    	child_ctx[36] = i;
+    	child_ctx[36] = list[i];
+    	child_ctx[38] = i;
     	return child_ctx;
     }
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[30] = list[i].name;
-    	child_ctx[31] = list[i].stories;
-    	child_ctx[33] = i;
+    	child_ctx[32] = list[i].name;
+    	child_ctx[33] = list[i].stories;
+    	child_ctx[35] = i;
     	return child_ctx;
     }
 
-    // (206:10) {:else}
+    function get_each_context_2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[36] = list[i].story;
+    	child_ctx[40] = i;
+    	return child_ctx;
+    }
+
+    // (331:10) {:else}
+    function create_else_block_1(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			set_style(div, "opacity", ".65");
+    			attr_dev(div, "class", "svelte-11nu9u6");
+    			add_location(div, file$2, 331, 12, 9242);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1.name,
+    		type: "else",
+    		source: "(331:10) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (329:38) 
+    function create_if_block_4(ctx) {
+    	let div;
+    	let div_class_value;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			attr_dev(div, "id", "currentIndicator");
+    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "paused" : "no") + " svelte-11nu9u6"));
+    			add_location(div, file$2, 329, 12, 9151);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*held*/ 4 && div_class_value !== (div_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "paused" : "no") + " svelte-11nu9u6"))) {
+    				attr_dev(div, "class", div_class_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_4.name,
+    		type: "if",
+    		source: "(329:38) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (327:10) {#if params.story > p}
+    function create_if_block_3(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			set_style(div, "opacity", "1");
+    			attr_dev(div, "class", "svelte-11nu9u6");
+    			add_location(div, file$2, 327, 12, 9073);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3.name,
+    		type: "if",
+    		source: "(327:10) {#if params.story > p}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (326:8) {#each projectArray[params.project].stories as { story }
+    function create_each_block_2(ctx) {
+    	let if_block_anchor;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*params*/ ctx[0].story > /*p*/ ctx[40]) return create_if_block_3;
+    		if (/*params*/ ctx[0].story == /*p*/ ctx[40]) return create_if_block_4;
+    		return create_else_block_1;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2.name,
+    		type: "each",
+    		source: "(326:8) {#each projectArray[params.project].stories as { story }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (345:10) {:else}
     function create_else_block$1(ctx) {
     	let current;
 
     	const story = new Story({
-    			props: { storyContent: /*story*/ ctx[34] },
+    			props: { storyContent: /*story*/ ctx[36] },
     			$$inline: true
     		});
 
@@ -2013,20 +2200,20 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(206:10) {:else}",
+    		source: "(345:10) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (204:57) 
+    // (343:57) 
     function create_if_block_2(ctx) {
     	let current;
 
     	const story = new Story({
     			props: {
-    				storyContent: /*story*/ ctx[34],
+    				storyContent: /*story*/ ctx[36],
     				prev: true
     			},
     			$$inline: true
@@ -2059,20 +2246,20 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(204:57) ",
+    		source: "(343:57) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (202:57) 
+    // (341:57) 
     function create_if_block_1(ctx) {
     	let current;
 
     	const story = new Story({
     			props: {
-    				storyContent: /*story*/ ctx[34],
+    				storyContent: /*story*/ ctx[36],
     				next: true
     			},
     			$$inline: true
@@ -2105,20 +2292,20 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(202:57) ",
+    		source: "(341:57) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (200:10) {#if params.project == i && params.story == j}
+    // (339:10) {#if params.project == i && params.story == j}
     function create_if_block$2(ctx) {
     	let current;
 
     	const story = new Story({
     			props: {
-    				storyContent: /*story*/ ctx[34],
+    				storyContent: /*story*/ ctx[36],
     				current: true
     			},
     			$$inline: true
@@ -2151,14 +2338,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(200:10) {#if params.project == i && params.story == j}",
+    		source: "(339:10) {#if params.project == i && params.story == j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (199:8) {#each stories as story, j}
+    // (338:8) {#each stories as story, j}
     function create_each_block_1(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -2167,14 +2354,14 @@ var app = (function () {
     	const if_block_creators = [create_if_block$2, create_if_block_1, create_if_block_2, create_else_block$1];
     	const if_blocks = [];
 
-    	function select_block_type(ctx, dirty) {
-    		if (/*params*/ ctx[0].project == /*i*/ ctx[33] && /*params*/ ctx[0].story == /*j*/ ctx[36]) return 0;
-    		if (/*next*/ ctx[5].project == /*i*/ ctx[33] && /*next*/ ctx[5].story == /*j*/ ctx[36]) return 1;
-    		if (/*prev*/ ctx[6].project == /*i*/ ctx[33] && /*prev*/ ctx[6].story == /*j*/ ctx[36]) return 2;
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*params*/ ctx[0].project == /*i*/ ctx[35] && /*params*/ ctx[0].story == /*j*/ ctx[38]) return 0;
+    		if (/*next*/ ctx[5].project == /*i*/ ctx[35] && /*next*/ ctx[5].story == /*j*/ ctx[38]) return 1;
+    		if (/*prev*/ ctx[6].project == /*i*/ ctx[35] && /*prev*/ ctx[6].story == /*j*/ ctx[38]) return 2;
     		return 3;
     	}
 
-    	current_block_type_index = select_block_type(ctx);
+    	current_block_type_index = select_block_type_1(ctx);
     	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
 
     	const block = {
@@ -2189,7 +2376,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			let previous_block_index = current_block_type_index;
-    			current_block_type_index = select_block_type(ctx);
+    			current_block_type_index = select_block_type_1(ctx);
 
     			if (current_block_type_index === previous_block_index) {
     				if_blocks[current_block_type_index].p(ctx, dirty);
@@ -2231,18 +2418,18 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(199:8) {#each stories as story, j}",
+    		source: "(338:8) {#each stories as story, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (198:6) {#each projectArray as { name, stories }
+    // (337:6) {#each projectArray as { name, stories }
     function create_each_block$1(ctx) {
     	let each_1_anchor;
     	let current;
-    	let each_value_1 = /*stories*/ ctx[31];
+    	let each_value_1 = /*stories*/ ctx[33];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -2272,7 +2459,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (dirty[0] & /*params, next, prev*/ 97) {
-    				each_value_1 = /*stories*/ ctx[31];
+    				each_value_1 = /*stories*/ ctx[33];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -2327,7 +2514,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(198:6) {#each projectArray as { name, stories }",
+    		source: "(337:6) {#each projectArray as { name, stories }",
     		ctx
     	});
 
@@ -2336,13 +2523,17 @@ var app = (function () {
 
     function create_fragment$4(ctx) {
     	let t0;
-    	let div1;
+    	let div2;
     	let main;
     	let button0;
+    	let button0_class_value;
     	let t1;
     	let button1;
+    	let button1_class_value;
     	let t2;
+    	let div1;
     	let div0;
+    	let t3;
     	let current;
     	let dispose;
 
@@ -2355,6 +2546,14 @@ var app = (function () {
     		});
 
     	nav.$on("message", /*handleNav*/ ctx[7]);
+    	let each_value_2 = projectArray[/*params*/ ctx[0].project].stories;
+    	validate_each_argument(each_value_2);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+    	}
+
     	let each_value = projectArray;
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -2371,45 +2570,56 @@ var app = (function () {
     		c: function create() {
     			create_component(nav.$$.fragment);
     			t0 = space();
-    			div1 = element("div");
+    			div2 = element("div");
     			main = element("main");
     			button0 = element("button");
     			t1 = space();
     			button1 = element("button");
     			t2 = space();
+    			div1 = element("div");
     			div0 = element("div");
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			t3 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
     			attr_dev(button0, "id", "prevButton");
-    			attr_dev(button0, "class", "svelte-8y0so0");
-    			add_location(button0, file$2, 167, 4, 4946);
+    			attr_dev(button0, "class", button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-11nu9u6"));
+    			add_location(button0, file$2, 292, 4, 7772);
     			attr_dev(button1, "id", "nextButton");
-    			attr_dev(button1, "class", "svelte-8y0so0");
-    			add_location(button1, file$2, 179, 4, 5372);
-    			set_style(div0, "backface-visibility", "hidden");
+    			attr_dev(button1, "class", button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-11nu9u6"));
+    			add_location(button1, file$2, 305, 4, 8223);
+    			attr_dev(div0, "id", "indicators");
+    			attr_dev(div0, "class", "svelte-11nu9u6");
+    			add_location(div0, file$2, 324, 6, 8937);
+    			set_style(div1, "backface-visibility", "hidden");
 
-    			set_style(div0, "transform", /*held*/ ctx[2]
-    			? "rotateY(" + Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 10, 45), -45) + "deg)"
+    			set_style(div1, "transform", /*held*/ ctx[2]
+    			? "rotateY(" + /*gesture_gap*/ ctx[1].pageX / 10 + "deg)"
     			: "none");
 
-    			set_style(div0, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
-    			set_style(div0, "transition", "transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
-    			add_location(div0, file$2, 191, 4, 5798);
+    			set_style(div1, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
+    			set_style(div1, "transition", "transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
+    			add_location(div1, file$2, 319, 4, 8675);
     			set_style(main, "position", "relative");
-    			set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX / 1.2 : 0) + "px");
+    			set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX : 0) + "px");
     			set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
-    			attr_dev(main, "class", "svelte-8y0so0");
-    			add_location(main, file$2, 162, 2, 4780);
-    			set_style(div1, "width", "100vw");
-    			set_style(div1, "height", "100vh");
-    			set_style(div1, "display", "flex");
-    			set_style(div1, "justify-content", "center");
-    			set_style(div1, "align-items", "center");
-    			set_style(div1, "perspective", "360px");
-    			add_location(div1, file$2, 159, 0, 4649);
+    			attr_dev(main, "class", "svelte-11nu9u6");
+    			add_location(main, file$2, 287, 2, 7612);
+    			set_style(div2, "width", "100vw");
+    			set_style(div2, "height", "100vh");
+    			set_style(div2, "display", "flex");
+    			set_style(div2, "justify-content", "center");
+    			set_style(div2, "overflow", "hidden");
+    			set_style(div2, "align-items", "center");
+    			set_style(div2, "perspective", "360px");
+    			add_location(div2, file$2, 284, 0, 7464);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2417,16 +2627,23 @@ var app = (function () {
     		m: function mount(target, anchor, remount) {
     			mount_component(nav, target, anchor);
     			insert_dev(target, t0, anchor);
-    			insert_dev(target, div1, anchor);
-    			append_dev(div1, main);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, main);
     			append_dev(main, button0);
     			append_dev(main, t1);
     			append_dev(main, button1);
     			append_dev(main, t2);
-    			append_dev(main, div0);
+    			append_dev(main, div1);
+    			append_dev(div1, div0);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(div0, null);
+    			}
+
+    			append_dev(div1, t3);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(div0, null);
+    				each_blocks[i].m(div1, null);
     			}
 
     			current = true;
@@ -2434,18 +2651,18 @@ var app = (function () {
 
     			dispose = [
     				listen_dev(window_1, "keydown", /*handleKeydown*/ ctx[11], false, false, false),
-    				listen_dev(button0, "touchstart", prevent_default(/*touchstart_handler*/ ctx[18]), false, true, false),
-    				listen_dev(button0, "mousedown", prevent_default(/*mousedown_handler*/ ctx[19]), false, true, false),
-    				listen_dev(button0, "touchmove", prevent_default(/*touchmove_handler*/ ctx[20]), false, true, false),
-    				listen_dev(button0, "mousemove", prevent_default(/*mousemove_handler*/ ctx[21]), false, true, false),
-    				listen_dev(button0, "touchend", prevent_default(/*touchend_handler*/ ctx[22]), false, true, false),
-    				listen_dev(button0, "mouseup", /*mouseup_handler*/ ctx[23], false, false, false),
-    				listen_dev(button1, "touchstart", prevent_default(/*touchstart_handler_1*/ ctx[24]), false, true, false),
-    				listen_dev(button1, "mousedown", prevent_default(/*mousedown_handler_1*/ ctx[25]), false, true, false),
-    				listen_dev(button1, "touchmove", prevent_default(/*touchmove_handler_1*/ ctx[26]), false, true, false),
-    				listen_dev(button1, "mousemove", prevent_default(/*mousemove_handler_1*/ ctx[27]), false, true, false),
-    				listen_dev(button1, "touchend", prevent_default(/*touchend_handler_1*/ ctx[28]), false, true, false),
-    				listen_dev(button1, "mouseup", /*mouseup_handler_1*/ ctx[29], false, false, false)
+    				listen_dev(button0, "touchstart", /*touchstart_handler*/ ctx[20], { passive: true }, false, false),
+    				listen_dev(button0, "mousedown", prevent_default(/*mousedown_handler*/ ctx[21]), false, true, false),
+    				listen_dev(button0, "touchmove", /*touchmove_handler*/ ctx[22], { passive: true }, false, false),
+    				listen_dev(button0, "mousemove", prevent_default(/*mousemove_handler*/ ctx[23]), false, true, false),
+    				listen_dev(button0, "touchend", prevent_default(/*touchend_handler*/ ctx[24]), false, true, false),
+    				listen_dev(button0, "mouseup", /*mouseup_handler*/ ctx[25], false, false, false),
+    				listen_dev(button1, "touchstart", /*touchstart_handler_1*/ ctx[26], { passive: true }, false, false),
+    				listen_dev(button1, "mousedown", prevent_default(/*mousedown_handler_1*/ ctx[27]), false, true, false),
+    				listen_dev(button1, "touchmove", /*touchmove_handler_1*/ ctx[28], { passive: true }, false, false),
+    				listen_dev(button1, "mousemove", prevent_default(/*mousemove_handler_1*/ ctx[29]), false, true, false),
+    				listen_dev(button1, "touchend", prevent_default(/*touchend_handler_1*/ ctx[30]), false, true, false),
+    				listen_dev(button1, "mouseup", /*mouseup_handler_1*/ ctx[31], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
@@ -2453,6 +2670,38 @@ var app = (function () {
     			if (dirty[0] & /*params*/ 1) nav_changes.projectIndex = parseInt(/*params*/ ctx[0].project);
     			if (dirty[0] & /*navOpen*/ 16) nav_changes.navOpen = /*navOpen*/ ctx[4];
     			nav.$set(nav_changes);
+
+    			if (!current || dirty[0] & /*held*/ 4 && button0_class_value !== (button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-11nu9u6"))) {
+    				attr_dev(button0, "class", button0_class_value);
+    			}
+
+    			if (!current || dirty[0] & /*held*/ 4 && button1_class_value !== (button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-11nu9u6"))) {
+    				attr_dev(button1, "class", button1_class_value);
+    			}
+
+    			if (dirty[0] & /*params, held*/ 5) {
+    				each_value_2 = projectArray[/*params*/ ctx[0].project].stories;
+    				validate_each_argument(each_value_2);
+    				let i;
+
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_2(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(div0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_2.length;
+    			}
 
     			if (dirty[0] & /*params, next, prev*/ 97) {
     				each_value = projectArray;
@@ -2469,7 +2718,7 @@ var app = (function () {
     						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
-    						each_blocks[i].m(div0, null);
+    						each_blocks[i].m(div1, null);
     					}
     				}
 
@@ -2483,21 +2732,21 @@ var app = (function () {
     			}
 
     			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
-    				set_style(div0, "transform", /*held*/ ctx[2]
-    				? "rotateY(" + Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 10, 45), -45) + "deg)"
+    				set_style(div1, "transform", /*held*/ ctx[2]
+    				? "rotateY(" + /*gesture_gap*/ ctx[1].pageX / 10 + "deg)"
     				: "none");
     			}
 
     			if (!current || dirty[0] & /*swipeDirection*/ 8) {
-    				set_style(div0, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
+    				set_style(div1, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
     			}
 
     			if (!current || dirty[0] & /*held*/ 4) {
-    				set_style(div0, "transition", "transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
+    				set_style(div1, "transition", "transform " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
     			}
 
     			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
-    				set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX / 1.2 : 0) + "px");
+    				set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX : 0) + "px");
     			}
 
     			if (!current || dirty[0] & /*held*/ 4) {
@@ -2527,7 +2776,8 @@ var app = (function () {
     		d: function destroy(detaching) {
     			destroy_component(nav, detaching);
     			if (detaching) detach_dev(t0);
-    			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(div2);
+    			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
     			run_all(dispose);
     		}
@@ -2543,6 +2793,8 @@ var app = (function () {
 
     	return block;
     }
+
+    const storyTimerTime = 5000;
 
     function instance$4($$self, $$props, $$invalidate) {
     	gestures(); //figure this shit out at some point lol
@@ -2561,8 +2813,33 @@ var app = (function () {
     		swipeSensitivity = Math.min(screen.width / 3, 300);
     	};
 
+    	const Timer = function (callback, delay) {
+    		var timerId, start, remaining = delay;
+
+    		this.pause = function () {
+    			window.clearTimeout(timerId);
+    			remaining -= Date.now() - start;
+    			console.log("timer paused");
+    		};
+
+    		this.clear = function () {
+    			window.clearTimeout(timerId);
+    			console.log("timer cleared");
+    		};
+
+    		this.resume = function () {
+    			start = Date.now();
+    			window.clearTimeout(timerId);
+    			timerId = window.setTimeout(callback, remaining);
+    			console.log("timer resumed");
+    		};
+
+    		this.resume();
+    	};
+
     	let timedout = true; //whether a gesture has timed out
     	let gesturetimer; //timer object to time that
+    	let storyTimer; //timer object to time stories
     	let navOpen = false;
 
     	function handleNav(event) {
@@ -2575,10 +2852,19 @@ var app = (function () {
     		} else {
     			push("/" + prev.project + "/" + prev.story);
     		}
+
+    		storyTimer.clear();
+
+    		storyTimer = new Timer(function () {
+    				handleProjects("next");
+    			},
+    		storyTimerTime);
     	}
 
     	function gestureDown(e) {
     		//when a gesture starts
+    		storyTimer.pause(); //pause story timer
+
     		$$invalidate(4, navOpen = false);
 
     		if (e.type == "touchstart") {
@@ -2600,7 +2886,7 @@ var app = (function () {
 
     		gesturetimer = setTimeout(
     			() => {
-    				//start timer
+    				//start gesture timer
     				timedout = true;
     			},
     			400
@@ -2645,6 +2931,13 @@ var app = (function () {
     				: push("/" + (projectArray.length - 1) + "/0"); // if current project ain't first
     				//next project
     				//last project
+
+    				storyTimer.clear();
+
+    				storyTimer = new Timer(function () {
+    						handleProjects("next");
+    					},
+    				storyTimerTime);
     			} else if (gesture_active.pageX < gesture_start.pageX - swipeSensitivity) {
     				//RIGHT SWIPEY
     				// swipeDirection = "right";
@@ -2653,10 +2946,24 @@ var app = (function () {
     				: push("/0/0"); // if current project ain't last
     				//next project
     				//first project
+
+    				storyTimer.clear();
+
+    				storyTimer = new Timer(function () {
+    						handleProjects("next");
+    					},
+    				storyTimerTime);
     			} else {
     				//JUST GO NEXT OR PREV
+    				//if location is more than halfway to right= next, else prev
+    				// gesture_active.pageX > window.innerWidth / 2
+    				//   ? handleProjects("next")
+    				//   : handleProjects("prev");
     				handleProjects(direction);
     			}
+    		} else {
+    			//if gesture has timed out
+    			storyTimer.resume();
     		}
 
     		//reset timer
@@ -2677,10 +2984,20 @@ var app = (function () {
     		}
     	}
 
+    	onMount(() => {
+    		//when first mounts; basically on page load
+    		console.log("onMount");
+
+    		storyTimer = new Timer(function () {
+    				handleProjects("next");
+    			},
+    		storyTimerTime);
+    	});
+
     	const writable_props = ["params"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Stories> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$1.warn(`<Stories> was created with unknown prop '${key}'`);
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
@@ -2719,6 +3036,7 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		Story,
     		onMount,
+    		afterUpdate,
     		Nav,
     		projectArray,
     		getNext,
@@ -2732,8 +3050,11 @@ var app = (function () {
     		held,
     		swipeDirection,
     		swipeSensitivity,
+    		Timer,
     		timedout,
     		gesturetimer,
+    		storyTimer,
+    		storyTimerTime,
     		navOpen,
     		handleNav,
     		handleProjects,
@@ -2755,6 +3076,7 @@ var app = (function () {
     		if ("swipeSensitivity" in $$props) swipeSensitivity = $$props.swipeSensitivity;
     		if ("timedout" in $$props) timedout = $$props.timedout;
     		if ("gesturetimer" in $$props) gesturetimer = $$props.gesturetimer;
+    		if ("storyTimer" in $$props) storyTimer = $$props.storyTimer;
     		if ("navOpen" in $$props) $$invalidate(4, navOpen = $$props.navOpen);
     		if ("next" in $$props) $$invalidate(5, next = $$props.next);
     		if ("prev" in $$props) $$invalidate(6, prev = $$props.prev);
@@ -2795,6 +3117,8 @@ var app = (function () {
     		swipeSensitivity,
     		timedout,
     		gesturetimer,
+    		storyTimer,
+    		Timer,
     		handleProjects,
     		touchstart_handler,
     		mousedown_handler,

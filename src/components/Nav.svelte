@@ -24,7 +24,7 @@
     padding: 0;
     margin: 0;
     min-height: 38px;
-    top: 8px;
+    top: 10px;
     left: 8px;
     background-color: white;
     border-radius: 8px;

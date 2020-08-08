@@ -1,6 +1,6 @@
 <script>
   import Story from "./Story.svelte";
-  import { onMount } from "svelte";
+  import { onMount, afterUpdate } from "svelte";
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
   import { gestures } from "@composi/gestures";
@@ -24,8 +24,37 @@
     swipeSensitivity = Math.min(screen.width / 3, 300);
   };
 
+  const Timer = function(callback, delay) {
+    var timerId,
+      start,
+      remaining = delay;
+
+    this.pause = function() {
+      window.clearTimeout(timerId);
+      remaining -= Date.now() - start;
+      console.log("timer paused");
+    };
+
+    this.clear = function() {
+      window.clearTimeout(timerId);
+      console.log("timer cleared");
+    };
+
+    this.resume = function() {
+      start = Date.now();
+      window.clearTimeout(timerId);
+      timerId = window.setTimeout(callback, remaining);
+      console.log("timer resumed");
+    };
+
+    this.resume();
+  };
+
   let timedout = true; //whether a gesture has timed out
   let gesturetimer; //timer object to time that
+
+  let storyTimer; //timer object to time stories
+  const storyTimerTime = 5000;
 
   let navOpen = false;
   function handleNav(event) {
@@ -38,10 +67,17 @@
     } else {
       push("/" + prev.project + "/" + prev.story);
     }
+    storyTimer.clear();
+    storyTimer = new Timer(function() {
+      handleProjects("next");
+    }, storyTimerTime);
   }
 
   function gestureDown(e) {
     //when a gesture starts
+
+    storyTimer.pause(); //pause story timer
+
     navOpen = false;
     if (e.type == "touchstart") {
       //if it'a a touch event
@@ -56,8 +92,9 @@
     gesture_active.pageY = gesture_start.pageY;
     held = true; //start holding gesture
     timedout = false; //reset timedout, hasn't timed out yet
+
     gesturetimer = setTimeout(() => {
-      //start timer
+      //start gesture timer
       timedout = true;
     }, 400);
   }
@@ -86,6 +123,7 @@
 
   function gestureUp(e, direction) {
     held = false; //end holding gesture
+
     if (!timedout) {
       //if the gesture hasn't timed out
       if (gesture_active.pageX > gesture_start.pageX + swipeSensitivity) {
@@ -95,6 +133,10 @@
         parseInt(params.project) > 0 // if current project ain't first
           ? push("/" + (parseInt(params.project) - 1) + "/0") //next project
           : push("/" + (projectArray.length - 1) + "/0"); //last project
+        storyTimer.clear();
+        storyTimer = new Timer(function() {
+          handleProjects("next");
+        }, storyTimerTime);
       } else if (
         gesture_active.pageX <
         gesture_start.pageX - swipeSensitivity
@@ -104,13 +146,26 @@
         parseInt(params.project) <= projectArray.length // if current project ain't last
           ? push("/" + (parseInt(params.project) + 1) + "/0") //next project
           : push("/0/0"); //first project
+        storyTimer.clear();
+        storyTimer = new Timer(function() {
+          handleProjects("next");
+        }, storyTimerTime);
       } else {
         //JUST GO NEXT OR PREV
+
+        //if location is more than halfway to right= next, else prev
+        // gesture_active.pageX > window.innerWidth / 2
+        //   ? handleProjects("next")
+        //   : handleProjects("prev");
         handleProjects(direction);
       }
+    } else {
+      //if gesture has timed out
+      storyTimer.resume();
     }
     //reset timer
     clearTimeout(gesturetimer);
+
     //reset gesture tracking
     gesture_start = { pageX: 0, pageY: 0 };
     gesture_active = { pageX: 0, pageY: 0 };
@@ -123,6 +178,22 @@
       handleProjects("prev");
     }
   }
+
+  onMount(() => {
+    //when first mounts; basically on page load
+    console.log("onMount");
+    storyTimer = new Timer(function() {
+      handleProjects("next");
+    }, storyTimerTime);
+  });
+
+  // afterUpdate(() => {
+  //   console.log("afterUpdate");
+  //   storyTimer.clear();
+  //   storyTimer = new Timer(function() {
+  //     handleProjects("next");
+  //   }, 5000);
+  // });
 </script>
 
 <style>
@@ -130,26 +201,80 @@
     justify-content: center;
     display: flex;
   }
+  .grabbing {
+    cursor: grabbing !important;
+  }
   button {
     position: absolute;
     top: -20px;
     bottom: -20px;
-    /* height: 100%; */
     z-index: 2;
-    opacity: 0.3;
+    opacity: 0;
     width: 50vw;
-    /* outline: none; */
+    outline: none;
+    touch-action: none;
   }
   #nextButton {
     background-color: rgb(255, 139, 212);
     right: calc(-50vw + 50%);
-
     cursor: e-resize;
   }
   #prevButton {
     background-color: rgb(139, 255, 211);
     left: calc(-50vw + 50%);
     cursor: w-resize;
+  }
+
+  #indicators {
+    height: 2px;
+    top: 4px;
+    left: 8px;
+    right: 8px;
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    column-gap: 4px;
+  }
+
+  #indicators div {
+    background-color: white;
+    height: 100%;
+    flex-grow: 1;
+    border-radius: 1px;
+  }
+
+  @keyframes -global-progress {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  #indicators #currentIndicator {
+    background-color: rgba(255, 255, 255, 0.65);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #currentIndicator::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    background: white;
+    animation: progress 5s linear;
+    animation-fill-mode: forwards;
+  }
+
+  .paused::after {
+    -webkit-animation-play-state: paused !important;
+    -moz-animation-play-state: paused !important;
+    -o-animation-play-state: paused !important;
+    animation-play-state: paused !important;
   }
 </style>
 
@@ -159,42 +284,56 @@
 <Nav projectIndex={parseInt(params.project)} {navOpen} on:message={handleNav} />
 <div
   style=" width: 100vw; height: 100vh; display: flex; justify-content: center;
-  align-items: center; perspective: 360px;">
+  overflow:hidden; align-items: center; perspective: 360px;">
   <main
-    style="position: relative; left: {held ? gesture_gap.pageX / 1.2 : 0}px;
+    style="position: relative; left: {held ? gesture_gap.pageX : 0}px;
     transition: left {held ? 0 : 0.2}s ease;">
     <!-- overflow: hidden; -->
 
     <button
       id="prevButton"
-      on:touchstart|preventDefault={e => gestureDown(e)}
+      on:touchstart|passive={e => gestureDown(e)}
       on:mousedown|preventDefault={e => gestureDown(e)}
-      on:touchmove|preventDefault={e => {
+      on:touchmove|passive={e => {
         if (held) gestureMove(e);
       }}
       on:mousemove|preventDefault={e => {
         if (held) gestureMove(e);
       }}
       on:touchend|preventDefault={e => gestureUp(e, 'prev')}
-      on:mouseup={e => gestureUp(e, 'prev')} />
+      on:mouseup={e => gestureUp(e, 'prev')}
+      class={held ? 'grabbing' : 'no'} />
     <button
       id="nextButton"
-      on:touchstart|preventDefault={e => gestureDown(e)}
+      on:touchstart|passive={e => gestureDown(e)}
       on:mousedown|preventDefault={e => gestureDown(e)}
-      on:touchmove|preventDefault={e => {
+      on:touchmove|passive={e => {
         if (held) gestureMove(e);
       }}
       on:mousemove|preventDefault={e => {
         if (held) gestureMove(e);
       }}
       on:touchend|preventDefault={e => gestureUp(e, 'next')}
-      on:mouseup={e => gestureUp(e, 'next')} />
+      on:mouseup={e => gestureUp(e, 'next')}
+      class={held ? 'grabbing' : 'no'} />
+
     <div
-      style="backface-visibility: hidden;transform: {held ? 'rotateY(' + Math.max(Math.min(gesture_gap.pageX / 10, 45), -45) + 'deg)' : 'none'};
+      style="backface-visibility: hidden; transform: {held ? 'rotateY(' + gesture_gap.pageX / 10 + 'deg)' : 'none'};
       transform-origin: center {swipeDirection == 'right' ? 'right' : 'left'};
       transition: transform {held ? 0 : 0.2}s ease;">
-      <!--       transform-style: preserve-3d; 
-       -->
+
+      <div id="indicators">
+        {#each projectArray[params.project].stories as { story }, p}
+          {#if params.story > p}
+            <div style="opacity:1;" />
+          {:else if params.story == p}
+            <div id="currentIndicator" class={held ? 'paused' : 'no'} />
+          {:else}
+            <div style="opacity:.65;" />
+          {/if}
+        {/each}
+      </div>
+
       {#each projectArray as { name, stories }, i}
         {#each stories as story, j}
           {#if params.project == i && params.story == j}
