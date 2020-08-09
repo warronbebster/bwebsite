@@ -71,10 +71,10 @@
 
   function handleProjects(direction) {
     if (direction == "next") {
-      swipeDirection = "right";
+      swipeDirection = "left";
       push("/" + next.project + "/" + next.story);
     } else {
-      swipeDirection = "left";
+      swipeDirection = "right";
       push("/" + prev.project + "/" + prev.story);
     }
     storyTimer.clear();
@@ -233,9 +233,8 @@
     /* display: flex; */
     height: calc(100vh - 30px);
     position: relative;
-    width: 460px;
+    /* width: 460px; */
     /* //fix this bad boy */
-    background: rgba(247, 136, 154, 0.66);
     width: 100vw;
     max-width: var(--width-border);
     max-height: var(--height-border);
@@ -260,14 +259,16 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    transition: all 2s;
+    transition: left 2s ease, transform 2s ease;
     display: none;
+    border-radius: 4px;
+    overflow: hidden;
   }
 
   .prevProject {
     display: block;
     transform: rotateY(-90deg);
-    transform-origin: center right;
+    /* transform-origin: center right; */
     z-index: -1;
     position: absolute;
     top: 0;
@@ -285,7 +286,7 @@
   .nextProject {
     display: block;
     transform: rotateY(90deg);
-    transform-origin: center left;
+    /* transform-origin: center left; */
     z-index: -1;
     position: absolute;
     top: 0;
@@ -418,12 +419,6 @@
       on:mouseup={e => gestureUp(e, 'next')}
       class={held ? 'grabbing' : 'no'} />
 
-    <!-- <div
-      style="transform: {held ? 'rotateY(' + Math.max(Math.min(gesture_gap.pageX / 4.2, 90), -90) + 'deg)' : 'none'};
-      transform-origin: center {swipeDirection}; transition: transform {held ? 0 : 0.4}s
-      ease; transform-style: {held ? 'preserve-3d' : 'unset'}; max-width: 460px;
-      "> -->
-
     {#each projectArray as { name, stories }, i}
       <!-- each project -->
 
@@ -434,9 +429,12 @@
         {i == prevProject ? 'prevProject' : ''}
         "
         style="
-        {held ? 'transform: rotateY(' + (gesture_gap.pageX / 4.2 + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg);' : ''}
+        {held && (i == params.project || i == nextProject || i == prevProject) ? 'transform: rotateY(' + (gesture_gap.pageX / 4.2 + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg);' : ''}
         {params.project == i ? 'transform-origin: center ' + swipeDirection + ';' : ''}
-        transition: all {held ? 0 : 2}s ease; ">
+        {nextProject == i ? 'transform-origin: center left;' : ''}
+        {prevProject == i ? 'transform-origin: center right;' : ''}
+        {held ? 'transition: left 2s ease, transform 2s ease;' : ''}
+        ">
         <!--   
           transform-style: {held ? 'preserve-3d' : 'unset'};       
         -->
@@ -472,7 +470,6 @@
       </div>
       <!-- close project div -->
     {/each}
-    <!-- </div> -->
     <!-- //close 3d div -->
 
   </main>
