@@ -92,10 +92,10 @@
         "
         on:click={() => {
           if (window.innerWidth < 640) {
-            if (navOpen) push('/' + i + '/0');
+            if (navOpen) dispatch('project', i);
             projectIndex == i ? showNav(!navOpen) : showNav(false);
           } else {
-            push('/' + i + '/0');
+            dispatch('project', i);
           }
         }}>
         {project.name}

@@ -1861,7 +1861,7 @@ var app = (function () {
     			];
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*projectIndex, navOpen, window, push, showNav, projectArray*/ 7) {
+    			if (dirty & /*projectIndex, navOpen, window, dispatch, showNav, projectArray*/ 15) {
     				each_value = projectArray;
     				validate_each_argument(each_value);
     				let i;
@@ -1925,10 +1925,10 @@ var app = (function () {
 
     	const click_handler = i => {
     		if (window.innerWidth < 640) {
-    			if (navOpen) push("/" + i + "/0");
+    			if (navOpen) dispatch("project", i);
     			projectIndex == i ? showNav(!navOpen) : showNav(false);
     		} else {
-    			push("/" + i + "/0");
+    			dispatch("project", i);
     		}
     	};
 
@@ -1971,8 +1971,8 @@ var app = (function () {
     	return [
     		projectIndex,
     		navOpen,
-    		showNav,
     		dispatch,
+    		showNav,
     		click_handler,
     		mouseover_handler,
     		mouseleave_handler
@@ -2018,30 +2018,30 @@ var app = (function () {
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[38] = list[i];
-    	child_ctx[40] = i;
+    	child_ctx[40] = list[i];
+    	child_ctx[42] = i;
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[38] = list[i];
-    	child_ctx[42] = i;
+    	child_ctx[40] = list[i];
+    	child_ctx[44] = i;
     	return child_ctx;
     }
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[34] = list[i].name;
-    	child_ctx[35] = list[i].stories;
-    	child_ctx[37] = i;
+    	child_ctx[36] = list[i].name;
+    	child_ctx[37] = list[i].stories;
+    	child_ctx[39] = i;
     	return child_ctx;
     }
 
-    // (442:8) {#if params.project == i}
+    // (475:8) {#if params.project == i}
     function create_if_block$2(ctx) {
     	let div;
-    	let each_value_2 = /*stories*/ ctx[35];
+    	let each_value_2 = /*stories*/ ctx[37];
     	validate_each_argument(each_value_2);
     	let each_blocks = [];
 
@@ -2058,8 +2058,8 @@ var app = (function () {
     			}
 
     			attr_dev(div, "id", "indicators");
-    			attr_dev(div, "class", "svelte-1tzbc9x");
-    			add_location(div, file$2, 443, 10, 11820);
+    			attr_dev(div, "class", "svelte-o9mpd6");
+    			add_location(div, file$2, 476, 10, 12665);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2070,7 +2070,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (dirty[0] & /*params, held, navOpen*/ 21) {
-    				each_value_2 = /*stories*/ ctx[35];
+    				each_value_2 = /*stories*/ ctx[37];
     				validate_each_argument(each_value_2);
     				let i;
 
@@ -2103,22 +2103,22 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(442:8) {#if params.project == i}",
+    		source: "(475:8) {#if params.project == i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (452:14) {:else}
+    // (487:14) {:else}
     function create_else_block$1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "nextIndicators svelte-1tzbc9x");
-    			add_location(div, file$2, 452, 16, 12148);
+    			attr_dev(div, "class", "nextIndicators svelte-o9mpd6");
+    			add_location(div, file$2, 487, 16, 13060);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2133,35 +2133,44 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(452:14) {:else}",
+    		source: "(487:14) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (448:42) 
+    // (481:42) 
     function create_if_block_2(ctx) {
-    	let div;
-    	let div_class_value;
+    	let div1;
+    	let div0;
+    	let div0_class_value;
+    	let t;
 
     	const block = {
     		c: function create() {
-    			div = element("div");
-    			attr_dev(div, "id", "currentIndicator");
-    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*held*/ ctx[2] || /*navOpen*/ ctx[4] ? "paused" : "no") + " svelte-1tzbc9x"));
-    			add_location(div, file$2, 448, 16, 12002);
+    			div1 = element("div");
+    			div0 = element("div");
+    			t = space();
+    			attr_dev(div0, "id", "loadingBar");
+    			attr_dev(div0, "class", div0_class_value = "" + (null_to_empty(/*held*/ ctx[2] || /*navOpen*/ ctx[4] ? "paused" : "no") + " svelte-o9mpd6"));
+    			add_location(div0, file$2, 482, 18, 12893);
+    			attr_dev(div1, "id", "currentIndicator");
+    			attr_dev(div1, "class", "svelte-o9mpd6");
+    			add_location(div1, file$2, 481, 16, 12847);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div1, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*held, navOpen*/ 20 && div_class_value !== (div_class_value = "" + (null_to_empty(/*held*/ ctx[2] || /*navOpen*/ ctx[4] ? "paused" : "no") + " svelte-1tzbc9x"))) {
-    				attr_dev(div, "class", div_class_value);
+    			if (dirty[0] & /*held, navOpen*/ 20 && div0_class_value !== (div0_class_value = "" + (null_to_empty(/*held*/ ctx[2] || /*navOpen*/ ctx[4] ? "paused" : "no") + " svelte-o9mpd6"))) {
+    				attr_dev(div0, "class", div0_class_value);
     			}
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div1);
     		}
     	};
 
@@ -2169,22 +2178,22 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(448:42) ",
+    		source: "(481:42) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (446:14) {#if params.story > p}
+    // (479:14) {#if params.story > p}
     function create_if_block_1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "svelte-1tzbc9x");
-    			add_location(div, file$2, 446, 16, 11935);
+    			attr_dev(div, "class", "svelte-o9mpd6");
+    			add_location(div, file$2, 479, 16, 12780);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2199,20 +2208,20 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(446:14) {#if params.story > p}",
+    		source: "(479:14) {#if params.story > p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (445:12) {#each stories as story, p}
+    // (478:12) {#each stories as story, p}
     function create_each_block_2(ctx) {
     	let if_block_anchor;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*params*/ ctx[0].story > /*p*/ ctx[42]) return create_if_block_1;
-    		if (/*params*/ ctx[0].story == /*p*/ ctx[42]) return create_if_block_2;
+    		if (/*params*/ ctx[0].story > /*p*/ ctx[44]) return create_if_block_1;
+    		if (/*params*/ ctx[0].story == /*p*/ ctx[44]) return create_if_block_2;
     		return create_else_block$1;
     	}
 
@@ -2251,35 +2260,35 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(445:12) {#each stories as story, p}",
+    		source: "(478:12) {#each stories as story, p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (459:8) {#each stories as story, j}
+    // (494:8) {#each stories as story, j}
     function create_each_block_1(ctx) {
     	let t;
     	let current;
 
     	const story = new Story({
     			props: {
-    				storyContent: /*story*/ ctx[38],
-    				current: /*params*/ ctx[0].project == /*i*/ ctx[37] && /*params*/ ctx[0].story == /*j*/ ctx[40]
+    				storyContent: /*story*/ ctx[40],
+    				current: /*params*/ ctx[0].project == /*i*/ ctx[39] && /*params*/ ctx[0].story == /*j*/ ctx[42]
     				? true
     				: false,
-    				next: /*next*/ ctx[5].project == /*i*/ ctx[37] && /*next*/ ctx[5].story == /*j*/ ctx[40]
+    				next: /*next*/ ctx[5].project == /*i*/ ctx[39] && /*next*/ ctx[5].story == /*j*/ ctx[42]
     				? true
     				: false,
-    				prev: /*prev*/ ctx[6].project == /*i*/ ctx[37] && /*prev*/ ctx[6].story == /*j*/ ctx[40]
+    				prev: /*prev*/ ctx[6].project == /*i*/ ctx[39] && /*prev*/ ctx[6].story == /*j*/ ctx[42]
     				? true
     				: false,
-    				nextCover: /*i*/ ctx[37] == /*nextProject*/ ctx[7]
-    				? /*j*/ ctx[40] == 0 ? true : false
+    				nextCover: /*i*/ ctx[39] == /*nextProject*/ ctx[7]
+    				? /*j*/ ctx[42] == 0 ? true : false
     				: false,
-    				prevCover: /*i*/ ctx[37] == /*prevProject*/ ctx[8]
-    				? /*j*/ ctx[40] == /*stories*/ ctx[35].length - 1
+    				prevCover: /*i*/ ctx[39] == /*prevProject*/ ctx[8]
+    				? /*j*/ ctx[42] == /*stories*/ ctx[37].length - 1
     					? true
     					: false
     				: false
@@ -2300,24 +2309,24 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const story_changes = {};
 
-    			if (dirty[0] & /*params*/ 1) story_changes.current = /*params*/ ctx[0].project == /*i*/ ctx[37] && /*params*/ ctx[0].story == /*j*/ ctx[40]
+    			if (dirty[0] & /*params*/ 1) story_changes.current = /*params*/ ctx[0].project == /*i*/ ctx[39] && /*params*/ ctx[0].story == /*j*/ ctx[42]
     			? true
     			: false;
 
-    			if (dirty[0] & /*next*/ 32) story_changes.next = /*next*/ ctx[5].project == /*i*/ ctx[37] && /*next*/ ctx[5].story == /*j*/ ctx[40]
+    			if (dirty[0] & /*next*/ 32) story_changes.next = /*next*/ ctx[5].project == /*i*/ ctx[39] && /*next*/ ctx[5].story == /*j*/ ctx[42]
     			? true
     			: false;
 
-    			if (dirty[0] & /*prev*/ 64) story_changes.prev = /*prev*/ ctx[6].project == /*i*/ ctx[37] && /*prev*/ ctx[6].story == /*j*/ ctx[40]
+    			if (dirty[0] & /*prev*/ 64) story_changes.prev = /*prev*/ ctx[6].project == /*i*/ ctx[39] && /*prev*/ ctx[6].story == /*j*/ ctx[42]
     			? true
     			: false;
 
-    			if (dirty[0] & /*nextProject*/ 128) story_changes.nextCover = /*i*/ ctx[37] == /*nextProject*/ ctx[7]
-    			? /*j*/ ctx[40] == 0 ? true : false
+    			if (dirty[0] & /*nextProject*/ 128) story_changes.nextCover = /*i*/ ctx[39] == /*nextProject*/ ctx[7]
+    			? /*j*/ ctx[42] == 0 ? true : false
     			: false;
 
-    			if (dirty[0] & /*prevProject*/ 256) story_changes.prevCover = /*i*/ ctx[37] == /*prevProject*/ ctx[8]
-    			? /*j*/ ctx[40] == /*stories*/ ctx[35].length - 1
+    			if (dirty[0] & /*prevProject*/ 256) story_changes.prevCover = /*i*/ ctx[39] == /*prevProject*/ ctx[8]
+    			? /*j*/ ctx[42] == /*stories*/ ctx[37].length - 1
     				? true
     				: false
     			: false;
@@ -2343,14 +2352,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(459:8) {#each stories as story, j}",
+    		source: "(494:8) {#each stories as story, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (422:4) {#each projectArray as { name, stories }
+    // (455:4) {#each projectArray as { name, stories }
     function create_each_block$1(ctx) {
     	let div;
     	let t0;
@@ -2358,8 +2367,8 @@ var app = (function () {
     	let div_style_value;
     	let t1;
     	let current;
-    	let if_block = /*params*/ ctx[0].project == /*i*/ ctx[37] && create_if_block$2(ctx);
-    	let each_value_1 = /*stories*/ ctx[35];
+    	let if_block = /*params*/ ctx[0].project == /*i*/ ctx[39] && create_if_block$2(ctx);
+    	let each_value_1 = /*stories*/ ctx[37];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -2383,27 +2392,27 @@ var app = (function () {
 
     			t1 = space();
 
-    			attr_dev(div, "class", div_class_value = "project " + /*i*/ ctx[37] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[37]
+    			attr_dev(div, "class", div_class_value = "project " + /*i*/ ctx[39] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[39]
     			? "currentProject"
-    			: "") + "\n        " + (/*i*/ ctx[37] == /*nextProject*/ ctx[7]
+    			: "") + "\n        " + (/*i*/ ctx[39] == /*nextProject*/ ctx[7]
     			? "nextProject"
-    			: "") + "\n        " + (/*i*/ ctx[37] == /*prevProject*/ ctx[8]
+    			: "") + "\n        " + (/*i*/ ctx[39] == /*prevProject*/ ctx[8]
     			? "prevProject"
-    			: "") + "\n        " + " svelte-1tzbc9x");
+    			: "") + "\n        " + " svelte-o9mpd6");
 
-    			attr_dev(div, "style", div_style_value = "\n        " + (/*held*/ ctx[2] && (/*i*/ ctx[37] == /*params*/ ctx[0].project || /*i*/ ctx[37] == /*nextProject*/ ctx[7] || /*i*/ ctx[37] == /*prevProject*/ ctx[8])
-    			? "transform: rotateY(" + (/*gesture_gap*/ ctx[1].pageX / 4.2 + (/*i*/ ctx[37] == /*nextProject*/ ctx[7] ? 90 : 0) + (/*i*/ ctx[37] == /*prevProject*/ ctx[8] ? -90 : 0)) + "deg);"
-    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[37]
+    			attr_dev(div, "style", div_style_value = "\n        " + (/*held*/ ctx[2] && (/*i*/ ctx[39] == /*params*/ ctx[0].project || /*i*/ ctx[39] == /*nextProject*/ ctx[7] || /*i*/ ctx[39] == /*prevProject*/ ctx[8])
+    			? "transform: rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[1].pageX / 4.2, -90), 90) + (/*i*/ ctx[39] == /*nextProject*/ ctx[7] ? 90 : 0) + (/*i*/ ctx[39] == /*prevProject*/ ctx[8] ? -90 : 0)) + "deg);"
+    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[39]
     			? "transform-origin: center " + /*swipeDirection*/ ctx[3] + ";"
-    			: "") + "\n        " + (/*nextProject*/ ctx[7] == /*i*/ ctx[37]
+    			: "") + "\n        " + (/*nextProject*/ ctx[7] == /*i*/ ctx[39]
     			? "transform-origin: center left;"
-    			: "") + "\n        " + (/*prevProject*/ ctx[8] == /*i*/ ctx[37]
+    			: "") + "\n        " + (/*prevProject*/ ctx[8] == /*i*/ ctx[39]
     			? "transform-origin: center right;"
-    			: "") + "\n        " + (/*held*/ ctx[2]
-    			? "transition: left 2s ease, transform 2s ease;"
-    			: "") + "\n        ");
+    			: "") + "\n        " + (!/*held*/ ctx[2]
+    			? "transition: left .8s ease, transform .8s ease;"
+    			: "transition: left 0s; transform 0s") + "\n        ");
 
-    			add_location(div, file$2, 424, 6, 10913);
+    			add_location(div, file$2, 457, 6, 11693);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2418,7 +2427,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (/*params*/ ctx[0].project == /*i*/ ctx[37]) {
+    			if (/*params*/ ctx[0].project == /*i*/ ctx[39]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
@@ -2432,7 +2441,7 @@ var app = (function () {
     			}
 
     			if (dirty[0] & /*params, next, prev, nextProject, prevProject*/ 481) {
-    				each_value_1 = /*stories*/ ctx[35];
+    				each_value_1 = /*stories*/ ctx[37];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -2459,27 +2468,27 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (!current || dirty[0] & /*params, nextProject, prevProject*/ 385 && div_class_value !== (div_class_value = "project " + /*i*/ ctx[37] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[37]
+    			if (!current || dirty[0] & /*params, nextProject, prevProject*/ 385 && div_class_value !== (div_class_value = "project " + /*i*/ ctx[39] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[39]
     			? "currentProject"
-    			: "") + "\n        " + (/*i*/ ctx[37] == /*nextProject*/ ctx[7]
+    			: "") + "\n        " + (/*i*/ ctx[39] == /*nextProject*/ ctx[7]
     			? "nextProject"
-    			: "") + "\n        " + (/*i*/ ctx[37] == /*prevProject*/ ctx[8]
+    			: "") + "\n        " + (/*i*/ ctx[39] == /*prevProject*/ ctx[8]
     			? "prevProject"
-    			: "") + "\n        " + " svelte-1tzbc9x")) {
+    			: "") + "\n        " + " svelte-o9mpd6")) {
     				attr_dev(div, "class", div_class_value);
     			}
 
-    			if (!current || dirty[0] & /*held, params, nextProject, prevProject, gesture_gap, swipeDirection*/ 399 && div_style_value !== (div_style_value = "\n        " + (/*held*/ ctx[2] && (/*i*/ ctx[37] == /*params*/ ctx[0].project || /*i*/ ctx[37] == /*nextProject*/ ctx[7] || /*i*/ ctx[37] == /*prevProject*/ ctx[8])
-    			? "transform: rotateY(" + (/*gesture_gap*/ ctx[1].pageX / 4.2 + (/*i*/ ctx[37] == /*nextProject*/ ctx[7] ? 90 : 0) + (/*i*/ ctx[37] == /*prevProject*/ ctx[8] ? -90 : 0)) + "deg);"
-    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[37]
+    			if (!current || dirty[0] & /*held, params, nextProject, prevProject, gesture_gap, swipeDirection*/ 399 && div_style_value !== (div_style_value = "\n        " + (/*held*/ ctx[2] && (/*i*/ ctx[39] == /*params*/ ctx[0].project || /*i*/ ctx[39] == /*nextProject*/ ctx[7] || /*i*/ ctx[39] == /*prevProject*/ ctx[8])
+    			? "transform: rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[1].pageX / 4.2, -90), 90) + (/*i*/ ctx[39] == /*nextProject*/ ctx[7] ? 90 : 0) + (/*i*/ ctx[39] == /*prevProject*/ ctx[8] ? -90 : 0)) + "deg);"
+    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[39]
     			? "transform-origin: center " + /*swipeDirection*/ ctx[3] + ";"
-    			: "") + "\n        " + (/*nextProject*/ ctx[7] == /*i*/ ctx[37]
+    			: "") + "\n        " + (/*nextProject*/ ctx[7] == /*i*/ ctx[39]
     			? "transform-origin: center left;"
-    			: "") + "\n        " + (/*prevProject*/ ctx[8] == /*i*/ ctx[37]
+    			: "") + "\n        " + (/*prevProject*/ ctx[8] == /*i*/ ctx[39]
     			? "transform-origin: center right;"
-    			: "") + "\n        " + (/*held*/ ctx[2]
-    			? "transition: left 2s ease, transform 2s ease;"
-    			: "") + "\n        ")) {
+    			: "") + "\n        " + (!/*held*/ ctx[2]
+    			? "transition: left .8s ease, transform .8s ease;"
+    			: "transition: left 0s; transform 0s") + "\n        ")) {
     				attr_dev(div, "style", div_style_value);
     			}
     		},
@@ -2513,7 +2522,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(422:4) {#each projectArray as { name, stories }",
+    		source: "(455:4) {#each projectArray as { name, stories }",
     		ctx
     	});
 
@@ -2541,7 +2550,8 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	nav.$on("message", /*handleNav*/ ctx[9]);
+    	nav.$on("message", /*showNav*/ ctx[9]);
+    	nav.$on("project", /*handleNavProject*/ ctx[10]);
     	let each_value = projectArray;
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -2570,28 +2580,22 @@ var app = (function () {
     			}
 
     			attr_dev(button0, "id", "prevButton");
-    			attr_dev(button0, "class", button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-1tzbc9x"));
-    			add_location(button0, file$2, 394, 4, 9930);
+    			attr_dev(button0, "class", button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-o9mpd6"));
+    			add_location(button0, file$2, 427, 4, 10710);
     			attr_dev(button1, "id", "nextButton");
-    			attr_dev(button1, "class", button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-1tzbc9x"));
-    			add_location(button1, file$2, 407, 4, 10381);
+    			attr_dev(button1, "class", button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-o9mpd6"));
+    			add_location(button1, file$2, 440, 4, 11161);
 
     			set_style(main, "left", (/*held*/ ctx[2]
     			? Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX, window.innerWidth), -window.innerWidth)
     			: 0) + "px");
 
-    			set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.4) + "s ease");
-    			attr_dev(main, "class", "svelte-1tzbc9x");
-    			add_location(main, file$2, 387, 2, 9720);
-    			set_style(div, "width", "100vw");
-    			set_style(div, "height", "100vh");
-    			set_style(div, "display", "flex");
-    			set_style(div, "justify-content", "center");
-    			set_style(div, "overflow", "hidden");
-    			set_style(div, "align-items", "center");
+    			set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.8) + "s ease");
+    			attr_dev(main, "class", "svelte-o9mpd6");
+    			add_location(main, file$2, 420, 2, 10499);
     			set_style(div, "perspective", "840px");
-    			attr_dev(div, "class", "svelte-1tzbc9x");
-    			add_location(div, file$2, 384, 0, 9572);
+    			attr_dev(div, "class", "svelte-o9mpd6");
+    			add_location(div, file$2, 419, 0, 10462);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2614,19 +2618,19 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(window_1, "keydown", /*handleKeydown*/ ctx[13], false, false, false),
-    				listen_dev(button0, "touchstart", /*touchstart_handler*/ ctx[22], { passive: true }, false, false),
-    				listen_dev(button0, "mousedown", prevent_default(/*mousedown_handler*/ ctx[23]), false, true, false),
-    				listen_dev(button0, "touchmove", /*touchmove_handler*/ ctx[24], { passive: true }, false, false),
-    				listen_dev(button0, "mousemove", prevent_default(/*mousemove_handler*/ ctx[25]), false, true, false),
-    				listen_dev(button0, "touchend", prevent_default(/*touchend_handler*/ ctx[26]), false, true, false),
-    				listen_dev(button0, "mouseup", /*mouseup_handler*/ ctx[27], false, false, false),
-    				listen_dev(button1, "touchstart", /*touchstart_handler_1*/ ctx[28], { passive: true }, false, false),
-    				listen_dev(button1, "mousedown", prevent_default(/*mousedown_handler_1*/ ctx[29]), false, true, false),
-    				listen_dev(button1, "touchmove", /*touchmove_handler_1*/ ctx[30], { passive: true }, false, false),
-    				listen_dev(button1, "mousemove", prevent_default(/*mousemove_handler_1*/ ctx[31]), false, true, false),
-    				listen_dev(button1, "touchend", prevent_default(/*touchend_handler_1*/ ctx[32]), false, true, false),
-    				listen_dev(button1, "mouseup", /*mouseup_handler_1*/ ctx[33], false, false, false)
+    				listen_dev(window_1, "keydown", /*handleKeydown*/ ctx[14], false, false, false),
+    				listen_dev(button0, "touchstart", /*touchstart_handler*/ ctx[24], { passive: true }, false, false),
+    				listen_dev(button0, "mousedown", prevent_default(/*mousedown_handler*/ ctx[25]), false, true, false),
+    				listen_dev(button0, "touchmove", /*touchmove_handler*/ ctx[26], { passive: true }, false, false),
+    				listen_dev(button0, "mousemove", prevent_default(/*mousemove_handler*/ ctx[27]), false, true, false),
+    				listen_dev(button0, "touchend", prevent_default(/*touchend_handler*/ ctx[28]), false, true, false),
+    				listen_dev(button0, "mouseup", /*mouseup_handler*/ ctx[29], false, false, false),
+    				listen_dev(button1, "touchstart", /*touchstart_handler_1*/ ctx[30], { passive: true }, false, false),
+    				listen_dev(button1, "mousedown", prevent_default(/*mousedown_handler_1*/ ctx[31]), false, true, false),
+    				listen_dev(button1, "touchmove", /*touchmove_handler_1*/ ctx[32], { passive: true }, false, false),
+    				listen_dev(button1, "mousemove", prevent_default(/*mousemove_handler_1*/ ctx[33]), false, true, false),
+    				listen_dev(button1, "touchend", prevent_default(/*touchend_handler_1*/ ctx[34]), false, true, false),
+    				listen_dev(button1, "mouseup", /*mouseup_handler_1*/ ctx[35], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
@@ -2635,11 +2639,11 @@ var app = (function () {
     			if (dirty[0] & /*navOpen*/ 16) nav_changes.navOpen = /*navOpen*/ ctx[4];
     			nav.$set(nav_changes);
 
-    			if (!current || dirty[0] & /*held*/ 4 && button0_class_value !== (button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-1tzbc9x"))) {
+    			if (!current || dirty[0] & /*held*/ 4 && button0_class_value !== (button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-o9mpd6"))) {
     				attr_dev(button0, "class", button0_class_value);
     			}
 
-    			if (!current || dirty[0] & /*held*/ 4 && button1_class_value !== (button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-1tzbc9x"))) {
+    			if (!current || dirty[0] & /*held*/ 4 && button1_class_value !== (button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-o9mpd6"))) {
     				attr_dev(button1, "class", button1_class_value);
     			}
 
@@ -2678,7 +2682,7 @@ var app = (function () {
     			}
 
     			if (!current || dirty[0] & /*held*/ 4) {
-    				set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.4) + "s ease");
+    				set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.8) + "s ease");
     			}
     		},
     		i: function intro(local) {
@@ -2721,7 +2725,7 @@ var app = (function () {
     	return block;
     }
 
-    const storyTimerTime = 50000;
+    const storyTimerTime = 6000;
 
     function instance$4($$self, $$props, $$invalidate) {
     	gestures(); //figure this shit out at some point lol
@@ -2734,14 +2738,24 @@ var app = (function () {
     	let gesture_gap = { pageX: 0, pageY: 0 }; //why can't i make this a reactive svelte thingy
     	let held = false;
     	let swipeDirection = "right";
-    	let swipeSensitivity = Math.min(screen.width / 3, 300);
+    	let swipeSensitivity = 150;
 
-    	window.onresize = () => {
-    		swipeSensitivity = Math.min(screen.width / 3, 300);
-    	};
+    	// window.onresize = () => {
+    	//   swipeSensitivity = Math.min(screen.width / 3, 300);
+    	// };
+    	let timedout = true; //whether a gesture has timed out
+
+    	let gesturetimer; //timer object to time that
+    	let timerExists = false;
+    	let storyTimer; //timer object to time stories
+    	let navOpen = false;
+
+    	function showNav(event) {
+    		$$invalidate(4, navOpen = event.detail.open);
+    	}
 
     	const Timer = function (callback, delay) {
-    		var timerId, start, remaining = delay;
+    		var timerId, start, delayStore = delay, remaining = delay;
 
     		this.pause = function () {
     			window.clearTimeout(timerId);
@@ -2761,33 +2775,50 @@ var app = (function () {
     			console.log("timer resumed");
     		};
 
+    		this.reset = function () {
+    			start = Date.now();
+    			remaining = delayStore;
+    			window.clearTimeout(timerId);
+    			timerId = window.setTimeout(callback, remaining);
+    			console.log("timer reset");
+    		};
+
     		this.resume();
     	};
 
-    	let timedout = true; //whether a gesture has timed out
-    	let gesturetimer; //timer object to time that
-    	let storyTimer; //timer object to time stories
-    	let navOpen = false;
-
-    	function handleNav(event) {
-    		$$invalidate(4, navOpen = event.detail.open);
+    	function handleNavProject(event) {
+    		console.log(event);
+    		push("/" + event.detail + "/0");
+    		storyTimer.reset();
     	}
 
     	function handleProjects(direction) {
     		if (direction == "next") {
     			$$invalidate(3, swipeDirection = "left");
     			push("/" + next.project + "/" + next.story);
-    		} else {
+    		} else if (direction == "prev") {
     			$$invalidate(3, swipeDirection = "right");
     			push("/" + prev.project + "/" + prev.story);
+    		} else if (direction == "nextProject") {
+    			$$invalidate(3, swipeDirection = "left");
+    			console.log("handleProjects nextProjects");
+
+    			parseInt(params.project) < projectArray.length - 1
+    			? push("/" + (parseInt(params.project) + 1) + "/0")
+    			: push("/0/0"); // if current project ain't last
+    			//next project
+    			//first project
+    		} else if (direction == "prevProject") {
+    			$$invalidate(3, swipeDirection = "right");
+
+    			parseInt(params.project) > 0
+    			? push("/" + (parseInt(params.project) - 1) + "/" + (projectArray[parseInt(params.project) - 1].stories.length - 1))
+    			: push("/" + (projectArray.length - 1) + "/" + (projectArray[projectArray.length - 1].stories.length - 1)); // if current project ain't first
+    			//last project in prev story
+    			//last project
     		}
 
-    		storyTimer.clear();
-
-    		storyTimer = new Timer(function () {
-    				handleProjects("next");
-    			},
-    		storyTimerTime);
+    		storyTimer.reset();
     	}
 
     	function gestureDown(e) {
@@ -2849,49 +2880,30 @@ var app = (function () {
 
     	function gestureUp(e, direction) {
     		$$invalidate(2, held = false); //end holding gesture
+    		console.log(timedout);
 
     		if (!timedout) {
     			//if the gesture hasn't timed out
     			if (gesture_active.pageX > gesture_start.pageX + swipeSensitivity) {
     				//LEFT SWIPEY
     				// swipeDirection = "left";
-    				parseInt(params.project) > 0
-    				? push("/" + (parseInt(params.project) - 1) + "/0")
-    				: push("/" + (projectArray.length - 1) + "/0"); // if current project ain't first
-    				//next project
-    				//last project
-
-    				storyTimer.clear();
-
-    				storyTimer = new Timer(function () {
-    						handleProjects("next");
-    					},
-    				storyTimerTime);
+    				handleProjects("prevProject");
     			} else if (gesture_active.pageX < gesture_start.pageX - swipeSensitivity) {
     				//RIGHT SWIPEY
     				// swipeDirection = "right";
-    				parseInt(params.project) <= projectArray.length
-    				? push("/" + (parseInt(params.project) + 1) + "/0")
-    				: push("/0/0"); // if current project ain't last
-    				//next project
-    				//first project
-
-    				storyTimer.clear();
-
-    				storyTimer = new Timer(function () {
-    						handleProjects("next");
-    					},
-    				storyTimerTime);
+    				handleProjects("nextProject");
     			} else {
     				//JUST GO NEXT OR PREV
-    				//if location is more than halfway to right= next, else prev
-    				// gesture_active.pageX > window.innerWidth / 2
-    				//   ? handleProjects("next")
-    				//   : handleProjects("prev");
-    				handleProjects(direction);
+    				if (Math.abs(gesture_gap.pageX) < 10) handleProjects(direction);
     			}
     		} else {
     			//if gesture has timed out
+    			if (gesture_active.pageX > gesture_start.pageX + 200) {
+    				handleProjects("prevProject");
+    			} else if (gesture_active.pageX < gesture_start.pageX - 200) {
+    				handleProjects("nextProject");
+    			}
+
     			storyTimer.resume();
     		}
 
@@ -2915,9 +2927,7 @@ var app = (function () {
 
     	onMount(() => {
     		//when first mounts; basically on page load
-    		console.log("onMount");
-
-    		storyTimer = new Timer(function () {
+    		storyTimer = new Timer(() => {
     				handleProjects("next");
     			},
     		storyTimerTime);
@@ -2979,13 +2989,15 @@ var app = (function () {
     		held,
     		swipeDirection,
     		swipeSensitivity,
-    		Timer,
     		timedout,
     		gesturetimer,
+    		timerExists,
     		storyTimer,
     		storyTimerTime,
     		navOpen,
-    		handleNav,
+    		showNav,
+    		Timer,
+    		handleNavProject,
     		handleProjects,
     		gestureDown,
     		gestureMove,
@@ -3007,6 +3019,7 @@ var app = (function () {
     		if ("swipeSensitivity" in $$props) swipeSensitivity = $$props.swipeSensitivity;
     		if ("timedout" in $$props) timedout = $$props.timedout;
     		if ("gesturetimer" in $$props) gesturetimer = $$props.gesturetimer;
+    		if ("timerExists" in $$props) timerExists = $$props.timerExists;
     		if ("storyTimer" in $$props) storyTimer = $$props.storyTimer;
     		if ("navOpen" in $$props) $$invalidate(4, navOpen = $$props.navOpen);
     		if ("next" in $$props) $$invalidate(5, next = $$props.next);
@@ -3056,17 +3069,19 @@ var app = (function () {
     		prev,
     		nextProject,
     		prevProject,
-    		handleNav,
+    		showNav,
+    		handleNavProject,
     		gestureDown,
     		gestureMove,
     		gestureUp,
     		handleKeydown,
     		gesture_start,
     		gesture_active,
-    		swipeSensitivity,
     		timedout,
     		gesturetimer,
     		storyTimer,
+    		swipeSensitivity,
+    		timerExists,
     		Timer,
     		handleProjects,
     		touchstart_handler,

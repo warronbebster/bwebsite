@@ -27,14 +27,27 @@
 
   let held = false;
   let swipeDirection = "right";
-  let swipeSensitivity = Math.min(screen.width / 3, 300);
-  window.onresize = () => {
-    swipeSensitivity = Math.min(screen.width / 3, 300);
-  };
+  let swipeSensitivity = 150;
+  // window.onresize = () => {
+  //   swipeSensitivity = Math.min(screen.width / 3, 300);
+  // };
+
+  let timedout = true; //whether a gesture has timed out
+  let gesturetimer; //timer object to time that
+
+  let timerExists = false;
+  let storyTimer; //timer object to time stories
+  const storyTimerTime = 6000;
+
+  let navOpen = false;
+  function showNav(event) {
+    navOpen = event.detail.open;
+  }
 
   const Timer = function(callback, delay) {
     var timerId,
       start,
+      delayStore = delay,
       remaining = delay;
 
     this.pause = function() {
@@ -55,32 +68,53 @@
       console.log("timer resumed");
     };
 
+    this.reset = function() {
+      start = Date.now();
+      remaining = delayStore;
+      window.clearTimeout(timerId);
+      timerId = window.setTimeout(callback, remaining);
+      console.log("timer reset");
+    };
+
     this.resume();
   };
 
-  let timedout = true; //whether a gesture has timed out
-  let gesturetimer; //timer object to time that
-
-  let storyTimer; //timer object to time stories
-  const storyTimerTime = 50000;
-
-  let navOpen = false;
-  function handleNav(event) {
-    navOpen = event.detail.open;
+  function handleNavProject(event) {
+    console.log(event);
+    push("/" + event.detail + "/0");
+    storyTimer.reset();
   }
 
   function handleProjects(direction) {
     if (direction == "next") {
       swipeDirection = "left";
       push("/" + next.project + "/" + next.story);
-    } else {
+    } else if (direction == "prev") {
       swipeDirection = "right";
       push("/" + prev.project + "/" + prev.story);
+    } else if (direction == "nextProject") {
+      swipeDirection = "left";
+      console.log("handleProjects nextProjects");
+      parseInt(params.project) < projectArray.length - 1 // if current project ain't last
+        ? push("/" + (parseInt(params.project) + 1) + "/0") //next project
+        : push("/0/0"); //first project
+    } else if (direction == "prevProject") {
+      swipeDirection = "right";
+      parseInt(params.project) > 0 // if current project ain't first
+        ? push(
+            "/" +
+              (parseInt(params.project) - 1) +
+              "/" +
+              (projectArray[parseInt(params.project) - 1].stories.length - 1)
+          ) //last project in prev story
+        : push(
+            "/" +
+              (projectArray.length - 1) +
+              "/" +
+              (projectArray[projectArray.length - 1].stories.length - 1)
+          ); //last project
     }
-    storyTimer.clear();
-    storyTimer = new Timer(function() {
-      handleProjects("next");
-    }, storyTimerTime);
+    storyTimer.reset();
   }
 
   function gestureDown(e) {
@@ -132,44 +166,32 @@
 
   function gestureUp(e, direction) {
     held = false; //end holding gesture
+    console.log(timedout);
 
     if (!timedout) {
       //if the gesture hasn't timed out
       if (gesture_active.pageX > gesture_start.pageX + swipeSensitivity) {
         //LEFT SWIPEY
         // swipeDirection = "left";
-
-        parseInt(params.project) > 0 // if current project ain't first
-          ? push("/" + (parseInt(params.project) - 1) + "/0") //next project
-          : push("/" + (projectArray.length - 1) + "/0"); //last project
-        storyTimer.clear();
-        storyTimer = new Timer(function() {
-          handleProjects("next");
-        }, storyTimerTime);
+        handleProjects("prevProject");
       } else if (
         gesture_active.pageX <
         gesture_start.pageX - swipeSensitivity
       ) {
         //RIGHT SWIPEY
         // swipeDirection = "right";
-        parseInt(params.project) <= projectArray.length // if current project ain't last
-          ? push("/" + (parseInt(params.project) + 1) + "/0") //next project
-          : push("/0/0"); //first project
-        storyTimer.clear();
-        storyTimer = new Timer(function() {
-          handleProjects("next");
-        }, storyTimerTime);
+        handleProjects("nextProject");
       } else {
         //JUST GO NEXT OR PREV
-
-        //if location is more than halfway to right= next, else prev
-        // gesture_active.pageX > window.innerWidth / 2
-        //   ? handleProjects("next")
-        //   : handleProjects("prev");
-        handleProjects(direction);
+        if (Math.abs(gesture_gap.pageX) < 10) handleProjects(direction);
       }
     } else {
       //if gesture has timed out
+      if (gesture_active.pageX > gesture_start.pageX + 200) {
+        handleProjects("prevProject");
+      } else if (gesture_active.pageX < gesture_start.pageX - 200) {
+        handleProjects("nextProject");
+      }
       storyTimer.resume();
     }
     //reset timer
@@ -180,6 +202,7 @@
     gesture_active = { pageX: 0, pageY: 0 };
     gesture_gap = { pageX: 0, pageY: 0 };
   }
+
   function handleKeydown(event) {
     if (event.keyCode == 39) {
       handleProjects("next");
@@ -190,18 +213,18 @@
 
   onMount(() => {
     //when first mounts; basically on page load
-    console.log("onMount");
-    storyTimer = new Timer(function() {
+    storyTimer = new Timer(() => {
       handleProjects("next");
     }, storyTimerTime);
   });
+
+  //pls run only once
 </script>
 
 <style>
   :root {
     /* this is like css variables */
     --width-border: 460px;
-    /* --height-border: 840px; */
   }
 
   .grabbing {
@@ -233,14 +256,11 @@
     /* display: flex; */
     height: calc(100vh - 30px);
     position: relative;
-    /* width: 460px; */
-    /* //fix this bad boy */
     width: 100vw;
     max-width: var(--width-border);
     max-height: var(--height-border);
     padding: 0;
     margin: 0;
-    border-radius: 4px;
     /* transition: 0.3s max-height ease, 0.3s max-width ease, 0.3s height ease,
       0.3s width ease, 0.3s border-radius ease; */
   }
@@ -259,7 +279,8 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    transition: left 2s ease, transform 2s ease;
+    -webkit-backface-visibility: hidden;
+    transition: left 0.8s ease, transform 0.8s ease;
     display: none;
     border-radius: 4px;
     overflow: hidden;
@@ -304,7 +325,6 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    column-gap: 4px;
     box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.9);
   }
 
@@ -313,6 +333,7 @@
     height: 100%;
     flex-grow: 1;
     border-radius: 2px;
+    margin: 0 2px;
   }
   .nextIndicators {
     opacity: 0.5;
@@ -324,20 +345,30 @@
     overflow: hidden;
   }
 
-  #currentIndicator::after {
-    content: "";
+  #loadingBar {
+    /* content: ""; */
     position: absolute;
+    top: 0px;
     left: 0px;
     height: 100%;
     background: white;
-    animation: progress 5s linear;
-    -webkit-animation: progress 5s linear;
-    -moz-animation: progress 5s linear;
-    -o-animation: progress 5s linear;
+    -moz-animation: progress 6s linear;
+    -o-animation: progress 6s linear;
+
+    animation-name: progress;
+    animation-duration: 6s;
+    animation-timing-function: linear;
     animation-fill-mode: forwards;
+
+    -webkit-animation-name: progress;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-delay: 0.01s;
+    /* -webkit-animation-iteration-count: 6; */
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
   }
 
-  .paused::after {
+  .paused {
     -webkit-animation-play-state: paused !important;
     -moz-animation-play-state: paused !important;
     -o-animation-play-state: paused !important;
@@ -381,13 +412,15 @@
 <svelte:window on:keydown={handleKeydown} />
 <svelte:options immutable={true} />
 
-<Nav projectIndex={parseInt(params.project)} {navOpen} on:message={handleNav} />
-<div
-  style=" width: 100vw; height: 100vh; display: flex; justify-content: center;
-  overflow:hidden; align-items: center; perspective: 840px;">
+<Nav
+  projectIndex={parseInt(params.project)}
+  {navOpen}
+  on:message={showNav}
+  on:project={handleNavProject} />
+<div style=" perspective: 840px;">
   <main
     style=" left: {held ? Math.max(Math.min(gesture_gap.pageX, window.innerWidth), -window.innerWidth) : 0}px;
-    transition: left {held ? 0 : 0.4}s ease;">
+    transition: left {held ? 0 : 0.8}s ease; ">
     <!-- overflow: hidden; 
     
     -->
@@ -429,11 +462,11 @@
         {i == prevProject ? 'prevProject' : ''}
         "
         style="
-        {held && (i == params.project || i == nextProject || i == prevProject) ? 'transform: rotateY(' + (gesture_gap.pageX / 4.2 + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg);' : ''}
+        {held && (i == params.project || i == nextProject || i == prevProject) ? 'transform: rotateY(' + (Math.min(Math.max(gesture_gap.pageX / 4.2, -90), 90) + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg);' : ''}
         {params.project == i ? 'transform-origin: center ' + swipeDirection + ';' : ''}
         {nextProject == i ? 'transform-origin: center left;' : ''}
         {prevProject == i ? 'transform-origin: center right;' : ''}
-        {held ? 'transition: left 2s ease, transform 2s ease;' : ''}
+        {!held ? 'transition: left .8s ease, transform .8s ease;' : 'transition: left 0s; transform 0s'}
         ">
         <!--   
           transform-style: {held ? 'preserve-3d' : 'unset'};       
@@ -446,9 +479,11 @@
               {#if params.story > p}
                 <div />
               {:else if params.story == p}
-                <div
-                  id="currentIndicator"
-                  class={held || navOpen ? 'paused' : 'no'} />
+                <div id="currentIndicator">
+                  <div
+                    id="loadingBar"
+                    class={held || navOpen ? 'paused' : 'no'} />
+                </div>
               {:else}
                 <div class="nextIndicators" />
               {/if}
