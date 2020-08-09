@@ -1,31 +1,41 @@
 <script>
-  // import { beforeUpdate } from "svelte";
+  import { beforeUpdate } from "svelte";
   import Content from "./Content.svelte";
 
   // export const projectIndex = 0; //prop so that you can pass which project from App
   // export const storyIndex = 0; //prop so that you can pass which project from App
   export let storyContent = "<section>loading…</section"; //prop so that you can pass which project from App
   export let current = false;
+  export let nextCover = false;
+  export let prevCover = false;
   export let next = false;
   export let prev = false;
 
   let displayPosition = "none";
   let showStoryContent = false;
 
-  // beforeUpdate(() => {
-  if (next) {
-    displayPosition = "plus1";
-    showStoryContent = true;
-  } else if (current) {
-    displayPosition = "currentProject";
-    showStoryContent = true;
-  } else if (prev) {
-    displayPosition = "minus1";
-    showStoryContent = true;
-  } else {
-    displayPosition = "none";
-  }
-  // });
+  beforeUpdate(() => {
+    if (next) {
+      displayPosition = "plus1";
+      showStoryContent = true;
+    } else if (current) {
+      displayPosition = "currentProject";
+      showStoryContent = true;
+    } else if (prev) {
+      displayPosition = "minus1";
+      showStoryContent = true;
+    } else {
+      displayPosition = "none";
+    }
+
+    if (nextCover) {
+      showStoryContent = true;
+      displayPosition += " nextCover";
+    } else if (prevCover) {
+      showStoryContent = true;
+      displayPosition += " prevCover";
+    }
+  });
 </script>
 
 <style>
@@ -36,11 +46,12 @@
   }
   .story {
     width: 100vw;
+    /* display: inline-block; */
     height: calc(100vh - 30px);
     max-width: var(--width-border);
     max-height: var(--height-border);
     padding: 0;
-    margin: 10px;
+    margin: 0;
     position: relative;
     overflow: hidden;
     border-radius: 4px;
@@ -68,15 +79,46 @@
     display: none;
   }
 
+  .prevCover {
+    display: block !important;
+    transform: rotateY(-90deg);
+    transform-origin: center right;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    z-index: -1;
+  }
+
   .minus1 {
+    /* transform: rotateY(-90deg);
+    transform-origin: center right;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    z-index: -1; */
     display: none;
   }
   .currentProject {
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
     margin: 0;
+    /* order: 2; */
   }
   .plus1 {
+    /* transform: rotateY(90deg);
+    transform-origin: center left;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: -1; */
     display: none;
+  }
+  .nextCover {
+    display: block !important;
+    transform: rotateY(90deg);
+    transform-origin: center left;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: -1;
   }
 </style>
 

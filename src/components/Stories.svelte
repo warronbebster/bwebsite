@@ -54,7 +54,7 @@
   let gesturetimer; //timer object to time that
 
   let storyTimer; //timer object to time stories
-  const storyTimerTime = 5000;
+  const storyTimerTime = 50000;
 
   let navOpen = false;
   function handleNav(event) {
@@ -308,7 +308,7 @@
 <Nav projectIndex={parseInt(params.project)} {navOpen} on:message={handleNav} />
 <div
   style=" width: 100vw; height: 100vh; display: flex; justify-content: center;
-  overflow:hidden; align-items: center; perspective: 360px;">
+  overflow:hidden; align-items: center; perspective: 840px;">
   <main
     style="position: relative; left: {held ? gesture_gap.pageX : 0}px;
     transition: left {held ? 0 : 0.2}s ease;">
@@ -344,37 +344,44 @@
     <div
       style="backface-visibility: hidden; transform: {held ? 'rotateY(' + gesture_gap.pageX / 10 + 'deg)' : 'none'};
       transform-origin: center {swipeDirection == 'right' ? 'right' : 'left'};
-      transition: transform {held ? 0 : 0.2}s ease;">
+      transition: transform {held ? 0 : 0.2}s ease; transform-style: {held ? 'preserve-3d' : 'unset'};
+      background-color: rgba(255,0,255,.4); max-width: 460px; ">
 
-      <div id="indicators">
-        {#each projectArray[params.project].stories as story, p}
-          {#if params.story > p}
-            <div />
-          {:else if params.story == p}
-            <div
-              id="currentIndicator"
-              class={held || navOpen ? 'paused' : 'no'} />
-          {:else}
-            <div class="nextIndicators" />
-          {/if}
-        {/each}
-      </div>
+      <!-- display: flex; column-gap: 0px; align-items: center; -->
 
       {#each projectArray as { name, stories }, i}
         <!-- each project -->
+
+        {#if params.project == i}
+          <!-- if it's the current project -->
+          <div id="indicators">
+            {#each stories as story, p}
+              {#if params.story > p}
+                <div />
+              {:else if params.story == p}
+                <div
+                  id="currentIndicator"
+                  class={held || navOpen ? 'paused' : 'no'} />
+              {:else}
+                <div class="nextIndicators" />
+              {/if}
+            {/each}
+          </div>
+        {/if}
+
         {#each stories as story, j}
           <!-- each story -->
-          {#if params.project == i && params.story == j}
-            <Story storyContent={story} current={true} />
-          {:else if next.project == i && next.story == j}
-            <Story storyContent={story} next={true} />
-          {:else if prev.project == i && prev.story == j}
-            <Story storyContent={story} prev={true} />
-          {:else}
-            <Story storyContent={story} />
-          {/if}
+          <Story
+            storyContent={story}
+            current={params.project == i && params.story == j ? true : false}
+            next={next.project == i && next.story == j ? true : false}
+            prev={prev.project == i && prev.story == j ? true : false}
+            nextCover={params.project == projectArray.length - 1 ? (i == 0 && j == 0 ? true : false) : params.project == i - 1 && j == 0 ? true : false}
+            prevCover={params.project == 0 ? (i == projectArray.length - 1 && j == 0 ? true : false) : params.project == i + 1 && j == 0 ? true : false} />
+          <!-- fix this to work with last/first projects -->
         {/each}
       {/each}
     </div>
+
   </main>
 </div>
