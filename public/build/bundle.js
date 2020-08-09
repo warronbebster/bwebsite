@@ -2083,7 +2083,7 @@ var app = (function () {
 
     			attr_dev(div, "id", "indicators");
     			attr_dev(div, "class", "svelte-ji0fy0");
-    			add_location(div, file$2, 356, 10, 9772);
+    			add_location(div, file$2, 356, 10, 9774);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2142,7 +2142,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "nextIndicators svelte-ji0fy0");
-    			add_location(div, file$2, 365, 16, 10100);
+    			add_location(div, file$2, 365, 16, 10102);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2174,7 +2174,7 @@ var app = (function () {
     			div = element("div");
     			attr_dev(div, "id", "currentIndicator");
     			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*held*/ ctx[2] || /*navOpen*/ ctx[4] ? "paused" : "no") + " svelte-ji0fy0"));
-    			add_location(div, file$2, 361, 16, 9954);
+    			add_location(div, file$2, 361, 16, 9956);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2208,7 +2208,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-ji0fy0");
-    			add_location(div, file$2, 359, 16, 9887);
+    			add_location(div, file$2, 359, 16, 9889);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2561,7 +2561,7 @@ var app = (function () {
     			set_style(div0, "backface-visibility", "hidden");
 
     			set_style(div0, "transform", /*held*/ ctx[2]
-    			? "rotateY(" + Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 4, 90), -90) + "deg)"
+    			? "rotateY(" + Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 4.2, 90), -90) + "deg)"
     			: "none");
 
     			set_style(div0, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
@@ -2669,7 +2669,7 @@ var app = (function () {
 
     			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
     				set_style(div0, "transform", /*held*/ ctx[2]
-    				? "rotateY(" + Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 4, 90), -90) + "deg)"
+    				? "rotateY(" + Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 4.2, 90), -90) + "deg)"
     				: "none");
     			}
 
