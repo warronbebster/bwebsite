@@ -310,7 +310,7 @@
   style=" width: 100vw; height: 100vh; display: flex; justify-content: center;
   overflow:hidden; align-items: center; perspective: 840px;">
   <main
-    style="position: relative; left: {held ? gesture_gap.pageX : 0}px;
+    style="position: relative; left: {held ? Math.max(Math.min(gesture_gap.pageX, window.innerWidth), -window.innerWidth) : 0}px;
     transition: left {held ? 0 : 0.2}s ease;">
     <!-- overflow: hidden; -->
 
@@ -342,7 +342,7 @@
       class={held ? 'grabbing' : 'no'} />
 
     <div
-      style="backface-visibility: hidden; transform: {held ? 'rotateY(' + gesture_gap.pageX / 10 + 'deg)' : 'none'};
+      style="backface-visibility: hidden; transform: {held ? 'rotateY(' + Math.max(Math.min(gesture_gap.pageX / 4, 90), -90) + 'deg)' : 'none'};
       transform-origin: center {swipeDirection == 'right' ? 'right' : 'left'};
       transition: transform {held ? 0 : 0.2}s ease; transform-style: {held ? 'preserve-3d' : 'unset'};
       background-color: rgba(255,0,255,.4); max-width: 460px; ">

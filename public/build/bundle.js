@@ -2083,7 +2083,7 @@ var app = (function () {
 
     			attr_dev(div, "id", "indicators");
     			attr_dev(div, "class", "svelte-ji0fy0");
-    			add_location(div, file$2, 356, 10, 9685);
+    			add_location(div, file$2, 356, 10, 9772);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2142,7 +2142,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "nextIndicators svelte-ji0fy0");
-    			add_location(div, file$2, 365, 16, 10013);
+    			add_location(div, file$2, 365, 16, 10100);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2174,7 +2174,7 @@ var app = (function () {
     			div = element("div");
     			attr_dev(div, "id", "currentIndicator");
     			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*held*/ ctx[2] || /*navOpen*/ ctx[4] ? "paused" : "no") + " svelte-ji0fy0"));
-    			add_location(div, file$2, 361, 16, 9867);
+    			add_location(div, file$2, 361, 16, 9954);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2208,7 +2208,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-ji0fy0");
-    			add_location(div, file$2, 359, 16, 9800);
+    			add_location(div, file$2, 359, 16, 9887);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2554,14 +2554,14 @@ var app = (function () {
 
     			attr_dev(button0, "id", "prevButton");
     			attr_dev(button0, "class", button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-ji0fy0"));
-    			add_location(button0, file$2, 316, 4, 8170);
+    			add_location(button0, file$2, 316, 4, 8229);
     			attr_dev(button1, "id", "nextButton");
     			attr_dev(button1, "class", button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-ji0fy0"));
-    			add_location(button1, file$2, 329, 4, 8621);
+    			add_location(button1, file$2, 329, 4, 8680);
     			set_style(div0, "backface-visibility", "hidden");
 
     			set_style(div0, "transform", /*held*/ ctx[2]
-    			? "rotateY(" + /*gesture_gap*/ ctx[1].pageX / 10 + "deg)"
+    			? "rotateY(" + Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 4, 90), -90) + "deg)"
     			: "none");
 
     			set_style(div0, "transform-origin", "center " + (/*swipeDirection*/ ctx[3] == "right" ? "right" : "left"));
@@ -2569,9 +2569,13 @@ var app = (function () {
     			set_style(div0, "transform-style", /*held*/ ctx[2] ? "preserve-3d" : "unset");
     			set_style(div0, "background-color", "rgba(255,0,255,.4)");
     			set_style(div0, "max-width", "460px");
-    			add_location(div0, file$2, 343, 4, 9073);
+    			add_location(div0, file$2, 343, 4, 9132);
     			set_style(main, "position", "relative");
-    			set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX : 0) + "px");
+
+    			set_style(main, "left", (/*held*/ ctx[2]
+    			? Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX, window.innerWidth), -window.innerWidth)
+    			: 0) + "px");
+
     			set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.2) + "s ease");
     			attr_dev(main, "class", "svelte-ji0fy0");
     			add_location(main, file$2, 311, 2, 8010);
@@ -2665,7 +2669,7 @@ var app = (function () {
 
     			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
     				set_style(div0, "transform", /*held*/ ctx[2]
-    				? "rotateY(" + /*gesture_gap*/ ctx[1].pageX / 10 + "deg)"
+    				? "rotateY(" + Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX / 4, 90), -90) + "deg)"
     				: "none");
     			}
 
@@ -2682,7 +2686,9 @@ var app = (function () {
     			}
 
     			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
-    				set_style(main, "left", (/*held*/ ctx[2] ? /*gesture_gap*/ ctx[1].pageX : 0) + "px");
+    				set_style(main, "left", (/*held*/ ctx[2]
+    				? Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX, window.innerWidth), -window.innerWidth)
+    				: 0) + "px");
     			}
 
     			if (!current || dirty[0] & /*held*/ 4) {
