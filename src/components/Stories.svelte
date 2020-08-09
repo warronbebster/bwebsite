@@ -11,6 +11,14 @@
   export let params = { project: 0, story: 0 };
   $: next = getNext(params);
   $: prev = getPrev(params);
+  $: nextProject =
+    parseInt(params.project) < projectArray.length - 1
+      ? parseInt(params.project) + 1
+      : 0;
+  $: prevProject =
+    parseInt(params.project) > 0
+      ? parseInt(params.project) - 1
+      : projectArray.length - 1;
 
   // let touch = false;//whether the gestures
   let gesture_start = { pageX: 0, pageY: 0 };
@@ -63,8 +71,10 @@
 
   function handleProjects(direction) {
     if (direction == "next") {
+      swipeDirection = "right";
       push("/" + next.project + "/" + next.story);
     } else {
+      swipeDirection = "left";
       push("/" + prev.project + "/" + prev.story);
     }
     storyTimer.clear();
@@ -75,7 +85,6 @@
 
   function gestureDown(e) {
     //when a gesture starts
-
     storyTimer.pause(); //pause story timer
 
     navOpen = false;
@@ -189,10 +198,12 @@
 </script>
 
 <style>
-  main {
-    justify-content: center;
-    display: flex;
+  :root {
+    /* this is like css variables */
+    --width-border: 460px;
+    /* --height-border: 840px; */
   }
+
   .grabbing {
     cursor: grabbing !important;
   }
@@ -215,6 +226,70 @@
     background-color: rgb(139, 255, 211);
     left: calc(-50vw + 50%);
     cursor: w-resize;
+  }
+
+  main {
+    /* justify-content: center; */
+    /* display: flex; */
+    height: calc(100vh - 30px);
+    position: relative;
+    width: 460px;
+    /* //fix this bad boy */
+    background: rgba(247, 136, 154, 0.66);
+    width: 100vw;
+    max-width: var(--width-border);
+    max-height: var(--height-border);
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+    /* transition: 0.3s max-height ease, 0.3s max-width ease, 0.3s height ease,
+      0.3s width ease, 0.3s border-radius ease; */
+  }
+  @media screen and (max-width: 550px) {
+    main {
+      border-radius: 0px;
+      margin: 0;
+      height: 100vh;
+      max-height: 100vh;
+      max-width: 100vw;
+    }
+  }
+
+  .project {
+    max-width: 460px;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: all 2s;
+    display: none;
+  }
+
+  .prevProject {
+    display: block;
+    transform: rotateY(-90deg);
+    transform-origin: center right;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: -100%;
+  }
+
+  .currentProject {
+    display: block;
+    transform: rotateY(0deg);
+    position: absolute;
+    top: 0;
+    left: 0%;
+  }
+
+  .nextProject {
+    display: block;
+    transform: rotateY(90deg);
+    transform-origin: center left;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 100%;
   }
 
   #indicators {
@@ -310,9 +385,11 @@
   style=" width: 100vw; height: 100vh; display: flex; justify-content: center;
   overflow:hidden; align-items: center; perspective: 840px;">
   <main
-    style="position: relative; left: {held ? Math.max(Math.min(gesture_gap.pageX, window.innerWidth), -window.innerWidth) : 0}px;
-    transition: left {held ? 0 : 0.2}s ease;">
-    <!-- overflow: hidden; -->
+    style=" left: {held ? Math.max(Math.min(gesture_gap.pageX, window.innerWidth), -window.innerWidth) : 0}px;
+    transition: left {held ? 0 : 0.4}s ease;">
+    <!-- overflow: hidden; 
+    
+    -->
 
     <button
       id="prevButton"
@@ -341,16 +418,28 @@
       on:mouseup={e => gestureUp(e, 'next')}
       class={held ? 'grabbing' : 'no'} />
 
-    <div
-      style="backface-visibility: hidden; transform: {held ? 'rotateY(' + Math.max(Math.min(gesture_gap.pageX / 4.2, 90), -90) + 'deg)' : 'none'};
-      transform-origin: center {swipeDirection == 'right' ? 'right' : 'left'};
-      transition: transform {held ? 0 : 0.2}s ease; transform-style: {held ? 'preserve-3d' : 'unset'};
-      background-color: rgba(255,0,255,.4); max-width: 460px; ">
+    <!-- <div
+      style="transform: {held ? 'rotateY(' + Math.max(Math.min(gesture_gap.pageX / 4.2, 90), -90) + 'deg)' : 'none'};
+      transform-origin: center {swipeDirection}; transition: transform {held ? 0 : 0.4}s
+      ease; transform-style: {held ? 'preserve-3d' : 'unset'}; max-width: 460px;
+      "> -->
 
-      <!-- display: flex; column-gap: 0px; align-items: center; -->
+    {#each projectArray as { name, stories }, i}
+      <!-- each project -->
 
-      {#each projectArray as { name, stories }, i}
-        <!-- each project -->
+      <div
+        class="project {i}
+        {params.project == i ? 'currentProject' : ''}
+        {i == nextProject ? 'nextProject' : ''}
+        {i == prevProject ? 'prevProject' : ''}
+        "
+        style="
+        {held ? 'transform: rotateY(' + (gesture_gap.pageX / 4.2 + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg);' : ''}
+        {params.project == i ? 'transform-origin: center ' + swipeDirection + ';' : ''}
+        transition: all {held ? 0 : 2}s ease; ">
+        <!--   
+          transform-style: {held ? 'preserve-3d' : 'unset'};       
+        -->
 
         {#if params.project == i}
           <!-- if it's the current project -->
@@ -376,12 +465,15 @@
             current={params.project == i && params.story == j ? true : false}
             next={next.project == i && next.story == j ? true : false}
             prev={prev.project == i && prev.story == j ? true : false}
-            nextCover={params.project == projectArray.length - 1 ? (i == 0 && j == 0 ? true : false) : params.project == i - 1 && j == 0 ? true : false}
-            prevCover={params.project == 0 ? (i == projectArray.length - 1 && j == 0 ? true : false) : params.project == i + 1 && j == 0 ? true : false} />
+            nextCover={i == nextProject ? (j == 0 ? true : false) : false}
+            prevCover={i == prevProject ? (j == stories.length - 1 ? true : false) : false} />
           <!-- fix this to work with last/first projects -->
         {/each}
-      {/each}
-    </div>
+      </div>
+      <!-- close project div -->
+    {/each}
+    <!-- </div> -->
+    <!-- //close 3d div -->
 
   </main>
 </div>
