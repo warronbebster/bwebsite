@@ -35,3 +35,10 @@ a {
 	color: inherit;
 	z-index: 401 !important;
 }
+
+section {
+	box-shadow: inset 0px 70px 50px -50px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: inset 0px 70px 50px -50px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: inset 0px 70px 50px -50px rgba(0, 0, 0, 0.5);
+	/* -webkit-filter: drop-shadow(0.5px 1px 1px #222); */
+}

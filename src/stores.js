@@ -1,7 +1,7 @@
 import { writable, derived } from 'svelte/store';
 import { figmaProject } from './figmaExport.js';
 
-export const currentPos = writable({ project: 0, story: 0 }); //export current number... and total number so it knows when to cycle?
+// export const currentPos = writable({ project: 0, story: 0 }); //export current number... and total number so it knows when to cycle?
 
 export const projectArray = figmaProject; //write output of figma script here
 

@@ -6,8 +6,4 @@
   // let type = "image";
 </script>
 
-<style>
-
-</style>
-
 {@html storyContent}

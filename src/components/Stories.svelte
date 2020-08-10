@@ -8,7 +8,16 @@
 
   gestures(); //figure this shit out at some point lol
 
+  let activeStories = [];
+  for (const project of projectArray) {
+    activeStories.push(0);
+  }
+
   export let params = { project: 0, story: 0 };
+
+  //when params change, update activeStories
+  $: activeStories[parseInt(params.project)] = parseInt(params.story);
+
   $: next = getNext(params);
   $: prev = getPrev(params);
   $: nextProject =
@@ -27,10 +36,7 @@
 
   let held = false;
   let swipeDirection = "right";
-  let swipeSensitivity = 150;
-  // window.onresize = () => {
-  //   swipeSensitivity = Math.min(screen.width / 3, 300);
-  // };
+  let swipeSensitivity = 100;
 
   let timedout = true; //whether a gesture has timed out
   let gesturetimer; //timer object to time that
@@ -94,25 +100,10 @@
       push("/" + prev.project + "/" + prev.story);
     } else if (direction == "nextProject") {
       swipeDirection = "left";
-      console.log("handleProjects nextProjects");
-      parseInt(params.project) < projectArray.length - 1 // if current project ain't last
-        ? push("/" + (parseInt(params.project) + 1) + "/0") //next project
-        : push("/0/0"); //first project
+      push("/" + nextProject + "/" + activeStories[nextProject]); //next project
     } else if (direction == "prevProject") {
       swipeDirection = "right";
-      parseInt(params.project) > 0 // if current project ain't first
-        ? push(
-            "/" +
-              (parseInt(params.project) - 1) +
-              "/" +
-              (projectArray[parseInt(params.project) - 1].stories.length - 1)
-          ) //last project in prev story
-        : push(
-            "/" +
-              (projectArray.length - 1) +
-              "/" +
-              (projectArray[projectArray.length - 1].stories.length - 1)
-          ); //last project
+      push("/" + prevProject + "/" + activeStories[prevProject]); //last project in prev story
     }
     storyTimer.reset();
   }
@@ -139,7 +130,7 @@
     gesturetimer = setTimeout(() => {
       //start gesture timer
       timedout = true;
-    }, 400);
+    }, 300);
   }
 
   function gestureMove(e) {
@@ -316,7 +307,7 @@
 
   #indicators {
     height: 2px;
-    background-color: rgba(0, 0, 0, 0.33);
+    /* background-color: rgba(0, 0, 0, 0.33); */
     top: 8px;
     left: 6px;
     right: 6px;
@@ -325,7 +316,7 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.9);
+    /* box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.9); */
   }
 
   #indicators div {
@@ -352,6 +343,7 @@
     left: 0px;
     height: 100%;
     background: white;
+    animation: progress 6s linear;
     -moz-animation: progress 6s linear;
     -o-animation: progress 6s linear;
 
@@ -362,7 +354,7 @@
 
     -webkit-animation-name: progress;
     -webkit-animation-duration: 6s;
-    -webkit-animation-delay: 0.01s;
+    /* -webkit-animation-delay: 0.01s; */
     /* -webkit-animation-iteration-count: 6; */
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
@@ -417,7 +409,9 @@
   {navOpen}
   on:message={showNav}
   on:project={handleNavProject} />
-<div style=" perspective: 840px;">
+<div
+  style=" overflow: hidden; height: 100vh; width: 100vw; display: flex;
+  align-items: center; justify-content: center; perspective: 1080px;">
   <main
     style=" left: {held ? Math.max(Math.min(gesture_gap.pageX, window.innerWidth), -window.innerWidth) : 0}px;
     transition: left {held ? 0 : 0.8}s ease; ">
@@ -468,9 +462,6 @@
         {prevProject == i ? 'transform-origin: center right;' : ''}
         {!held ? 'transition: left .8s ease, transform .8s ease;' : 'transition: left 0s; transform 0s'}
         ">
-        <!--   
-          transform-style: {held ? 'preserve-3d' : 'unset'};       
-        -->
 
         {#if params.project == i}
           <!-- if it's the current project -->
@@ -498,8 +489,7 @@
             current={params.project == i && params.story == j ? true : false}
             next={next.project == i && next.story == j ? true : false}
             prev={prev.project == i && prev.story == j ? true : false}
-            nextCover={i == nextProject ? (j == 0 ? true : false) : false}
-            prevCover={i == prevProject ? (j == stories.length - 1 ? true : false) : false} />
+            nextCover={i == nextProject ? (j == activeStories[nextProject] ? true : false) : i == prevProject ? (j == activeStories[prevProject] ? true : false) : false} />
           <!-- fix this to work with last/first projects -->
         {/each}
       </div>

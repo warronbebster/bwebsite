@@ -1288,7 +1288,40 @@ var app = (function () {
     	}
     }
 
-    const figmaProject = [{ name: "Welcome", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(255, 193, 193, 1);  width:100%; height:100%; display:block;" ><div id="21:2" style="z-index: 21; transform: matrix(0.9612616896629333,-0.2756373882293701,0.27563732862472534,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 128px; position: absolute; right: 33.270599365234375px; height: 78px; top: 177.15158081054688px; background-color: rgba(196, 196, 196, 1); "><div id="21:0" style="position: absolute; left: 13px; height: 18px; top: 11px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end"><a href="http://barronwebster.com">Inside another</a></span></div><div id="61:2" style="transform: matrix(0.9612616896629333,0.27563735842704773,-0.27563735842704773,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 14.134858131408691px; height: 12px; top: 42.38649368286133px; background-color: rgba(170, 38, 38, 1); "></div></div><div id="106:0" style="z-index: 21; position: absolute; left: calc(50% - 130.5px - -0.5px); height: 18px; top: 350px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span style="font-weight: 500; font-family: IBM Plex Sans; font-style: normal; " key="12">Let’s try a </span><span style="font-size: 14px; font-weight: 500; font-family: IBM Plex Sans; font-style: normal; line-height: 125%; color: rgba(0, 68, 204, 1); " key="16"> <a href="http://barronwebster.com">link</a></span><span style="font-weight: 500; font-family: IBM Plex Sans; font-style: normal; " key="29"> inline in a </span><span style="font-weight: 700; font-family: IBM Plex Sans; font-style: normal; " key="end">text box boyyyy</span></div><div id="345:3" style="width: 208px; position: absolute; left: 43px; height: 104px; top: 552px; display: flex; flex-direction: row; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="345:1" style="width: 31px; position: static; left: 8px; height: 47px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="349:1" style="width: 31px; position: static; left: 55px; height: 76px; top: 14px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="345:4" style="width: 32px; position: static; left: 102px; height: 47px; top: 43px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="345:2" style="width: 50px; position: static; left: 150px; height: 76px; top: 14px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="352:0" style="width: 104px; position: absolute; left: 43px; height: 156px; top: 54px; display: flex; flex-direction: column; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="352:1" style="width: 31px; position: static; left: 8px; height: 20px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="352:2" style="width: 88px; position: static; left: 8px; height: 15px; top: 50px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="352:3" style="width: 32px; position: static; left: 64px; height: 16px; top: 81px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="352:4" style="width: 88px; position: static; left: 8px; height: 29px; top: 113px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="366:0" style="width: 128px; position: absolute; left: 261px; height: 128px; top: 407px; background-image: url(./images/bw_prof_red_1); background-size: cover; border-radius: 250px 250px 250px 250px; "></div><div id="392:0" style="width: 154px; position: absolute; left: 45px; height: 116px; top: 401px; overflow: hidden; background-color: rgba(255, 255, 255, 1); opacity: 0.30000001192092896; border-radius: 8px 8px 8px 8px; "><video autoplay loop muted style="width: 100%; height: auto; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%)"><source src="./videos/test.mp4" type="video/mp4"/>Your browser does not support the video tag. I suggest you upgrade your browser.</video></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(255, 0, 0, 1);  width:100%; height:100%; display:block;" ><div id="9:4" style="width: 296px; position: absolute; left: 46px; height: 288px; top: 44px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 190.40000915527344%; "><span key="end">Hello this is a longer text box</span></div><div id="9:5" style="transform: matrix(0.9466003775596619,-0.32240918278694153,0.3224092423915863,0.9466003775596619,0,0); transform-origin: 0% 0%; width: 133px; position: absolute; right: 87px; height: 134px; bottom: 11.11956787109375px; background-color: rgba(156, 189, 238, 1); "></div><div id="289:2" style="transform: matrix(0.9548656940460205,0.29703789949417114,-0.29703789949417114,0.9548656940460205,0,0); transform-origin: 0% 0%; width: 228px; position: absolute; left: 46.4188346862793px; height: 365px; top: 252px; background-image: url(./images/Data_Pane_Image); background-size: cover; "></div><div id="294:0" style="transform: matrix(0.948660135269165,-0.3162972033023834,0.3162972033023834,0.948660135269165,0,0); transform-origin: 0% 0%; width: 158.5342254638672px; position: absolute; left: 172px; height: 129.4781036376953px; top: 482.1439208984375px; background-image: url(./images/no_spaces); background-size: cover; "></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(203, 47, 47, 1);  width:100%; height:100%; display:block;" ><div id="175:1" style="transform: matrix(0.00878943782299757,-0.9999613761901855,0.9999613761901855,0.00878943782299757,0,0); transform-origin: 0% 0%; width: 228px; position: absolute; left: 96.00043487548828px; height: 140px; top: 360.4418640136719px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">What’s up </span></div><div id="345:0" style="transform: matrix(0.9396926164627075,-0.3420201539993286,0.34202009439468384,0.9396926164627075,0,0); transform-origin: 0% 0%; width: 80px; position: absolute; right: 27px; height: 120px; bottom: -17.36163330078125px; background-color: rgba(206, 176, 176, 1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); border-radius: 8px 0px 0px 0px; "></div><div id="292:0" style="width: 121px; position: absolute; left: 46px; height: 144px; top: 446px; overflow: hidden; background-color: rgba(187, 57, 57, 1); border: 4px solid rgba(0, 0, 0, 1); border-radius: 12px 12px 12px 12px; "><div id="297:0" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 30.584253311157227px; height: 45px; top: 52.869659423828125px; overflow: hidden; background-color: rgba(0, 68, 204, 1); "></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(233, 158, 158, 1);  width:100%; height:100%; display:block;" ><div id="175:5" style="width: 228px; position: absolute; left: 46px; height: 140px; top: 44px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">And another</span></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(135, 48, 48, 1);  width:100%; height:100%; display:block;" ><div id="407:3" style="width: 228px; position: absolute; left: 46px; height: 210px; top: 44px; color: rgba(255, 255, 255, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="11">And another</span><br key="br11" /><span key="end">ehehhe</span></div></section>',]}, { name: "Project 2", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(255, 255, 255, 1);  width:100%; height:100%; display:block;" ><div id="4:25" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(98, 170, 64, 1);  width:100%; height:100%; display:block;" ><div id="161:2" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">WHAT</span></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(199, 238, 180, 1);  width:100%; height:100%; display:block;" ><div id="161:4" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A new one</span></div></section>',]}, { name: "Page 4", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(143, 189, 208, 1); opacity: 0.949999988079071;  width:100%; height:100%; display:block;" ><div id="422:3" style="transform: matrix(0.7071067690849304,0.7071067690849304,-0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 137px; position: absolute; left: calc(50% - 68.5px - -68.5px); height: 137px; top: calc(50% - 68.5px - 28.5px); background-color: rgba(233, 12, 12, 1); "></div></section>',]}, { name: "Project threee", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="163:2" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>',]},  ];
+    const figmaProject = [
+    	{
+    		name: 'Welcome',
+    		stories: [
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(255, 193, 193, 1);  width:100%; height:100%; display:block;" ><div id="21:2" style="z-index: 21; transform: matrix(0.9612616896629333,-0.2756373882293701,0.27563732862472534,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 128px; position: absolute; right: 33.270599365234375px; height: 78px; top: 177.15158081054688px; background-color: rgba(196, 196, 196, 1); "><div id="21:0" style="position: absolute; left: 13px; height: 18px; top: 11px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end"><a href="http://barronwebster.com">Inside another</a></span></div><div id="61:2" style="transform: matrix(0.9612616896629333,0.27563735842704773,-0.27563735842704773,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 14.134858131408691px; height: 12px; top: 42.38649368286133px; background-color: rgba(170, 38, 38, 1); "></div></div><div id="106:0" style="z-index: 21; position: absolute; left: calc(50% - 130.5px - -0.5px); height: 18px; top: 350px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span style="font-weight: 500; font-family: IBM Plex Sans; font-style: normal; " key="12">Let’s try a </span><span style="font-size: 14px; font-weight: 500; font-family: IBM Plex Sans; font-style: normal; line-height: 125%; color: rgba(0, 68, 204, 1); " key="16"> <a href="http://barronwebster.com">link</a></span><span style="font-weight: 500; font-family: IBM Plex Sans; font-style: normal; " key="29"> inline in a </span><span style="font-weight: 700; font-family: IBM Plex Sans; font-style: normal; " key="end">text box boyyyy</span></div><div id="345:3" style="width: 208px; position: absolute; left: 43px; height: 104px; top: 552px; display: flex; flex-direction: row; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="345:1" style="width: 31px; position: static; left: 8px; height: 47px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="349:1" style="width: 31px; position: static; left: 55px; height: 76px; top: 14px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="345:4" style="width: 32px; position: static; left: 102px; height: 47px; top: 43px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="345:2" style="width: 50px; position: static; left: 150px; height: 76px; top: 14px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="352:0" style="width: 104px; position: absolute; left: 43px; height: 156px; top: 54px; display: flex; flex-direction: column; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="352:1" style="width: 31px; position: static; left: 8px; height: 20px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="352:2" style="width: 88px; position: static; left: 8px; height: 15px; top: 50px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="352:3" style="width: 32px; position: static; left: 64px; height: 16px; top: 81px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="352:4" style="width: 88px; position: static; left: 8px; height: 29px; top: 113px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="366:0" style="width: 128px; position: absolute; left: 261px; height: 128px; top: 407px; background-image: url(./images/bw_prof_red_1); background-size: cover; border-radius: 250px 250px 250px 250px; "></div><div id="392:0" style="width: 154px; position: absolute; left: 45px; height: 116px; top: 401px; overflow: hidden; background-color: rgba(255, 255, 255, 1); opacity: 0.30000001192092896; border-radius: 8px 8px 8px 8px; "><video autoplay loop muted style="width: 100%; height: auto; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%)"><source src="./videos/test.mp4" type="video/mp4"/>Your browser does not support the video tag. I suggest you upgrade your browser.</video></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(255, 0, 0, 1);  width:100%; height:100%; display:block;" ><div id="9:4" style="width: 296px; position: absolute; left: 46px; height: 288px; top: 44px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 190.40000915527344%; "><span key="end">Hello this is a longer text box</span></div><div id="9:5" style="transform: matrix(0.9466003775596619,-0.32240918278694153,0.3224092423915863,0.9466003775596619,0,0); transform-origin: 0% 0%; width: 133px; position: absolute; right: 87px; height: 134px; bottom: 11.11956787109375px; background-color: rgba(156, 189, 238, 1); "></div><div id="289:2" style="transform: matrix(0.9548656940460205,0.29703789949417114,-0.29703789949417114,0.9548656940460205,0,0); transform-origin: 0% 0%; width: 228px; position: absolute; left: 46.4188346862793px; height: 365px; top: 252px; background-image: url(./images/Data_Pane_Image); background-size: cover; "></div><div id="294:0" style="transform: matrix(0.948660135269165,-0.3162972033023834,0.3162972033023834,0.948660135269165,0,0); transform-origin: 0% 0%; width: 158.5342254638672px; position: absolute; left: 172px; height: 129.4781036376953px; top: 482.1439208984375px; background-image: url(./images/no_spaces); background-size: cover; "></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(203, 47, 47, 1);  width:100%; height:100%; display:block;" ><div id="175:1" style="transform: matrix(0.00878943782299757,-0.9999613761901855,0.9999613761901855,0.00878943782299757,0,0); transform-origin: 0% 0%; width: 228px; position: absolute; left: 96.00043487548828px; height: 140px; top: 360.4418640136719px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">What’s up </span></div><div id="345:0" style="transform: matrix(0.9396926164627075,-0.3420201539993286,0.34202009439468384,0.9396926164627075,0,0); transform-origin: 0% 0%; width: 80px; position: absolute; right: 27px; height: 120px; bottom: -17.36163330078125px; background-color: rgba(206, 176, 176, 1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); border-radius: 8px 0px 0px 0px; "></div><div id="292:0" style="width: 121px; position: absolute; left: 46px; height: 144px; top: 446px; overflow: hidden; background-color: rgba(187, 57, 57, 1); border: 4px solid rgba(0, 0, 0, 1); border-radius: 12px 12px 12px 12px; "><div id="297:0" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 30.584253311157227px; height: 45px; top: 52.869659423828125px; overflow: hidden; background-color: rgba(0, 68, 204, 1); "></div></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(233, 158, 158, 1);  width:100%; height:100%; display:block;" ><div id="175:5" style="width: 228px; position: absolute; left: 46px; height: 140px; top: 44px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">And another</span></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(135, 48, 48, 1);  width:100%; height:100%; display:block;" ><div id="407:3" style="width: 228px; position: absolute; left: 46px; height: 210px; top: 44px; color: rgba(255, 255, 255, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="11">And another</span><br key="br11" /><span key="end">ehehhe</span></div></section>',
+    		],
+    	},
+    	{
+    		name: 'Project 2',
+    		stories: [
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(255, 255, 255, 1);  width:100%; height:100%; display:block;" ><div id="4:25" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(98, 170, 64, 1);  width:100%; height:100%; display:block;" ><div id="161:2" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">WHAT</span></div></section>',
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(199, 238, 180, 1);  width:100%; height:100%; display:block;" ><div id="161:4" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 500; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A new one</span></div></section>',
+    		],
+    	},
+    	{
+    		name: 'Page 4',
+    		stories: [
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(143, 189, 208, 1); opacity: 0.949999988079071;  width:100%; height:100%; display:block;" ><div id="422:3" style="transform: matrix(0.7071067690849304,0.7071067690849304,-0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 137px; position: absolute; left: calc(50% - 68.5px - -68.5px); height: 137px; top: calc(50% - 68.5px - 28.5px); background-color: rgba(233, 12, 12, 1); "></div></section>',
+    		],
+    	},
+    	{
+    		name: 'Project threee',
+    		stories: [
+    			'<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="163:2" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>',
+    		],
+    	},
+    ];
+
+    // export const currentPos = writable({ project: 0, story: 0 }); //export current number... and total number so it knows when to cycle?
 
     const projectArray = figmaProject; //write output of figma script here
 
@@ -1460,7 +1493,7 @@ var app = (function () {
     /* src/components/Story.svelte generated by Svelte v3.20.1 */
     const file = "src/components/Story.svelte";
 
-    // (116:2) {#if showStoryContent}
+    // (72:2) {#if showStoryContent}
     function create_if_block$1(ctx) {
     	let current;
 
@@ -1500,7 +1533,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(116:2) {#if showStoryContent}",
+    		source: "(72:2) {#if showStoryContent}",
     		ctx
     	});
 
@@ -1517,8 +1550,8 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-18o2fp5");
-    			add_location(div, file, 114, 0, 2493);
+    			attr_dev(div, "class", div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-1e8e31w");
+    			add_location(div, file, 70, 0, 1452);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1549,7 +1582,7 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (!current || dirty & /*displayPosition*/ 2 && div_class_value !== (div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-18o2fp5")) {
+    			if (!current || dirty & /*displayPosition*/ 2 && div_class_value !== (div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-1e8e31w")) {
     				attr_dev(div, "class", div_class_value);
     			}
     		},
@@ -1583,7 +1616,6 @@ var app = (function () {
     	let { storyContent = "<section>loading…</section" } = $$props; //prop so that you can pass which project from App
     	let { current = false } = $$props;
     	let { nextCover = false } = $$props;
-    	let { prevCover = false } = $$props;
     	let { next = false } = $$props;
     	let { prev = false } = $$props;
     	let displayPosition = "none";
@@ -1606,13 +1638,10 @@ var app = (function () {
     		if (nextCover) {
     			$$invalidate(2, showStoryContent = true);
     			$$invalidate(1, displayPosition += " nextCover");
-    		} else if (prevCover) {
-    			$$invalidate(2, showStoryContent = true);
-    			$$invalidate(1, displayPosition += " prevCover");
     		}
     	});
 
-    	const writable_props = ["storyContent", "current", "nextCover", "prevCover", "next", "prev"];
+    	const writable_props = ["storyContent", "current", "nextCover", "next", "prev"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Story> was created with unknown prop '${key}'`);
@@ -1625,9 +1654,8 @@ var app = (function () {
     		if ("storyContent" in $$props) $$invalidate(0, storyContent = $$props.storyContent);
     		if ("current" in $$props) $$invalidate(3, current = $$props.current);
     		if ("nextCover" in $$props) $$invalidate(4, nextCover = $$props.nextCover);
-    		if ("prevCover" in $$props) $$invalidate(5, prevCover = $$props.prevCover);
-    		if ("next" in $$props) $$invalidate(6, next = $$props.next);
-    		if ("prev" in $$props) $$invalidate(7, prev = $$props.prev);
+    		if ("next" in $$props) $$invalidate(5, next = $$props.next);
+    		if ("prev" in $$props) $$invalidate(6, prev = $$props.prev);
     	};
 
     	$$self.$capture_state = () => ({
@@ -1636,7 +1664,6 @@ var app = (function () {
     		storyContent,
     		current,
     		nextCover,
-    		prevCover,
     		next,
     		prev,
     		displayPosition,
@@ -1647,9 +1674,8 @@ var app = (function () {
     		if ("storyContent" in $$props) $$invalidate(0, storyContent = $$props.storyContent);
     		if ("current" in $$props) $$invalidate(3, current = $$props.current);
     		if ("nextCover" in $$props) $$invalidate(4, nextCover = $$props.nextCover);
-    		if ("prevCover" in $$props) $$invalidate(5, prevCover = $$props.prevCover);
-    		if ("next" in $$props) $$invalidate(6, next = $$props.next);
-    		if ("prev" in $$props) $$invalidate(7, prev = $$props.prev);
+    		if ("next" in $$props) $$invalidate(5, next = $$props.next);
+    		if ("prev" in $$props) $$invalidate(6, prev = $$props.prev);
     		if ("displayPosition" in $$props) $$invalidate(1, displayPosition = $$props.displayPosition);
     		if ("showStoryContent" in $$props) $$invalidate(2, showStoryContent = $$props.showStoryContent);
     	};
@@ -1664,7 +1690,6 @@ var app = (function () {
     		showStoryContent,
     		current,
     		nextCover,
-    		prevCover,
     		next,
     		prev
     	];
@@ -1678,9 +1703,8 @@ var app = (function () {
     			storyContent: 0,
     			current: 3,
     			nextCover: 4,
-    			prevCover: 5,
-    			next: 6,
-    			prev: 7
+    			next: 5,
+    			prev: 6
     		});
 
     		dispatch_dev("SvelteRegisterComponent", {
@@ -1712,14 +1736,6 @@ var app = (function () {
     	}
 
     	set nextCover(value) {
-    		throw new Error("<Story>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get prevCover() {
-    		throw new Error("<Story>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set prevCover(value) {
     		throw new Error("<Story>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
@@ -2018,30 +2034,30 @@ var app = (function () {
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[40] = list[i];
-    	child_ctx[42] = i;
+    	child_ctx[41] = list[i];
+    	child_ctx[43] = i;
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[40] = list[i];
-    	child_ctx[44] = i;
+    	child_ctx[41] = list[i];
+    	child_ctx[45] = i;
     	return child_ctx;
     }
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[36] = list[i].name;
-    	child_ctx[37] = list[i].stories;
-    	child_ctx[39] = i;
+    	child_ctx[37] = list[i].name;
+    	child_ctx[38] = list[i].stories;
+    	child_ctx[40] = i;
     	return child_ctx;
     }
 
-    // (475:8) {#if params.project == i}
+    // (466:8) {#if params.project == i}
     function create_if_block$2(ctx) {
     	let div;
-    	let each_value_2 = /*stories*/ ctx[37];
+    	let each_value_2 = /*stories*/ ctx[38];
     	validate_each_argument(each_value_2);
     	let each_blocks = [];
 
@@ -2058,8 +2074,8 @@ var app = (function () {
     			}
 
     			attr_dev(div, "id", "indicators");
-    			attr_dev(div, "class", "svelte-o9mpd6");
-    			add_location(div, file$2, 476, 10, 12665);
+    			attr_dev(div, "class", "svelte-tn4ci0");
+    			add_location(div, file$2, 467, 10, 12288);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2069,8 +2085,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*params, held, navOpen*/ 21) {
-    				each_value_2 = /*stories*/ ctx[37];
+    			if (dirty[0] & /*params, held, navOpen*/ 41) {
+    				each_value_2 = /*stories*/ ctx[38];
     				validate_each_argument(each_value_2);
     				let i;
 
@@ -2103,22 +2119,22 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(475:8) {#if params.project == i}",
+    		source: "(466:8) {#if params.project == i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (487:14) {:else}
+    // (478:14) {:else}
     function create_else_block$1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "nextIndicators svelte-o9mpd6");
-    			add_location(div, file$2, 487, 16, 13060);
+    			attr_dev(div, "class", "nextIndicators svelte-tn4ci0");
+    			add_location(div, file$2, 478, 16, 12683);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2133,14 +2149,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(487:14) {:else}",
+    		source: "(478:14) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (481:42) 
+    // (472:42) 
     function create_if_block_2(ctx) {
     	let div1;
     	let div0;
@@ -2153,11 +2169,11 @@ var app = (function () {
     			div0 = element("div");
     			t = space();
     			attr_dev(div0, "id", "loadingBar");
-    			attr_dev(div0, "class", div0_class_value = "" + (null_to_empty(/*held*/ ctx[2] || /*navOpen*/ ctx[4] ? "paused" : "no") + " svelte-o9mpd6"));
-    			add_location(div0, file$2, 482, 18, 12893);
+    			attr_dev(div0, "class", div0_class_value = "" + (null_to_empty(/*held*/ ctx[3] || /*navOpen*/ ctx[5] ? "paused" : "no") + " svelte-tn4ci0"));
+    			add_location(div0, file$2, 473, 18, 12516);
     			attr_dev(div1, "id", "currentIndicator");
-    			attr_dev(div1, "class", "svelte-o9mpd6");
-    			add_location(div1, file$2, 481, 16, 12847);
+    			attr_dev(div1, "class", "svelte-tn4ci0");
+    			add_location(div1, file$2, 472, 16, 12470);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -2165,7 +2181,7 @@ var app = (function () {
     			append_dev(div1, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*held, navOpen*/ 20 && div0_class_value !== (div0_class_value = "" + (null_to_empty(/*held*/ ctx[2] || /*navOpen*/ ctx[4] ? "paused" : "no") + " svelte-o9mpd6"))) {
+    			if (dirty[0] & /*held, navOpen*/ 40 && div0_class_value !== (div0_class_value = "" + (null_to_empty(/*held*/ ctx[3] || /*navOpen*/ ctx[5] ? "paused" : "no") + " svelte-tn4ci0"))) {
     				attr_dev(div0, "class", div0_class_value);
     			}
     		},
@@ -2178,22 +2194,22 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(481:42) ",
+    		source: "(472:42) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (479:14) {#if params.story > p}
+    // (470:14) {#if params.story > p}
     function create_if_block_1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "svelte-o9mpd6");
-    			add_location(div, file$2, 479, 16, 12780);
+    			attr_dev(div, "class", "svelte-tn4ci0");
+    			add_location(div, file$2, 470, 16, 12403);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2208,20 +2224,20 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(479:14) {#if params.story > p}",
+    		source: "(470:14) {#if params.story > p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (478:12) {#each stories as story, p}
+    // (469:12) {#each stories as story, p}
     function create_each_block_2(ctx) {
     	let if_block_anchor;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*params*/ ctx[0].story > /*p*/ ctx[44]) return create_if_block_1;
-    		if (/*params*/ ctx[0].story == /*p*/ ctx[44]) return create_if_block_2;
+    		if (/*params*/ ctx[0].story > /*p*/ ctx[45]) return create_if_block_1;
+    		if (/*params*/ ctx[0].story == /*p*/ ctx[45]) return create_if_block_2;
     		return create_else_block$1;
     	}
 
@@ -2260,38 +2276,39 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(478:12) {#each stories as story, p}",
+    		source: "(469:12) {#each stories as story, p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (494:8) {#each stories as story, j}
+    // (485:8) {#each stories as story, j}
     function create_each_block_1(ctx) {
     	let t;
     	let current;
 
     	const story = new Story({
     			props: {
-    				storyContent: /*story*/ ctx[40],
-    				current: /*params*/ ctx[0].project == /*i*/ ctx[39] && /*params*/ ctx[0].story == /*j*/ ctx[42]
+    				storyContent: /*story*/ ctx[41],
+    				current: /*params*/ ctx[0].project == /*i*/ ctx[40] && /*params*/ ctx[0].story == /*j*/ ctx[43]
     				? true
     				: false,
-    				next: /*next*/ ctx[5].project == /*i*/ ctx[39] && /*next*/ ctx[5].story == /*j*/ ctx[42]
+    				next: /*next*/ ctx[6].project == /*i*/ ctx[40] && /*next*/ ctx[6].story == /*j*/ ctx[43]
     				? true
     				: false,
-    				prev: /*prev*/ ctx[6].project == /*i*/ ctx[39] && /*prev*/ ctx[6].story == /*j*/ ctx[42]
+    				prev: /*prev*/ ctx[7].project == /*i*/ ctx[40] && /*prev*/ ctx[7].story == /*j*/ ctx[43]
     				? true
     				: false,
-    				nextCover: /*i*/ ctx[39] == /*nextProject*/ ctx[7]
-    				? /*j*/ ctx[42] == 0 ? true : false
-    				: false,
-    				prevCover: /*i*/ ctx[39] == /*prevProject*/ ctx[8]
-    				? /*j*/ ctx[42] == /*stories*/ ctx[37].length - 1
+    				nextCover: /*i*/ ctx[40] == /*nextProject*/ ctx[8]
+    				? /*j*/ ctx[43] == /*activeStories*/ ctx[1][/*nextProject*/ ctx[8]]
     					? true
     					: false
-    				: false
+    				: /*i*/ ctx[40] == /*prevProject*/ ctx[9]
+    					? /*j*/ ctx[43] == /*activeStories*/ ctx[1][/*prevProject*/ ctx[9]]
+    						? true
+    						: false
+    					: false
     			},
     			$$inline: true
     		});
@@ -2309,27 +2326,27 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const story_changes = {};
 
-    			if (dirty[0] & /*params*/ 1) story_changes.current = /*params*/ ctx[0].project == /*i*/ ctx[39] && /*params*/ ctx[0].story == /*j*/ ctx[42]
+    			if (dirty[0] & /*params*/ 1) story_changes.current = /*params*/ ctx[0].project == /*i*/ ctx[40] && /*params*/ ctx[0].story == /*j*/ ctx[43]
     			? true
     			: false;
 
-    			if (dirty[0] & /*next*/ 32) story_changes.next = /*next*/ ctx[5].project == /*i*/ ctx[39] && /*next*/ ctx[5].story == /*j*/ ctx[42]
+    			if (dirty[0] & /*next*/ 64) story_changes.next = /*next*/ ctx[6].project == /*i*/ ctx[40] && /*next*/ ctx[6].story == /*j*/ ctx[43]
     			? true
     			: false;
 
-    			if (dirty[0] & /*prev*/ 64) story_changes.prev = /*prev*/ ctx[6].project == /*i*/ ctx[39] && /*prev*/ ctx[6].story == /*j*/ ctx[42]
+    			if (dirty[0] & /*prev*/ 128) story_changes.prev = /*prev*/ ctx[7].project == /*i*/ ctx[40] && /*prev*/ ctx[7].story == /*j*/ ctx[43]
     			? true
     			: false;
 
-    			if (dirty[0] & /*nextProject*/ 128) story_changes.nextCover = /*i*/ ctx[39] == /*nextProject*/ ctx[7]
-    			? /*j*/ ctx[42] == 0 ? true : false
-    			: false;
-
-    			if (dirty[0] & /*prevProject*/ 256) story_changes.prevCover = /*i*/ ctx[39] == /*prevProject*/ ctx[8]
-    			? /*j*/ ctx[42] == /*stories*/ ctx[37].length - 1
+    			if (dirty[0] & /*nextProject, activeStories, prevProject*/ 770) story_changes.nextCover = /*i*/ ctx[40] == /*nextProject*/ ctx[8]
+    			? /*j*/ ctx[43] == /*activeStories*/ ctx[1][/*nextProject*/ ctx[8]]
     				? true
     				: false
-    			: false;
+    			: /*i*/ ctx[40] == /*prevProject*/ ctx[9]
+    				? /*j*/ ctx[43] == /*activeStories*/ ctx[1][/*prevProject*/ ctx[9]]
+    					? true
+    					: false
+    				: false;
 
     			story.$set(story_changes);
     		},
@@ -2352,14 +2369,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(494:8) {#each stories as story, j}",
+    		source: "(485:8) {#each stories as story, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (455:4) {#each projectArray as { name, stories }
+    // (449:4) {#each projectArray as { name, stories }
     function create_each_block$1(ctx) {
     	let div;
     	let t0;
@@ -2367,8 +2384,8 @@ var app = (function () {
     	let div_style_value;
     	let t1;
     	let current;
-    	let if_block = /*params*/ ctx[0].project == /*i*/ ctx[39] && create_if_block$2(ctx);
-    	let each_value_1 = /*stories*/ ctx[37];
+    	let if_block = /*params*/ ctx[0].project == /*i*/ ctx[40] && create_if_block$2(ctx);
+    	let each_value_1 = /*stories*/ ctx[38];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -2392,27 +2409,27 @@ var app = (function () {
 
     			t1 = space();
 
-    			attr_dev(div, "class", div_class_value = "project " + /*i*/ ctx[39] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[39]
+    			attr_dev(div, "class", div_class_value = "project " + /*i*/ ctx[40] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[40]
     			? "currentProject"
-    			: "") + "\n        " + (/*i*/ ctx[39] == /*nextProject*/ ctx[7]
+    			: "") + "\n        " + (/*i*/ ctx[40] == /*nextProject*/ ctx[8]
     			? "nextProject"
-    			: "") + "\n        " + (/*i*/ ctx[39] == /*prevProject*/ ctx[8]
+    			: "") + "\n        " + (/*i*/ ctx[40] == /*prevProject*/ ctx[9]
     			? "prevProject"
-    			: "") + "\n        " + " svelte-o9mpd6");
+    			: "") + "\n        " + " svelte-tn4ci0");
 
-    			attr_dev(div, "style", div_style_value = "\n        " + (/*held*/ ctx[2] && (/*i*/ ctx[39] == /*params*/ ctx[0].project || /*i*/ ctx[39] == /*nextProject*/ ctx[7] || /*i*/ ctx[39] == /*prevProject*/ ctx[8])
-    			? "transform: rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[1].pageX / 4.2, -90), 90) + (/*i*/ ctx[39] == /*nextProject*/ ctx[7] ? 90 : 0) + (/*i*/ ctx[39] == /*prevProject*/ ctx[8] ? -90 : 0)) + "deg);"
-    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[39]
-    			? "transform-origin: center " + /*swipeDirection*/ ctx[3] + ";"
-    			: "") + "\n        " + (/*nextProject*/ ctx[7] == /*i*/ ctx[39]
+    			attr_dev(div, "style", div_style_value = "\n        " + (/*held*/ ctx[3] && (/*i*/ ctx[40] == /*params*/ ctx[0].project || /*i*/ ctx[40] == /*nextProject*/ ctx[8] || /*i*/ ctx[40] == /*prevProject*/ ctx[9])
+    			? "transform: rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[2].pageX / 4.2, -90), 90) + (/*i*/ ctx[40] == /*nextProject*/ ctx[8] ? 90 : 0) + (/*i*/ ctx[40] == /*prevProject*/ ctx[9] ? -90 : 0)) + "deg);"
+    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[40]
+    			? "transform-origin: center " + /*swipeDirection*/ ctx[4] + ";"
+    			: "") + "\n        " + (/*nextProject*/ ctx[8] == /*i*/ ctx[40]
     			? "transform-origin: center left;"
-    			: "") + "\n        " + (/*prevProject*/ ctx[8] == /*i*/ ctx[39]
+    			: "") + "\n        " + (/*prevProject*/ ctx[9] == /*i*/ ctx[40]
     			? "transform-origin: center right;"
-    			: "") + "\n        " + (!/*held*/ ctx[2]
+    			: "") + "\n        " + (!/*held*/ ctx[3]
     			? "transition: left .8s ease, transform .8s ease;"
     			: "transition: left 0s; transform 0s") + "\n        ");
 
-    			add_location(div, file$2, 457, 6, 11693);
+    			add_location(div, file$2, 451, 6, 11412);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2427,7 +2444,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (/*params*/ ctx[0].project == /*i*/ ctx[39]) {
+    			if (/*params*/ ctx[0].project == /*i*/ ctx[40]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
@@ -2440,8 +2457,8 @@ var app = (function () {
     				if_block = null;
     			}
 
-    			if (dirty[0] & /*params, next, prev, nextProject, prevProject*/ 481) {
-    				each_value_1 = /*stories*/ ctx[37];
+    			if (dirty[0] & /*params, next, prev, nextProject, activeStories, prevProject*/ 963) {
+    				each_value_1 = /*stories*/ ctx[38];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -2468,25 +2485,25 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (!current || dirty[0] & /*params, nextProject, prevProject*/ 385 && div_class_value !== (div_class_value = "project " + /*i*/ ctx[39] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[39]
+    			if (!current || dirty[0] & /*params, nextProject, prevProject*/ 769 && div_class_value !== (div_class_value = "project " + /*i*/ ctx[40] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[40]
     			? "currentProject"
-    			: "") + "\n        " + (/*i*/ ctx[39] == /*nextProject*/ ctx[7]
+    			: "") + "\n        " + (/*i*/ ctx[40] == /*nextProject*/ ctx[8]
     			? "nextProject"
-    			: "") + "\n        " + (/*i*/ ctx[39] == /*prevProject*/ ctx[8]
+    			: "") + "\n        " + (/*i*/ ctx[40] == /*prevProject*/ ctx[9]
     			? "prevProject"
-    			: "") + "\n        " + " svelte-o9mpd6")) {
+    			: "") + "\n        " + " svelte-tn4ci0")) {
     				attr_dev(div, "class", div_class_value);
     			}
 
-    			if (!current || dirty[0] & /*held, params, nextProject, prevProject, gesture_gap, swipeDirection*/ 399 && div_style_value !== (div_style_value = "\n        " + (/*held*/ ctx[2] && (/*i*/ ctx[39] == /*params*/ ctx[0].project || /*i*/ ctx[39] == /*nextProject*/ ctx[7] || /*i*/ ctx[39] == /*prevProject*/ ctx[8])
-    			? "transform: rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[1].pageX / 4.2, -90), 90) + (/*i*/ ctx[39] == /*nextProject*/ ctx[7] ? 90 : 0) + (/*i*/ ctx[39] == /*prevProject*/ ctx[8] ? -90 : 0)) + "deg);"
-    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[39]
-    			? "transform-origin: center " + /*swipeDirection*/ ctx[3] + ";"
-    			: "") + "\n        " + (/*nextProject*/ ctx[7] == /*i*/ ctx[39]
+    			if (!current || dirty[0] & /*held, params, nextProject, prevProject, gesture_gap, swipeDirection*/ 797 && div_style_value !== (div_style_value = "\n        " + (/*held*/ ctx[3] && (/*i*/ ctx[40] == /*params*/ ctx[0].project || /*i*/ ctx[40] == /*nextProject*/ ctx[8] || /*i*/ ctx[40] == /*prevProject*/ ctx[9])
+    			? "transform: rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[2].pageX / 4.2, -90), 90) + (/*i*/ ctx[40] == /*nextProject*/ ctx[8] ? 90 : 0) + (/*i*/ ctx[40] == /*prevProject*/ ctx[9] ? -90 : 0)) + "deg);"
+    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[40]
+    			? "transform-origin: center " + /*swipeDirection*/ ctx[4] + ";"
+    			: "") + "\n        " + (/*nextProject*/ ctx[8] == /*i*/ ctx[40]
     			? "transform-origin: center left;"
-    			: "") + "\n        " + (/*prevProject*/ ctx[8] == /*i*/ ctx[39]
+    			: "") + "\n        " + (/*prevProject*/ ctx[9] == /*i*/ ctx[40]
     			? "transform-origin: center right;"
-    			: "") + "\n        " + (!/*held*/ ctx[2]
+    			: "") + "\n        " + (!/*held*/ ctx[3]
     			? "transition: left .8s ease, transform .8s ease;"
     			: "transition: left 0s; transform 0s") + "\n        ")) {
     				attr_dev(div, "style", div_style_value);
@@ -2522,7 +2539,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(455:4) {#each projectArray as { name, stories }",
+    		source: "(449:4) {#each projectArray as { name, stories }",
     		ctx
     	});
 
@@ -2545,13 +2562,13 @@ var app = (function () {
     	const nav = new Nav({
     			props: {
     				projectIndex: parseInt(/*params*/ ctx[0].project),
-    				navOpen: /*navOpen*/ ctx[4]
+    				navOpen: /*navOpen*/ ctx[5]
     			},
     			$$inline: true
     		});
 
-    	nav.$on("message", /*showNav*/ ctx[9]);
-    	nav.$on("project", /*handleNavProject*/ ctx[10]);
+    	nav.$on("message", /*showNav*/ ctx[10]);
+    	nav.$on("project", /*handleNavProject*/ ctx[11]);
     	let each_value = projectArray;
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -2580,22 +2597,28 @@ var app = (function () {
     			}
 
     			attr_dev(button0, "id", "prevButton");
-    			attr_dev(button0, "class", button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-o9mpd6"));
-    			add_location(button0, file$2, 427, 4, 10710);
+    			attr_dev(button0, "class", button0_class_value = "" + (null_to_empty(/*held*/ ctx[3] ? "grabbing" : "no") + " svelte-tn4ci0"));
+    			add_location(button0, file$2, 421, 4, 10429);
     			attr_dev(button1, "id", "nextButton");
-    			attr_dev(button1, "class", button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-o9mpd6"));
-    			add_location(button1, file$2, 440, 4, 11161);
+    			attr_dev(button1, "class", button1_class_value = "" + (null_to_empty(/*held*/ ctx[3] ? "grabbing" : "no") + " svelte-tn4ci0"));
+    			add_location(button1, file$2, 434, 4, 10880);
 
-    			set_style(main, "left", (/*held*/ ctx[2]
-    			? Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX, window.innerWidth), -window.innerWidth)
+    			set_style(main, "left", (/*held*/ ctx[3]
+    			? Math.max(Math.min(/*gesture_gap*/ ctx[2].pageX, window.innerWidth), -window.innerWidth)
     			: 0) + "px");
 
-    			set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.8) + "s ease");
-    			attr_dev(main, "class", "svelte-o9mpd6");
-    			add_location(main, file$2, 420, 2, 10499);
-    			set_style(div, "perspective", "840px");
-    			attr_dev(div, "class", "svelte-o9mpd6");
-    			add_location(div, file$2, 419, 0, 10462);
+    			set_style(main, "transition", "left " + (/*held*/ ctx[3] ? 0 : 0.8) + "s ease");
+    			attr_dev(main, "class", "svelte-tn4ci0");
+    			add_location(main, file$2, 414, 2, 10218);
+    			set_style(div, "overflow", "hidden");
+    			set_style(div, "height", "100vh");
+    			set_style(div, "width", "100vw");
+    			set_style(div, "display", "flex");
+    			set_style(div, "align-items", "center");
+    			set_style(div, "justify-content", "center");
+    			set_style(div, "perspective", "1080px");
+    			attr_dev(div, "class", "svelte-tn4ci0");
+    			add_location(div, file$2, 411, 0, 10068);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2618,36 +2641,36 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(window_1, "keydown", /*handleKeydown*/ ctx[14], false, false, false),
-    				listen_dev(button0, "touchstart", /*touchstart_handler*/ ctx[24], { passive: true }, false, false),
-    				listen_dev(button0, "mousedown", prevent_default(/*mousedown_handler*/ ctx[25]), false, true, false),
-    				listen_dev(button0, "touchmove", /*touchmove_handler*/ ctx[26], { passive: true }, false, false),
-    				listen_dev(button0, "mousemove", prevent_default(/*mousemove_handler*/ ctx[27]), false, true, false),
-    				listen_dev(button0, "touchend", prevent_default(/*touchend_handler*/ ctx[28]), false, true, false),
-    				listen_dev(button0, "mouseup", /*mouseup_handler*/ ctx[29], false, false, false),
-    				listen_dev(button1, "touchstart", /*touchstart_handler_1*/ ctx[30], { passive: true }, false, false),
-    				listen_dev(button1, "mousedown", prevent_default(/*mousedown_handler_1*/ ctx[31]), false, true, false),
-    				listen_dev(button1, "touchmove", /*touchmove_handler_1*/ ctx[32], { passive: true }, false, false),
-    				listen_dev(button1, "mousemove", prevent_default(/*mousemove_handler_1*/ ctx[33]), false, true, false),
-    				listen_dev(button1, "touchend", prevent_default(/*touchend_handler_1*/ ctx[34]), false, true, false),
-    				listen_dev(button1, "mouseup", /*mouseup_handler_1*/ ctx[35], false, false, false)
+    				listen_dev(window_1, "keydown", /*handleKeydown*/ ctx[15], false, false, false),
+    				listen_dev(button0, "touchstart", /*touchstart_handler*/ ctx[25], { passive: true }, false, false),
+    				listen_dev(button0, "mousedown", prevent_default(/*mousedown_handler*/ ctx[26]), false, true, false),
+    				listen_dev(button0, "touchmove", /*touchmove_handler*/ ctx[27], { passive: true }, false, false),
+    				listen_dev(button0, "mousemove", prevent_default(/*mousemove_handler*/ ctx[28]), false, true, false),
+    				listen_dev(button0, "touchend", prevent_default(/*touchend_handler*/ ctx[29]), false, true, false),
+    				listen_dev(button0, "mouseup", /*mouseup_handler*/ ctx[30], false, false, false),
+    				listen_dev(button1, "touchstart", /*touchstart_handler_1*/ ctx[31], { passive: true }, false, false),
+    				listen_dev(button1, "mousedown", prevent_default(/*mousedown_handler_1*/ ctx[32]), false, true, false),
+    				listen_dev(button1, "touchmove", /*touchmove_handler_1*/ ctx[33], { passive: true }, false, false),
+    				listen_dev(button1, "mousemove", prevent_default(/*mousemove_handler_1*/ ctx[34]), false, true, false),
+    				listen_dev(button1, "touchend", prevent_default(/*touchend_handler_1*/ ctx[35]), false, true, false),
+    				listen_dev(button1, "mouseup", /*mouseup_handler_1*/ ctx[36], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
     			const nav_changes = {};
     			if (dirty[0] & /*params*/ 1) nav_changes.projectIndex = parseInt(/*params*/ ctx[0].project);
-    			if (dirty[0] & /*navOpen*/ 16) nav_changes.navOpen = /*navOpen*/ ctx[4];
+    			if (dirty[0] & /*navOpen*/ 32) nav_changes.navOpen = /*navOpen*/ ctx[5];
     			nav.$set(nav_changes);
 
-    			if (!current || dirty[0] & /*held*/ 4 && button0_class_value !== (button0_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-o9mpd6"))) {
+    			if (!current || dirty[0] & /*held*/ 8 && button0_class_value !== (button0_class_value = "" + (null_to_empty(/*held*/ ctx[3] ? "grabbing" : "no") + " svelte-tn4ci0"))) {
     				attr_dev(button0, "class", button0_class_value);
     			}
 
-    			if (!current || dirty[0] & /*held*/ 4 && button1_class_value !== (button1_class_value = "" + (null_to_empty(/*held*/ ctx[2] ? "grabbing" : "no") + " svelte-o9mpd6"))) {
+    			if (!current || dirty[0] & /*held*/ 8 && button1_class_value !== (button1_class_value = "" + (null_to_empty(/*held*/ ctx[3] ? "grabbing" : "no") + " svelte-tn4ci0"))) {
     				attr_dev(button1, "class", button1_class_value);
     			}
 
-    			if (dirty[0] & /*params, nextProject, prevProject, held, gesture_gap, swipeDirection, next, prev, navOpen*/ 511) {
+    			if (dirty[0] & /*params, nextProject, prevProject, held, gesture_gap, swipeDirection, next, prev, activeStories, navOpen*/ 1023) {
     				each_value = projectArray;
     				validate_each_argument(each_value);
     				let i;
@@ -2675,14 +2698,14 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (!current || dirty[0] & /*held, gesture_gap*/ 6) {
-    				set_style(main, "left", (/*held*/ ctx[2]
-    				? Math.max(Math.min(/*gesture_gap*/ ctx[1].pageX, window.innerWidth), -window.innerWidth)
+    			if (!current || dirty[0] & /*held, gesture_gap*/ 12) {
+    				set_style(main, "left", (/*held*/ ctx[3]
+    				? Math.max(Math.min(/*gesture_gap*/ ctx[2].pageX, window.innerWidth), -window.innerWidth)
     				: 0) + "px");
     			}
 
-    			if (!current || dirty[0] & /*held*/ 4) {
-    				set_style(main, "transition", "left " + (/*held*/ ctx[2] ? 0 : 0.8) + "s ease");
+    			if (!current || dirty[0] & /*held*/ 8) {
+    				set_style(main, "transition", "left " + (/*held*/ ctx[3] ? 0 : 0.8) + "s ease");
     			}
     		},
     		i: function intro(local) {
@@ -2729,6 +2752,12 @@ var app = (function () {
 
     function instance$4($$self, $$props, $$invalidate) {
     	gestures(); //figure this shit out at some point lol
+    	let activeStories = [];
+
+    	for (const project of projectArray) {
+    		activeStories.push(0);
+    	}
+
     	let { params = { project: 0, story: 0 } } = $$props;
 
     	// let touch = false;//whether the gestures
@@ -2738,20 +2767,15 @@ var app = (function () {
     	let gesture_gap = { pageX: 0, pageY: 0 }; //why can't i make this a reactive svelte thingy
     	let held = false;
     	let swipeDirection = "right";
-    	let swipeSensitivity = 150;
-
-    	// window.onresize = () => {
-    	//   swipeSensitivity = Math.min(screen.width / 3, 300);
-    	// };
+    	let swipeSensitivity = 100;
     	let timedout = true; //whether a gesture has timed out
-
     	let gesturetimer; //timer object to time that
     	let timerExists = false;
     	let storyTimer; //timer object to time stories
     	let navOpen = false;
 
     	function showNav(event) {
-    		$$invalidate(4, navOpen = event.detail.open);
+    		$$invalidate(5, navOpen = event.detail.open);
     	}
 
     	const Timer = function (callback, delay) {
@@ -2794,28 +2818,17 @@ var app = (function () {
 
     	function handleProjects(direction) {
     		if (direction == "next") {
-    			$$invalidate(3, swipeDirection = "left");
+    			$$invalidate(4, swipeDirection = "left");
     			push("/" + next.project + "/" + next.story);
     		} else if (direction == "prev") {
-    			$$invalidate(3, swipeDirection = "right");
+    			$$invalidate(4, swipeDirection = "right");
     			push("/" + prev.project + "/" + prev.story);
     		} else if (direction == "nextProject") {
-    			$$invalidate(3, swipeDirection = "left");
-    			console.log("handleProjects nextProjects");
-
-    			parseInt(params.project) < projectArray.length - 1
-    			? push("/" + (parseInt(params.project) + 1) + "/0")
-    			: push("/0/0"); // if current project ain't last
-    			//next project
-    			//first project
+    			$$invalidate(4, swipeDirection = "left");
+    			push("/" + nextProject + "/" + activeStories[nextProject]); //next project
     		} else if (direction == "prevProject") {
-    			$$invalidate(3, swipeDirection = "right");
-
-    			parseInt(params.project) > 0
-    			? push("/" + (parseInt(params.project) - 1) + "/" + (projectArray[parseInt(params.project) - 1].stories.length - 1))
-    			: push("/" + (projectArray.length - 1) + "/" + (projectArray[projectArray.length - 1].stories.length - 1)); // if current project ain't first
-    			//last project in prev story
-    			//last project
+    			$$invalidate(4, swipeDirection = "right");
+    			push("/" + prevProject + "/" + activeStories[prevProject]); //last project in prev story
     		}
 
     		storyTimer.reset();
@@ -2825,7 +2838,7 @@ var app = (function () {
     		//when a gesture starts
     		storyTimer.pause(); //pause story timer
 
-    		$$invalidate(4, navOpen = false);
+    		$$invalidate(5, navOpen = false);
 
     		if (e.type == "touchstart") {
     			//if it'a a touch event
@@ -2841,7 +2854,7 @@ var app = (function () {
 
     		gesture_active.pageX = gesture_start.pageX;
     		gesture_active.pageY = gesture_start.pageY;
-    		$$invalidate(2, held = true); //start holding gesture
+    		$$invalidate(3, held = true); //start holding gesture
     		timedout = false; //reset timedout, hasn't timed out yet
 
     		gesturetimer = setTimeout(
@@ -2849,7 +2862,7 @@ var app = (function () {
     				//start gesture timer
     				timedout = true;
     			},
-    			400
+    			300
     		);
     	}
 
@@ -2867,19 +2880,19 @@ var app = (function () {
     			gesture_active.pageY = e.pageY;
     		}
 
-    		$$invalidate(1, gesture_gap = {
+    		$$invalidate(2, gesture_gap = {
     			//set the gap between start and where you've dragged
     			pageX: gesture_active.pageX - gesture_start.pageX,
     			pageY: gesture_active.pageY - gesture_start.pageY
     		});
 
     		gesture_gap.pageX > 0
-    		? $$invalidate(3, swipeDirection = "left")
-    		: $$invalidate(3, swipeDirection = "right");
+    		? $$invalidate(4, swipeDirection = "left")
+    		: $$invalidate(4, swipeDirection = "right");
     	}
 
     	function gestureUp(e, direction) {
-    		$$invalidate(2, held = false); //end holding gesture
+    		$$invalidate(3, held = false); //end holding gesture
     		console.log(timedout);
 
     		if (!timedout) {
@@ -2914,7 +2927,7 @@ var app = (function () {
     		gesture_start = { pageX: 0, pageY: 0 };
 
     		gesture_active = { pageX: 0, pageY: 0 };
-    		$$invalidate(1, gesture_gap = { pageX: 0, pageY: 0 });
+    		$$invalidate(2, gesture_gap = { pageX: 0, pageY: 0 });
     	}
 
     	function handleKeydown(event) {
@@ -2982,6 +2995,7 @@ var app = (function () {
     		getPrev,
     		gestures,
     		push,
+    		activeStories,
     		params,
     		gesture_start,
     		gesture_active,
@@ -3010,22 +3024,23 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
+    		if ("activeStories" in $$props) $$invalidate(1, activeStories = $$props.activeStories);
     		if ("params" in $$props) $$invalidate(0, params = $$props.params);
     		if ("gesture_start" in $$props) gesture_start = $$props.gesture_start;
     		if ("gesture_active" in $$props) gesture_active = $$props.gesture_active;
-    		if ("gesture_gap" in $$props) $$invalidate(1, gesture_gap = $$props.gesture_gap);
-    		if ("held" in $$props) $$invalidate(2, held = $$props.held);
-    		if ("swipeDirection" in $$props) $$invalidate(3, swipeDirection = $$props.swipeDirection);
+    		if ("gesture_gap" in $$props) $$invalidate(2, gesture_gap = $$props.gesture_gap);
+    		if ("held" in $$props) $$invalidate(3, held = $$props.held);
+    		if ("swipeDirection" in $$props) $$invalidate(4, swipeDirection = $$props.swipeDirection);
     		if ("swipeSensitivity" in $$props) swipeSensitivity = $$props.swipeSensitivity;
     		if ("timedout" in $$props) timedout = $$props.timedout;
     		if ("gesturetimer" in $$props) gesturetimer = $$props.gesturetimer;
     		if ("timerExists" in $$props) timerExists = $$props.timerExists;
     		if ("storyTimer" in $$props) storyTimer = $$props.storyTimer;
-    		if ("navOpen" in $$props) $$invalidate(4, navOpen = $$props.navOpen);
-    		if ("next" in $$props) $$invalidate(5, next = $$props.next);
-    		if ("prev" in $$props) $$invalidate(6, prev = $$props.prev);
-    		if ("nextProject" in $$props) $$invalidate(7, nextProject = $$props.nextProject);
-    		if ("prevProject" in $$props) $$invalidate(8, prevProject = $$props.prevProject);
+    		if ("navOpen" in $$props) $$invalidate(5, navOpen = $$props.navOpen);
+    		if ("next" in $$props) $$invalidate(6, next = $$props.next);
+    		if ("prev" in $$props) $$invalidate(7, prev = $$props.prev);
+    		if ("nextProject" in $$props) $$invalidate(8, nextProject = $$props.nextProject);
+    		if ("prevProject" in $$props) $$invalidate(9, prevProject = $$props.prevProject);
     	};
 
     	let next;
@@ -3039,21 +3054,26 @@ var app = (function () {
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty[0] & /*params*/ 1) {
-    			 $$invalidate(5, next = getNext(params));
+    			//when params change, update activeStories
+    			 $$invalidate(1, activeStories[parseInt(params.project)] = parseInt(params.story), activeStories);
     		}
 
     		if ($$self.$$.dirty[0] & /*params*/ 1) {
-    			 $$invalidate(6, prev = getPrev(params));
+    			 $$invalidate(6, next = getNext(params));
     		}
 
     		if ($$self.$$.dirty[0] & /*params*/ 1) {
-    			 $$invalidate(7, nextProject = parseInt(params.project) < projectArray.length - 1
+    			 $$invalidate(7, prev = getPrev(params));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*params*/ 1) {
+    			 $$invalidate(8, nextProject = parseInt(params.project) < projectArray.length - 1
     			? parseInt(params.project) + 1
     			: 0);
     		}
 
     		if ($$self.$$.dirty[0] & /*params*/ 1) {
-    			 $$invalidate(8, prevProject = parseInt(params.project) > 0
+    			 $$invalidate(9, prevProject = parseInt(params.project) > 0
     			? parseInt(params.project) - 1
     			: projectArray.length - 1);
     		}
@@ -3061,6 +3081,7 @@ var app = (function () {
 
     	return [
     		params,
+    		activeStories,
     		gesture_gap,
     		held,
     		swipeDirection,
