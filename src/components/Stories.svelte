@@ -30,18 +30,17 @@
       : projectArray.length - 1;
 
   // let touch = false;//whether the gestures
-  let gesture_start = { pageX: 0, pageY: 0 };
-  let gesture_active = { pageX: 0, pageY: 0 };
-  let gesture_gap = { pageX: 0, pageY: 0 }; //why can't i make this a reactive svelte thingy
+  let gesture_start,
+    gesture_active,
+    gesture_gap = 0;
 
   let held = false;
   let swipeDirection = "right";
-  let swipeSensitivity = 100;
+  const swipeSensitivity = 100;
 
   let timedout = true; //whether a gesture has timed out
   let gesturetimer; //timer object to time that
 
-  let timerExists = false;
   let storyTimer; //timer object to time stories
   const storyTimerTime = 6000;
 
@@ -86,44 +85,47 @@
   };
 
   function handleNavProject(event) {
-    console.log(event);
-    push("/" + event.detail + "/0");
+    pushHandler(event.detail, 0);
+  }
+
+  function pushHandler(project, story) {
+    if (project == nextProject) {
+      swipeDirection = "left";
+    } else if (project == prevProject) {
+      swipeDirection = "right";
+    }
+    push("/" + project.toString() + "/" + story.toString());
     storyTimer.reset();
   }
 
   function handleProjects(direction) {
     if (direction == "next") {
-      swipeDirection = "left";
-      push("/" + next.project + "/" + next.story);
+      pushHandler(next.project, next.story);
     } else if (direction == "prev") {
-      swipeDirection = "right";
-      push("/" + prev.project + "/" + prev.story);
+      pushHandler(prev.project, prev.story);
     } else if (direction == "nextProject") {
-      swipeDirection = "left";
-      push("/" + nextProject + "/" + activeStories[nextProject]); //next project
+      pushHandler(nextProject, activeStories[nextProject]);
     } else if (direction == "prevProject") {
-      swipeDirection = "right";
-      push("/" + prevProject + "/" + activeStories[prevProject]); //last project in prev story
+      pushHandler(prevProject, activeStories[prevProject]);
     }
-    storyTimer.reset();
   }
 
   function gestureDown(e) {
     //when a gesture starts
     storyTimer.pause(); //pause story timer
-
     navOpen = false;
+
     if (e.type == "touchstart") {
       //if it'a a touch event
-      gesture_start.pageX = Math.round(e.changedTouches[0].pageX); //where the event starts
-      gesture_start.pageY = Math.round(e.changedTouches[0].pageY);
+      gesture_start = Math.round(e.changedTouches[0].pageX); //where the event starts
+      // gesture_start.pageY = Math.round(e.changedTouches[0].pageY);
     } else {
       //if it's a mouse
-      gesture_start.pageX = e.pageX;
-      gesture_start.pageY = e.pageY;
+      gesture_start = e.pageX;
+      // gesture_start.pageY = e.pageY;
     }
-    gesture_active.pageX = gesture_start.pageX;
-    gesture_active.pageY = gesture_start.pageY;
+    gesture_active = gesture_start.pageX;
+    // gesture_active.pageY = gesture_start.pageY;
     held = true; //start holding gesture
     timedout = false; //reset timedout, hasn't timed out yet
 
@@ -137,50 +139,42 @@
     //when ya movin
     if (e.type == "touchmove") {
       //if it'a a touch event
-      gesture_active.pageX = Math.round(e.changedTouches[0].pageX);
-      gesture_active.pageY = Math.round(e.changedTouches[0].pageY);
+      gesture_active = Math.round(e.changedTouches[0].pageX);
+      // gesture_active.pageY = Math.round(e.changedTouches[0].pageY);
     } else {
       //if it's a mouse
-      gesture_active.pageX = e.pageX;
-      gesture_active.pageY = e.pageY;
+      gesture_active = e.pageX;
+      // gesture_active.pageY = e.pageY;
     }
 
-    gesture_gap = {
-      //set the gap between start and where you've dragged
-      pageX: gesture_active.pageX - gesture_start.pageX,
-      pageY: gesture_active.pageY - gesture_start.pageY
-    };
-    gesture_gap.pageX > 0
-      ? (swipeDirection = "left")
-      : (swipeDirection = "right");
+    gesture_gap = gesture_active - gesture_start;
+    //set the gap between start and where you've dragged
+
+    // pageY: gesture_active.pageY - gesture_start.pageY
+
+    gesture_gap > 0 ? (swipeDirection = "left") : (swipeDirection = "right");
   }
 
   function gestureUp(e, direction) {
     held = false; //end holding gesture
-    console.log(timedout);
 
     if (!timedout) {
       //if the gesture hasn't timed out
-      if (gesture_active.pageX > gesture_start.pageX + swipeSensitivity) {
+      if (gesture_active > gesture_start + swipeSensitivity) {
         //LEFT SWIPEY
-        // swipeDirection = "left";
         handleProjects("prevProject");
-      } else if (
-        gesture_active.pageX <
-        gesture_start.pageX - swipeSensitivity
-      ) {
+      } else if (gesture_active < gesture_start - swipeSensitivity) {
         //RIGHT SWIPEY
-        // swipeDirection = "right";
         handleProjects("nextProject");
       } else {
         //JUST GO NEXT OR PREV
-        if (Math.abs(gesture_gap.pageX) < 10) handleProjects(direction);
+        if (Math.abs(gesture_gap) < 10) handleProjects(direction);
       }
     } else {
       //if gesture has timed out
-      if (gesture_active.pageX > gesture_start.pageX + 200) {
+      if (gesture_active > gesture_start + 200) {
         handleProjects("prevProject");
-      } else if (gesture_active.pageX < gesture_start.pageX - 200) {
+      } else if (gesture_active < gesture_start - 200) {
         handleProjects("nextProject");
       }
       storyTimer.resume();
@@ -189,9 +183,9 @@
     clearTimeout(gesturetimer);
 
     //reset gesture tracking
-    gesture_start = { pageX: 0, pageY: 0 };
-    gesture_active = { pageX: 0, pageY: 0 };
-    gesture_gap = { pageX: 0, pageY: 0 };
+    gesture_start = 0;
+    gesture_active = 0;
+    gesture_gap = 0;
   }
 
   function handleKeydown(event) {
@@ -243,8 +237,6 @@
   }
 
   main {
-    /* justify-content: center; */
-    /* display: flex; */
     height: calc(100vh - 30px);
     position: relative;
     width: 100vw;
@@ -252,8 +244,6 @@
     max-height: var(--height-border);
     padding: 0;
     margin: 0;
-    /* transition: 0.3s max-height ease, 0.3s max-width ease, 0.3s height ease,
-      0.3s width ease, 0.3s border-radius ease; */
   }
   @media screen and (max-width: 550px) {
     main {
@@ -271,16 +261,17 @@
     height: 100%;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    transition: left 0.8s ease, transform 0.8s ease;
+    transition: left 0.5s ease, transform 0.5s ease;
     display: none;
     border-radius: 4px;
     overflow: hidden;
+    background-color: grey;
+    will-change: transform;
   }
 
   .prevProject {
     display: block;
     transform: rotateY(-90deg);
-    /* transform-origin: center right; */
     z-index: -1;
     position: absolute;
     top: 0;
@@ -298,7 +289,6 @@
   .nextProject {
     display: block;
     transform: rotateY(90deg);
-    /* transform-origin: center left; */
     z-index: -1;
     position: absolute;
     top: 0;
@@ -307,7 +297,6 @@
 
   #indicators {
     height: 2px;
-    /* background-color: rgba(0, 0, 0, 0.33); */
     top: 8px;
     left: 6px;
     right: 6px;
@@ -316,7 +305,6 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    /* box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.9); */
   }
 
   #indicators div {
@@ -337,7 +325,6 @@
   }
 
   #loadingBar {
-    /* content: ""; */
     position: absolute;
     top: 0px;
     left: 0px;
@@ -354,8 +341,6 @@
 
     -webkit-animation-name: progress;
     -webkit-animation-duration: 6s;
-    /* -webkit-animation-delay: 0.01s; */
-    /* -webkit-animation-iteration-count: 6; */
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
   }
@@ -413,9 +398,9 @@
   style=" overflow: hidden; height: 100vh; width: 100vw; display: flex;
   align-items: center; justify-content: center; perspective: 1080px;">
   <main
-    style=" left: {held ? Math.max(Math.min(gesture_gap.pageX, window.innerWidth), -window.innerWidth) : 0}px;
-    transition: left {held ? 0 : 0.8}s ease; ">
-    <!-- overflow: hidden; 
+    style="left: {held ? Math.max(Math.min(gesture_gap, window.innerWidth), -window.innerWidth) : 0}px;
+    {held ? 'transition: left 0s ease;' : 'transition: left .5s ease;'}">
+    <!-- figure out how to make this "transform: translateX instead of left"
     
     -->
 
@@ -456,11 +441,11 @@
         {i == prevProject ? 'prevProject' : ''}
         "
         style="
-        {held && (i == params.project || i == nextProject || i == prevProject) ? 'transform: rotateY(' + (Math.min(Math.max(gesture_gap.pageX / 4.2, -90), 90) + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg);' : ''}
+        {held && (i == params.project || i == nextProject || i == prevProject) ? 'transform: rotateY(' + (Math.min(Math.max(gesture_gap / 4.2, -90), 90) + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg);' : ''}
         {params.project == i ? 'transform-origin: center ' + swipeDirection + ';' : ''}
         {nextProject == i ? 'transform-origin: center left;' : ''}
         {prevProject == i ? 'transform-origin: center right;' : ''}
-        {!held ? 'transition: left .8s ease, transform .8s ease;' : 'transition: left 0s; transform 0s'}
+        {!held ? 'transition: left .5s ease, transform .5s ease;' : 'transition: left 0s; transform 0s'}
         ">
 
         {#if params.project == i}
@@ -490,7 +475,6 @@
             next={next.project == i && next.story == j ? true : false}
             prev={prev.project == i && prev.story == j ? true : false}
             nextCover={i == nextProject ? (j == activeStories[nextProject] ? true : false) : i == prevProject ? (j == activeStories[prevProject] ? true : false) : false} />
-          <!-- fix this to work with last/first projects -->
         {/each}
       </div>
       <!-- close project div -->
