@@ -377,10 +377,7 @@
   on:mousemove|preventDefault={e => {
     if (held) gestureMove(e);
   }}
-  on:touchend|passive
-  preventDefault={e => {
-    if (held) gestureUp(e);
-  }}
+  on:touchend|preventDefault={e => gestureUp(e)}
   on:mouseup|preventDefault={e => {
     if (held) gestureUp(e);
   }}
