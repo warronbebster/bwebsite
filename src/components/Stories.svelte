@@ -1,6 +1,6 @@
 <script>
   import Story from "./Story.svelte";
-  import { onMount, afterUpdate, beforeUpdate, tick } from "svelte";
+  import { onMount } from "svelte";
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
   import { gestures } from "@composi/gestures";
@@ -87,22 +87,18 @@
 
   $: if (parseInt(params.project) != bufferProject) {
     if (parseInt(params.project) == 0) {
-      console.log("1111111111");
       bufferProject == projectArray.length - 1
         ? (swipeDirection = "left")
         : (swipeDirection = "right");
     } else if (parseInt(params.project) == projectArray.length - 1) {
-      console.log("2222222222222");
       bufferProject == 0
         ? (swipeDirection = "right")
         : (swipeDirection = "left");
     } else {
-      console.log("33333333333333");
       parseInt(params.project) > bufferProject
         ? (swipeDirection = "left")
         : (swipeDirection = "right");
     }
-    console.log("hehehehe");
     bufferProject = parseInt(params.project);
   }
 
@@ -196,13 +192,6 @@
     storyTimer = new Timer(() => {
       handleProjects("next");
     }, storyTimerTime);
-  });
-
-  beforeUpdate(e => {
-    console.log("beforeupdate " + params.project + swipeDirection);
-  });
-  afterUpdate(() => {
-    console.log("afterupdate" + params.project + swipeDirection);
   });
 </script>
 
