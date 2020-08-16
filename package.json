@@ -4,7 +4,7 @@
 	"scripts": {
 		"build": "rollup -c",
 		"dev": "rollup -c -w",
-		"start": "sirv public --single"
+		"start": "sirv docs --single"
 	},
 	"devDependencies": {
 		"@composi/gestures": "^1.0.9",

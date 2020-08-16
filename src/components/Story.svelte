@@ -43,6 +43,12 @@
     margin: 0;
     position: relative;
     overflow: hidden;
+    border-radius: 4px;
+  }
+  @media screen and (max-width: 550px) {
+    .story {
+      border-radius: 0px;
+    }
   }
 
   .none {

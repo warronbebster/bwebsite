@@ -1,6 +1,6 @@
 <script>
   import Story from "./Story.svelte";
-  import { onMount, afterUpdate } from "svelte";
+  import { onMount, afterUpdate, beforeUpdate, tick } from "svelte";
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
   import { gestures } from "@composi/gestures";
@@ -28,18 +28,19 @@
     parseInt(params.project) > 0
       ? parseInt(params.project) - 1
       : projectArray.length - 1;
+  let bufferProject = 0;
 
-  // let touch = false;//whether the gestures
   let gesture_start,
     gesture_active,
     gesture_gap = 0;
 
   let held = false;
-  let swipeDirection = "right";
+  let swipeDirection,
+    swipeBuffer = "right";
   const swipeSensitivity = 100;
 
   let timedout = true; //whether a gesture has timed out
-  let gesturetimer; //timer object to time that
+  let gestureTimer; //timer object to time that
 
   let storyTimer; //timer object to time stories
   const storyTimerTime = 6000;
@@ -58,19 +59,16 @@
     this.pause = function() {
       window.clearTimeout(timerId);
       remaining -= Date.now() - start;
-      console.log("timer paused");
     };
 
     this.clear = function() {
       window.clearTimeout(timerId);
-      console.log("timer cleared");
     };
 
     this.resume = function() {
       start = Date.now();
       window.clearTimeout(timerId);
       timerId = window.setTimeout(callback, remaining);
-      console.log("timer resumed");
     };
 
     this.reset = function() {
@@ -78,7 +76,6 @@
       remaining = delayStore;
       window.clearTimeout(timerId);
       timerId = window.setTimeout(callback, remaining);
-      console.log("timer reset");
     };
 
     this.resume();
@@ -88,14 +85,30 @@
     pushHandler(event.detail, 0);
   }
 
-  function pushHandler(project, story) {
-    if (project == nextProject) {
-      swipeDirection = "left";
-    } else if (project == prevProject) {
-      swipeDirection = "right";
+  $: if (parseInt(params.project) != bufferProject) {
+    if (parseInt(params.project) == 0) {
+      console.log("1111111111");
+      bufferProject == projectArray.length - 1
+        ? (swipeDirection = "left")
+        : (swipeDirection = "right");
+    } else if (parseInt(params.project) == projectArray.length - 1) {
+      console.log("2222222222222");
+      bufferProject == 0
+        ? (swipeDirection = "right")
+        : (swipeDirection = "left");
+    } else {
+      console.log("33333333333333");
+      parseInt(params.project) > bufferProject
+        ? (swipeDirection = "left")
+        : (swipeDirection = "right");
     }
+    console.log("hehehehe");
+    bufferProject = parseInt(params.project);
+  }
+
+  function pushHandler(project, story) {
     push("/" + project.toString() + "/" + story.toString());
-    storyTimer.reset();
+    // .then(() => { });
   }
 
   function handleProjects(direction) {
@@ -113,76 +126,58 @@
   function gestureDown(e) {
     //when a gesture starts
     storyTimer.pause(); //pause story timer
-    navOpen = false;
-
-    if (e.type == "touchstart") {
-      //if it'a a touch event
-      gesture_start = Math.round(e.changedTouches[0].pageX); //where the event starts
-      // gesture_start.pageY = Math.round(e.changedTouches[0].pageY);
-    } else {
-      //if it's a mouse
-      gesture_start = e.pageX;
-      // gesture_start.pageY = e.pageY;
-    }
-    gesture_active = gesture_start.pageX;
-    // gesture_active.pageY = gesture_start.pageY;
+    navOpen = false; //close nav
     held = true; //start holding gesture
     timedout = false; //reset timedout, hasn't timed out yet
 
-    gesturetimer = setTimeout(() => {
-      //start gesture timer
-      timedout = true;
+    e.type == "touchstart"
+      ? (gesture_start = Math.round(e.changedTouches[0].pageX)) //where the event starts
+      : (gesture_start = e.pageX);
+
+    gesture_active = gesture_start;
+
+    gestureTimer = setTimeout(() => {
+      timedout = true; //start gesture timer
     }, 300);
   }
 
   function gestureMove(e) {
     //when ya movin
-    if (e.type == "touchmove") {
-      //if it'a a touch event
-      gesture_active = Math.round(e.changedTouches[0].pageX);
-      // gesture_active.pageY = Math.round(e.changedTouches[0].pageY);
-    } else {
-      //if it's a mouse
-      gesture_active = e.pageX;
-      // gesture_active.pageY = e.pageY;
-    }
 
-    gesture_gap = gesture_active - gesture_start;
-    //set the gap between start and where you've dragged
-
-    // pageY: gesture_active.pageY - gesture_start.pageY
-
+    e.type == "touchmove"
+      ? (gesture_active = Math.round(e.changedTouches[0].pageX))
+      : (gesture_active = e.pageX);
+    gesture_gap = gesture_active - gesture_start; //set the gap between start and where you've dragged
     gesture_gap > 0 ? (swipeDirection = "left") : (swipeDirection = "right");
   }
 
-  function gestureUp(e, direction) {
-    held = false; //end holding gesture
-
+  async function gestureUp(e) {
     if (!timedout) {
       //if the gesture hasn't timed out
       if (gesture_active > gesture_start + swipeSensitivity) {
-        //LEFT SWIPEY
         handleProjects("prevProject");
       } else if (gesture_active < gesture_start - swipeSensitivity) {
-        //RIGHT SWIPEY
         handleProjects("nextProject");
       } else {
         //JUST GO NEXT OR PREV
-        if (Math.abs(gesture_gap) < 10) handleProjects(direction);
+        if (Math.abs(gesture_gap) < 10) {
+          gesture_active > window.innerWidth / 2
+            ? handleProjects("next")
+            : handleProjects("prev");
+        }
       }
     } else {
-      //if gesture has timed out
+      //if the gesture has timed out
       if (gesture_active > gesture_start + 200) {
         handleProjects("prevProject");
       } else if (gesture_active < gesture_start - 200) {
         handleProjects("nextProject");
       }
-      storyTimer.resume();
+      //reset stuff
     }
-    //reset timer
-    clearTimeout(gesturetimer);
-
-    //reset gesture tracking
+    if (storyTimer) storyTimer.reset();
+    if (gestureTimer) clearTimeout(gestureTimer);
+    held = false; //end holding gesture
     gesture_start = 0;
     gesture_active = 0;
     gesture_gap = 0;
@@ -203,37 +198,21 @@
     }, storyTimerTime);
   });
 
-  //pls run only once
+  beforeUpdate(e => {
+    console.log("beforeupdate " + params.project + swipeDirection);
+  });
+  afterUpdate(() => {
+    console.log("afterupdate" + params.project + swipeDirection);
+  });
 </script>
 
 <style>
   :root {
-    /* this is like css variables */
     --width-border: 460px;
   }
 
   .grabbing {
     cursor: grabbing !important;
-  }
-  button {
-    position: absolute;
-    top: -20px;
-    bottom: -20px;
-    z-index: 2;
-    opacity: 0;
-    width: 50vw;
-    outline: none;
-    touch-action: none;
-  }
-  #nextButton {
-    background-color: rgb(255, 139, 212);
-    right: calc(-50vw + 50%);
-    cursor: e-resize;
-  }
-  #prevButton {
-    background-color: rgb(139, 255, 211);
-    left: calc(-50vw + 50%);
-    cursor: w-resize;
   }
 
   main {
@@ -241,9 +220,11 @@
     position: relative;
     width: 100vw;
     max-width: var(--width-border);
-    max-height: var(--height-border);
+    /* max-height: var(--height-border); */
     padding: 0;
     margin: 0;
+    transform-style: preserve-3d;
+    will-change: transform;
   }
   @media screen and (max-width: 550px) {
     main {
@@ -263,24 +244,24 @@
     -webkit-backface-visibility: hidden;
     transition: left 0.5s ease, transform 0.5s ease;
     display: none;
-    border-radius: 4px;
-    overflow: hidden;
-    background-color: grey;
+    overflow: visible;
+    background: transparent;
     will-change: transform;
   }
 
   .prevProject {
     display: block;
-    transform: rotateY(-90deg);
+    transform: translateX(-100%) rotateY(-90deg);
     z-index: -1;
     position: absolute;
     top: 0;
-    left: -100%;
+    transform: translateX(-100%) rotateY(-90deg);
+    /* left: -100%; */
   }
 
   .currentProject {
     display: block;
-    transform: rotateY(0deg);
+    transform: translateX(0%) rotateY(0deg);
     position: absolute;
     top: 0;
     left: 0%;
@@ -292,7 +273,8 @@
     z-index: -1;
     position: absolute;
     top: 0;
-    left: 100%;
+    transform: translateX(100%) rotateY(90deg);
+    /* left: 100%; */
   }
 
   #indicators {
@@ -395,41 +377,28 @@
   on:message={showNav}
   on:project={handleNavProject} />
 <div
-  style=" overflow: hidden; height: 100vh; width: 100vw; display: flex;
-  align-items: center; justify-content: center; perspective: 1080px;">
-  <main
-    style="left: {held ? Math.max(Math.min(gesture_gap, window.innerWidth), -window.innerWidth) : 0}px;
-    {held ? 'transition: left 0s ease;' : 'transition: left .5s ease;'}">
-    <!-- figure out how to make this "transform: translateX instead of left"
-    
-    -->
+  style="overflow: hidden; height: 100vh; width: 100vw; display: flex;
+  align-items: center; justify-content: center; perspective: 1080px; cursor:
+  ew-resize"
+  on:touchstart|passive={e => gestureDown(e)}
+  on:mousedown|preventDefault={e => gestureDown(e)}
+  on:touchmove|passive={e => {
+    if (held) gestureMove(e);
+  }}
+  on:mousemove|preventDefault={e => {
+    if (held) gestureMove(e);
+  }}
+  on:touchend|passive={e => {
+    if (held) gestureUp(e);
+  }}
+  on:mouseup|preventDefault={e => {
+    if (held) gestureUp(e);
+  }}
+  class={held ? 'grabbing' : 'no'}>
 
-    <button
-      id="prevButton"
-      on:touchstart|passive={e => gestureDown(e)}
-      on:mousedown|preventDefault={e => gestureDown(e)}
-      on:touchmove|passive={e => {
-        if (held) gestureMove(e);
-      }}
-      on:mousemove|preventDefault={e => {
-        if (held) gestureMove(e);
-      }}
-      on:touchend|preventDefault={e => gestureUp(e, 'prev')}
-      on:mouseup={e => gestureUp(e, 'prev')}
-      class={held ? 'grabbing' : 'no'} />
-    <button
-      id="nextButton"
-      on:touchstart|passive={e => gestureDown(e)}
-      on:mousedown|preventDefault={e => gestureDown(e)}
-      on:touchmove|passive={e => {
-        if (held) gestureMove(e);
-      }}
-      on:mousemove|preventDefault={e => {
-        if (held) gestureMove(e);
-      }}
-      on:touchend|preventDefault={e => gestureUp(e, 'next')}
-      on:mouseup={e => gestureUp(e, 'next')}
-      class={held ? 'grabbing' : 'no'} />
+  <main
+    style="transform: translateX({held ? Math.max(Math.min(gesture_gap * 1.1, 460), -460) : 0}px);
+    {held ? 'transition: transform 0s;' : 'transition: transform .5s ease;'}">
 
     {#each projectArray as { name, stories }, i}
       <!-- each project -->
@@ -441,12 +410,13 @@
         {i == prevProject ? 'prevProject' : ''}
         "
         style="
-        {held && (i == params.project || i == nextProject || i == prevProject) ? 'transform: rotateY(' + (Math.min(Math.max(gesture_gap / 4.2, -90), 90) + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg);' : ''}
+        {held && (i == params.project || i == nextProject || i == prevProject) ? 'transform: translateX(' + (i == prevProject ? -100 : i == nextProject ? 100 : 0) + '%) rotateY(' + (Math.min(Math.max(gesture_gap / 4.2, -90), 90) + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg) ;' : ''}
         {params.project == i ? 'transform-origin: center ' + swipeDirection + ';' : ''}
         {nextProject == i ? 'transform-origin: center left;' : ''}
         {prevProject == i ? 'transform-origin: center right;' : ''}
-        {!held ? 'transition: left .5s ease, transform .5s ease;' : 'transition: left 0s; transform 0s'}
+        {!held ? 'transition: left .5s ease, transform .5s ease;' : 'transition: left 0s, transform 0s'}
         ">
+        <!-- {(i == prevProject ? 'translateX(-100%) ' : '')} {(i == nextProject ? 'translateX(100%) ' : '')} -->
 
         {#if params.project == i}
           <!-- if it's the current project -->
