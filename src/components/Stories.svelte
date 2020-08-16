@@ -72,6 +72,7 @@
     };
 
     this.reset = function() {
+      console.log("timer reset");
       start = Date.now();
       remaining = delayStore;
       window.clearTimeout(timerId);
@@ -85,6 +86,7 @@
     pushHandler(event.detail, 0);
   }
 
+  //if the project has changed since router push went through
   $: if (parseInt(params.project) != bufferProject) {
     if (parseInt(params.project) == 0) {
       bufferProject == projectArray.length - 1
@@ -104,7 +106,7 @@
 
   function pushHandler(project, story) {
     push("/" + project.toString() + "/" + story.toString());
-    // .then(() => { });
+    if (storyTimer) storyTimer.reset();
   }
 
   function handleProjects(direction) {
