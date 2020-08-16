@@ -6,7 +6,7 @@
   import routes from "./routes.js";
 
   function routeLoaded(event) {
-    console.log("routeLoaded");
+    // console.log("routeLoaded");
     let loadedRoute = event.detail.location.split("/"); //route
     loadedRoute.shift(); //delete first item
 
