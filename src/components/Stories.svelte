@@ -57,6 +57,7 @@
       remaining = delay;
 
     this.pause = function() {
+      console.log("storyTimer pause");
       window.clearTimeout(timerId);
       remaining -= Date.now() - start;
     };
@@ -66,13 +67,14 @@
     };
 
     this.resume = function() {
+      console.log("storyTimer resume");
       start = Date.now();
       window.clearTimeout(timerId);
       timerId = window.setTimeout(callback, remaining);
     };
 
     this.reset = function() {
-      console.log("timer reset");
+      console.log("storyTimer reset");
       start = Date.now();
       remaining = delayStore;
       window.clearTimeout(timerId);
@@ -150,6 +152,7 @@
   }
 
   async function gestureUp(e) {
+    storyTimer.resume();
     if (!timedout) {
       //if the gesture hasn't timed out
       if (gesture_active > gesture_start + swipeSensitivity) {
@@ -173,7 +176,7 @@
       }
       //reset stuff
     }
-    if (storyTimer) storyTimer.reset();
+    // if (storyTimer) storyTimer.reset();
     if (gestureTimer) clearTimeout(gestureTimer);
     held = false; //end holding gesture
     gesture_start = 0;
@@ -211,7 +214,6 @@
     position: relative;
     width: 100vw;
     max-width: var(--width-border);
-    /* max-height: var(--height-border); */
     padding: 0;
     margin: 0;
     transform-style: preserve-3d;
@@ -243,16 +245,17 @@
   .prevProject {
     display: block;
     transform: translateX(-100%) rotateY(-90deg);
+    -webkit-transform: translateX(-100%) rotateY(-90deg);
     z-index: -1;
     position: absolute;
     top: 0;
-    transform: translateX(-100%) rotateY(-90deg);
     /* left: -100%; */
   }
 
   .currentProject {
     display: block;
     transform: translateX(0%) rotateY(0deg);
+    -webkit-transform: translateX(0%) rotateY(0deg);
     position: absolute;
     top: 0;
     left: 0%;
@@ -260,11 +263,11 @@
 
   .nextProject {
     display: block;
-    transform: rotateY(90deg);
     z-index: -1;
     position: absolute;
     top: 0;
     transform: translateX(100%) rotateY(90deg);
+    -webkit-transform: translateX(100%) rotateY(90deg);
     /* left: 100%; */
   }
 
