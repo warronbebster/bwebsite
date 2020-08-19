@@ -3,10 +3,10 @@
   import { onMount } from "svelte";
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
-  import { gestures } from "@composi/gestures";
+  // import { gestures } from "@composi/gestures";
   import { push } from "svelte-spa-router";
 
-  gestures(); //figure this shit out at some point lol
+  // gestures(); //figure this shit out at some point lol
 
   let activeStories = [];
   for (const project of projectArray) {
@@ -28,6 +28,7 @@
     parseInt(params.project) > 0
       ? parseInt(params.project) - 1
       : projectArray.length - 1;
+
   let bufferProject = 0;
 
   let gesture_start,
@@ -35,20 +36,19 @@
     gesture_gap = 0;
 
   let held = false;
-  let swipeDirection,
-    swipeBuffer = "right";
+  let swipeDirection = "right";
   const swipeSensitivity = 100;
 
-  let timedout = true; //whether a gesture has timed out
+  let gestureTimedOut = true; //whether a gesture has timed out
   let gestureTimer; //timer object to time that
 
   let storyTimer; //timer object to time stories
   const storyTimerTime = 6000;
 
   let navOpen = false;
-  function showNav(event) {
+  const showNav = function(event) {
     navOpen = event.detail.open;
-  }
+  };
 
   const Timer = function(callback, delay) {
     var timerId,
@@ -57,7 +57,6 @@
       remaining = delay;
 
     this.pause = function() {
-      console.log("storyTimer pause");
       window.clearTimeout(timerId);
       remaining -= Date.now() - start;
     };
@@ -67,14 +66,12 @@
     };
 
     this.resume = function() {
-      console.log("storyTimer resume");
       start = Date.now();
       window.clearTimeout(timerId);
       timerId = window.setTimeout(callback, remaining);
     };
 
     this.reset = function() {
-      console.log("storyTimer reset");
       start = Date.now();
       remaining = delayStore;
       window.clearTimeout(timerId);
@@ -84,9 +81,9 @@
     this.resume();
   };
 
-  function handleNavProject(event) {
+  const handleNavProject = function(event) {
     pushHandler(event.detail, 0);
-  }
+  };
 
   //if the project has changed since router push went through
   $: if (parseInt(params.project) != bufferProject) {
@@ -106,10 +103,10 @@
     bufferProject = parseInt(params.project);
   }
 
-  function pushHandler(project, story) {
+  const pushHandler = function(project, story) {
     push("/" + project.toString() + "/" + story.toString());
     if (storyTimer) storyTimer.reset();
-  }
+  };
 
   function handleProjects(direction) {
     if (direction == "next") {
@@ -128,7 +125,7 @@
     storyTimer.pause(); //pause story timer
     navOpen = false; //close nav
     held = true; //start holding gesture
-    timedout = false; //reset timedout, hasn't timed out yet
+    gestureTimedOut = false; //reset gestureTimedOut, hasn't timed out yet
 
     e.type == "touchstart"
       ? (gesture_start = Math.round(e.changedTouches[0].pageX)) //where the event starts
@@ -137,7 +134,7 @@
     gesture_active = gesture_start;
 
     gestureTimer = setTimeout(() => {
-      timedout = true; //start gesture timer
+      gestureTimedOut = true; //start gesture timer
     }, 300);
   }
 
@@ -151,9 +148,9 @@
     gesture_gap > 0 ? (swipeDirection = "left") : (swipeDirection = "right");
   }
 
-  async function gestureUp(e) {
+  function gestureUp(e) {
     storyTimer.resume();
-    if (!timedout) {
+    if (!gestureTimedOut) {
       //if the gesture hasn't timed out
       if (gesture_active > gesture_start + swipeSensitivity) {
         handleProjects("prevProject");
@@ -184,10 +181,10 @@
     gesture_gap = 0;
   }
 
-  function handleKeydown(event) {
-    if (event.keyCode == 39) {
+  function handleKeydown(e) {
+    if (e.keyCode == 39 || e.keyCode == 32 || e.keyCode == 68) {
       handleProjects("next");
-    } else if (event.keyCode == 37) {
+    } else if (e.keyCode == 37 || e.keyCode == 8 || e.keyCode == 65) {
       handleProjects("prev");
     }
   }
@@ -300,10 +297,11 @@
     overflow: hidden;
   }
 
-  #loadingBar {
+  #indicators div #loadingBar {
     position: absolute;
     top: 0px;
     left: 0px;
+    margin: 0px;
     height: 100%;
     background: white;
     animation: progress 6s linear;
