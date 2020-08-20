@@ -32,8 +32,8 @@ const vectorTypes = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'STAR'];
 //DON'T DELETE
 //DON'T DELETE
 function preprocessTree(node) {
-	//this code runs once per frame with #
-	let vectorsOnly = node.name.charAt(0) !== '#'; //things that don't start with #
+	//this code runs once per frame with !
+	let vectorsOnly = node.name.charAt(0) !== '!'; //things that don't start with !
 	let vectorVConstraint = null;
 	let vectorHConstraint = null;
 
@@ -82,7 +82,7 @@ async function main() {
 		for (let i = 0; i < figmaFile[j].children.length; i++) {
 			//for each child  of canvas
 			const child = figmaFile[j].children[i];
-			if (child.name.charAt(0) === '#' && child.visible !== false) {
+			if (child.name.charAt(0) === '!' && child.visible !== false) {
 				preprocessTree(child); //run preprocess function?
 				//for each frame
 			}
@@ -140,7 +140,7 @@ async function main() {
 		for (let i = 0; i < figmaFile[j].children.length; i++) {
 			//for each artboard
 			const child = figmaFile[j].children[i]; //child variable
-			if (child.name.charAt(0) === '#' && child.visible !== false) {
+			if (child.name.charAt(0) === '!' && child.visible !== false) {
 				//if named & visible
 				figma.createComponent(child, svgs, imageFills, componentMap);
 				//hit figma lib

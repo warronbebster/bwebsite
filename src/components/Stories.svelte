@@ -43,7 +43,7 @@
   let gestureTimer; //timer object to time that
 
   let storyTimer; //timer object to time stories
-  const storyTimerTime = 6000;
+  const storyTimerTime = 60000;
 
   let navOpen = false;
   const showNav = function(event) {
@@ -140,7 +140,6 @@
 
   function gestureMove(e) {
     //when ya movin
-
     e.type == "touchmove"
       ? (gesture_active = Math.round(e.changedTouches[0].pageX))
       : (gesture_active = e.pageX);
