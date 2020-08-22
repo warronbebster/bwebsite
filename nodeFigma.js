@@ -98,37 +98,37 @@ async function main() {
 	//is this where it grabs SVGs? what's vectorList?
 	//does it get populated by preprocess?
 	//GU IDS ??
-	let guids = vectorList.join(','); //this grabs the vectors?
+	// let guids = vectorList.join(','); //this grabs the vectors?
 
-	let svgData = await fetch(`${baseUrl}/v1/images/${fileKey}?ids=${guids}&format=svg`, { headers });
+	// let svgData = await fetch(`${baseUrl}/v1/images/${fileKey}?ids=${guids}&format=svg`, { headers });
 
-	//grabs svgs of vectorList
-	const svgJSON = await svgData.json(); //makes json out of them
-	const svgs = svgJSON.images || {}; //if images exist?
-	if (svgs) {
-		//if images exist, process like this?
-		let promises = [];
-		let guids = [];
-		for (const guid in svgs) {
-			if (svgs[guid] == null) continue;
-			guids.push(guid);
-			promises.push(fetch(svgs[guid]));
-		}
+	// //grabs svgs of vectorList
+	// const svgJSON = await svgData.json(); //makes json out of them
+	// const svgs = svgJSON.images || {}; //if images exist?
+	// if (svgs) {
+	// 	//if images exist, process like this?
+	// 	let promises = [];
+	// 	let guids = [];
+	// 	for (const guid in svgs) {
+	// 		if (svgs[guid] == null) continue;
+	// 		guids.push(guid);
+	// 		promises.push(fetch(svgs[guid]));
+	// 	}
 
-		let responses = await Promise.all(promises);
-		promises = [];
-		for (const resp of responses) {
-			promises.push(resp.text());
-		}
+	// 	let responses = await Promise.all(promises);
+	// 	promises = [];
+	// 	for (const resp of responses) {
+	// 		promises.push(resp.text());
+	// 	}
 
-		responses = await Promise.all(promises);
-		for (let i = 0; i < responses.length; i++) {
-			//replace svg with svg preserveAspectRatio none
-			svgs[guids[i]] = responses[i]
-				.replace('<svg ', '<svg preserveAspectRatio="none" ')
-				.replace(/[\n\r]+/g, '');
-		}
-	}
+	// 	responses = await Promise.all(promises);
+	// 	for (let i = 0; i < responses.length; i++) {
+	// 		//replace svg with svg preserveAspectRatio none
+	// 		svgs[guids[i]] = responses[i]
+	// 			.replace('<svg ', '<svg preserveAspectRatio="none" ')
+	// 			.replace(/[\n\r]+/g, '');
+	// 	}
+	// }
 
 	let contents = `export const figmaProject = [`; //this is what eventually gets written to filesystem
 
@@ -142,7 +142,7 @@ async function main() {
 			const child = figmaFile[j].children[i]; //child variable
 			if (child.name.charAt(0) === '!' && child.visible !== false) {
 				//if named & visible
-				figma.createComponent(child, svgs, imageFills, componentMap);
+				figma.createComponent(child, imageFills, componentMap);
 				//hit figma lib
 				//pass the frame and images?
 				//returns object & updates componentMap object
