@@ -22,8 +22,8 @@ const fileKey = process.argv[2];
 const baseUrl = 'https://api.figma.com';
 
 // const vectorMap = {};
-const vectorList = [];
-const vectorTypes = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'STAR'];
+// const vectorList = [];
+// const vectorTypes = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'STAR'];
 
 //shit begins after this
 //shit begins after this
@@ -31,27 +31,27 @@ const vectorTypes = ['VECTOR', 'LINE', 'REGULAR_POLYGON', 'STAR'];
 
 //DON'T DELETE
 //DON'T DELETE
-function preprocessTree(node) {
-	//this code runs once per frame with !
-	let vectorsOnly = node.name.charAt(0) !== '!'; //things that don't start with !
-	let vectorVConstraint = null;
-	let vectorHConstraint = null;
+// function preprocessTree(node) {
+// 	//this code runs once per frame with !
+// 	let vectorsOnly = node.name.charAt(0) !== '!'; //things that don't start with !
+// 	let vectorVConstraint = null;
+// 	let vectorHConstraint = null;
 
-	if (vectorTypes.indexOf(node.type) >= 0) {
-		//if the node is vector
-		// node.type = 'VECTOR';
-		// vectorMap[node.id] = node;
-		vectorList.push(node.id); //adds to vectorlist
-		node.children = [];
-	}
+// 	if (vectorTypes.indexOf(node.type) >= 0) {
+// 		//if the node is vector
+// 		// node.type = 'VECTOR';
+// 		// vectorMap[node.id] = node;
+// 		vectorList.push(node.id); //adds to vectorlist
+// 		node.children = [];
+// 	}
 
-	if (node.children) {
-		//if there are children
-		for (const child of node.children) {
-			preprocessTree(child); //oh it's recursive baybee
-		}
-	}
-}
+// 	if (node.children) {
+// 		//if there are children
+// 		for (const child of node.children) {
+// 			preprocessTree(child); //oh it's recursive baybee
+// 		}
+// 	}
+// }
 //DON'T DELETE
 //DON'T DELETE
 
@@ -78,16 +78,16 @@ async function main() {
 
 	//DON'T DELETE
 	//DON'T DELETE
-	for (let j = 0; j < figmaFile.length; j++) {
-		for (let i = 0; i < figmaFile[j].children.length; i++) {
-			//for each child  of canvas
-			const child = figmaFile[j].children[i];
-			if (child.name.charAt(0) === '!' && child.visible !== false) {
-				preprocessTree(child); //run preprocess function?
-				//for each frame
-			}
-		}
-	}
+	// for (let j = 0; j < figmaFile.length; j++) {
+	// 	for (let i = 0; i < figmaFile[j].children.length; i++) {
+	// 		//for each child  of canvas
+	// 		const child = figmaFile[j].children[i];
+	// 		if (child.name.charAt(0) === '!' && child.visible !== false) {
+	// 			// preprocessTree(child); //run preprocess function?
+	// 			//for each frame
+	// 		}
+	// 	}
+	// }
 
 	//okay soooo it's unclear to me what "preprocess" does…
 	//maybe it cleans up files if there's a bunch of extra stuff?

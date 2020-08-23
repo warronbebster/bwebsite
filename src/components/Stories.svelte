@@ -43,7 +43,7 @@
   let gestureTimer; //timer object to time that
 
   let storyTimer; //timer object to time stories
-  const storyTimerTime = 60000;
+  const storyTimerTime = 6000;
 
   let navOpen = false;
   const showNav = function(event) {
@@ -379,11 +379,15 @@
   on:mousemove|preventDefault={e => {
     if (held) gestureMove(e);
   }}
-  on:touchend|preventDefault={e => gestureUp(e)}
-  on:mouseup|preventDefault={e => {
+  on:touchend|passive
+  preventDefault={e => {
+    if (held) gestureUp(e);
+  }}
+  on:mouseup={e => {
     if (held) gestureUp(e);
   }}
   class={held ? 'grabbing' : 'no'}>
+  <!--  -->
 
   <main
     style="transform: translateX({held ? Math.max(Math.min(gesture_gap * 1.1, 460), -460) : 0}px);

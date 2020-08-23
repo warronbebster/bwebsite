@@ -1285,7 +1285,7 @@ var app = (function () {
     	}
     }
 
-    const figmaProject = [{ name: "Welcome", stories:['<section class="frame" style="overflow: hidden; background-image: url(./images/!intro); background-size: cover;  width:100%; height:100%; display:block;" ><div id="495:19" style="transform: matrix(0.9856536388397217,-0.1687806397676468,0.1687806397676468,0.9856536388397217,0,0); transform-origin: 0% 0%; width: 331px; position: absolute; left: calc(50% - 165.5px - 0.24177932739257812px); height: 31px; top: 172.56483459472656px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.15000000596046448); border-radius: 4px 4px 4px 4px; "><div id="495:20" style="position: static; left: calc(50% - 159.5px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">Hi, I’m Barron. Welcome to my website.</span></div></div><div id="495:29" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 267.2351989746094px; position: absolute; left: calc(50% - 133.6175994873047px - -2.7393035888671875px); height: 77px; top: calc(50% - 38.5px - -27.763275146484375px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.15000000596046448); border-radius: 4px 4px 4px 4px; "><div id="495:30" style="width: 255.23519897460938px; position: static; left: calc(50% - 127.61759948730469px - 0px); height: 69px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">It works like instagram stories. Tap left or right, and swipe to skip chapters.</span></div></div><div id="495:31" style="transform: matrix(0.9819063544273376,-0.1893671751022339,0.1893671751022339,0.9819063544273376,0,0); transform-origin: 0% 0%; width: 166px; position: absolute; left: calc(50% - 83px - 93.52713966369629px); height: 24px; bottom: 44.257080078125px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.15000000596046448); border-radius: 4px 4px 4px 4px; "><div id="495:32" style="position: static; left: calc(50% - 77px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">You can also use arrow keys.</span></div></div><div id="502:22" style="transform: matrix(0.9819063544273376,-0.1893671751022339,0.1893671751022339,0.9819063544273376,0,0); transform-origin: 0% 0%; width: 40px; position: absolute; left: calc(50% - 20px - 59.22021484375px); height: 20px; bottom: 95.8233642578125px; overflow: hidden; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.15000000596046448); border-radius: 2px 2px 2px 2px; "><div id="502:23" style="transform: matrix(-4.371138828673793e-8,1,-1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: calc(50% - 3.464101791381836px - -6.907146453857422px); height: 6px; top: calc(50% - 3px - 0.21947240829467773px); "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="502:24" style="transform: matrix(0.9819063544273376,-0.1893671751022339,0.1893671751022339,0.9819063544273376,0,0); transform-origin: 0% 0%; width: 40px; position: absolute; left: calc(50% - 20px - 141.70034790039062px); height: 20px; bottom: 79.91650390625px; overflow: hidden; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.15000000596046448); border-radius: 2px 2px 2px 2px; "><div id="502:25" style="transform: matrix(-4.371138828673793e-8,-1,1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: calc(50% - 3.464101791381836px - -0.46410179138183594px); height: 6px; top: calc(50% - 3px - -6.708721160888672px); "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="502:26" style="transform: matrix(0.9819063544273376,-0.1893671751022339,0.1893671751022339,0.9819063544273376,0,0); transform-origin: 0% 0%; width: 40px; position: absolute; left: calc(50% - 20px - 100.46028137207031px); height: 20px; bottom: 87.86993408203125px; overflow: hidden; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.15000000596046448); border-radius: 2px 2px 2px 2px; "><div id="502:27" style="transform: matrix(-1,8.742280499518529e-8,-8.742274815176643e-8,-1,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: calc(50% - 3.464101791381836px - -6.928203582763672px); height: 6px; top: calc(50% - 3px - -6.244607925415039px); "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="502:28" style="transform: matrix(0.9819063544273376,-0.1893671751022339,0.1893671751022339,0.9819063544273376,0,0); transform-origin: 0% 0%; width: 40px; position: absolute; left: calc(50% - 20px - 104.62635803222656px); height: 20px; bottom: 109.47186279296875px; overflow: hidden; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.15000000596046448); border-radius: 2px 2px 2px 2px; "><div id="502:29" style="width: 6.928203582763672px; position: absolute; left: calc(50% - 3.464101791381836px - -0.0000019073486328125px); height: 6px; top: calc(50% - 3px - -0.244598388671875px); "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="504:0" style="transform: matrix(0.9434555768966675,0.3314989507198334,-0.3314989507198334,0.9434555768966675,0,0); transform-origin: 0% 0%; width: 102px; position: absolute; right: 50.513763427734375px; height: 70px; bottom: 151.9273681640625px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="504:1" style="transform: matrix(-4.371138828673793e-8,1,-1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 31.000001907348633px; position: absolute; left: 65px; height: 26.999998092651367px; top: 20px; "><svg preserveAspectRatio="none" width="31.000001907348633" height="26.999998092651367" viewBox="0 0 31.000001907348633 26.999998092651367" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 0L31 27L0 27L15.5 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="505:1" style="transform: matrix(0.9773926138877869,0.21143239736557007,-0.21143239736557007,0.9773926138877869,0,0); transform-origin: 0% 0%; width: 124px; position: absolute; left: 64.88015747070312px; height: 42px; top: 81px; "><div id="505:2" style="width: 40px; position: absolute; left: 84px; height: 20px; top: 22px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:3" style="transform: matrix(-4.371138828673793e-8,1,-1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 23.443044662475586px; height: 6px; top: 6.780527591705322px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="505:4" style="width: 40px; position: absolute; left: 0px; height: 20px; top: 22px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:5" style="transform: matrix(-4.371138828673793e-8,-1,1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 17px; height: 6px; top: 13.708721160888672px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="505:6" style="width: 40px; position: absolute; left: 42px; height: 20px; top: 22px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:7" style="transform: matrix(-1,8.742280499518529e-8,-8.742274815176643e-8,-1,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 23.464101791381836px; height: 6px; top: 13.244607925415039px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="505:8" style="width: 40px; position: absolute; left: 42px; height: 20px; top: 0px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:9" style="width: 6.928203582763672px; position: absolute; left: 16.535900115966797px; height: 6px; top: 7.244598388671875px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div></div><div id="502:20" style="width: 40px; position: absolute; left: calc(50% - 20px - 16px); height: 20px; bottom: 489px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="502:21" style="width: 6.928203582763672px; position: absolute; left: calc(50% - 3.464101791381836px - -0.0000019073486328125px); height: 6px; top: calc(50% - 3px - -0.244598388671875px); "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="533:0" style="width: 40px; position: absolute; left: calc(50% - 20px - 16px); height: 20px; bottom: 460px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="533:1" style="width: 6.928203582763672px; position: absolute; left: 16.535900115966797px; height: 6px; top: 7.244598388671875px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(83, 83, 83, 1);  width:100%; height:100%; display:block;" ><div id="294:0" style="transform: matrix(0.9063077569007874,-0.4226182699203491,0.4226182699203491,0.9063077569007874,0,0); transform-origin: 0% 0%; width: 158.5342254638672px; position: absolute; left: 168.47402954101562px; height: 129.4781036376953px; top: 493.31353759765625px; background-image: url(./images/no_spaces); background-size: cover; "></div><div id="366:0" style="width: 128px; position: absolute; left: 66px; height: 128px; top: 315px; background-image: url(./images/bw_prof_red_1); background-size: cover; border-radius: 250px 250px 250px 250px; "></div><div id="497:2" style="width: 94.5px; position: absolute; left: 132.5px; height: 149.5px; top: 71.5px; "><svg preserveAspectRatio="none" width="94.5" height="149.5" viewBox="0 0 94.5 149.5" xmlns="http://www.w3.org/2000/svg"><path d="M83 0L0 56.5L94.5 149.5L83 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div><div id="514:0" style="transform: matrix(0.9063077569007874,-0.42261824011802673,0.42261824011802673,0.9063077569007874,0,0); transform-origin: 0% 0%; width: 94.5px; position: absolute; left: 227px; height: 149.5px; top: 156.9374237060547px; "><svg preserveAspectRatio="none" width="94.5" height="149.5" viewBox="0 0 94.5 149.5" xmlns="http://www.w3.org/2000/svg"><path d="M83 0L0 56.5L94.5 149.5L83 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(203, 47, 47, 1);  width:100%; height:100%; display:block;" ><div id="345:0" style="transform: matrix(0.9396926164627075,-0.3420201539993286,0.34202009439468384,0.9396926164627075,0,0); transform-origin: 0% 0%; width: 80px; position: absolute; right: 27px; height: 120px; bottom: -17.36163330078125px; background-color: rgba(206, 176, 176, 1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); border-radius: 8px 0px 0px 0px; "></div><div id="292:0" style="width: 120px; position: absolute; left: 46px; height: 144px; top: 446px; overflow: hidden; background-color: rgba(187, 57, 57, 1); border: 4px solid rgba(0, 0, 0, 1); border-radius: 12px 12px 12px 12px; "><div id="297:0" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 30.584228515625px; height: 45px; top: 52.869659423828125px; overflow: hidden; background-color: rgba(0, 68, 204, 1); "></div><div id="532:0" style="width: 45.18403244018555px; position: absolute; left: 23.511255264282227px; height: 48.8645133972168px; top: 98.32057189941406px; "><svg preserveAspectRatio="none" width="45.18403244018555" height="48.8645133972168" viewBox="0 0 45.18403244018555 48.8645133972168" xmlns="http://www.w3.org/2000/svg"><path d="M2.57576 0L45.184 24.0606L0 48.8645L2.57576 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="537:0" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 30px; height: 45px; top: 377.5988464355469px; overflow: hidden; background-color: rgba(0, 68, 204, 0.5); opacity: 0.5; "></div><div id="497:0" style="width: 88px; position: absolute; left: 71.9617919921875px; height: 135.87109375px; top: 46.67622375488281px; "><svg preserveAspectRatio="none" width="88" height="135.87109375" viewBox="0 0 88 135.87109375" xmlns="http://www.w3.org/2000/svg"><path d="M44 0L82.1051 101.903L5.89488 101.903L44 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="503:0" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 88px; position: absolute; left: 36.811424255371094px; height: 135.87109375px; top: 234.01055908203125px; "><svg preserveAspectRatio="none" width="88" height="135.87109375" viewBox="0 0 88 135.87109375" xmlns="http://www.w3.org/2000/svg"><path d="M44 0L82.1051 101.903L5.89488 101.903L44 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="502:35" style="width: 76.21023559570312px; position: absolute; left: 228.8948974609375px; height: 101.9033203125px; top: 46.67622375488281px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="503:1" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 204.0274658203125px; height: 101.9033203125px; top: 224.86778259277344px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="528:10" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 144px; height: 101.9033203125px; top: 320.8887634277344px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L39.9784 -0.700496L38.1051 -5.71024L36.2318 -0.700496L38.1051 0ZM76.2102 101.903L76.2102 103.903L79.0934 103.903L78.0835 101.203L76.2102 101.903ZM0 101.903L-1.87331 101.203L-2.88312 103.903L0 103.903L0 101.903ZM36.2318 0.700496L74.3369 102.604L78.0835 101.203L39.9784 -0.700496L36.2318 0.700496ZM76.2102 99.9033L0 99.9033L0 103.903L76.2102 103.903L76.2102 99.9033ZM1.87331 102.604L39.9784 0.700496L36.2318 -0.700496L-1.87331 101.203L1.87331 102.604Z" fill="" stroke="rgba(196, 196, 196, 1)" stroke-width="4"></path></svg></div><div id="536:0" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 190px; height: 101.9033203125px; top: 446.8887634277344px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(255, 255, 255, 0.009999999776482582)" stroke="rgba(196, 196, 196, 1)" stroke-width="4"></path></svg></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(233, 158, 158, 1);  width:100%; height:100%; display:block;" ><div id="175:5" style="width: 228px; position: absolute; left: 46px; height: 140px; top: 44px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end">And another</span></div><div id="495:0" style="width: 154px; position: absolute; left: 161px; height: 116px; top: 354px; overflow: hidden; background-color: rgba(255, 255, 255, 0.5); opacity: 0.5; border-radius: 8px 8px 8px 8px; "><video autoplay loop muted style="width: 100%; height: auto; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%)"><source src="./videos/test.mp4" type="video/mp4"/>Your browser does not support the video tag. I suggest you upgrade your browser.</video></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(135, 48, 48, 1);  width:100%; height:100%; display:block;" ><div id="407:3" style="width: 228px; position: absolute; left: 46px; height: 210px; top: 44px; color: rgba(255, 255, 255, 1); font-size: 54px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="11">And another</span><br key="br11" /><span key="end">ehehhe</span></div></section>',]}, { name: "Project 2", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(255, 255, 255, 1);  width:100%; height:100%; display:block;" ><div id="4:25" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(98, 170, 64, 1);  width:100%; height:100%; display:block;" ><div id="161:2" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 400; font-family: IBM Plex Sans Medium; text-align: left; font-style: normal; line-height: 125%; "><span key="end">WHAT</span></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(199, 238, 180, 1);  width:100%; height:100%; display:block;" ><div id="161:4" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 400; font-family: IBM Plex Sans Medium; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A new one</span></div></section>',]}, { name: "Page 4", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(143, 189, 208, 0.949999988079071); opacity: 0.949999988079071;  width:100%; height:100%; display:block;" ><div id="422:3" style="transform: matrix(0.7071067690849304,0.7071067690849304,-0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 137px; position: absolute; left: calc(50% - 68.5px - -68.5px); height: 137px; top: calc(50% - 68.5px - 28.5px); background-color: rgba(233, 12, 12, 1); "></div></section>',]}, { name: "Project threee", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="495:1" style="z-index: 21; transform: matrix(0.9612616896629333,-0.2756373882293701,0.27563732862472534,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 128px; position: absolute; right: 45px; height: 78px; top: 210.28158569335938px; background-color: rgba(196, 196, 196, 1); "><div id="495:2" style="position: absolute; left: 13px; height: 18px; top: 11px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="end"><a href="http://barronwebster.com">Inside another</a></span></div><div id="495:3" style="transform: matrix(0.9612616896629333,0.27563735842704773,-0.27563735842704773,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 14.134858131408691px; height: 12px; top: 42.38649368286133px; background-color: rgba(170, 38, 38, 1); "></div></div><div id="495:4" style="z-index: 21; position: absolute; left: calc(50% - 126px - -23px); height: 18px; top: 350px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans; text-align: left; font-style: normal; line-height: 125%; "><span key="12">Let’s try a </span><span style="font-size: 14px; font-weight: 400; font-family: IBM Plex Sans; font-style: normal; line-height: 125%; color: rgba(0, 68, 204, 1); " key="16"> <a href="http://barronwebster.com">link</a></span><span key="end"> inline in a text box boyyyy</span></div><div id="495:5" style="width: 208px; position: absolute; left: 43px; height: 104px; top: 552px; display: flex; flex-direction: row; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="495:6" style="width: 31px; position: static; left: 8px; height: 47px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="495:7" style="width: 31px; position: static; left: 55px; height: 76px; top: 14px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="495:8" style="width: 32px; position: static; left: 102px; height: 47px; top: 43px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="495:9" style="width: 50px; position: static; left: 150px; height: 76px; top: 14px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="495:10" style="width: 104px; position: absolute; left: 43px; height: 156px; top: 54px; display: flex; flex-direction: column; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="495:11" style="width: 31px; position: static; left: 8px; height: 20px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="495:12" style="width: 88px; position: static; left: 8px; height: 15px; top: 50px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="495:13" style="width: 32px; position: static; left: 64px; height: 16px; top: 81px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="495:14" style="width: 88px; position: static; left: 8px; height: 29px; top: 113px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div></section>',]},  ];
+    const figmaProject = [{ name: "Welcome", stories:['<section class="frame" style="overflow: hidden; background-image: url(./images/!intro); background-size: cover;  width:100%; height:100%; display:block;" ><div id="495:19" style="transform: matrix(0.9856536388397217,-0.1687806397676468,0.1687806397676468,0.9856536388397217,0,0); transform-origin: 0% 0%; width: 338px; position: absolute; left: calc(50% - 169px - 0.191558837890625px); height: 31px; top: 152.7462921142578px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="495:20" style="position: static; left: calc(50% - 163px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">Hi, I’m Barron. Welcome to my website.</span></div></div><div id="543:0" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 267.2351989746094px; position: absolute; left: calc(50% - 133.6175994873047px - -2.7393035888671875px); height: 77px; top: calc(50% - 38.5px - -17.763275146484375px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="495:30" style="width: 255.23519897460938px; position: static; left: calc(50% - 127.61759948730469px - 0px); height: 69px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">It works like instagram stories. Tap left or right, and swipe to skip chapters.</span></div></div><div id="495:31" style="transform: matrix(0.965358555316925,-0.26092690229415894,0.26092690229415894,0.965358555316925,0,0); transform-origin: 0% 0%; width: 169px; position: absolute; left: 37.242286682128906px; height: 24px; bottom: 98.198974609375px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="495:32" style="position: static; left: calc(50% - 78.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">You can also use arrow keys.</span></div></div><div id="505:1" style="transform: matrix(0.965358555316925,-0.26092690229415894,0.26092690229415894,0.965358555316925,0,0); transform-origin: 0% 0%; width: 124px; position: absolute; left: 44.51847839355469px; height: 42px; top: 559.4558715820312px; box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); "><div id="505:2" style="width: 40px; position: absolute; left: 84px; height: 20px; bottom: 0px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:3" style="transform: matrix(-4.371138828673793e-8,1,-1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 23.443044662475586px; height: 6px; top: 6.780527591705322px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="505:4" style="width: 40px; position: absolute; left: 0px; height: 20px; bottom: 0px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:5" style="transform: matrix(-4.371138828673793e-8,-1,1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 17px; height: 6px; top: 13.708721160888672px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="505:6" style="width: 40px; position: absolute; left: 42px; height: 20px; bottom: 0px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:7" style="transform: matrix(-1,8.742280499518529e-8,-8.742274815176643e-8,-1,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 23.464101791381836px; height: 6px; top: 13.244607925415039px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="505:8" style="width: 40px; position: absolute; left: 42px; height: 20px; bottom: 22px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:9" style="width: 6.928203582763672px; position: absolute; left: 16.535900115966797px; height: 6px; top: 7.244598388671875px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(236, 33, 52, 1);  width:100%; height:100%; display:block;" ><div id="544:1" style="transform: matrix(0.9873719811439514,-0.15841907262802124,0.15841907262802124,0.9873719811439514,0,0); transform-origin: 0% 0%; width: 256.99298095703125px; position: absolute; left: 29.25439453125px; height: 181.2581787109375px; top: 145.0173797607422px; display: flex; flex-direction: column; padding: undefinedpx undefinedpx; justify-content: space-between; overflow: hidden; "><div id="294:0" style="width: 256.99298095703125px; position: static; right: 0px; height: 162.2581787109375px; top: 0px; flex: none; align-self: center; background-image: url(./images/no_spaces); background-size: cover; border-radius: 2px 2px 2px 2px; "></div><div id="544:0" style="position: static; right: 154.99298095703125px; height: 13px; top: 168.2581787109375px; flex: none; align-self: flex-start; opacity: 0.699999988079071; color: rgba(0, 0, 0, 1); font-size: 10px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">fig 1. me and software</span></div></div><div id="545:2" style="transform: matrix(0.9905165433883667,0.13739357888698578,-0.13739357888698578,0.9905165433883667,0,0); transform-origin: 0% 0%; width: 234px; position: absolute; right: 33.7039794921875px; height: 155px; top: calc(50% - 77.5px - -65.5px); display: flex; flex-direction: column; padding: undefinedpx undefinedpx; justify-content: space-between; "><div id="545:0" style="width: 234px; position: static; left: 0px; height: 136px; top: 0px; flex: none; align-self: center; background-image: url(./images/cl_view_1); background-size: cover; border-radius: 2px 2px 2px 2px; "></div><div id="545:1" style="position: static; right: 135px; height: 13px; top: 142px; flex: none; align-self: flex-start; opacity: 0.699999988079071; color: rgba(0, 0, 0, 1); font-size: 10px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">fig 2. view from office</span></div></div><div id="543:1" style="transform: matrix(0.9961947202682495,-0.08715574443340302,0.08715574443340302,0.9961947202682495,0,0); transform-origin: 0% 0%; width: 272px; position: absolute; right: 35.19879150390625px; height: 31px; top: calc(50% - 15.5px - -7.668212890625px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:1;495:30" style="position: static; left: calc(50% - 130px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">I work at Google’s Creative Lab.</span></div></div><div id="543:39" style="transform: matrix(0.9834105968475342,0.1813938021659851,-0.1813938021659851,0.9834105968475342,0,0); transform-origin: 0% 0%; width: 241px; position: absolute; left: calc(50% - 120.5px - -4.792869567871094px); height: 31px; bottom: 153.10614013671875px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:39;495:30" style="position: static; left: calc(50% - 114.5px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">Before that, I spent time at:</span></div></div><div id="543:58" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 83px; position: absolute; left: calc(50% - 41.5px - -60.5px); height: 24px; bottom: 44.382080078125px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:58;495:30" style="position: static; left: calc(50% - 35.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://maps.google.com/">Google Maps</a></span></div></div><div id="543:60" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 74px; position: absolute; left: calc(50% - 37px - 61.01910400390625px); height: 24px; bottom: 67.769775390625px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:60;495:30" style="position: static; left: calc(50% - 31px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://upperquad.com/">Upperquad</a></span></div></div><div id="543:62" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 41px; position: absolute; left: calc(50% - 20.5px - 105.5px); height: 24px; bottom: 95.3935546875px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:62;495:30" style="position: static; left: calc(50% - 14.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://risd.gd/">RISD</a></span></div></div><div id="543:64" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 73px; position: absolute; left: calc(50% - 36.5px - -1.4779052734375px); height: 24px; bottom: 59.78948974609375px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:64;495:30" style="position: static; left: calc(50% - 30.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://metahaven.net/">Metahaven</a></span></div></div><div id="543:55" style="transform: matrix(0.9925461411476135,0.12186934053897858,-0.12186934053897858,0.9925461411476135,0,0); transform-origin: 0% 0%; width: 336px; position: absolute; left: 47px; height: 111px; top: 62.38336181640625px; display: flex; flex-direction: column; padding: undefinedpx undefinedpx; justify-content: space-between; "><div id="543:49" style="width: 336px; position: static; right: 0px; height: 44px; top: 0px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; flex: none; align-self: center; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="543:50" style="position: static; left: calc(50% - 162px - 0px); height: 36px; top: 3.999999761581421px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">I mostly design software.</span></div></div><div id="543:53" style="width: 185.55874633789062px; position: static; right: 0px; height: 56px; top: 55px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; flex: none; align-self: flex-end; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="543:54" style="width: 173.55874633789062px; position: static; left: calc(50% - 86.77937316894531px - 0px); height: 48px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">Primarily, zero-to-one launches for new services, focusing on emerging technology.</span></div></div></div></section>','<section class="frame" style="overflow: hidden; background-image: url(./images/!newname); background-size: cover; border-radius: 2px 2px 2px 2px;  width:100%; height:100%; display:block;" ><div id="543:35" style="transform: matrix(0.9560834169387817,-0.2930947542190552,0.2930947542190552,0.9560834169387817,0,0); transform-origin: 0% 0%; width: 147px; position: absolute; left: 35.3975830078125px; height: 44px; top: 102.90948486328125px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:35;495:30" style="position: static; left: calc(50% - 67.5px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">I also talk,</span></div></div><div id="543:43" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; right: 92.2735595703125px; height: 44px; top: calc(50% - 22px - 60px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:43;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">write,</span></div></div><div id="543:45" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 147px; position: absolute; left: 60.70685958862305px; height: 44px; bottom: 229px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:45;495:30" style="position: static; left: calc(50% - 67.5px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">and teach.</span></div></div><div id="547:0" style="z-index: 21; transform: matrix(0.9694939851760864,0.24511535465717316,-0.24511535465717316,0.9694939851760864,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; left: 24.882768630981445px; height: 24px; top: 144px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:0;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.itsnicethat.com/articles/wix-playground-presents-data-narrative-design-round-up-digital-event-040320">It’s Nice That</a></span></div></div><div id="547:12" style="z-index: 21; transform: matrix(0.9765177965164185,-0.2154368758201599,0.2154368758201599,0.9765177965164185,0,0); transform-origin: 0% 0%; width: 57px; position: absolute; right: 32px; height: 24px; top: calc(50% - 12px - 39.7200927734375px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:12;495:30" style="position: static; left: calc(50% - 22.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://medium.com/@warronbebster/the-future-of-augmented-reality-will-be-boring-fc95be238ef4">Medium</a></span></div></div><div id="547:16" style="z-index: 21; transform: matrix(0.96561598777771,-0.2599726915359497,0.2599726915359497,0.96561598777771,0,0); transform-origin: 0% 0%; width: 91px; position: absolute; right: 36px; height: 24px; top: calc(50% - 12px - -8.657501220703125px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:16;495:30" style="position: static; left: calc(50% - 39.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://design.google/library/designing-and-learning-teachable-machine/">Google Design</a></span></div></div><div id="547:14" style="z-index: 21; transform: matrix(0.904071569442749,0.42738106846809387,-0.42738106846809387,0.904071569442749,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; right: 129.301513671875px; height: 24px; top: calc(50% - 12px - 28.805084228515625px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:14;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.itsnicethat.com/news/pay-interns-why-it-matters-barron-webster-opinion-180918">It’s Nice That</a></span></div></div><div id="547:18" style="z-index: 21; transform: matrix(0.9945219159126282,0.10452846437692642,-0.10452846437692642,0.9945219159126282,0,0); transform-origin: 0% 0%; width: 141px; position: absolute; left: 47.1593017578125px; height: 24px; bottom: 180.7490234375px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:18;495:30" style="position: static; left: calc(50% - 64.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.notion.so/Design-in-the-Real-World-ac2a96893f034b85b1045025054009ce">Interaction design, SVA</a></span></div></div><div id="547:4" style="z-index: 21; transform: matrix(0.9925462007522583,0.12186934798955917,-0.12186934798955917,0.9925462007522583,0,0); transform-origin: 0% 0%; width: 34px; position: absolute; left: 114.92486572265625px; height: 24px; top: 130px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:4;495:30" style="position: static; left: calc(50% - 11px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://web.mit.edu/">MIT</a></span></div></div><div id="547:6" style="z-index: 21; transform: matrix(0.9558213949203491,-0.29394832253456116,0.29394832253456116,0.9558213949203491,0,0); transform-origin: 0% 0%; width: 43px; position: absolute; left: 157px; height: 24px; top: 125.63977813720703px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:6;495:30" style="position: static; left: calc(50% - 15.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://design.google/library/span2019/">SPAN</a></span></div></div><div id="548:0" style="z-index: 21; transform: matrix(0.9925462007522583,0.12186934798955917,-0.12186934798955917,0.9925462007522583,0,0); transform-origin: 0% 0%; width: 38px; position: absolute; left: 200.92486572265625px; height: 24px; top: 82px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:0;495:30" style="position: static; left: calc(50% - 13px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://thefwa.com/interviews/barron-webster">FWA</a></span></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(236, 33, 52, 1);  width:100%; height:100%; display:block;" ><div id="548:7" style="transform: matrix(0.9560834169387817,-0.2930947542190552,0.2930947542190552,0.9560834169387817,0,0); transform-origin: 0% 0%; width: 139px; position: absolute; left: 35.3975830078125px; height: 44px; top: 100.56472778320312px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:7;495:30" style="position: static; left: calc(50% - 63.5px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">I also talk</span></div></div><div id="548:52" style="z-index: 21; transform: matrix(0.904071569442749,0.42738106846809387,-0.42738106846809387,0.904071569442749,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; left: calc(50% - 43px - -74.25714111328125px); height: 24px; bottom: 633px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:52;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.itsnicethat.com/news/pay-interns-why-it-matters-barron-webster-opinion-180918">It’s Nice That</a></span></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(236, 33, 52, 1);  width:100%; height:100%; display:block;" ><div id="548:30" style="transform: matrix(0.9560834169387817,-0.2930947542190552,0.2930947542190552,0.9560834169387817,0,0); transform-origin: 0% 0%; width: 139px; position: absolute; left: 35.3975830078125px; height: 44px; top: 100.56472778320312px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:30;495:30" style="position: static; left: calc(50% - 63.5px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">I also talk</span></div></div><div id="548:33" style="z-index: 21; transform: matrix(0.9694939851760864,0.24511535465717316,-0.24511535465717316,0.9694939851760864,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; left: 24.882768630981445px; height: 24px; top: 144px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:33;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.itsnicethat.com/articles/wix-playground-presents-data-narrative-design-round-up-digital-event-040320">It’s Nice That</a></span></div></div><div id="548:38" style="z-index: 21; transform: matrix(0.9925462007522583,0.12186934798955917,-0.12186934798955917,0.9925462007522583,0,0); transform-origin: 0% 0%; width: 34px; position: absolute; left: 114.92486572265625px; height: 24px; top: 130px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:38;495:30" style="position: static; left: calc(50% - 11px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://web.mit.edu/">MIT</a></span></div></div><div id="548:39" style="z-index: 21; transform: matrix(0.9558213949203491,-0.29394832253456116,0.29394832253456116,0.9558213949203491,0,0); transform-origin: 0% 0%; width: 43px; position: absolute; left: 157px; height: 24px; top: 125.63977813720703px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:39;495:30" style="position: static; left: calc(50% - 15.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://design.google/library/span2019/">SPAN</a></span></div></div><div id="548:40" style="z-index: 21; transform: matrix(0.9925462007522583,0.12186934798955917,-0.12186934798955917,0.9925462007522583,0,0); transform-origin: 0% 0%; width: 38px; position: absolute; left: 200.92486572265625px; height: 24px; top: 82px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:40;495:30" style="position: static; left: calc(50% - 13px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://thefwa.com/interviews/barron-webster">FWA</a></span></div></div></section>',]}, { name: "Project 2", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(255, 255, 255, 1);  width:100%; height:100%; display:block;" ><div id="4:25" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(98, 170, 64, 1);  width:100%; height:100%; display:block;" ><div id="161:2" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">WHAT</span></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(199, 238, 180, 1);  width:100%; height:100%; display:block;" ><div id="161:4" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A new one</span></div></section>',]}, { name: "Page 4", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(143, 189, 208, 0.949999988079071);  width:100%; height:100%; display:block;" ><div id="422:3" style="transform: matrix(0.7071067690849304,0.7071067690849304,-0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 137px; position: absolute; left: calc(50% - 68.5px - -68.5px); height: 137px; top: calc(50% - 68.5px - 28.5px); background-color: rgba(233, 12, 12, 1); "></div></section>',]}, { name: "Project threee", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="495:1" style="z-index: 21; transform: matrix(0.9612616896629333,-0.2756373882293701,0.27563732862472534,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 128px; position: absolute; right: 45px; height: 78px; top: 210.28158569335938px; background-color: rgba(196, 196, 196, 1); "><div id="495:2" style="position: absolute; left: 13px; height: 18px; top: 11px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end"><a href="http://barronwebster.com">Inside another</a></span></div><div id="495:3" style="transform: matrix(0.9612616896629333,0.27563735842704773,-0.27563735842704773,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 14.134858131408691px; height: 12px; top: 42.38649368286133px; background-color: rgba(170, 38, 38, 1); "></div></div><div id="495:4" style="z-index: 21; position: absolute; left: calc(50% - 126px - -23px); height: 18px; top: 350px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="12">Let’s try a </span><span style="font-size: 14px; font-weight: 400; font-family: IBM Plex Sans, IBM Plex Sans, sans-serif; font-style: normal; line-height: 125%; color: rgba(0, 68, 204, 1); " key="16"> <a href="http://barronwebster.com">link</a></span><span key="end"> inline in a text box boyyyy</span></div><div id="495:5" style="width: 208px; position: absolute; left: 43px; height: 104px; top: 552px; display: flex; flex-direction: row; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="495:6" style="width: 31px; position: static; left: 8px; height: 47px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="495:7" style="width: 31px; position: static; left: 55px; height: 76px; top: 14px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="495:8" style="width: 32px; position: static; left: 102px; height: 47px; top: 43px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="495:9" style="width: 50px; position: static; left: 150px; height: 76px; top: 14px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="495:10" style="width: 104px; position: absolute; left: 43px; height: 156px; top: 54px; display: flex; flex-direction: column; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="495:11" style="width: 31px; position: static; left: 8px; height: 20px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="495:12" style="width: 88px; position: static; left: 8px; height: 15px; top: 50px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="495:13" style="width: 32px; position: static; left: 64px; height: 16px; top: 81px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="495:14" style="width: 88px; position: static; left: 8px; height: 29px; top: 113px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="543:22" style="transform: matrix(0.9396926164627075,-0.3420201539993286,0.34202009439468384,0.9396926164627075,0,0); transform-origin: 0% 0%; width: 80px; position: absolute; right: 36px; height: 120px; bottom: -14.6854248046875px; background-color: rgba(206, 176, 176, 1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); border-radius: 8px 0px 0px 0px; "></div><div id="543:23" style="width: 120px; position: absolute; left: 37px; height: 144px; top: 443.32379150390625px; overflow: hidden; background-color: rgba(187, 57, 57, 1); border: 4px solid rgba(0, 0, 0, 1); border-radius: 12px 12px 12px 12px; "><div id="543:24" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 30.584228515625px; height: 45px; top: 52.869659423828125px; overflow: hidden; background-color: rgba(0, 68, 204, 1); "></div><div id="543:25" style="width: 45.18403244018555px; position: absolute; left: 23.511255264282227px; height: 48.8645133972168px; top: 98.32057189941406px; "><svg preserveAspectRatio="none" width="45.18403244018555" height="48.8645133972168" viewBox="0 0 45.18403244018555 48.8645133972168" xmlns="http://www.w3.org/2000/svg"><path d="M2.57576 0L45.184 24.0606L0 48.8645L2.57576 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="543:26" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 21px; height: 45px; top: 374.9226379394531px; overflow: hidden; background-color: rgba(0, 68, 204, 0.5); "></div><div id="543:27" style="width: 88px; position: absolute; left: 62.9617919921875px; height: 135.87109375px; top: 44px; "><svg preserveAspectRatio="none" width="88" height="135.87109375" viewBox="0 0 88 135.87109375" xmlns="http://www.w3.org/2000/svg"><path d="M44 0L82.1051 101.903L5.89488 101.903L44 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:28" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 88px; position: absolute; left: 27.8114013671875px; height: 135.87109375px; top: 231.3343505859375px; "><svg preserveAspectRatio="none" width="88" height="135.87109375" viewBox="0 0 88 135.87109375" xmlns="http://www.w3.org/2000/svg"><path d="M44 0L82.1051 101.903L5.89488 101.903L44 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:29" style="width: 76.21023559570312px; position: absolute; left: 219.8948974609375px; height: 101.9033203125px; top: 44px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:30" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 195.0274658203125px; height: 101.9033203125px; top: 222.19158935546875px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:31" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 135px; height: 101.9033203125px; top: 318.2125549316406px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L39.9784 -0.700496L38.1051 -5.71024L36.2318 -0.700496L38.1051 0ZM76.2102 101.903L76.2102 103.903L79.0934 103.903L78.0835 101.203L76.2102 101.903ZM0 101.903L-1.87331 101.203L-2.88312 103.903L0 103.903L0 101.903ZM36.2318 0.700496L74.3369 102.604L78.0835 101.203L39.9784 -0.700496L36.2318 0.700496ZM76.2102 99.9033L0 99.9033L0 103.903L76.2102 103.903L76.2102 99.9033ZM1.87331 102.604L39.9784 0.700496L36.2318 -0.700496L-1.87331 101.203L1.87331 102.604Z" fill="" stroke="rgba(196, 196, 196, 1)" stroke-width="4"></path></svg></div><div id="543:32" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 181px; height: 101.9033203125px; top: 444.2125549316406px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(255, 255, 255, 0.009999999776482582)" stroke="rgba(196, 196, 196, 1)" stroke-width="4"></path></svg></div></section>',]},  ];
 
     // export const currentPos = writable({ project: 0, story: 0 }); //export current number... and total number so it knows when to cycle?
 
@@ -1757,9 +1757,9 @@ var app = (function () {
     			? "visible"
     			: /*projectIndex*/ ctx[0] !== /*i*/ ctx[9]
     				? "hidden"
-    				: "visible") + "\n        " + " svelte-rgg20e");
+    				: "visible") + "\n        " + " svelte-4recia");
 
-    			add_location(li, file$1, 88, 6, 1747);
+    			add_location(li, file$1, 88, 6, 1751);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, li, anchor);
@@ -1777,7 +1777,7 @@ var app = (function () {
     			? "visible"
     			: /*projectIndex*/ ctx[0] !== /*i*/ ctx[9]
     				? "hidden"
-    				: "visible") + "\n        " + " svelte-rgg20e")) {
+    				: "visible") + "\n        " + " svelte-4recia")) {
     				attr_dev(li, "class", li_class_value);
     			}
     		},
@@ -1819,10 +1819,10 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(ol, "class", "svelte-rgg20e");
-    			add_location(ol, file$1, 85, 2, 1696);
-    			attr_dev(nav, "class", "svelte-rgg20e");
-    			add_location(nav, file$1, 74, 0, 1504);
+    			attr_dev(ol, "class", "svelte-4recia");
+    			add_location(ol, file$1, 85, 2, 1700);
+    			attr_dev(nav, "class", "svelte-4recia");
+    			add_location(nav, file$1, 74, 0, 1508);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1999,30 +1999,30 @@ var app = (function () {
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[35] = list[i];
-    	child_ctx[37] = i;
+    	child_ctx[36] = list[i];
+    	child_ctx[38] = i;
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[35] = list[i];
-    	child_ctx[39] = i;
+    	child_ctx[36] = list[i];
+    	child_ctx[40] = i;
     	return child_ctx;
     }
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[31] = list[i].name;
-    	child_ctx[32] = list[i].stories;
-    	child_ctx[34] = i;
+    	child_ctx[32] = list[i].name;
+    	child_ctx[33] = list[i].stories;
+    	child_ctx[35] = i;
     	return child_ctx;
     }
 
-    // (410:8) {#if params.project == i}
+    // (414:8) {#if params.project == i}
     function create_if_block$2(ctx) {
     	let div;
-    	let each_value_2 = /*stories*/ ctx[32];
+    	let each_value_2 = /*stories*/ ctx[33];
     	validate_each_argument(each_value_2);
     	let each_blocks = [];
 
@@ -2040,7 +2040,7 @@ var app = (function () {
 
     			attr_dev(div, "id", "indicators");
     			attr_dev(div, "class", "svelte-1a3jwal");
-    			add_location(div, file$2, 411, 10, 10952);
+    			add_location(div, file$2, 415, 10, 10979);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2051,7 +2051,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (dirty[0] & /*params, held, navOpen*/ 41) {
-    				each_value_2 = /*stories*/ ctx[32];
+    				each_value_2 = /*stories*/ ctx[33];
     				validate_each_argument(each_value_2);
     				let i;
 
@@ -2084,14 +2084,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(410:8) {#if params.project == i}",
+    		source: "(414:8) {#if params.project == i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (422:14) {:else}
+    // (426:14) {:else}
     function create_else_block$1(ctx) {
     	let div;
 
@@ -2099,7 +2099,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "nextIndicators svelte-1a3jwal");
-    			add_location(div, file$2, 422, 16, 11347);
+    			add_location(div, file$2, 426, 16, 11374);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2114,14 +2114,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(422:14) {:else}",
+    		source: "(426:14) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (416:42) 
+    // (420:42) 
     function create_if_block_2(ctx) {
     	let div1;
     	let div0;
@@ -2135,10 +2135,10 @@ var app = (function () {
     			t = space();
     			attr_dev(div0, "id", "loadingBar");
     			attr_dev(div0, "class", div0_class_value = "" + (null_to_empty(/*held*/ ctx[3] || /*navOpen*/ ctx[5] ? "paused" : "no") + " svelte-1a3jwal"));
-    			add_location(div0, file$2, 417, 18, 11180);
+    			add_location(div0, file$2, 421, 18, 11207);
     			attr_dev(div1, "id", "currentIndicator");
     			attr_dev(div1, "class", "svelte-1a3jwal");
-    			add_location(div1, file$2, 416, 16, 11134);
+    			add_location(div1, file$2, 420, 16, 11161);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -2159,14 +2159,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(416:42) ",
+    		source: "(420:42) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (414:14) {#if params.story > p}
+    // (418:14) {#if params.story > p}
     function create_if_block_1(ctx) {
     	let div;
 
@@ -2174,7 +2174,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-1a3jwal");
-    			add_location(div, file$2, 414, 16, 11067);
+    			add_location(div, file$2, 418, 16, 11094);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2189,20 +2189,20 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(414:14) {#if params.story > p}",
+    		source: "(418:14) {#if params.story > p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (413:12) {#each stories as story, p}
+    // (417:12) {#each stories as story, p}
     function create_each_block_2(ctx) {
     	let if_block_anchor;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*params*/ ctx[0].story > /*p*/ ctx[39]) return create_if_block_1;
-    		if (/*params*/ ctx[0].story == /*p*/ ctx[39]) return create_if_block_2;
+    		if (/*params*/ ctx[0].story > /*p*/ ctx[40]) return create_if_block_1;
+    		if (/*params*/ ctx[0].story == /*p*/ ctx[40]) return create_if_block_2;
     		return create_else_block$1;
     	}
 
@@ -2241,35 +2241,35 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(413:12) {#each stories as story, p}",
+    		source: "(417:12) {#each stories as story, p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (429:8) {#each stories as story, j}
+    // (433:8) {#each stories as story, j}
     function create_each_block_1(ctx) {
     	let current;
 
     	const story = new Story({
     			props: {
-    				storyContent: /*story*/ ctx[35],
-    				current: /*params*/ ctx[0].project == /*i*/ ctx[34] && /*params*/ ctx[0].story == /*j*/ ctx[37]
+    				storyContent: /*story*/ ctx[36],
+    				current: /*params*/ ctx[0].project == /*i*/ ctx[35] && /*params*/ ctx[0].story == /*j*/ ctx[38]
     				? true
     				: false,
-    				next: /*next*/ ctx[6].project == /*i*/ ctx[34] && /*next*/ ctx[6].story == /*j*/ ctx[37]
+    				next: /*next*/ ctx[6].project == /*i*/ ctx[35] && /*next*/ ctx[6].story == /*j*/ ctx[38]
     				? true
     				: false,
-    				prev: /*prev*/ ctx[7].project == /*i*/ ctx[34] && /*prev*/ ctx[7].story == /*j*/ ctx[37]
+    				prev: /*prev*/ ctx[7].project == /*i*/ ctx[35] && /*prev*/ ctx[7].story == /*j*/ ctx[38]
     				? true
     				: false,
-    				nextCover: /*i*/ ctx[34] == /*nextProject*/ ctx[8]
-    				? /*j*/ ctx[37] == /*activeStories*/ ctx[1][/*nextProject*/ ctx[8]]
+    				nextCover: /*i*/ ctx[35] == /*nextProject*/ ctx[8]
+    				? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*nextProject*/ ctx[8]]
     					? true
     					: false
-    				: /*i*/ ctx[34] == /*prevProject*/ ctx[9]
-    					? /*j*/ ctx[37] == /*activeStories*/ ctx[1][/*prevProject*/ ctx[9]]
+    				: /*i*/ ctx[35] == /*prevProject*/ ctx[9]
+    					? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*prevProject*/ ctx[9]]
     						? true
     						: false
     					: false
@@ -2288,24 +2288,24 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const story_changes = {};
 
-    			if (dirty[0] & /*params*/ 1) story_changes.current = /*params*/ ctx[0].project == /*i*/ ctx[34] && /*params*/ ctx[0].story == /*j*/ ctx[37]
+    			if (dirty[0] & /*params*/ 1) story_changes.current = /*params*/ ctx[0].project == /*i*/ ctx[35] && /*params*/ ctx[0].story == /*j*/ ctx[38]
     			? true
     			: false;
 
-    			if (dirty[0] & /*next*/ 64) story_changes.next = /*next*/ ctx[6].project == /*i*/ ctx[34] && /*next*/ ctx[6].story == /*j*/ ctx[37]
+    			if (dirty[0] & /*next*/ 64) story_changes.next = /*next*/ ctx[6].project == /*i*/ ctx[35] && /*next*/ ctx[6].story == /*j*/ ctx[38]
     			? true
     			: false;
 
-    			if (dirty[0] & /*prev*/ 128) story_changes.prev = /*prev*/ ctx[7].project == /*i*/ ctx[34] && /*prev*/ ctx[7].story == /*j*/ ctx[37]
+    			if (dirty[0] & /*prev*/ 128) story_changes.prev = /*prev*/ ctx[7].project == /*i*/ ctx[35] && /*prev*/ ctx[7].story == /*j*/ ctx[38]
     			? true
     			: false;
 
-    			if (dirty[0] & /*nextProject, activeStories, prevProject*/ 770) story_changes.nextCover = /*i*/ ctx[34] == /*nextProject*/ ctx[8]
-    			? /*j*/ ctx[37] == /*activeStories*/ ctx[1][/*nextProject*/ ctx[8]]
+    			if (dirty[0] & /*nextProject, activeStories, prevProject*/ 770) story_changes.nextCover = /*i*/ ctx[35] == /*nextProject*/ ctx[8]
+    			? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*nextProject*/ ctx[8]]
     				? true
     				: false
-    			: /*i*/ ctx[34] == /*prevProject*/ ctx[9]
-    				? /*j*/ ctx[37] == /*activeStories*/ ctx[1][/*prevProject*/ ctx[9]]
+    			: /*i*/ ctx[35] == /*prevProject*/ ctx[9]
+    				? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*prevProject*/ ctx[9]]
     					? true
     					: false
     				: false;
@@ -2330,14 +2330,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(429:8) {#each stories as story, j}",
+    		source: "(433:8) {#each stories as story, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (392:4) {#each projectArray as { name, stories }
+    // (396:4) {#each projectArray as { name, stories }
     function create_each_block$1(ctx) {
     	let div;
     	let t0;
@@ -2345,8 +2345,8 @@ var app = (function () {
     	let div_style_value;
     	let t1;
     	let current;
-    	let if_block = /*params*/ ctx[0].project == /*i*/ ctx[34] && create_if_block$2(ctx);
-    	let each_value_1 = /*stories*/ ctx[32];
+    	let if_block = /*params*/ ctx[0].project == /*i*/ ctx[35] && create_if_block$2(ctx);
+    	let each_value_1 = /*stories*/ ctx[33];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -2370,29 +2370,29 @@ var app = (function () {
 
     			t1 = space();
 
-    			attr_dev(div, "class", div_class_value = "project " + /*i*/ ctx[34] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[34]
+    			attr_dev(div, "class", div_class_value = "project " + /*i*/ ctx[35] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[35]
     			? "currentProject"
-    			: "") + "\n        " + (/*i*/ ctx[34] == /*nextProject*/ ctx[8]
+    			: "") + "\n        " + (/*i*/ ctx[35] == /*nextProject*/ ctx[8]
     			? "nextProject"
-    			: "") + "\n        " + (/*i*/ ctx[34] == /*prevProject*/ ctx[9]
+    			: "") + "\n        " + (/*i*/ ctx[35] == /*prevProject*/ ctx[9]
     			? "prevProject"
     			: "") + "\n        " + " svelte-1a3jwal");
 
-    			attr_dev(div, "style", div_style_value = "\n        " + (/*held*/ ctx[3] && (/*i*/ ctx[34] == /*params*/ ctx[0].project || /*i*/ ctx[34] == /*nextProject*/ ctx[8] || /*i*/ ctx[34] == /*prevProject*/ ctx[9])
-    			? "transform: translateX(" + (/*i*/ ctx[34] == /*prevProject*/ ctx[9]
+    			attr_dev(div, "style", div_style_value = "\n        " + (/*held*/ ctx[3] && (/*i*/ ctx[35] == /*params*/ ctx[0].project || /*i*/ ctx[35] == /*nextProject*/ ctx[8] || /*i*/ ctx[35] == /*prevProject*/ ctx[9])
+    			? "transform: translateX(" + (/*i*/ ctx[35] == /*prevProject*/ ctx[9]
     				? -100
-    				: /*i*/ ctx[34] == /*nextProject*/ ctx[8] ? 100 : 0) + "%) rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[2] / 4.2, -90), 90) + (/*i*/ ctx[34] == /*nextProject*/ ctx[8] ? 90 : 0) + (/*i*/ ctx[34] == /*prevProject*/ ctx[9] ? -90 : 0)) + "deg) ;"
-    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[34]
+    				: /*i*/ ctx[35] == /*nextProject*/ ctx[8] ? 100 : 0) + "%) rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[2] / 4.2, -90), 90) + (/*i*/ ctx[35] == /*nextProject*/ ctx[8] ? 90 : 0) + (/*i*/ ctx[35] == /*prevProject*/ ctx[9] ? -90 : 0)) + "deg) ;"
+    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[35]
     			? "transform-origin: center " + /*swipeDirection*/ ctx[4] + ";"
-    			: "") + "\n        " + (/*nextProject*/ ctx[8] == /*i*/ ctx[34]
+    			: "") + "\n        " + (/*nextProject*/ ctx[8] == /*i*/ ctx[35]
     			? "transform-origin: center left;"
-    			: "") + "\n        " + (/*prevProject*/ ctx[9] == /*i*/ ctx[34]
+    			: "") + "\n        " + (/*prevProject*/ ctx[9] == /*i*/ ctx[35]
     			? "transform-origin: center right;"
     			: "") + "\n        " + (!/*held*/ ctx[3]
     			? "transition: left .5s ease, transform .5s ease;"
     			: "transition: left 0s, transform 0s") + "\n        ");
 
-    			add_location(div, file$2, 394, 6, 9891);
+    			add_location(div, file$2, 398, 6, 9918);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2407,7 +2407,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (/*params*/ ctx[0].project == /*i*/ ctx[34]) {
+    			if (/*params*/ ctx[0].project == /*i*/ ctx[35]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
@@ -2421,7 +2421,7 @@ var app = (function () {
     			}
 
     			if (dirty[0] & /*params, next, prev, nextProject, activeStories, prevProject*/ 963) {
-    				each_value_1 = /*stories*/ ctx[32];
+    				each_value_1 = /*stories*/ ctx[33];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -2448,25 +2448,25 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (!current || dirty[0] & /*params, nextProject, prevProject*/ 769 && div_class_value !== (div_class_value = "project " + /*i*/ ctx[34] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[34]
+    			if (!current || dirty[0] & /*params, nextProject, prevProject*/ 769 && div_class_value !== (div_class_value = "project " + /*i*/ ctx[35] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[35]
     			? "currentProject"
-    			: "") + "\n        " + (/*i*/ ctx[34] == /*nextProject*/ ctx[8]
+    			: "") + "\n        " + (/*i*/ ctx[35] == /*nextProject*/ ctx[8]
     			? "nextProject"
-    			: "") + "\n        " + (/*i*/ ctx[34] == /*prevProject*/ ctx[9]
+    			: "") + "\n        " + (/*i*/ ctx[35] == /*prevProject*/ ctx[9]
     			? "prevProject"
     			: "") + "\n        " + " svelte-1a3jwal")) {
     				attr_dev(div, "class", div_class_value);
     			}
 
-    			if (!current || dirty[0] & /*held, params, nextProject, prevProject, gesture_gap, swipeDirection*/ 797 && div_style_value !== (div_style_value = "\n        " + (/*held*/ ctx[3] && (/*i*/ ctx[34] == /*params*/ ctx[0].project || /*i*/ ctx[34] == /*nextProject*/ ctx[8] || /*i*/ ctx[34] == /*prevProject*/ ctx[9])
-    			? "transform: translateX(" + (/*i*/ ctx[34] == /*prevProject*/ ctx[9]
+    			if (!current || dirty[0] & /*held, params, nextProject, prevProject, gesture_gap, swipeDirection*/ 797 && div_style_value !== (div_style_value = "\n        " + (/*held*/ ctx[3] && (/*i*/ ctx[35] == /*params*/ ctx[0].project || /*i*/ ctx[35] == /*nextProject*/ ctx[8] || /*i*/ ctx[35] == /*prevProject*/ ctx[9])
+    			? "transform: translateX(" + (/*i*/ ctx[35] == /*prevProject*/ ctx[9]
     				? -100
-    				: /*i*/ ctx[34] == /*nextProject*/ ctx[8] ? 100 : 0) + "%) rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[2] / 4.2, -90), 90) + (/*i*/ ctx[34] == /*nextProject*/ ctx[8] ? 90 : 0) + (/*i*/ ctx[34] == /*prevProject*/ ctx[9] ? -90 : 0)) + "deg) ;"
-    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[34]
+    				: /*i*/ ctx[35] == /*nextProject*/ ctx[8] ? 100 : 0) + "%) rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[2] / 4.2, -90), 90) + (/*i*/ ctx[35] == /*nextProject*/ ctx[8] ? 90 : 0) + (/*i*/ ctx[35] == /*prevProject*/ ctx[9] ? -90 : 0)) + "deg) ;"
+    			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[35]
     			? "transform-origin: center " + /*swipeDirection*/ ctx[4] + ";"
-    			: "") + "\n        " + (/*nextProject*/ ctx[8] == /*i*/ ctx[34]
+    			: "") + "\n        " + (/*nextProject*/ ctx[8] == /*i*/ ctx[35]
     			? "transform-origin: center left;"
-    			: "") + "\n        " + (/*prevProject*/ ctx[9] == /*i*/ ctx[34]
+    			: "") + "\n        " + (/*prevProject*/ ctx[9] == /*i*/ ctx[35]
     			? "transform-origin: center right;"
     			: "") + "\n        " + (!/*held*/ ctx[3]
     			? "transition: left .5s ease, transform .5s ease;"
@@ -2504,7 +2504,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(392:4) {#each projectArray as { name, stories }",
+    		source: "(396:4) {#each projectArray as { name, stories }",
     		ctx
     	});
 
@@ -2516,6 +2516,7 @@ var app = (function () {
     	let div;
     	let main;
     	let main_style_value;
+    	let div_preventdefault_value;
     	let div_class_value;
     	let current;
     	let dispose;
@@ -2560,7 +2561,7 @@ var app = (function () {
     			: "transition: transform .5s ease;"));
 
     			attr_dev(main, "class", "svelte-1a3jwal");
-    			add_location(main, file$2, 387, 2, 9622);
+    			add_location(main, file$2, 391, 2, 9649);
     			set_style(div, "overflow", "hidden");
     			set_style(div, "height", "100vh");
     			set_style(div, "width", "100vw");
@@ -2569,8 +2570,9 @@ var app = (function () {
     			set_style(div, "justify-content", "center");
     			set_style(div, "perspective", "1080px");
     			set_style(div, "cursor", "ew-resize");
+    			attr_dev(div, "preventdefault", div_preventdefault_value = /*func*/ ctx[26]);
     			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*held*/ ctx[3] ? "grabbing" : "no") + " svelte-1a3jwal"));
-    			add_location(div, file$2, 369, 0, 9062);
+    			add_location(div, file$2, 369, 0, 9061);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2590,12 +2592,12 @@ var app = (function () {
 
     			dispose = [
     				listen_dev(window_1, "keydown", /*handleKeydown*/ ctx[15], false, false, false),
-    				listen_dev(div, "touchstart", /*touchstart_handler*/ ctx[25], { passive: true }, false, false),
-    				listen_dev(div, "mousedown", prevent_default(/*mousedown_handler*/ ctx[26]), false, true, false),
-    				listen_dev(div, "touchmove", /*touchmove_handler*/ ctx[27], { passive: true }, false, false),
-    				listen_dev(div, "mousemove", prevent_default(/*mousemove_handler*/ ctx[28]), false, true, false),
-    				listen_dev(div, "touchend", prevent_default(/*touchend_handler*/ ctx[29]), false, true, false),
-    				listen_dev(div, "mouseup", prevent_default(/*mouseup_handler*/ ctx[30]), false, true, false)
+    				listen_dev(div, "touchstart", /*touchstart_handler*/ ctx[27], { passive: true }, false, false),
+    				listen_dev(div, "mousedown", prevent_default(/*mousedown_handler*/ ctx[28]), false, true, false),
+    				listen_dev(div, "touchmove", /*touchmove_handler*/ ctx[29], { passive: true }, false, false),
+    				listen_dev(div, "mousemove", prevent_default(/*mousemove_handler*/ ctx[30]), false, true, false),
+    				listen_dev(div, "touchend", /*touchend_handler*/ ctx[25], { passive: true }, false, false),
+    				listen_dev(div, "mouseup", /*mouseup_handler*/ ctx[31], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
@@ -2638,6 +2640,10 @@ var app = (function () {
     			? "transition: transform 0s;"
     			: "transition: transform .5s ease;"))) {
     				attr_dev(main, "style", main_style_value);
+    			}
+
+    			if (!current || dirty[0] & /*held*/ 8 && div_preventdefault_value !== (div_preventdefault_value = /*func*/ ctx[26])) {
+    				attr_dev(div, "preventdefault", div_preventdefault_value);
     			}
 
     			if (!current || dirty[0] & /*held*/ 8 && div_class_value !== (div_class_value = "" + (null_to_empty(/*held*/ ctx[3] ? "grabbing" : "no") + " svelte-1a3jwal"))) {
@@ -2685,7 +2691,7 @@ var app = (function () {
     }
 
     const swipeSensitivity = 100;
-    const storyTimerTime = 60000;
+    const storyTimerTime = 6000;
 
     function instance$4($$self, $$props, $$invalidate) {
     	let activeStories = [];
@@ -2851,6 +2857,15 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("Stories", $$slots, []);
+
+    	function touchend_handler(event) {
+    		bubble($$self, event);
+    	}
+
+    	const func = e => {
+    		if (held) gestureUp();
+    	};
+
     	const touchstart_handler = e => gestureDown(e);
     	const mousedown_handler = e => gestureDown(e);
 
@@ -2861,8 +2876,6 @@ var app = (function () {
     	const mousemove_handler = e => {
     		if (held) gestureMove(e);
     	};
-
-    	const touchend_handler = e => gestureUp();
 
     	const mouseup_handler = e => {
     		if (held) gestureUp();
@@ -3011,11 +3024,12 @@ var app = (function () {
     		Timer,
     		pushHandler,
     		handleProjects,
+    		touchend_handler,
+    		func,
     		touchstart_handler,
     		mousedown_handler,
     		touchmove_handler,
     		mousemove_handler,
-    		touchend_handler,
     		mouseup_handler
     	];
     }

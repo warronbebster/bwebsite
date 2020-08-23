@@ -22,8 +22,8 @@
     border: 1px solid black;
     position: absolute;
     padding: 0;
-    margin: 0;
-    min-height: 38px;
+    margin: 0 2px;
+    min-height: 30px;
     top: 10px;
     left: 10px;
     background-color: white;
@@ -35,7 +35,7 @@
   }
 
   .navItem {
-    margin: 4px;
+    margin: 2px;
     padding: 4px;
     overflow: hidden;
     border-radius: 5px;
