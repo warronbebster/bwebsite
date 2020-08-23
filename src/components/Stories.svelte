@@ -35,6 +35,7 @@
     gesture_active,
     gesture_gap = 0;
 
+  let touch = false;
   let held = false;
   let swipeDirection = "right";
   const swipeSensitivity = 100;
@@ -43,7 +44,7 @@
   let gestureTimer; //timer object to time that
 
   let storyTimer; //timer object to time stories
-  const storyTimerTime = 6000;
+  const storyTimerTime = 60000;
 
   let navOpen = false;
   const showNav = function(event) {
@@ -371,24 +372,26 @@
   style="overflow: hidden; height: 100vh; width: 100vw; display: flex;
   align-items: center; justify-content: center; perspective: 1080px; cursor:
   ew-resize"
-  on:touchstart|passive={e => gestureDown(e)}
-  on:mousedown|preventDefault={e => gestureDown(e)}
+  on:mousedown={e => {
+    if (!touch) gestureDown(e);
+  }}
+  on:mousemove={e => {
+    if (held && !touch) gestureMove(e);
+  }}
+  on:mouseup={e => {
+    if (held && !touch) gestureUp(e);
+  }}
+  on:touchstart|passive={e => {
+    touch = true;
+    gestureDown(e);
+  }}
   on:touchmove|passive={e => {
     if (held) gestureMove(e);
   }}
-  on:mousemove|preventDefault={e => {
-    if (held) gestureMove(e);
-  }}
-  on:touchend|passive
-  preventDefault={e => {
-    if (held) gestureUp(e);
-  }}
-  on:mouseup={e => {
+  on:touchend={e => {
     if (held) gestureUp(e);
   }}
   class={held ? 'grabbing' : 'no'}>
-  <!--  -->
-
   <main
     style="transform: translateX({held ? Math.max(Math.min(gesture_gap * 1.1, 460), -460) : 0}px);
     {held ? 'transition: transform 0s;' : 'transition: transform .5s ease;'}">

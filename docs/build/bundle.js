@@ -77,13 +77,6 @@ var app = (function () {
         node.addEventListener(event, handler, options);
         return () => node.removeEventListener(event, handler, options);
     }
-    function prevent_default(fn) {
-        return function (event) {
-            event.preventDefault();
-            // @ts-ignore
-            return fn.call(this, event);
-        };
-    }
     function attr(node, attribute, value) {
         if (value == null)
             node.removeAttribute(attribute);
@@ -1285,7 +1278,7 @@ var app = (function () {
     	}
     }
 
-    const figmaProject = [{ name: "Welcome", stories:['<section class="frame" style="overflow: hidden; background-image: url(./images/!intro); background-size: cover;  width:100%; height:100%; display:block;" ><div id="495:19" style="transform: matrix(0.9856536388397217,-0.1687806397676468,0.1687806397676468,0.9856536388397217,0,0); transform-origin: 0% 0%; width: 338px; position: absolute; left: calc(50% - 169px - 0.191558837890625px); height: 31px; top: 152.7462921142578px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="495:20" style="position: static; left: calc(50% - 163px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">Hi, I’m Barron. Welcome to my website.</span></div></div><div id="543:0" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 267.2351989746094px; position: absolute; left: calc(50% - 133.6175994873047px - -2.7393035888671875px); height: 77px; top: calc(50% - 38.5px - -17.763275146484375px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="495:30" style="width: 255.23519897460938px; position: static; left: calc(50% - 127.61759948730469px - 0px); height: 69px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">It works like instagram stories. Tap left or right, and swipe to skip chapters.</span></div></div><div id="495:31" style="transform: matrix(0.965358555316925,-0.26092690229415894,0.26092690229415894,0.965358555316925,0,0); transform-origin: 0% 0%; width: 169px; position: absolute; left: 37.242286682128906px; height: 24px; bottom: 98.198974609375px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="495:32" style="position: static; left: calc(50% - 78.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">You can also use arrow keys.</span></div></div><div id="505:1" style="transform: matrix(0.965358555316925,-0.26092690229415894,0.26092690229415894,0.965358555316925,0,0); transform-origin: 0% 0%; width: 124px; position: absolute; left: 44.51847839355469px; height: 42px; top: 559.4558715820312px; box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); "><div id="505:2" style="width: 40px; position: absolute; left: 84px; height: 20px; bottom: 0px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:3" style="transform: matrix(-4.371138828673793e-8,1,-1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 23.443044662475586px; height: 6px; top: 6.780527591705322px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="505:4" style="width: 40px; position: absolute; left: 0px; height: 20px; bottom: 0px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:5" style="transform: matrix(-4.371138828673793e-8,-1,1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 17px; height: 6px; top: 13.708721160888672px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="505:6" style="width: 40px; position: absolute; left: 42px; height: 20px; bottom: 0px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:7" style="transform: matrix(-1,8.742280499518529e-8,-8.742274815176643e-8,-1,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 23.464101791381836px; height: 6px; top: 13.244607925415039px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="505:8" style="width: 40px; position: absolute; left: 42px; height: 20px; bottom: 22px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="505:9" style="width: 6.928203582763672px; position: absolute; left: 16.535900115966797px; height: 6px; top: 7.244598388671875px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(236, 33, 52, 1);  width:100%; height:100%; display:block;" ><div id="544:1" style="transform: matrix(0.9873719811439514,-0.15841907262802124,0.15841907262802124,0.9873719811439514,0,0); transform-origin: 0% 0%; width: 256.99298095703125px; position: absolute; left: 29.25439453125px; height: 181.2581787109375px; top: 145.0173797607422px; display: flex; flex-direction: column; padding: undefinedpx undefinedpx; justify-content: space-between; overflow: hidden; "><div id="294:0" style="width: 256.99298095703125px; position: static; right: 0px; height: 162.2581787109375px; top: 0px; flex: none; align-self: center; background-image: url(./images/no_spaces); background-size: cover; border-radius: 2px 2px 2px 2px; "></div><div id="544:0" style="position: static; right: 154.99298095703125px; height: 13px; top: 168.2581787109375px; flex: none; align-self: flex-start; opacity: 0.699999988079071; color: rgba(0, 0, 0, 1); font-size: 10px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">fig 1. me and software</span></div></div><div id="545:2" style="transform: matrix(0.9905165433883667,0.13739357888698578,-0.13739357888698578,0.9905165433883667,0,0); transform-origin: 0% 0%; width: 234px; position: absolute; right: 33.7039794921875px; height: 155px; top: calc(50% - 77.5px - -65.5px); display: flex; flex-direction: column; padding: undefinedpx undefinedpx; justify-content: space-between; "><div id="545:0" style="width: 234px; position: static; left: 0px; height: 136px; top: 0px; flex: none; align-self: center; background-image: url(./images/cl_view_1); background-size: cover; border-radius: 2px 2px 2px 2px; "></div><div id="545:1" style="position: static; right: 135px; height: 13px; top: 142px; flex: none; align-self: flex-start; opacity: 0.699999988079071; color: rgba(0, 0, 0, 1); font-size: 10px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">fig 2. view from office</span></div></div><div id="543:1" style="transform: matrix(0.9961947202682495,-0.08715574443340302,0.08715574443340302,0.9961947202682495,0,0); transform-origin: 0% 0%; width: 272px; position: absolute; right: 35.19879150390625px; height: 31px; top: calc(50% - 15.5px - -7.668212890625px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:1;495:30" style="position: static; left: calc(50% - 130px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">I work at Google’s Creative Lab.</span></div></div><div id="543:39" style="transform: matrix(0.9834105968475342,0.1813938021659851,-0.1813938021659851,0.9834105968475342,0,0); transform-origin: 0% 0%; width: 241px; position: absolute; left: calc(50% - 120.5px - -4.792869567871094px); height: 31px; bottom: 153.10614013671875px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:39;495:30" style="position: static; left: calc(50% - 114.5px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">Before that, I spent time at:</span></div></div><div id="543:58" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 83px; position: absolute; left: calc(50% - 41.5px - -60.5px); height: 24px; bottom: 44.382080078125px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:58;495:30" style="position: static; left: calc(50% - 35.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://maps.google.com/">Google Maps</a></span></div></div><div id="543:60" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 74px; position: absolute; left: calc(50% - 37px - 61.01910400390625px); height: 24px; bottom: 67.769775390625px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:60;495:30" style="position: static; left: calc(50% - 31px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://upperquad.com/">Upperquad</a></span></div></div><div id="543:62" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 41px; position: absolute; left: calc(50% - 20.5px - 105.5px); height: 24px; bottom: 95.3935546875px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:62;495:30" style="position: static; left: calc(50% - 14.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://risd.gd/">RISD</a></span></div></div><div id="543:64" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 73px; position: absolute; left: calc(50% - 36.5px - -1.4779052734375px); height: 24px; bottom: 59.78948974609375px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:64;495:30" style="position: static; left: calc(50% - 30.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://metahaven.net/">Metahaven</a></span></div></div><div id="543:55" style="transform: matrix(0.9925461411476135,0.12186934053897858,-0.12186934053897858,0.9925461411476135,0,0); transform-origin: 0% 0%; width: 336px; position: absolute; left: 47px; height: 111px; top: 62.38336181640625px; display: flex; flex-direction: column; padding: undefinedpx undefinedpx; justify-content: space-between; "><div id="543:49" style="width: 336px; position: static; right: 0px; height: 44px; top: 0px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; flex: none; align-self: center; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="543:50" style="position: static; left: calc(50% - 162px - 0px); height: 36px; top: 3.999999761581421px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">I mostly design software.</span></div></div><div id="543:53" style="width: 185.55874633789062px; position: static; right: 0px; height: 56px; top: 55px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; flex: none; align-self: flex-end; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="543:54" style="width: 173.55874633789062px; position: static; left: calc(50% - 86.77937316894531px - 0px); height: 48px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">Primarily, zero-to-one launches for new services, focusing on emerging technology.</span></div></div></div></section>','<section class="frame" style="overflow: hidden; background-image: url(./images/!newname); background-size: cover; border-radius: 2px 2px 2px 2px;  width:100%; height:100%; display:block;" ><div id="543:35" style="transform: matrix(0.9560834169387817,-0.2930947542190552,0.2930947542190552,0.9560834169387817,0,0); transform-origin: 0% 0%; width: 147px; position: absolute; left: 35.3975830078125px; height: 44px; top: 102.90948486328125px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:35;495:30" style="position: static; left: calc(50% - 67.5px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">I also talk,</span></div></div><div id="543:43" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; right: 92.2735595703125px; height: 44px; top: calc(50% - 22px - 60px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:43;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">write,</span></div></div><div id="543:45" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 147px; position: absolute; left: 60.70685958862305px; height: 44px; bottom: 229px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:45;495:30" style="position: static; left: calc(50% - 67.5px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">and teach.</span></div></div><div id="547:0" style="z-index: 21; transform: matrix(0.9694939851760864,0.24511535465717316,-0.24511535465717316,0.9694939851760864,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; left: 24.882768630981445px; height: 24px; top: 144px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:0;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.itsnicethat.com/articles/wix-playground-presents-data-narrative-design-round-up-digital-event-040320">It’s Nice That</a></span></div></div><div id="547:12" style="z-index: 21; transform: matrix(0.9765177965164185,-0.2154368758201599,0.2154368758201599,0.9765177965164185,0,0); transform-origin: 0% 0%; width: 57px; position: absolute; right: 32px; height: 24px; top: calc(50% - 12px - 39.7200927734375px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:12;495:30" style="position: static; left: calc(50% - 22.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://medium.com/@warronbebster/the-future-of-augmented-reality-will-be-boring-fc95be238ef4">Medium</a></span></div></div><div id="547:16" style="z-index: 21; transform: matrix(0.96561598777771,-0.2599726915359497,0.2599726915359497,0.96561598777771,0,0); transform-origin: 0% 0%; width: 91px; position: absolute; right: 36px; height: 24px; top: calc(50% - 12px - -8.657501220703125px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:16;495:30" style="position: static; left: calc(50% - 39.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://design.google/library/designing-and-learning-teachable-machine/">Google Design</a></span></div></div><div id="547:14" style="z-index: 21; transform: matrix(0.904071569442749,0.42738106846809387,-0.42738106846809387,0.904071569442749,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; right: 129.301513671875px; height: 24px; top: calc(50% - 12px - 28.805084228515625px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:14;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.itsnicethat.com/news/pay-interns-why-it-matters-barron-webster-opinion-180918">It’s Nice That</a></span></div></div><div id="547:18" style="z-index: 21; transform: matrix(0.9945219159126282,0.10452846437692642,-0.10452846437692642,0.9945219159126282,0,0); transform-origin: 0% 0%; width: 141px; position: absolute; left: 47.1593017578125px; height: 24px; bottom: 180.7490234375px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:18;495:30" style="position: static; left: calc(50% - 64.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.notion.so/Design-in-the-Real-World-ac2a96893f034b85b1045025054009ce">Interaction design, SVA</a></span></div></div><div id="547:4" style="z-index: 21; transform: matrix(0.9925462007522583,0.12186934798955917,-0.12186934798955917,0.9925462007522583,0,0); transform-origin: 0% 0%; width: 34px; position: absolute; left: 114.92486572265625px; height: 24px; top: 130px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:4;495:30" style="position: static; left: calc(50% - 11px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://web.mit.edu/">MIT</a></span></div></div><div id="547:6" style="z-index: 21; transform: matrix(0.9558213949203491,-0.29394832253456116,0.29394832253456116,0.9558213949203491,0,0); transform-origin: 0% 0%; width: 43px; position: absolute; left: 157px; height: 24px; top: 125.63977813720703px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I547:6;495:30" style="position: static; left: calc(50% - 15.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://design.google/library/span2019/">SPAN</a></span></div></div><div id="548:0" style="z-index: 21; transform: matrix(0.9925462007522583,0.12186934798955917,-0.12186934798955917,0.9925462007522583,0,0); transform-origin: 0% 0%; width: 38px; position: absolute; left: 200.92486572265625px; height: 24px; top: 82px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:0;495:30" style="position: static; left: calc(50% - 13px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://thefwa.com/interviews/barron-webster">FWA</a></span></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(236, 33, 52, 1);  width:100%; height:100%; display:block;" ><div id="548:7" style="transform: matrix(0.9560834169387817,-0.2930947542190552,0.2930947542190552,0.9560834169387817,0,0); transform-origin: 0% 0%; width: 139px; position: absolute; left: 35.3975830078125px; height: 44px; top: 100.56472778320312px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:7;495:30" style="position: static; left: calc(50% - 63.5px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">I also talk</span></div></div><div id="548:52" style="z-index: 21; transform: matrix(0.904071569442749,0.42738106846809387,-0.42738106846809387,0.904071569442749,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; left: calc(50% - 43px - -74.25714111328125px); height: 24px; bottom: 633px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:52;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.itsnicethat.com/news/pay-interns-why-it-matters-barron-webster-opinion-180918">It’s Nice That</a></span></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(236, 33, 52, 1);  width:100%; height:100%; display:block;" ><div id="548:30" style="transform: matrix(0.9560834169387817,-0.2930947542190552,0.2930947542190552,0.9560834169387817,0,0); transform-origin: 0% 0%; width: 139px; position: absolute; left: 35.3975830078125px; height: 44px; top: 100.56472778320312px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:30;495:30" style="position: static; left: calc(50% - 63.5px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">I also talk</span></div></div><div id="548:33" style="z-index: 21; transform: matrix(0.9694939851760864,0.24511535465717316,-0.24511535465717316,0.9694939851760864,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; left: 24.882768630981445px; height: 24px; top: 144px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:33;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.itsnicethat.com/articles/wix-playground-presents-data-narrative-design-round-up-digital-event-040320">It’s Nice That</a></span></div></div><div id="548:38" style="z-index: 21; transform: matrix(0.9925462007522583,0.12186934798955917,-0.12186934798955917,0.9925462007522583,0,0); transform-origin: 0% 0%; width: 34px; position: absolute; left: 114.92486572265625px; height: 24px; top: 130px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:38;495:30" style="position: static; left: calc(50% - 11px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://web.mit.edu/">MIT</a></span></div></div><div id="548:39" style="z-index: 21; transform: matrix(0.9558213949203491,-0.29394832253456116,0.29394832253456116,0.9558213949203491,0,0); transform-origin: 0% 0%; width: 43px; position: absolute; left: 157px; height: 24px; top: 125.63977813720703px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:39;495:30" style="position: static; left: calc(50% - 15.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://design.google/library/span2019/">SPAN</a></span></div></div><div id="548:40" style="z-index: 21; transform: matrix(0.9925462007522583,0.12186934798955917,-0.12186934798955917,0.9925462007522583,0,0); transform-origin: 0% 0%; width: 38px; position: absolute; left: 200.92486572265625px; height: 24px; top: 82px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I548:40;495:30" style="position: static; left: calc(50% - 13px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://thefwa.com/interviews/barron-webster">FWA</a></span></div></div></section>',]}, { name: "Project 2", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(255, 255, 255, 1);  width:100%; height:100%; display:block;" ><div id="4:25" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(98, 170, 64, 1);  width:100%; height:100%; display:block;" ><div id="161:2" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">WHAT</span></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(199, 238, 180, 1);  width:100%; height:100%; display:block;" ><div id="161:4" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A new one</span></div></section>',]}, { name: "Page 4", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(143, 189, 208, 0.949999988079071);  width:100%; height:100%; display:block;" ><div id="422:3" style="transform: matrix(0.7071067690849304,0.7071067690849304,-0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 137px; position: absolute; left: calc(50% - 68.5px - -68.5px); height: 137px; top: calc(50% - 68.5px - 28.5px); background-color: rgba(233, 12, 12, 1); "></div></section>',]}, { name: "Project threee", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="495:1" style="z-index: 21; transform: matrix(0.9612616896629333,-0.2756373882293701,0.27563732862472534,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 128px; position: absolute; right: 45px; height: 78px; top: 210.28158569335938px; background-color: rgba(196, 196, 196, 1); "><div id="495:2" style="position: absolute; left: 13px; height: 18px; top: 11px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end"><a href="http://barronwebster.com">Inside another</a></span></div><div id="495:3" style="transform: matrix(0.9612616896629333,0.27563735842704773,-0.27563735842704773,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 14.134858131408691px; height: 12px; top: 42.38649368286133px; background-color: rgba(170, 38, 38, 1); "></div></div><div id="495:4" style="z-index: 21; position: absolute; left: calc(50% - 126px - -23px); height: 18px; top: 350px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="12">Let’s try a </span><span style="font-size: 14px; font-weight: 400; font-family: IBM Plex Sans, IBM Plex Sans, sans-serif; font-style: normal; line-height: 125%; color: rgba(0, 68, 204, 1); " key="16"> <a href="http://barronwebster.com">link</a></span><span key="end"> inline in a text box boyyyy</span></div><div id="495:5" style="width: 208px; position: absolute; left: 43px; height: 104px; top: 552px; display: flex; flex-direction: row; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="495:6" style="width: 31px; position: static; left: 8px; height: 47px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="495:7" style="width: 31px; position: static; left: 55px; height: 76px; top: 14px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="495:8" style="width: 32px; position: static; left: 102px; height: 47px; top: 43px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="495:9" style="width: 50px; position: static; left: 150px; height: 76px; top: 14px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="495:10" style="width: 104px; position: absolute; left: 43px; height: 156px; top: 54px; display: flex; flex-direction: column; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="495:11" style="width: 31px; position: static; left: 8px; height: 20px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="495:12" style="width: 88px; position: static; left: 8px; height: 15px; top: 50px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="495:13" style="width: 32px; position: static; left: 64px; height: 16px; top: 81px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="495:14" style="width: 88px; position: static; left: 8px; height: 29px; top: 113px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="543:22" style="transform: matrix(0.9396926164627075,-0.3420201539993286,0.34202009439468384,0.9396926164627075,0,0); transform-origin: 0% 0%; width: 80px; position: absolute; right: 36px; height: 120px; bottom: -14.6854248046875px; background-color: rgba(206, 176, 176, 1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); border-radius: 8px 0px 0px 0px; "></div><div id="543:23" style="width: 120px; position: absolute; left: 37px; height: 144px; top: 443.32379150390625px; overflow: hidden; background-color: rgba(187, 57, 57, 1); border: 4px solid rgba(0, 0, 0, 1); border-radius: 12px 12px 12px 12px; "><div id="543:24" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 30.584228515625px; height: 45px; top: 52.869659423828125px; overflow: hidden; background-color: rgba(0, 68, 204, 1); "></div><div id="543:25" style="width: 45.18403244018555px; position: absolute; left: 23.511255264282227px; height: 48.8645133972168px; top: 98.32057189941406px; "><svg preserveAspectRatio="none" width="45.18403244018555" height="48.8645133972168" viewBox="0 0 45.18403244018555 48.8645133972168" xmlns="http://www.w3.org/2000/svg"><path d="M2.57576 0L45.184 24.0606L0 48.8645L2.57576 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="543:26" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 21px; height: 45px; top: 374.9226379394531px; overflow: hidden; background-color: rgba(0, 68, 204, 0.5); "></div><div id="543:27" style="width: 88px; position: absolute; left: 62.9617919921875px; height: 135.87109375px; top: 44px; "><svg preserveAspectRatio="none" width="88" height="135.87109375" viewBox="0 0 88 135.87109375" xmlns="http://www.w3.org/2000/svg"><path d="M44 0L82.1051 101.903L5.89488 101.903L44 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:28" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 88px; position: absolute; left: 27.8114013671875px; height: 135.87109375px; top: 231.3343505859375px; "><svg preserveAspectRatio="none" width="88" height="135.87109375" viewBox="0 0 88 135.87109375" xmlns="http://www.w3.org/2000/svg"><path d="M44 0L82.1051 101.903L5.89488 101.903L44 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:29" style="width: 76.21023559570312px; position: absolute; left: 219.8948974609375px; height: 101.9033203125px; top: 44px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:30" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 195.0274658203125px; height: 101.9033203125px; top: 222.19158935546875px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:31" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 135px; height: 101.9033203125px; top: 318.2125549316406px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L39.9784 -0.700496L38.1051 -5.71024L36.2318 -0.700496L38.1051 0ZM76.2102 101.903L76.2102 103.903L79.0934 103.903L78.0835 101.203L76.2102 101.903ZM0 101.903L-1.87331 101.203L-2.88312 103.903L0 103.903L0 101.903ZM36.2318 0.700496L74.3369 102.604L78.0835 101.203L39.9784 -0.700496L36.2318 0.700496ZM76.2102 99.9033L0 99.9033L0 103.903L76.2102 103.903L76.2102 99.9033ZM1.87331 102.604L39.9784 0.700496L36.2318 -0.700496L-1.87331 101.203L1.87331 102.604Z" fill="" stroke="rgba(196, 196, 196, 1)" stroke-width="4"></path></svg></div><div id="543:32" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 181px; height: 101.9033203125px; top: 444.2125549316406px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(255, 255, 255, 0.009999999776482582)" stroke="rgba(196, 196, 196, 1)" stroke-width="4"></path></svg></div></section>',]},  ];
+    const figmaProject = [{ name: "Welcome", stories:['<section class="frame" style="overflow: hidden; background-image: url(./images/!intro); background-size: cover;  width:100%; height:100%; display:block;" ><div id="495:31" style="transform: matrix(0.9836799502372742,-0.17992709577083588,0.17992709577083588,0.9836799502372742,0,0); transform-origin: 0% 0%; width: 169px; position: absolute; left: 40.658447265625px; height: 24px; bottom: 105.66595458984375px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="495:32" style="position: static; left: calc(50% - 78.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">You can also use arrow keys.</span></div></div><div id="577:7" style="transform: matrix(0.9836799502372742,-0.17992709577083588,0.17992709577083588,0.9836799502372742,0,0); transform-origin: 0% 0%; width: 124px; position: absolute; left: 54.406028747558594px; height: 42px; bottom: 140.3360595703125px; "><div id="577:8" style="width: 40px; position: absolute; left: 84px; height: 20px; bottom: 0px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="577:9" style="transform: matrix(-4.371138828673793e-8,1,-1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 23.443044662475586px; height: 6px; top: 6.780527591705322px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="577:10" style="width: 40px; position: absolute; left: 0px; height: 20px; bottom: 0px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="577:11" style="transform: matrix(-4.371138828673793e-8,-1,1,-4.371138828673793e-8,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 17px; height: 6px; top: 13.708721160888672px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="577:12" style="width: 40px; position: absolute; left: 42px; height: 20px; bottom: 0px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="577:13" style="transform: matrix(-1,8.742280499518529e-8,-8.742274815176643e-8,-1,0,0); transform-origin: 0% 0%; width: 6.928203582763672px; position: absolute; left: 23.464101791381836px; height: 6px; top: 13.244607925415039px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="577:14" style="width: 40px; position: absolute; left: 42px; height: 20px; bottom: 22px; overflow: hidden; background-color: rgba(255, 255, 255, 1); border-radius: 2px 2px 2px 2px; "><div id="577:15" style="width: 6.928203582763672px; position: absolute; left: 16.535900115966797px; height: 6px; top: 7.244598388671875px; "><svg preserveAspectRatio="none" width="6.928203582763672" height="6" viewBox="0 0 6.928203582763672 6" xmlns="http://www.w3.org/2000/svg"><path d="M3.4641 0L6.9282 6L0 6L3.4641 0Z" fill="rgba(0, 0, 0, 1)" stroke="" stroke-width="1"></path></svg></div></div></div><div id="578:25" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 267.2351989746094px; position: absolute; left: calc(50% - 133.6175994873047px - -57.1280517578125px); height: 77px; top: calc(50% - 38.5px - -17.5px); display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I578:25;495:30" style="width: 255.23519897460938px; position: static; left: calc(50% - 127.61759948730469px - 0px); height: 69px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">It works like instagram stories. Tap left or right, and swipe to skip chapters.</span></div></div><div id="579:44" style="transform: matrix(0.9876883625984192,-0.15643446147441864,0.15643446147441864,0.9876883625984192,0,0); transform-origin: 0% 0%; width: 349px; position: absolute; left: calc(50% - 174.5px - 0.5px); height: 31px; top: 151.59564208984375px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I579:44;578:15" style="position: static; left: calc(50% - 168.5px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">Hi, I’m Barron. Welcome to my website :)</span></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(236, 33, 52, 1);  width:100%; height:100%; display:block;" ><div id="544:1" style="transform: matrix(0.9873719811439514,-0.15841907262802124,0.15841907262802124,0.9873719811439514,0,0); transform-origin: 0% 0%; width: 256.99298095703125px; position: absolute; left: 29.25439453125px; height: 181.2581787109375px; top: 145.0173797607422px; display: flex; flex-direction: column; padding: undefinedpx undefinedpx; justify-content: space-between; overflow: hidden; "><div id="294:0" style="width: 256.99298095703125px; position: static; right: 0px; height: 162.2581787109375px; top: 0px; flex: none; align-self: center; background-image: url(./images/no_spaces); background-size: cover; border-radius: 2px 2px 2px 2px; "></div><div id="544:0" style="position: static; right: 154.99298095703125px; height: 13px; top: 168.2581787109375px; flex: none; align-self: flex-start; opacity: 0.699999988079071; color: rgba(0, 0, 0, 1); font-size: 10px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">fig 1. me and software</span></div></div><div id="545:2" style="transform: matrix(0.9905165433883667,0.13739357888698578,-0.13739357888698578,0.9905165433883667,0,0); transform-origin: 0% 0%; width: 234px; position: absolute; right: 23.7039794921875px; height: 155px; top: calc(50% - 77.5px - -60.5px); display: flex; flex-direction: column; padding: undefinedpx undefinedpx; justify-content: space-between; "><div id="545:0" style="width: 234px; position: static; left: 0px; height: 136px; top: 0px; flex: none; align-self: center; background-image: url(./images/cl_view_1); background-size: cover; border-radius: 2px 2px 2px 2px; "></div><div id="545:1" style="position: static; right: 135px; height: 13px; top: 142px; flex: none; align-self: flex-start; opacity: 0.699999988079071; color: rgba(0, 0, 0, 1); font-size: 10px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">fig 2. view from office</span></div></div><div id="543:58" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 83px; position: absolute; left: calc(50% - 41.5px - -5.5px); height: 24px; bottom: 74.382080078125px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:58;495:30" style="position: static; left: calc(50% - 35.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://maps.google.com/">Google Maps</a></span></div></div><div id="543:60" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 74px; position: absolute; left: calc(50% - 37px - 116.01910400390625px); height: 24px; bottom: 97.769775390625px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:60;495:30" style="position: static; left: calc(50% - 31px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://upperquad.com/">Upperquad</a></span></div></div><div id="543:62" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 41px; position: absolute; left: calc(50% - 20.5px - 160.5px); height: 24px; bottom: 125.3935546875px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:62;495:30" style="position: static; left: calc(50% - 14.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://risd.gd/">RISD</a></span></div></div><div id="543:64" style="z-index: 21; transform: matrix(0.9143009781837463,-0.40503552556037903,0.40503552556037903,0.9143009781837463,0,0); transform-origin: 0% 0%; width: 73px; position: absolute; left: calc(50% - 36.5px - 53.5220947265625px); height: 24px; bottom: 89.78948974609375px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I543:64;495:30" style="position: static; left: calc(50% - 30.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://metahaven.net/">Metahaven</a></span></div></div><div id="543:55" style="transform: matrix(0.9925461411476135,0.12186934053897858,-0.12186934053897858,0.9925461411476135,0,0); transform-origin: 0% 0%; width: 336px; position: absolute; left: 47px; height: 111px; top: 62.38336181640625px; display: flex; flex-direction: column; padding: undefinedpx undefinedpx; justify-content: space-between; "><div id="543:49" style="width: 336px; position: static; right: 0px; height: 44px; top: 0px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; flex: none; align-self: center; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="543:50" style="position: static; left: calc(50% - 162px - 0px); height: 36px; top: 3.999999761581421px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">I mostly design software.</span></div></div><div id="543:53" style="width: 185.55874633789062px; position: static; right: 0px; height: 56px; top: 55px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; flex: none; align-self: flex-end; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="543:54" style="width: 173.55874633789062px; position: static; left: calc(50% - 86.77937316894531px - 0px); height: 48px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">Primarily zero-to-one launches for new services, focusing on emerging technology.</span></div></div></div><div id="579:33" style="transform: matrix(0.9961947202682495,-0.08715574443340302,0.08715574443340302,0.9961947202682495,0,0); transform-origin: 0% 0%; width: 296px; position: absolute; right: 25.90869140625px; height: 31px; top: calc(50% - 15.5px - -0.54595947265625px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I579:33;578:15" style="position: static; left: calc(50% - 142px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">Currently @ Google’s Creative Lab.</span></div></div><div id="579:40" style="transform: matrix(0.983413577079773,0.18137741088867188,-0.18137741088867188,0.983413577079773,0,0); transform-origin: 0% 0%; width: 241px; position: absolute; left: 37px; height: 31px; bottom: 183px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I579:40;578:15" style="position: static; left: calc(50% - 114.5px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">Before that, I spent time at:</span></div></div></section>','<section class="frame" style="overflow: hidden; background-image: url(./images/!talk); background-size: cover; border-radius: 2px 2px 2px 2px;  width:100%; height:100%; display:block;" ><div id="555:33" style="transform: matrix(0.977787971496582,-0.20959648489952087,0.20959648489952087,0.977787971496582,0,0); transform-origin: 0% 0%; width: 147px; position: absolute; left: 13.6392822265625px; height: 44px; top: 73.29486083984375px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(236, 33, 52, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:33;495:30" style="position: static; left: calc(50% - 67.5px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(255, 255, 255, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">I also talk,</span></div></div><div id="555:35" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 147px; position: absolute; left: 60.7069091796875px; height: 44px; bottom: 169px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(236, 33, 52, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:35;495:30" style="position: static; left: calc(50% - 67.5px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(255, 255, 255, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">and teach.</span></div></div><div id="555:36" style="z-index: 21; transform: matrix(0.9694939851760864,0.24511535465717316,-0.24511535465717316,0.9694939851760864,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; left: 13.88275146484375px; height: 24px; top: 121px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:36;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.itsnicethat.com/articles/wix-playground-presents-data-narrative-design-round-up-digital-event-040320">It’s Nice That</a></span></div></div><div id="555:34" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; right: 82.2735595703125px; height: 44px; top: calc(50% - 22px - 29px); display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(236, 33, 52, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:34;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 36px; top: 4px; flex: none; align-self: center; color: rgba(255, 255, 255, 1); font-size: 28px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">write,</span></div></div><div id="555:37" style="z-index: 21; transform: matrix(0.9997233152389526,-0.02352331206202507,0.02352331206202507,0.9997233152389526,0,0); transform-origin: 0% 0%; width: 57px; position: absolute; right: 22.3583984375px; height: 24px; top: calc(50% - 12px - 16.4681396484375px); display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:37;495:30" style="position: static; left: calc(50% - 22.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://medium.com/@warronbebster/the-future-of-augmented-reality-will-be-boring-fc95be238ef4">Medium</a></span></div></div><div id="555:38" style="z-index: 21; transform: matrix(0.96561598777771,-0.2599726915359497,0.2599726915359497,0.96561598777771,0,0); transform-origin: 0% 0%; width: 91px; position: absolute; right: 28px; height: 24px; top: calc(50% - 12px - -36.657470703125px); display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:38;495:30" style="position: static; left: calc(50% - 39.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://design.google/library/designing-and-learning-teachable-machine/">Google Design</a></span></div></div><div id="555:39" style="z-index: 21; transform: matrix(0.904071569442749,0.42738106846809387,-0.42738106846809387,0.904071569442749,0,0); transform-origin: 0% 0%; width: 86px; position: absolute; right: 120.301513671875px; height: 24px; top: calc(50% - 12px - 0.8050537109375px); display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:39;495:30" style="position: static; left: calc(50% - 37px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.itsnicethat.com/news/pay-interns-why-it-matters-barron-webster-opinion-180918">It’s Nice That</a></span></div></div><div id="555:40" style="z-index: 21; transform: matrix(0.9945219159126282,0.10452846437692642,-0.10452846437692642,0.9945219159126282,0,0); transform-origin: 0% 0%; width: 141px; position: absolute; left: 27.5086669921875px; height: 24px; bottom: 129px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:40;495:30" style="position: static; left: calc(50% - 64.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.notion.so/Design-in-the-Real-World-ac2a96893f034b85b1045025054009ce">Interaction design, SVA</a></span></div></div><div id="555:41" style="z-index: 21; transform: matrix(0.9925462007522583,0.12186934798955917,-0.12186934798955917,0.9925462007522583,0,0); transform-origin: 0% 0%; width: 34px; position: absolute; left: 103.9248046875px; height: 24px; top: 107px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:41;495:30" style="position: static; left: calc(50% - 11px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="http://web.mit.edu/">MIT</a></span></div></div><div id="555:42" style="z-index: 21; transform: matrix(0.9558213949203491,-0.29394832253456116,0.29394832253456116,0.9558213949203491,0,0); transform-origin: 0% 0%; width: 43px; position: absolute; left: 146px; height: 24px; top: 102.6397705078125px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:42;495:30" style="position: static; left: calc(50% - 15.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://design.google/library/span2019/">SPAN</a></span></div></div><div id="555:43" style="z-index: 21; transform: matrix(0.9925462007522583,0.12186934798955917,-0.12186934798955917,0.9925462007522583,0,0); transform-origin: 0% 0%; width: 38px; position: absolute; left: 179.9248046875px; height: 24px; top: 59px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I555:43;495:30" style="position: static; left: calc(50% - 13px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://thefwa.com/interviews/barron-webster">FWA</a></span></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(236, 33, 52, 1);  width:100%; height:100%; display:block;" ><div id="556:2" style="transform: matrix(0.973799467086792,0.2274085283279419,-0.2274085283279419,0.973799467086792,0,0); transform-origin: 0% 0%; width: 319px; position: absolute; left: calc(50% - 159.5px - -7.5758056640625px); height: 31px; top: 50.511505126953125px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I556:2;495:30" style="position: static; left: calc(50% - 153.5px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">Here are some things I’ve worked on:</span></div></div><div id="578:0" style="transform: matrix(0.9694939851760864,0.24511535465717316,-0.24511535465717316,0.9694939851760864,0,0); transform-origin: 0% 0%; width: 212.26495361328125px; position: absolute; left: 35.8045654296875px; height: 40px; top: 136px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I578:0;495:30" style="width: 200.26495361328125px; position: static; left: calc(50% - 100.13247680664062px - 0px); height: 32px; top: 4px; flex: none; align-self: stretch; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A tool that lets anyone train their own AI models, no coding required</span></div></div><div id="578:8" style="transform: matrix(0.9694939851760864,0.24511535465717316,-0.24511535465717316,0.9694939851760864,0,0); transform-origin: 0% 0%; width: 145.45339965820312px; position: absolute; left: 40.80461502075195px; height: 40px; top: 237px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I578:8;495:30" style="width: 133.45339965820312px; position: static; left: calc(50% - 66.72669982910156px - 0px); height: 32px; top: 4px; flex: none; align-self: stretch; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A list of NYC offices that pay design interns</span></div></div><div id="578:6" style="transform: matrix(0.9694939851760864,0.24511535465717316,-0.24511535465717316,0.9694939851760864,0,0); transform-origin: 0% 0%; width: 166.26260375976562px; position: absolute; left: 216.8046112060547px; height: 40px; top: 306px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I578:6;495:30" style="width: 154.26260375976562px; position: static; left: calc(50% - 77.13130187988281px - 0px); height: 32px; top: 4px; flex: none; align-self: stretch; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A web store where only one person can shop at a time</span></div></div><div id="578:17" style="transform: matrix(1.0000001192092896,-2.7755575615628914e-17,2.7755575615628914e-17,1.0000001192092896,0,0); transform-origin: 0% 0%; width: 139px; position: absolute; left: 202px; height: 24px; top: 418px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I578:17;578:15" style="position: static; left: calc(50% - 63.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">Launching Google Lens</span></div></div><div id="578:23" style="transform: matrix(1.0000001192092896,-2.7755575615628914e-17,2.7755575615628914e-17,1.0000001192092896,0,0); transform-origin: 0% 0%; width: 172.99998474121094px; position: absolute; left: 19px; height: 39.999996185302734px; top: 479px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I578:23;495:30" style="width: 160.99998474121094px; position: static; left: calc(50% - 80.49999237060547px - 0px); height: 32px; top: 4px; flex: none; align-self: stretch; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">An interface for a cyperpunk detective voice game</span></div></div><div id="579:38" style="transform: matrix(1.0000001192092896,-2.7755575615628914e-17,2.7755575615628914e-17,1.0000001192092896,0,0); transform-origin: 0% 0%; width: 156.99998474121094px; position: absolute; left: 207px; height: 39.999996185302734px; top: 538px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I579:38;495:30" style="width: 144.99998474121094px; position: static; left: calc(50% - 72.49999237060547px - 0px); height: 32px; top: 4px; flex: none; align-self: stretch; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">Reports for understanding movement during COVID</span></div></div><div id="580:0" style="transform: matrix(1.0000001192092896,-2.7755575615628914e-17,2.7755575615628914e-17,1.0000001192092896,0,0); transform-origin: 0% 0%; width: 166.99998474121094px; position: absolute; left: 46px; height: 39.999996185302734px; top: 610px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I580:0;495:30" style="width: 154.99998474121094px; position: static; left: calc(50% - 77.49999237060547px - 0px); height: 32px; top: 4px; flex: none; align-self: stretch; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">Prototyping the first Google Home devices w/ screens</span></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(236, 33, 52, 1);  width:100%; height:100%; display:block;" ><div id="556:6" style="transform: matrix(0.992660641670227,-0.1209336519241333,0.1209336519241333,0.992660641670227,0,0); transform-origin: 0% 0%; width: 267.2351989746094px; position: absolute; left: calc(50% - 133.6175994873047px - 2.3824005126953125px); height: 54px; top: 83.3177261352539px; display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I556:6;495:30" style="width: 255.23519897460938px; position: static; left: calc(50% - 127.61759948730469px - 0px); height: 46px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">Here are some problems I think the world needs solved:</span></div></div><div id="581:4" style="transform: matrix(0.9961947202682495,-0.08715574443340302,0.08715574443340302,0.9961947202682495,0,0); transform-origin: 0% 0%; width: 152px; position: absolute; right: 44.45654296875px; height: 31px; top: calc(50% - 15.5px - 2.729248046875px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I581:4;578:15" style="position: static; left: calc(50% - 70px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">Systems Literacy</span></div></div><div id="584:4" style="transform: matrix(0.9961947202682495,-0.08715574443340302,0.08715574443340302,0.9961947202682495,0,0); transform-origin: 0% 0%; width: 227.75697326660156px; position: absolute; right: 140.24302673339844px; height: 54px; top: calc(50% - 27px - 98.14967346191406px); display: flex; flex-direction: column; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I584:4;495:30" style="width: 215.75697326660156px; position: static; left: calc(50% - 107.87848663330078px - 0px); height: 46px; top: 4px; flex: none; align-self: stretch; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">accountability structures outside of markets</span></div></div><div id="584:0" style="transform: matrix(0.9961947202682495,-0.08715574443340302,0.08715574443340302,0.9961947202682495,0,0); transform-origin: 0% 0%; width: 50px; position: absolute; right: 158.3881378173828px; height: 31px; top: calc(50% - 15.5px - -102.30276489257812px); display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I584:0;578:15" style="position: static; left: calc(50% - 19px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">Cars</span></div></div><div id="584:2" style="transform: matrix(1.0000001192092896,-2.7755575615628914e-17,2.7755575615628914e-17,1.0000001192092896,0,0); transform-origin: 0% 0%; width: 139px; position: absolute; left: 162px; height: 24px; top: 493px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I584:2;578:15" style="position: static; left: calc(50% - 63.5px - 0px); height: 16px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 12px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">Launching Google Lens</span></div></div></section>',]}, { name: "Project 2", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(255, 255, 255, 1);  width:100%; height:100%; display:block;" ><div id="4:25" style="width: 126px; position: absolute; left: 85px; height: 126px; top: 222px; background-color: rgba(86, 204, 242, 1); border-radius: 50%; "></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(98, 170, 64, 1);  width:100%; height:100%; display:block;" ><div id="161:2" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">WHAT</span></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(199, 238, 180, 1);  width:100%; height:100%; display:block;" ><div id="161:4" style="position: absolute; left: 54px; height: 70px; top: 264px; color: rgba(0, 0, 0, 1); font-size: 54px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end">A new one</span></div></section>',]}, { name: "Project threee", stories:['<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="495:1" style="z-index: 21; transform: matrix(0.9612616896629333,-0.2756373882293701,0.27563732862472534,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 128px; position: absolute; right: 45px; height: 78px; top: 210.28158569335938px; background-color: rgba(196, 196, 196, 1); "><div id="495:2" style="position: absolute; left: 13px; height: 18px; top: 11px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="end"><a href="http://barronwebster.com">Inside another</a></span></div><div id="495:3" style="transform: matrix(0.9612616896629333,0.27563735842704773,-0.27563735842704773,0.9612616896629333,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 14.134858131408691px; height: 12px; top: 42.38649368286133px; background-color: rgba(170, 38, 38, 1); "></div></div><div id="495:4" style="z-index: 21; position: absolute; left: calc(50% - 126px - -23px); height: 18px; top: 350px; color: rgba(0, 0, 0, 1); font-size: 14px; font-weight: 400; font-family: IBM Plex Sans, IBM Plex Sans, sans-serif; text-align: left; font-style: normal; line-height: 125%; "><span key="12">Let’s try a </span><span style="font-size: 14px; font-weight: 400; font-family: IBM Plex Sans, IBM Plex Sans, sans-serif; font-style: normal; line-height: 125%; color: rgba(0, 68, 204, 1); " key="16"> <a href="http://barronwebster.com">link</a></span><span key="end"> inline in a text box boyyyy</span></div><div id="495:5" style="width: 208px; position: absolute; left: 43px; height: 104px; top: 552px; display: flex; flex-direction: row; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="495:6" style="width: 31px; position: static; left: 8px; height: 47px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="495:7" style="width: 31px; position: static; left: 55px; height: 76px; top: 14px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="495:8" style="width: 32px; position: static; left: 102px; height: 47px; top: 43px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="495:9" style="width: 50px; position: static; left: 150px; height: 76px; top: 14px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div><div id="495:10" style="width: 104px; position: absolute; left: 43px; height: 156px; top: 54px; display: flex; flex-direction: column; padding: 14px 8px; justify-content: space-between; overflow: hidden; background-color: rgba(255, 255, 255, 1); "><div id="495:11" style="width: 31px; position: static; left: 8px; height: 20px; top: 14px; flex: none; align-self: flex-start; background-color: rgba(196, 196, 196, 1); "></div><div id="495:12" style="width: 88px; position: static; left: 8px; height: 15px; top: 50px; flex: none; align-self: center; background-color: rgba(196, 196, 196, 1); "></div><div id="495:13" style="width: 32px; position: static; left: 64px; height: 16px; top: 81px; flex: none; align-self: flex-end; background-color: rgba(114, 220, 143, 1); "></div><div id="495:14" style="width: 88px; position: static; left: 8px; height: 29px; top: 113px; flex: none; align-self: stretch; background-color: rgba(75, 163, 183, 1); "></div></div></section>','<section class="frame" style="overflow: hidden; background-color: rgba(192, 134, 227, 1);  width:100%; height:100%; display:block;" ><div id="543:22" style="transform: matrix(0.9396926164627075,-0.3420201539993286,0.34202009439468384,0.9396926164627075,0,0); transform-origin: 0% 0%; width: 80px; position: absolute; right: 36px; height: 120px; bottom: -14.6854248046875px; background-color: rgba(206, 176, 176, 1); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); border-radius: 8px 0px 0px 0px; "></div><div id="543:23" style="width: 120px; position: absolute; left: 37px; height: 144px; top: 443.32379150390625px; overflow: hidden; background-color: rgba(187, 57, 57, 1); border: 4px solid rgba(0, 0, 0, 1); border-radius: 12px 12px 12px 12px; "><div id="543:24" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 30.584228515625px; height: 45px; top: 52.869659423828125px; overflow: hidden; background-color: rgba(0, 68, 204, 1); "></div><div id="543:25" style="width: 45.18403244018555px; position: absolute; left: 23.511255264282227px; height: 48.8645133972168px; top: 98.32057189941406px; "><svg preserveAspectRatio="none" width="45.18403244018555" height="48.8645133972168" viewBox="0 0 45.18403244018555 48.8645133972168" xmlns="http://www.w3.org/2000/svg"><path d="M2.57576 0L45.184 24.0606L0 48.8645L2.57576 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div></div><div id="543:26" style="transform: matrix(0.8857674598693848,-0.46412932872772217,0.46412932872772217,0.8857674598693848,0,0); transform-origin: 0% 0%; width: 53px; position: absolute; left: 21px; height: 45px; top: 374.9226379394531px; overflow: hidden; background-color: rgba(0, 68, 204, 0.5); "></div><div id="543:27" style="width: 88px; position: absolute; left: 62.9617919921875px; height: 135.87109375px; top: 44px; "><svg preserveAspectRatio="none" width="88" height="135.87109375" viewBox="0 0 88 135.87109375" xmlns="http://www.w3.org/2000/svg"><path d="M44 0L82.1051 101.903L5.89488 101.903L44 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:28" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 88px; position: absolute; left: 27.8114013671875px; height: 135.87109375px; top: 231.3343505859375px; "><svg preserveAspectRatio="none" width="88" height="135.87109375" viewBox="0 0 88 135.87109375" xmlns="http://www.w3.org/2000/svg"><path d="M44 0L82.1051 101.903L5.89488 101.903L44 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:29" style="width: 76.21023559570312px; position: absolute; left: 219.8948974609375px; height: 101.9033203125px; top: 44px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:30" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 195.0274658203125px; height: 101.9033203125px; top: 222.19158935546875px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(196, 196, 196, 1)" stroke="" stroke-width="1"></path></svg></div><div id="543:31" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 135px; height: 101.9033203125px; top: 318.2125549316406px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L39.9784 -0.700496L38.1051 -5.71024L36.2318 -0.700496L38.1051 0ZM76.2102 101.903L76.2102 103.903L79.0934 103.903L78.0835 101.203L76.2102 101.903ZM0 101.903L-1.87331 101.203L-2.88312 103.903L0 103.903L0 101.903ZM36.2318 0.700496L74.3369 102.604L78.0835 101.203L39.9784 -0.700496L36.2318 0.700496ZM76.2102 99.9033L0 99.9033L0 103.903L76.2102 103.903L76.2102 99.9033ZM1.87331 102.604L39.9784 0.700496L36.2318 -0.700496L-1.87331 101.203L1.87331 102.604Z" fill="" stroke="rgba(196, 196, 196, 1)" stroke-width="4"></path></svg></div><div id="543:32" style="transform: matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,0,0); transform-origin: 0% 0%; width: 76.21023559570312px; position: absolute; left: 181px; height: 101.9033203125px; top: 444.2125549316406px; "><svg preserveAspectRatio="none" width="76.21023559570312" height="101.9033203125" viewBox="0 0 76.21023559570312 101.9033203125" xmlns="http://www.w3.org/2000/svg"><path d="M38.1051 0L76.2102 101.903L0 101.903L38.1051 0Z" fill="rgba(255, 255, 255, 0.009999999776482582)" stroke="rgba(196, 196, 196, 1)" stroke-width="4"></path></svg></div></section>',]}, { name: "Contact", stories:['<section class="frame" style="overflow: hidden; background-image: url(./images/!intro); background-size: cover;  width:100%; height:100%; display:block;" ><div id="583:1" style="z-index: 21; width: 179px; position: absolute; left: calc(50% - 89.5px - 0.5px); height: 35px; top: calc(50% - 17.5px - 4.5px); display: flex; flex-direction: row; padding: 6px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="581:36" style="transform: matrix(0.9999999403953552,-1.3877787807814457e-17,1.3877787807814457e-17,0.9999999403953552,0,0); transform-origin: 0% 0%; width: 12.84916307673108%; left: 3.35195530726257%; height: 53.39286259242466%; top: 23.303571428571427%; flex: none; position: static; align-self: center; "><svg preserveAspectRatio="none" width="23.000001907348633" height="18.687501907348633" viewBox="0 0 23.000001907348633 18.687501907348633" xmlns="http://www.w3.org/2000/svg"><path d="M23 2.21265C22.1542 2.58733 21.2456 2.84049 20.2904 2.95492C21.2648 2.37163 22.0124 1.44607 22.3649 0.344302C21.4532 0.885059 20.4433 1.27797 19.3686 1.4886C18.5076 0.573162 17.2819 0 15.9246 0C13.3193 0 11.2062 2.11239 11.2062 4.71896C11.2062 5.08757 11.2488 5.44605 11.3278 5.79238C7.40465 5.59491 3.92923 3.71644 1.60147 0.862781C1.19629 1.56151 0.963314 2.37163 0.963314 3.23441C0.963314 4.87086 1.79697 6.31592 3.06214 7.16148C2.28825 7.13617 1.56095 6.92452 0.924822 6.57111L0.924822 6.63187C0.924822 8.91742 2.5506 10.8243 4.71021 11.2577C4.31313 11.365 3.89681 11.4217 3.46732 11.4217C3.16344 11.4217 2.86664 11.3934 2.57897 11.3387C3.17964 13.2121 4.92192 14.5771 6.98732 14.6136C5.37167 15.8794 3.33665 16.6338 1.1264 16.6338C0.74553 16.6338 0.369726 16.6116 0 16.568C2.0887 17.9078 4.5684 18.6875 7.23245 18.6875C15.9134 18.6875 20.6591 11.4997 20.6591 5.2658C20.6591 5.06327 20.654 4.85871 20.6449 4.65618C21.5667 3.98985 22.3669 3.16049 22.998 2.21569L23 2.21265Z" fill="rgba(29, 161, 242, 1)" stroke="" stroke-width="1"></path></svg></div><div id="583:2" style="position: static; left: calc(50% - 69px - -14.5px); height: 23px; top: 6px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://twitter.com/WarronBebster">@warronbebster</a></span></div></div><div id="583:3" style="z-index: 21; width: 179px; position: absolute; left: calc(50% - 89.5px - 0.5px); height: 35px; top: calc(50% - 17.5px - -54.935028076171875px); display: flex; flex-direction: row; padding: 6px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="581:33" style="width: 23px; position: static; left: 6px; height: 23px; top: 6px; flex: none; align-self: center; background-image: url(./images/ig); background-size: cover; "></div><div id="583:4" style="position: static; left: calc(50% - 69px - -14.5px); height: 23px; top: 6px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end"><a href="https://www.instagram.com/barronwebster/">@barronwebster</a></span></div></div><div id="583:5" style="width: 230px; position: absolute; left: calc(50% - 115px - 0.5px); height: 35px; top: calc(50% - 17.5px - -113.93502807617188px); display: flex; flex-direction: row; padding: 6px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="583:6" style="position: static; left: calc(50% - 109px - 0px); height: 23px; top: 6px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; text-decoration-line: underline; "><span key="end">hello@barronwebster.com</span></div></div><div id="581:20" style="transform: matrix(0.9876883625984192,-0.15643446147441864,0.15643446147441864,0.9876883625984192,0,0); transform-origin: 0% 0%; width: 135px; position: absolute; left: calc(50% - 67.5px - 1.5px); height: 31px; top: 118.1186752319336px; display: flex; flex-direction: row; padding: 4px 6px; justify-content: space-between; background-color: rgba(255, 255, 255, 1); box-shadow: 0px 2px 6px rgba(60, 64, 67, 0.5); border-radius: 4px 4px 4px 4px; "><div id="I581:20;578:15" style="position: static; left: calc(50% - 61.5px - 0px); height: 23px; top: 4px; flex: none; align-self: center; color: rgba(0, 0, 0, 1); font-size: 18px; font-weight: 400; font-family: IBM Plex Sans Medium, IBM Plex Sans, sans-serif; text-align: center; font-style: normal; line-height: 125%; "><span key="end">want to say hi?</span></div></div></section>',]},  ];
 
     // export const currentPos = writable({ project: 0, story: 0 }); //export current number... and total number so it knows when to cycle?
 
@@ -2019,7 +2012,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (414:8) {#if params.project == i}
+    // (417:8) {#if params.project == i}
     function create_if_block$2(ctx) {
     	let div;
     	let each_value_2 = /*stories*/ ctx[33];
@@ -2040,7 +2033,7 @@ var app = (function () {
 
     			attr_dev(div, "id", "indicators");
     			attr_dev(div, "class", "svelte-1a3jwal");
-    			add_location(div, file$2, 415, 10, 10979);
+    			add_location(div, file$2, 418, 10, 11005);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2050,7 +2043,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*params, held, navOpen*/ 41) {
+    			if (dirty[0] & /*params, held, navOpen*/ 81) {
     				each_value_2 = /*stories*/ ctx[33];
     				validate_each_argument(each_value_2);
     				let i;
@@ -2084,14 +2077,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(414:8) {#if params.project == i}",
+    		source: "(417:8) {#if params.project == i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (426:14) {:else}
+    // (429:14) {:else}
     function create_else_block$1(ctx) {
     	let div;
 
@@ -2099,7 +2092,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "nextIndicators svelte-1a3jwal");
-    			add_location(div, file$2, 426, 16, 11374);
+    			add_location(div, file$2, 429, 16, 11400);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2114,14 +2107,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(426:14) {:else}",
+    		source: "(429:14) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (420:42) 
+    // (423:42) 
     function create_if_block_2(ctx) {
     	let div1;
     	let div0;
@@ -2134,11 +2127,11 @@ var app = (function () {
     			div0 = element("div");
     			t = space();
     			attr_dev(div0, "id", "loadingBar");
-    			attr_dev(div0, "class", div0_class_value = "" + (null_to_empty(/*held*/ ctx[3] || /*navOpen*/ ctx[5] ? "paused" : "no") + " svelte-1a3jwal"));
-    			add_location(div0, file$2, 421, 18, 11207);
+    			attr_dev(div0, "class", div0_class_value = "" + (null_to_empty(/*held*/ ctx[4] || /*navOpen*/ ctx[6] ? "paused" : "no") + " svelte-1a3jwal"));
+    			add_location(div0, file$2, 424, 18, 11233);
     			attr_dev(div1, "id", "currentIndicator");
     			attr_dev(div1, "class", "svelte-1a3jwal");
-    			add_location(div1, file$2, 420, 16, 11161);
+    			add_location(div1, file$2, 423, 16, 11187);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -2146,7 +2139,7 @@ var app = (function () {
     			append_dev(div1, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*held, navOpen*/ 40 && div0_class_value !== (div0_class_value = "" + (null_to_empty(/*held*/ ctx[3] || /*navOpen*/ ctx[5] ? "paused" : "no") + " svelte-1a3jwal"))) {
+    			if (dirty[0] & /*held, navOpen*/ 80 && div0_class_value !== (div0_class_value = "" + (null_to_empty(/*held*/ ctx[4] || /*navOpen*/ ctx[6] ? "paused" : "no") + " svelte-1a3jwal"))) {
     				attr_dev(div0, "class", div0_class_value);
     			}
     		},
@@ -2159,14 +2152,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(420:42) ",
+    		source: "(423:42) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (418:14) {#if params.story > p}
+    // (421:14) {#if params.story > p}
     function create_if_block_1(ctx) {
     	let div;
 
@@ -2174,7 +2167,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-1a3jwal");
-    			add_location(div, file$2, 418, 16, 11094);
+    			add_location(div, file$2, 421, 16, 11120);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2189,14 +2182,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(418:14) {#if params.story > p}",
+    		source: "(421:14) {#if params.story > p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (417:12) {#each stories as story, p}
+    // (420:12) {#each stories as story, p}
     function create_each_block_2(ctx) {
     	let if_block_anchor;
 
@@ -2241,14 +2234,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(417:12) {#each stories as story, p}",
+    		source: "(420:12) {#each stories as story, p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (433:8) {#each stories as story, j}
+    // (436:8) {#each stories as story, j}
     function create_each_block_1(ctx) {
     	let current;
 
@@ -2258,18 +2251,18 @@ var app = (function () {
     				current: /*params*/ ctx[0].project == /*i*/ ctx[35] && /*params*/ ctx[0].story == /*j*/ ctx[38]
     				? true
     				: false,
-    				next: /*next*/ ctx[6].project == /*i*/ ctx[35] && /*next*/ ctx[6].story == /*j*/ ctx[38]
+    				next: /*next*/ ctx[7].project == /*i*/ ctx[35] && /*next*/ ctx[7].story == /*j*/ ctx[38]
     				? true
     				: false,
-    				prev: /*prev*/ ctx[7].project == /*i*/ ctx[35] && /*prev*/ ctx[7].story == /*j*/ ctx[38]
+    				prev: /*prev*/ ctx[8].project == /*i*/ ctx[35] && /*prev*/ ctx[8].story == /*j*/ ctx[38]
     				? true
     				: false,
-    				nextCover: /*i*/ ctx[35] == /*nextProject*/ ctx[8]
-    				? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*nextProject*/ ctx[8]]
+    				nextCover: /*i*/ ctx[35] == /*nextProject*/ ctx[9]
+    				? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*nextProject*/ ctx[9]]
     					? true
     					: false
-    				: /*i*/ ctx[35] == /*prevProject*/ ctx[9]
-    					? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*prevProject*/ ctx[9]]
+    				: /*i*/ ctx[35] == /*prevProject*/ ctx[10]
+    					? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*prevProject*/ ctx[10]]
     						? true
     						: false
     					: false
@@ -2292,20 +2285,20 @@ var app = (function () {
     			? true
     			: false;
 
-    			if (dirty[0] & /*next*/ 64) story_changes.next = /*next*/ ctx[6].project == /*i*/ ctx[35] && /*next*/ ctx[6].story == /*j*/ ctx[38]
+    			if (dirty[0] & /*next*/ 128) story_changes.next = /*next*/ ctx[7].project == /*i*/ ctx[35] && /*next*/ ctx[7].story == /*j*/ ctx[38]
     			? true
     			: false;
 
-    			if (dirty[0] & /*prev*/ 128) story_changes.prev = /*prev*/ ctx[7].project == /*i*/ ctx[35] && /*prev*/ ctx[7].story == /*j*/ ctx[38]
+    			if (dirty[0] & /*prev*/ 256) story_changes.prev = /*prev*/ ctx[8].project == /*i*/ ctx[35] && /*prev*/ ctx[8].story == /*j*/ ctx[38]
     			? true
     			: false;
 
-    			if (dirty[0] & /*nextProject, activeStories, prevProject*/ 770) story_changes.nextCover = /*i*/ ctx[35] == /*nextProject*/ ctx[8]
-    			? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*nextProject*/ ctx[8]]
+    			if (dirty[0] & /*nextProject, activeStories, prevProject*/ 1538) story_changes.nextCover = /*i*/ ctx[35] == /*nextProject*/ ctx[9]
+    			? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*nextProject*/ ctx[9]]
     				? true
     				: false
-    			: /*i*/ ctx[35] == /*prevProject*/ ctx[9]
-    				? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*prevProject*/ ctx[9]]
+    			: /*i*/ ctx[35] == /*prevProject*/ ctx[10]
+    				? /*j*/ ctx[38] == /*activeStories*/ ctx[1][/*prevProject*/ ctx[10]]
     					? true
     					: false
     				: false;
@@ -2330,14 +2323,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(433:8) {#each stories as story, j}",
+    		source: "(436:8) {#each stories as story, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (396:4) {#each projectArray as { name, stories }
+    // (399:4) {#each projectArray as { name, stories }
     function create_each_block$1(ctx) {
     	let div;
     	let t0;
@@ -2372,27 +2365,27 @@ var app = (function () {
 
     			attr_dev(div, "class", div_class_value = "project " + /*i*/ ctx[35] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[35]
     			? "currentProject"
-    			: "") + "\n        " + (/*i*/ ctx[35] == /*nextProject*/ ctx[8]
+    			: "") + "\n        " + (/*i*/ ctx[35] == /*nextProject*/ ctx[9]
     			? "nextProject"
-    			: "") + "\n        " + (/*i*/ ctx[35] == /*prevProject*/ ctx[9]
+    			: "") + "\n        " + (/*i*/ ctx[35] == /*prevProject*/ ctx[10]
     			? "prevProject"
     			: "") + "\n        " + " svelte-1a3jwal");
 
-    			attr_dev(div, "style", div_style_value = "\n        " + (/*held*/ ctx[3] && (/*i*/ ctx[35] == /*params*/ ctx[0].project || /*i*/ ctx[35] == /*nextProject*/ ctx[8] || /*i*/ ctx[35] == /*prevProject*/ ctx[9])
-    			? "transform: translateX(" + (/*i*/ ctx[35] == /*prevProject*/ ctx[9]
+    			attr_dev(div, "style", div_style_value = "\n        " + (/*held*/ ctx[4] && (/*i*/ ctx[35] == /*params*/ ctx[0].project || /*i*/ ctx[35] == /*nextProject*/ ctx[9] || /*i*/ ctx[35] == /*prevProject*/ ctx[10])
+    			? "transform: translateX(" + (/*i*/ ctx[35] == /*prevProject*/ ctx[10]
     				? -100
-    				: /*i*/ ctx[35] == /*nextProject*/ ctx[8] ? 100 : 0) + "%) rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[2] / 4.2, -90), 90) + (/*i*/ ctx[35] == /*nextProject*/ ctx[8] ? 90 : 0) + (/*i*/ ctx[35] == /*prevProject*/ ctx[9] ? -90 : 0)) + "deg) ;"
+    				: /*i*/ ctx[35] == /*nextProject*/ ctx[9] ? 100 : 0) + "%) rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[2] / 4.2, -90), 90) + (/*i*/ ctx[35] == /*nextProject*/ ctx[9] ? 90 : 0) + (/*i*/ ctx[35] == /*prevProject*/ ctx[10] ? -90 : 0)) + "deg) ;"
     			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[35]
-    			? "transform-origin: center " + /*swipeDirection*/ ctx[4] + ";"
-    			: "") + "\n        " + (/*nextProject*/ ctx[8] == /*i*/ ctx[35]
+    			? "transform-origin: center " + /*swipeDirection*/ ctx[5] + ";"
+    			: "") + "\n        " + (/*nextProject*/ ctx[9] == /*i*/ ctx[35]
     			? "transform-origin: center left;"
-    			: "") + "\n        " + (/*prevProject*/ ctx[9] == /*i*/ ctx[35]
+    			: "") + "\n        " + (/*prevProject*/ ctx[10] == /*i*/ ctx[35]
     			? "transform-origin: center right;"
-    			: "") + "\n        " + (!/*held*/ ctx[3]
+    			: "") + "\n        " + (!/*held*/ ctx[4]
     			? "transition: left .5s ease, transform .5s ease;"
     			: "transition: left 0s, transform 0s") + "\n        ");
 
-    			add_location(div, file$2, 398, 6, 9918);
+    			add_location(div, file$2, 401, 6, 9944);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2420,7 +2413,7 @@ var app = (function () {
     				if_block = null;
     			}
 
-    			if (dirty[0] & /*params, next, prev, nextProject, activeStories, prevProject*/ 963) {
+    			if (dirty[0] & /*params, next, prev, nextProject, activeStories, prevProject*/ 1923) {
     				each_value_1 = /*stories*/ ctx[33];
     				validate_each_argument(each_value_1);
     				let i;
@@ -2448,27 +2441,27 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (!current || dirty[0] & /*params, nextProject, prevProject*/ 769 && div_class_value !== (div_class_value = "project " + /*i*/ ctx[35] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[35]
+    			if (!current || dirty[0] & /*params, nextProject, prevProject*/ 1537 && div_class_value !== (div_class_value = "project " + /*i*/ ctx[35] + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[35]
     			? "currentProject"
-    			: "") + "\n        " + (/*i*/ ctx[35] == /*nextProject*/ ctx[8]
+    			: "") + "\n        " + (/*i*/ ctx[35] == /*nextProject*/ ctx[9]
     			? "nextProject"
-    			: "") + "\n        " + (/*i*/ ctx[35] == /*prevProject*/ ctx[9]
+    			: "") + "\n        " + (/*i*/ ctx[35] == /*prevProject*/ ctx[10]
     			? "prevProject"
     			: "") + "\n        " + " svelte-1a3jwal")) {
     				attr_dev(div, "class", div_class_value);
     			}
 
-    			if (!current || dirty[0] & /*held, params, nextProject, prevProject, gesture_gap, swipeDirection*/ 797 && div_style_value !== (div_style_value = "\n        " + (/*held*/ ctx[3] && (/*i*/ ctx[35] == /*params*/ ctx[0].project || /*i*/ ctx[35] == /*nextProject*/ ctx[8] || /*i*/ ctx[35] == /*prevProject*/ ctx[9])
-    			? "transform: translateX(" + (/*i*/ ctx[35] == /*prevProject*/ ctx[9]
+    			if (!current || dirty[0] & /*held, params, nextProject, prevProject, gesture_gap, swipeDirection*/ 1589 && div_style_value !== (div_style_value = "\n        " + (/*held*/ ctx[4] && (/*i*/ ctx[35] == /*params*/ ctx[0].project || /*i*/ ctx[35] == /*nextProject*/ ctx[9] || /*i*/ ctx[35] == /*prevProject*/ ctx[10])
+    			? "transform: translateX(" + (/*i*/ ctx[35] == /*prevProject*/ ctx[10]
     				? -100
-    				: /*i*/ ctx[35] == /*nextProject*/ ctx[8] ? 100 : 0) + "%) rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[2] / 4.2, -90), 90) + (/*i*/ ctx[35] == /*nextProject*/ ctx[8] ? 90 : 0) + (/*i*/ ctx[35] == /*prevProject*/ ctx[9] ? -90 : 0)) + "deg) ;"
+    				: /*i*/ ctx[35] == /*nextProject*/ ctx[9] ? 100 : 0) + "%) rotateY(" + (Math.min(Math.max(/*gesture_gap*/ ctx[2] / 4.2, -90), 90) + (/*i*/ ctx[35] == /*nextProject*/ ctx[9] ? 90 : 0) + (/*i*/ ctx[35] == /*prevProject*/ ctx[10] ? -90 : 0)) + "deg) ;"
     			: "") + "\n        " + (/*params*/ ctx[0].project == /*i*/ ctx[35]
-    			? "transform-origin: center " + /*swipeDirection*/ ctx[4] + ";"
-    			: "") + "\n        " + (/*nextProject*/ ctx[8] == /*i*/ ctx[35]
+    			? "transform-origin: center " + /*swipeDirection*/ ctx[5] + ";"
+    			: "") + "\n        " + (/*nextProject*/ ctx[9] == /*i*/ ctx[35]
     			? "transform-origin: center left;"
-    			: "") + "\n        " + (/*prevProject*/ ctx[9] == /*i*/ ctx[35]
+    			: "") + "\n        " + (/*prevProject*/ ctx[10] == /*i*/ ctx[35]
     			? "transform-origin: center right;"
-    			: "") + "\n        " + (!/*held*/ ctx[3]
+    			: "") + "\n        " + (!/*held*/ ctx[4]
     			? "transition: left .5s ease, transform .5s ease;"
     			: "transition: left 0s, transform 0s") + "\n        ")) {
     				attr_dev(div, "style", div_style_value);
@@ -2504,7 +2497,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(396:4) {#each projectArray as { name, stories }",
+    		source: "(399:4) {#each projectArray as { name, stories }",
     		ctx
     	});
 
@@ -2516,7 +2509,6 @@ var app = (function () {
     	let div;
     	let main;
     	let main_style_value;
-    	let div_preventdefault_value;
     	let div_class_value;
     	let current;
     	let dispose;
@@ -2524,13 +2516,13 @@ var app = (function () {
     	const nav = new Nav({
     			props: {
     				projectIndex: parseInt(/*params*/ ctx[0].project),
-    				navOpen: /*navOpen*/ ctx[5]
+    				navOpen: /*navOpen*/ ctx[6]
     			},
     			$$inline: true
     		});
 
-    	nav.$on("message", /*showNav*/ ctx[10]);
-    	nav.$on("project", /*handleNavProject*/ ctx[11]);
+    	nav.$on("message", /*showNav*/ ctx[11]);
+    	nav.$on("project", /*handleNavProject*/ ctx[12]);
     	let each_value = projectArray;
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -2554,14 +2546,14 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(main, "style", main_style_value = "transform: translateX(" + (/*held*/ ctx[3]
+    			attr_dev(main, "style", main_style_value = "transform: translateX(" + (/*held*/ ctx[4]
     			? Math.max(Math.min(/*gesture_gap*/ ctx[2] * 1.1, 460), -460)
-    			: 0) + "px);\n    " + (/*held*/ ctx[3]
+    			: 0) + "px);\n    " + (/*held*/ ctx[4]
     			? "transition: transform 0s;"
     			: "transition: transform .5s ease;"));
 
     			attr_dev(main, "class", "svelte-1a3jwal");
-    			add_location(main, file$2, 391, 2, 9649);
+    			add_location(main, file$2, 394, 2, 9675);
     			set_style(div, "overflow", "hidden");
     			set_style(div, "height", "100vh");
     			set_style(div, "width", "100vw");
@@ -2570,9 +2562,8 @@ var app = (function () {
     			set_style(div, "justify-content", "center");
     			set_style(div, "perspective", "1080px");
     			set_style(div, "cursor", "ew-resize");
-    			attr_dev(div, "preventdefault", div_preventdefault_value = /*func*/ ctx[26]);
-    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*held*/ ctx[3] ? "grabbing" : "no") + " svelte-1a3jwal"));
-    			add_location(div, file$2, 369, 0, 9061);
+    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*held*/ ctx[4] ? "grabbing" : "no") + " svelte-1a3jwal"));
+    			add_location(div, file$2, 370, 0, 9083);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2591,22 +2582,22 @@ var app = (function () {
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(window_1, "keydown", /*handleKeydown*/ ctx[15], false, false, false),
-    				listen_dev(div, "touchstart", /*touchstart_handler*/ ctx[27], { passive: true }, false, false),
-    				listen_dev(div, "mousedown", prevent_default(/*mousedown_handler*/ ctx[28]), false, true, false),
-    				listen_dev(div, "touchmove", /*touchmove_handler*/ ctx[29], { passive: true }, false, false),
-    				listen_dev(div, "mousemove", prevent_default(/*mousemove_handler*/ ctx[30]), false, true, false),
-    				listen_dev(div, "touchend", /*touchend_handler*/ ctx[25], { passive: true }, false, false),
-    				listen_dev(div, "mouseup", /*mouseup_handler*/ ctx[31], false, false, false)
+    				listen_dev(window_1, "keydown", /*handleKeydown*/ ctx[16], false, false, false),
+    				listen_dev(div, "mousedown", /*mousedown_handler*/ ctx[26], false, false, false),
+    				listen_dev(div, "mousemove", /*mousemove_handler*/ ctx[27], false, false, false),
+    				listen_dev(div, "mouseup", /*mouseup_handler*/ ctx[28], false, false, false),
+    				listen_dev(div, "touchstart", /*touchstart_handler*/ ctx[29], { passive: true }, false, false),
+    				listen_dev(div, "touchmove", /*touchmove_handler*/ ctx[30], { passive: true }, false, false),
+    				listen_dev(div, "touchend", /*touchend_handler*/ ctx[31], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
     			const nav_changes = {};
     			if (dirty[0] & /*params*/ 1) nav_changes.projectIndex = parseInt(/*params*/ ctx[0].project);
-    			if (dirty[0] & /*navOpen*/ 32) nav_changes.navOpen = /*navOpen*/ ctx[5];
+    			if (dirty[0] & /*navOpen*/ 64) nav_changes.navOpen = /*navOpen*/ ctx[6];
     			nav.$set(nav_changes);
 
-    			if (dirty[0] & /*params, nextProject, prevProject, held, gesture_gap, swipeDirection, next, prev, activeStories, navOpen*/ 1023) {
+    			if (dirty[0] & /*params, nextProject, prevProject, held, gesture_gap, swipeDirection, next, prev, activeStories, navOpen*/ 2039) {
     				each_value = projectArray;
     				validate_each_argument(each_value);
     				let i;
@@ -2634,19 +2625,15 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (!current || dirty[0] & /*held, gesture_gap*/ 12 && main_style_value !== (main_style_value = "transform: translateX(" + (/*held*/ ctx[3]
+    			if (!current || dirty[0] & /*held, gesture_gap*/ 20 && main_style_value !== (main_style_value = "transform: translateX(" + (/*held*/ ctx[4]
     			? Math.max(Math.min(/*gesture_gap*/ ctx[2] * 1.1, 460), -460)
-    			: 0) + "px);\n    " + (/*held*/ ctx[3]
+    			: 0) + "px);\n    " + (/*held*/ ctx[4]
     			? "transition: transform 0s;"
     			: "transition: transform .5s ease;"))) {
     				attr_dev(main, "style", main_style_value);
     			}
 
-    			if (!current || dirty[0] & /*held*/ 8 && div_preventdefault_value !== (div_preventdefault_value = /*func*/ ctx[26])) {
-    				attr_dev(div, "preventdefault", div_preventdefault_value);
-    			}
-
-    			if (!current || dirty[0] & /*held*/ 8 && div_class_value !== (div_class_value = "" + (null_to_empty(/*held*/ ctx[3] ? "grabbing" : "no") + " svelte-1a3jwal"))) {
+    			if (!current || dirty[0] & /*held*/ 16 && div_class_value !== (div_class_value = "" + (null_to_empty(/*held*/ ctx[4] ? "grabbing" : "no") + " svelte-1a3jwal"))) {
     				attr_dev(div, "class", div_class_value);
     			}
     		},
@@ -2691,7 +2678,7 @@ var app = (function () {
     }
 
     const swipeSensitivity = 100;
-    const storyTimerTime = 6000;
+    const storyTimerTime = 60000;
 
     function instance$4($$self, $$props, $$invalidate) {
     	let activeStories = [];
@@ -2703,6 +2690,7 @@ var app = (function () {
     	let { params = { project: 0, story: 0 } } = $$props;
     	let bufferProject = 0;
     	let gesture_start, gesture_active, gesture_gap = 0;
+    	let touch = false;
     	let held = false;
     	let swipeDirection = "right";
     	let gestureTimedOut = true; //whether a gesture has timed out
@@ -2711,7 +2699,7 @@ var app = (function () {
     	let navOpen = false;
 
     	const showNav = function (event) {
-    		$$invalidate(5, navOpen = event.detail.open);
+    		$$invalidate(6, navOpen = event.detail.open);
     	};
 
     	const Timer = function (callback, delay) {
@@ -2767,8 +2755,8 @@ var app = (function () {
     		//when a gesture starts
     		storyTimer.pause(); //pause story timer
 
-    		$$invalidate(5, navOpen = false); //close nav
-    		$$invalidate(3, held = true); //start holding gesture
+    		$$invalidate(6, navOpen = false); //close nav
+    		$$invalidate(4, held = true); //start holding gesture
     		gestureTimedOut = false; //reset gestureTimedOut, hasn't timed out yet
 
     		e.type == "touchstart"
@@ -2794,8 +2782,8 @@ var app = (function () {
     		$$invalidate(2, gesture_gap = gesture_active - gesture_start); //set the gap between start and where you've dragged
 
     		gesture_gap > 0
-    		? $$invalidate(4, swipeDirection = "left")
-    		: $$invalidate(4, swipeDirection = "right");
+    		? $$invalidate(5, swipeDirection = "left")
+    		: $$invalidate(5, swipeDirection = "right");
     	}
 
     	function gestureUp(e) {
@@ -2827,7 +2815,7 @@ var app = (function () {
     		// if (storyTimer) storyTimer.reset();
     		if (gestureTimer) clearTimeout(gestureTimer);
 
-    		$$invalidate(3, held = false); //end holding gesture
+    		$$invalidate(4, held = false); //end holding gesture
     		gesture_start = 0;
     		gesture_active = 0;
     		$$invalidate(2, gesture_gap = 0);
@@ -2858,26 +2846,28 @@ var app = (function () {
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("Stories", $$slots, []);
 
-    	function touchend_handler(event) {
-    		bubble($$self, event);
-    	}
-
-    	const func = e => {
-    		if (held) gestureUp();
+    	const mousedown_handler = e => {
+    		if (!touch) gestureDown(e);
     	};
 
-    	const touchstart_handler = e => gestureDown(e);
-    	const mousedown_handler = e => gestureDown(e);
+    	const mousemove_handler = e => {
+    		if (held && !touch) gestureMove(e);
+    	};
+
+    	const mouseup_handler = e => {
+    		if (held && !touch) gestureUp();
+    	};
+
+    	const touchstart_handler = e => {
+    		$$invalidate(3, touch = true);
+    		gestureDown(e);
+    	};
 
     	const touchmove_handler = e => {
     		if (held) gestureMove(e);
     	};
 
-    	const mousemove_handler = e => {
-    		if (held) gestureMove(e);
-    	};
-
-    	const mouseup_handler = e => {
+    	const touchend_handler = e => {
     		if (held) gestureUp();
     	};
 
@@ -2899,6 +2889,7 @@ var app = (function () {
     		gesture_start,
     		gesture_active,
     		gesture_gap,
+    		touch,
     		held,
     		swipeDirection,
     		swipeSensitivity,
@@ -2925,20 +2916,21 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ("activeStories" in $$props) $$invalidate(1, activeStories = $$props.activeStories);
     		if ("params" in $$props) $$invalidate(0, params = $$props.params);
-    		if ("bufferProject" in $$props) $$invalidate(16, bufferProject = $$props.bufferProject);
+    		if ("bufferProject" in $$props) $$invalidate(17, bufferProject = $$props.bufferProject);
     		if ("gesture_start" in $$props) gesture_start = $$props.gesture_start;
     		if ("gesture_active" in $$props) gesture_active = $$props.gesture_active;
     		if ("gesture_gap" in $$props) $$invalidate(2, gesture_gap = $$props.gesture_gap);
-    		if ("held" in $$props) $$invalidate(3, held = $$props.held);
-    		if ("swipeDirection" in $$props) $$invalidate(4, swipeDirection = $$props.swipeDirection);
+    		if ("touch" in $$props) $$invalidate(3, touch = $$props.touch);
+    		if ("held" in $$props) $$invalidate(4, held = $$props.held);
+    		if ("swipeDirection" in $$props) $$invalidate(5, swipeDirection = $$props.swipeDirection);
     		if ("gestureTimedOut" in $$props) gestureTimedOut = $$props.gestureTimedOut;
     		if ("gestureTimer" in $$props) gestureTimer = $$props.gestureTimer;
     		if ("storyTimer" in $$props) storyTimer = $$props.storyTimer;
-    		if ("navOpen" in $$props) $$invalidate(5, navOpen = $$props.navOpen);
-    		if ("next" in $$props) $$invalidate(6, next = $$props.next);
-    		if ("prev" in $$props) $$invalidate(7, prev = $$props.prev);
-    		if ("nextProject" in $$props) $$invalidate(8, nextProject = $$props.nextProject);
-    		if ("prevProject" in $$props) $$invalidate(9, prevProject = $$props.prevProject);
+    		if ("navOpen" in $$props) $$invalidate(6, navOpen = $$props.navOpen);
+    		if ("next" in $$props) $$invalidate(7, next = $$props.next);
+    		if ("prev" in $$props) $$invalidate(8, prev = $$props.prev);
+    		if ("nextProject" in $$props) $$invalidate(9, nextProject = $$props.nextProject);
+    		if ("prevProject" in $$props) $$invalidate(10, prevProject = $$props.prevProject);
     	};
 
     	let next;
@@ -2957,43 +2949,43 @@ var app = (function () {
     		}
 
     		if ($$self.$$.dirty[0] & /*params*/ 1) {
-    			 $$invalidate(6, next = getNext(params));
+    			 $$invalidate(7, next = getNext(params));
     		}
 
     		if ($$self.$$.dirty[0] & /*params*/ 1) {
-    			 $$invalidate(7, prev = getPrev(params));
+    			 $$invalidate(8, prev = getPrev(params));
     		}
 
     		if ($$self.$$.dirty[0] & /*params*/ 1) {
-    			 $$invalidate(8, nextProject = parseInt(params.project) < projectArray.length - 1
+    			 $$invalidate(9, nextProject = parseInt(params.project) < projectArray.length - 1
     			? parseInt(params.project) + 1
     			: 0);
     		}
 
     		if ($$self.$$.dirty[0] & /*params*/ 1) {
-    			 $$invalidate(9, prevProject = parseInt(params.project) > 0
+    			 $$invalidate(10, prevProject = parseInt(params.project) > 0
     			? parseInt(params.project) - 1
     			: projectArray.length - 1);
     		}
 
-    		if ($$self.$$.dirty[0] & /*params, bufferProject*/ 65537) {
+    		if ($$self.$$.dirty[0] & /*params, bufferProject*/ 131073) {
     			//if the project has changed since router push went through
     			 if (parseInt(params.project) != bufferProject) {
     				if (parseInt(params.project) == 0) {
     					bufferProject == projectArray.length - 1
-    					? $$invalidate(4, swipeDirection = "left")
-    					: $$invalidate(4, swipeDirection = "right");
+    					? $$invalidate(5, swipeDirection = "left")
+    					: $$invalidate(5, swipeDirection = "right");
     				} else if (parseInt(params.project) == projectArray.length - 1) {
     					bufferProject == 0
-    					? $$invalidate(4, swipeDirection = "right")
-    					: $$invalidate(4, swipeDirection = "left");
+    					? $$invalidate(5, swipeDirection = "right")
+    					: $$invalidate(5, swipeDirection = "left");
     				} else {
     					parseInt(params.project) > bufferProject
-    					? $$invalidate(4, swipeDirection = "left")
-    					: $$invalidate(4, swipeDirection = "right");
+    					? $$invalidate(5, swipeDirection = "left")
+    					: $$invalidate(5, swipeDirection = "right");
     				}
 
-    				$$invalidate(16, bufferProject = parseInt(params.project));
+    				$$invalidate(17, bufferProject = parseInt(params.project));
     			}
     		}
     	};
@@ -3002,6 +2994,7 @@ var app = (function () {
     		params,
     		activeStories,
     		gesture_gap,
+    		touch,
     		held,
     		swipeDirection,
     		navOpen,
@@ -3024,13 +3017,12 @@ var app = (function () {
     		Timer,
     		pushHandler,
     		handleProjects,
-    		touchend_handler,
-    		func,
-    		touchstart_handler,
     		mousedown_handler,
-    		touchmove_handler,
     		mousemove_handler,
-    		mouseup_handler
+    		mouseup_handler,
+    		touchstart_handler,
+    		touchmove_handler,
+    		touchend_handler
     	];
     }
 
