@@ -23,7 +23,7 @@
     position: absolute;
     padding: 0;
     margin: 0 2px;
-    min-height: 30px;
+    min-height: 26px;
     top: 10px;
     left: 10px;
     background-color: white;
@@ -36,11 +36,11 @@
 
   .navItem {
     margin: 2px;
-    padding: 4px;
+    padding: 2px 4px;
     overflow: hidden;
     border-radius: 5px;
     transition: all 0.5s ease;
-    font-size: 16px;
+    font-size: 12px;
   }
   .navItem:hover {
     cursor: pointer;
