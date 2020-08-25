@@ -23,11 +23,11 @@
     position: absolute;
     padding: 0;
     margin: 0 2px;
-    min-height: 26px;
+    min-height: 30px;
     top: 10px;
     left: 10px;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
@@ -36,11 +36,11 @@
 
   .navItem {
     margin: 2px;
-    padding: 2px 4px;
+    padding: 3px;
     overflow: hidden;
     border-radius: 5px;
     transition: all 0.5s ease;
-    font-size: 12px;
+    font-size: 14px;
   }
   .navItem:hover {
     cursor: pointer;

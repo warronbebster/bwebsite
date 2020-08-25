@@ -1,6 +1,6 @@
 <script>
   import Story from "./Story.svelte";
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
   // import { gestures } from "@composi/gestures";
@@ -35,7 +35,7 @@
     gesture_active,
     gesture_gap = 0;
 
-  let touch = false;
+  // let touch = false;
   let held = false;
   let swipeDirection = "right";
   const swipeSensitivity = 100;
@@ -148,7 +148,8 @@
     gesture_gap > 0 ? (swipeDirection = "left") : (swipeDirection = "right");
   }
 
-  function gestureUp(e) {
+  async function gestureUp(e) {
+    // await tick();
     storyTimer.resume();
     if (!gestureTimedOut) {
       //if the gesture hasn't timed out
@@ -194,6 +195,19 @@
     storyTimer = new Timer(() => {
       handleProjects("next");
     }, storyTimerTime);
+
+    function callback(e) {
+      var e = window.e || e;
+      if (e.target.tagName !== "A") return;
+      // Do something
+      // console.log("uhhhhhh what is this callback thing");
+      // console.log();
+      window.location.href = e.srcElement.href; //go to link
+    }
+
+    if (document.addEventListener)
+      document.addEventListener("touchend", callback, false);
+    else document.attachEvent("onclick", callback);
   });
 </script>
 
@@ -373,22 +387,21 @@
   align-items: center; justify-content: center; perspective: 1080px; cursor:
   ew-resize"
   on:mousedown={e => {
-    if (!touch) gestureDown(e);
+    gestureDown(e);
   }}
   on:mousemove={e => {
-    if (held && !touch) gestureMove(e);
+    if (held) gestureMove(e);
   }}
   on:mouseup={e => {
-    if (held && !touch) gestureUp(e);
+    if (held) gestureUp(e);
   }}
   on:touchstart|passive={e => {
-    touch = true;
     gestureDown(e);
   }}
   on:touchmove|passive={e => {
     if (held) gestureMove(e);
   }}
-  on:touchend={e => {
+  on:touchend|preventDefault={e => {
     if (held) gestureUp(e);
   }}
   class={held ? 'grabbing' : 'no'}>
