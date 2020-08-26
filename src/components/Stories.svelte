@@ -44,7 +44,7 @@
   let gestureTimer; //timer object to time that
 
   let storyTimer; //timer object to time stories
-  const storyTimerTime = 60000;
+  const storyTimerTime = 6000;
 
   let navOpen = false;
   const showNav = function(event) {

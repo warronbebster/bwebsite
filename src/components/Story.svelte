@@ -67,7 +67,7 @@
     /* z-index: -10; */
     top: -2000px;
     left: -1000px;
-    opacity: 0;
+    /* opacity: 0; */
   }
   .currentStory {
     margin: 0;
@@ -81,7 +81,7 @@
     /* z-index: -10; */
     top: -2000px;
     left: -1000px;
-    opacity: 0;
+    /* opacity: 0; */
   }
   .nextCover {
     position: static;

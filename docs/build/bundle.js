@@ -1516,8 +1516,8 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-cfczy5");
-    			add_location(div, file, 92, 0, 1894);
+    			attr_dev(div, "class", div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-1790afx");
+    			add_location(div, file, 92, 0, 1906);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1548,7 +1548,7 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (!current || dirty & /*displayPosition*/ 2 && div_class_value !== (div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-cfczy5")) {
+    			if (!current || dirty & /*displayPosition*/ 2 && div_class_value !== (div_class_value = "story " + /*displayPosition*/ ctx[1] + " " + " svelte-1790afx")) {
     				attr_dev(div, "class", div_class_value);
     			}
     		},
@@ -2040,7 +2040,7 @@ var app = (function () {
 
     			attr_dev(div, "id", "indicators");
     			attr_dev(div, "class", "svelte-3eynf");
-    			add_location(div, file$2, 422, 10, 11355);
+    			add_location(div, file$2, 422, 10, 11354);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2099,7 +2099,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "nextIndicators svelte-3eynf");
-    			add_location(div, file$2, 433, 16, 11750);
+    			add_location(div, file$2, 433, 16, 11749);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2135,10 +2135,10 @@ var app = (function () {
     			t = space();
     			attr_dev(div0, "id", "loadingBar");
     			attr_dev(div0, "class", div0_class_value = "" + (null_to_empty(/*held*/ ctx[3] || /*navOpen*/ ctx[5] ? "paused" : "no") + " svelte-3eynf"));
-    			add_location(div0, file$2, 428, 18, 11583);
+    			add_location(div0, file$2, 428, 18, 11582);
     			attr_dev(div1, "id", "currentIndicator");
     			attr_dev(div1, "class", "svelte-3eynf");
-    			add_location(div1, file$2, 427, 16, 11537);
+    			add_location(div1, file$2, 427, 16, 11536);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -2174,7 +2174,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-3eynf");
-    			add_location(div, file$2, 425, 16, 11470);
+    			add_location(div, file$2, 425, 16, 11469);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2392,7 +2392,7 @@ var app = (function () {
     			? "transition: left .5s ease, transform .5s ease; "
     			: "transition: left 0s, transform 0s ")));
 
-    			add_location(div, file$2, 414, 6, 10369);
+    			add_location(div, file$2, 414, 6, 10368);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2560,7 +2560,7 @@ var app = (function () {
     			: "transition: transform .5s ease;"));
 
     			attr_dev(main, "class", "svelte-3eynf");
-    			add_location(main, file$2, 407, 2, 10100);
+    			add_location(main, file$2, 407, 2, 10099);
     			set_style(div, "overflow", "hidden");
     			set_style(div, "height", "100vh");
     			set_style(div, "width", "100vw");
@@ -2570,7 +2570,7 @@ var app = (function () {
     			set_style(div, "perspective", "1080px");
     			set_style(div, "cursor", "ew-resize");
     			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*held*/ ctx[3] ? "grabbing" : "no") + " svelte-3eynf"));
-    			add_location(div, file$2, 384, 0, 9543);
+    			add_location(div, file$2, 384, 0, 9542);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2685,7 +2685,7 @@ var app = (function () {
     }
 
     const swipeSensitivity = 100;
-    const storyTimerTime = 60000;
+    const storyTimerTime = 6000;
 
     function instance$4($$self, $$props, $$invalidate) {
     	let activeStories = [];
