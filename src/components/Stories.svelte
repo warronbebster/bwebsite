@@ -248,7 +248,7 @@
     -webkit-backface-visibility: hidden;
     transition: left 0.5s ease, transform 0.5s ease;
     display: none;
-    overflow: visible;
+    overflow: hidden;
     background: transparent;
     will-change: transform;
   }
@@ -413,18 +413,9 @@
       <!-- each project -->
 
       <div
-        class="project {i}
-        {params.project == i ? 'currentProject' : ''}
-        {i == nextProject ? 'nextProject' : ''}
-        {i == prevProject ? 'prevProject' : ''}
-        "
-        style="
-        {held && (i == params.project || i == nextProject || i == prevProject) ? 'transform: translateX(' + (i == prevProject ? -100 : i == nextProject ? 100 : 0) + '%) rotateY(' + (Math.min(Math.max(gesture_gap / 4.2, -90), 90) + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg) ;' : ''}
-        {params.project == i ? 'transform-origin: center ' + swipeDirection + ';' : ''}
-        {nextProject == i ? 'transform-origin: center left;' : ''}
-        {prevProject == i ? 'transform-origin: center right;' : ''}
-        {!held ? 'transition: left .5s ease, transform .5s ease;' : 'transition: left 0s, transform 0s'}
-        ">
+        class="project {params.project == i ? 'currentProject ' : ''}{i == nextProject ? 'nextProject ' : ''}{i == prevProject ? 'prevProject ' : ''}"
+        style="{held && (i == params.project || i == nextProject || i == prevProject) ? 'transform: translateX(' + (i == prevProject ? -100 : i == nextProject ? 100 : 0) + '%) rotateY(' + (Math.min(Math.max(gesture_gap / 4.2, -90), 90) + (i == nextProject ? 90 : 0) + (i == prevProject ? -90 : 0)) + 'deg) ;' : ''}
+        {params.project == i ? 'transform-origin: center ' + swipeDirection + ';' : ''}{nextProject == i ? 'transform-origin: center left; ' : ' '}{prevProject == i ? 'transform-origin: center right; ' : ' '}{!held ? 'transition: left .5s ease, transform .5s ease; ' : 'transition: left 0s, transform 0s '}">
         <!-- {(i == prevProject ? 'translateX(-100%) ' : '')} {(i == nextProject ? 'translateX(100%) ' : '')} -->
 
         {#if params.project == i}

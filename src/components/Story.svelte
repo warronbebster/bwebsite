@@ -57,20 +57,36 @@
 
   .prevCover {
     display: block !important;
+    position: static;
+    opacity: 1;
   }
 
   .minus1 {
-    display: none;
+    /* display: none; */
+    position: absolute;
+    /* z-index: -10; */
+    top: -2000px;
+    left: -1000px;
+    opacity: 0;
   }
   .currentStory {
     margin: 0;
+    position: static;
+    opacity: 1;
     /* order: 2; */
   }
   .plus1 {
-    display: none;
+    /* display: none; */
+    position: absolute;
+    /* z-index: -10; */
+    top: -2000px;
+    left: -1000px;
+    opacity: 0;
   }
   .nextCover {
+    position: static;
     display: block !important;
+    opacity: 1;
   }
 </style>
 
