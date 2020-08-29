@@ -1,12 +1,9 @@
 <script>
   import Story from "./Story.svelte";
-  import { onMount, tick } from "svelte";
+  import { onMount } from "svelte";
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
-  // import { gestures } from "@composi/gestures";
   import { push } from "svelte-spa-router";
-
-  // gestures(); //figure this shit out at some point lol
 
   let activeStories = [];
   for (const project of projectArray) {
@@ -35,7 +32,6 @@
     gesture_active,
     gesture_gap = 0;
 
-  // let touch = false;
   let held = false;
   let swipeDirection = "right";
   const swipeSensitivity = 100;
@@ -149,7 +145,6 @@
   }
 
   async function gestureUp(e) {
-    // await tick();
     storyTimer.resume();
     if (!gestureTimedOut) {
       //if the gesture hasn't timed out

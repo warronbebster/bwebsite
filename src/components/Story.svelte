@@ -2,8 +2,6 @@
   import { beforeUpdate } from "svelte";
   import Content from "./Content.svelte";
 
-  // export const projectIndex = 0; //prop so that you can pass which project from App
-  // export const storyIndex = 0; //prop so that you can pass which project from App
   export let storyContent = "<section>loading…</section"; //prop so that you can pass which project from App
   export let current = false;
   export let nextCover = false;
@@ -62,26 +60,19 @@
   }
 
   .minus1 {
-    /* display: none; */
     position: absolute;
-    /* z-index: -10; */
     top: -2000px;
     left: -1000px;
-    /* opacity: 0; */
   }
   .currentStory {
     margin: 0;
     position: static;
     opacity: 1;
-    /* order: 2; */
   }
   .plus1 {
-    /* display: none; */
     position: absolute;
-    /* z-index: -10; */
     top: -2000px;
     left: -1000px;
-    /* opacity: 0; */
   }
   .nextCover {
     position: static;
