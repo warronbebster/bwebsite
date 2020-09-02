@@ -41,3 +41,7 @@ svg {
 	top: 0;
 	left: 0;
 }
+
+video {
+	content-visibility: auto;
+}
