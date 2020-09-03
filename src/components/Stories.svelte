@@ -140,6 +140,7 @@
     e.type == "touchmove"
       ? (gesture_active = Math.round(e.changedTouches[0].pageX))
       : (gesture_active = e.pageX);
+
     gesture_gap = gesture_active - gesture_start; //set the gap between start and where you've dragged
     gesture_gap > 0 ? (swipeDirection = "left") : (swipeDirection = "right");
   }
@@ -383,23 +384,30 @@
   ew-resize"
   on:mousedown={e => {
     gestureDown(e);
+    console.log('mouseDown');
   }}
   on:mousemove={e => {
     if (held) gestureMove(e);
+    console.log('mouseMove');
   }}
   on:mouseup={e => {
     if (held) gestureUp(e);
+    console.log('mouseUp');
   }}
-  on:touchstart|passive={e => {
+  on:touchstart|preventDefault={e => {
     gestureDown(e);
+    console.log('touchStart');
   }}
   on:touchmove|passive={e => {
     if (held) gestureMove(e);
+    console.log('touchMove');
   }}
   on:touchend|preventDefault={e => {
     if (held) gestureUp(e);
+    console.log('touchEnd');
   }}
   class={held ? 'grabbing' : 'no'}>
+
   <main
     style="transform: translateX({held ? Math.max(Math.min(gesture_gap * 1.1, 460), -460) : 0}px);
     {held ? 'transition: transform 0s;' : 'transition: transform .5s ease;'}">
