@@ -384,27 +384,21 @@
   ew-resize"
   on:mousedown={e => {
     gestureDown(e);
-    console.log('mouseDown');
   }}
   on:mousemove={e => {
     if (held) gestureMove(e);
-    console.log('mouseMove');
   }}
   on:mouseup={e => {
     if (held) gestureUp(e);
-    console.log('mouseUp');
   }}
   on:touchstart|preventDefault={e => {
     gestureDown(e);
-    console.log('touchStart');
   }}
   on:touchmove|passive={e => {
     if (held) gestureMove(e);
-    console.log('touchMove');
   }}
   on:touchend|preventDefault={e => {
     if (held) gestureUp(e);
-    console.log('touchEnd');
   }}
   class={held ? 'grabbing' : 'no'}>
 

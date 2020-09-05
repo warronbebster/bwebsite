@@ -19,7 +19,7 @@
 
 <style>
   nav {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     position: absolute;
     padding: 0;
     margin: 0 2px;
@@ -27,7 +27,7 @@
     top: 10px;
     left: 10px;
     background-color: white;
-    border-radius: 4px;
+    border-radius: 10px;
     box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
@@ -36,7 +36,7 @@
 
   .navItem {
     margin: 2px;
-    padding: 3px;
+    padding: 3px 8px;
     overflow: hidden;
     border-radius: 5px;
     transition: all 0.5s ease;
@@ -45,16 +45,13 @@
   .navItem:hover {
     cursor: pointer;
     color: rgb(154, 24, 160);
-    /* background-color: rgb(225, 206, 224); */
     transition: all 0.4s ease;
   }
   ol {
     padding: 0;
     margin: 0;
   }
-  /* .activeNavItem {
-    color: red;
-  } */
+
   .hidden {
     height: 0px;
     margin-top: 0px;
