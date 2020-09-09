@@ -23,11 +23,11 @@
     position: absolute;
     padding: 0;
     margin: 0 2px;
-    min-height: 30px;
+    min-height: 28px;
     top: 10px;
     left: 10px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
