@@ -133,38 +133,40 @@ async function main() {
 	let contents = `export const figmaProject = [`; //this is what eventually gets written to filesystem
 
 	for (let j = 0; j < figmaFile.length; j++) {
-		const componentMap = {}; //empty object for putting stuff in?
+		if (figmaFile[j].name.charAt(0) !== '!') {
+			const componentMap = {}; //empty object for putting stuff in?
 
-		let nextSection = ''; //container for what is to be added to 'contents'
+			let nextSection = ''; //container for what is to be added to 'contents'
 
-		for (let i = 0; i < figmaFile[j].children.length; i++) {
-			//for each artboard
-			const child = figmaFile[j].children[i]; //child variable
-			if (child.name.charAt(0) === '!' && child.visible !== false) {
-				//if named & visible
-				figma.createComponent(child, imageFills, componentMap);
-				//hit figma lib
-				//pass the frame and images?
-				//returns object & updates componentMap object
+			for (let i = 0; i < figmaFile[j].children.length; i++) {
+				//for each artboard
+				const child = figmaFile[j].children[i]; //child variable
+				if (child.name.charAt(0) === '!' && child.visible !== false) {
+					//if named & visible
+					figma.createComponent(child, imageFills, componentMap);
+					//hit figma lib
+					//pass the frame and images?
+					//returns object & updates componentMap object
+				}
 			}
+
+			// console.log(componentMap);
+			//so at this point, componentMap has {name, doc(aka html to write), instance} plus a key i don't understand (16:0?)
+
+			for (const key in componentMap) {
+				// contents += `  if (id === "${key}") return ${componentMap[key].instance};\n`;
+				nextSection += "'" + componentMap[key].doc + "',";
+				//write that thing in componentMap to nextSection
+			}
+
+			//here is where to start json
+			contents +=
+				// '<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /><title>Svelte app</title><link rel="stylesheet" href="./global.css" /></head><body>';
+				`{ name: "${figmaFile[j].name}", stories:[`;
+			contents += nextSection; //append nextSection to contents
+			// contents += '</body></html>';
+			contents += ']}, ';
 		}
-
-		// console.log(componentMap);
-		//so at this point, componentMap has {name, doc(aka html to write), instance} plus a key i don't understand (16:0?)
-
-		for (const key in componentMap) {
-			// contents += `  if (id === "${key}") return ${componentMap[key].instance};\n`;
-			nextSection += "'" + componentMap[key].doc + "',";
-			//write that thing in componentMap to nextSection
-		}
-
-		//here is where to start json
-		contents +=
-			// '<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /><title>Svelte app</title><link rel="stylesheet" href="./global.css" /></head><body>';
-			`{ name: "${figmaFile[j].name}", stories:[`;
-		contents += nextSection; //append nextSection to contents
-		// contents += '</body></html>';
-		contents += ']}, ';
 	}
 	contents += ' ];';
 

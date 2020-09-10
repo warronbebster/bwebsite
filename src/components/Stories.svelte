@@ -101,6 +101,7 @@
   }
 
   const pushHandler = function(project, story) {
+    console.log("pushHandler :" + project + ", " + story);
     push("/" + project.toString() + "/" + story.toString());
     if (storyTimer) storyTimer.reset();
   };
@@ -231,13 +232,14 @@
       border-radius: 0px;
       margin: 0;
       height: 100vh;
-      max-height: 100vh;
+      /* max-height: 100vh; */
       max-width: 100vw;
+      /* width: 100vw; */
     }
   }
 
   .project {
-    max-width: 460px;
+    /* max-width: 460px; */
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
