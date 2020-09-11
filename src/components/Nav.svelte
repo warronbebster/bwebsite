@@ -21,30 +21,38 @@
   nav {
     /* border: 1px solid black; */
     position: absolute;
-    padding: 0;
-    margin: 0 2px;
+    padding: 4px 0;
+    /* margin: 2px; */
     min-height: 28px;
-    top: 10px;
-    left: 10px;
-    background-color: white;
-    border-radius: 8px;
+    color: white;
+    top: 8px;
+    left: 2px;
+    /* background-color: white; */
+    border-radius: 4px;
+
+    z-index: 9999;
+  }
+
+  .open {
+    background-color: black;
     box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.5);
-    z-index: 9999;
   }
 
   .navItem {
     margin: 2px;
     padding: 3px 8px;
     overflow: hidden;
-    border-radius: 5px;
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    /* border-radius: 4px; */
     transition: all 0.5s ease;
     font-size: 14px;
   }
   .navItem:hover {
     cursor: pointer;
-    color: rgb(154, 24, 160);
+    /* color: rgb(154, 24, 160); */
+    /* text-decoration: underline; */
     transition: all 0.4s ease;
   }
   ol {
@@ -58,14 +66,14 @@
     margin-bottom: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
-    color: white;
+    /* color: white; */
     transition: all 0.5s ease;
   }
-  @media screen and (max-width: 550px) {
+  /* @media screen and (max-width: 550px) {
     nav {
       top: 18px;
     }
-  }
+  } */
 </style>
 
 <svelte:options immutable={true} />
@@ -79,7 +87,8 @@
     if (window.innerWidth > 640) {
       showNav(false);
     }
-  }}>
+  }}
+  class={navOpen ? 'open' : 'closed'}>
   <ol>
 
     {#each projectArray as project, i}

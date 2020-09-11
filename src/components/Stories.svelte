@@ -45,6 +45,7 @@
   let navOpen = false;
   const showNav = function(event) {
     navOpen = event.detail.open;
+    storyTimer.pause();
   };
 
   const Timer = function(callback, delay) {
@@ -80,6 +81,7 @@
 
   const handleNavProject = function(event) {
     pushHandler(event.detail, 0);
+    storyTimer.resume();
   };
 
   //if the project has changed since router push went through
@@ -120,20 +122,25 @@
 
   function gestureDown(e) {
     //when a gesture starts
-    storyTimer.pause(); //pause story timer
-    navOpen = false; //close nav
-    held = true; //start holding gesture
-    gestureTimedOut = false; //reset gestureTimedOut, hasn't timed out yet
+    if (navOpen) {
+      navOpen = false; //close nav
+      storyTimer.resume(); //pause story timer
+    } else {
+      storyTimer.pause(); //pause story timer
+      // navOpen = false; //close nav
+      held = true; //start holding gesture
+      gestureTimedOut = false; //reset gestureTimedOut, hasn't timed out yet
 
-    e.type == "touchstart"
-      ? (gesture_start = Math.round(e.changedTouches[0].pageX)) //where the event starts
-      : (gesture_start = e.pageX);
+      e.type == "touchstart"
+        ? (gesture_start = Math.round(e.changedTouches[0].pageX)) //where the event starts
+        : (gesture_start = e.pageX);
 
-    gesture_active = gesture_start;
+      gesture_active = gesture_start;
 
-    gestureTimer = setTimeout(() => {
-      gestureTimedOut = true; //start gesture timer
-    }, 300);
+      gestureTimer = setTimeout(() => {
+        gestureTimedOut = true; //start gesture timer
+      }, 300);
+    }
   }
 
   function gestureMove(e) {
@@ -211,6 +218,7 @@
 <style>
   :root {
     --width-border: 460px;
+    --height-border: 812px;
   }
 
   .grabbing {
@@ -219,6 +227,8 @@
 
   main {
     height: calc(100vh - 30px);
+    max-height: var(--height-border);
+    /* this is where the height gets limiteeeed */
     position: relative;
     width: 100vw;
     max-width: var(--width-border);
@@ -228,11 +238,12 @@
     will-change: transform;
   }
   @media screen and (max-width: 550px) {
+    /* Mobile */
     main {
       border-radius: 0px;
       margin: 0;
       height: 100vh;
-      /* max-height: 100vh; */
+      max-height: 100vh;
       max-width: 100vw;
       /* width: 100vw; */
     }
