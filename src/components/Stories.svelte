@@ -103,7 +103,7 @@
   }
 
   const pushHandler = function(project, story) {
-    console.log("pushHandler :" + project + ", " + story);
+    // console.log("pushHandler :" + project + ", " + story);
     push("/" + project.toString() + "/" + story.toString());
     if (storyTimer) storyTimer.reset();
   };
