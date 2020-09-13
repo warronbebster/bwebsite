@@ -46,6 +46,8 @@
         //if first value is not even a number
         replace("/"); //BAIL
       }
+    } else {
+      replace("/0/0");
     }
   }
 </script>
