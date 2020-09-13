@@ -56,7 +56,7 @@
   .prevCover {
     display: block !important;
     position: static;
-    opacity: 1;
+    /* opacity: 1; */
     /* visibility: visible; */
   }
 
@@ -64,26 +64,26 @@
     position: absolute;
     top: -2000px;
     left: -1000px;
-    opacity: 0;
+    /* opacity: 0; */
     /* visibility: hidden; */
   }
   .currentStory {
     margin: 0;
     position: static;
-    opacity: 1;
+    /* opacity: 1; */
     /* visibility: visible; */
   }
   .plus1 {
     position: absolute;
     top: -2000px;
     left: -1000px;
-    opacity: 0;
+    /* opacity: 0; */
     /* visibility: hidden; */
   }
   .nextCover {
     position: static;
     display: block !important;
-    opacity: 1;
+    /* opacity: 1; */
     /* visibility: visible; */
   }
 </style>

@@ -1,6 +1,6 @@
 <script>
   import Story from "./Story.svelte";
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import Nav from "./Nav.svelte";
   import { projectArray, getNext, getPrev } from "../stores.js";
   import { push } from "svelte-spa-router";
@@ -76,7 +76,7 @@
       timerId = window.setTimeout(callback, remaining);
     };
 
-    this.resume();
+    // this.resume();
   };
 
   const handleNavProject = function(event) {
@@ -103,8 +103,9 @@
   }
 
   const pushHandler = function(project, story) {
-    // console.log("pushHandler :" + project + ", " + story);
-    push("/" + project.toString() + "/" + story.toString());
+    //something in this router
+    console.log("pushHandler :" + project + ", " + story);
+    push(`/${project.toString()}/${story.toString()}`);
     if (storyTimer) storyTimer.reset();
   };
 
@@ -153,7 +154,7 @@
     gesture_gap > 0 ? (swipeDirection = "left") : (swipeDirection = "right");
   }
 
-  async function gestureUp(e) {
+  function gestureUp(e) {
     storyTimer.resume();
     if (!gestureTimedOut) {
       //if the gesture hasn't timed out
@@ -196,22 +197,28 @@
 
   onMount(() => {
     //when first mounts; basically on page load
+    console.log("onMount");
+    console.log(storyTimer);
     storyTimer = new Timer(() => {
       handleProjects("next");
     }, storyTimerTime);
+    console.log(storyTimer);
 
     function callback(e) {
       var e = window.e || e;
       if (e.target.tagName !== "A") return;
       // Do something
-      // console.log("uhhhhhh what is this callback thing");
-      // console.log();
       window.location.href = e.srcElement.href; //go to link
     }
 
     if (document.addEventListener)
       document.addEventListener("touchend", callback, false);
     else document.attachEvent("onclick", callback);
+  });
+
+  onDestroy(() => {
+    storyTimer.clear();
+    storyTimer = null;
   });
 </script>
 
