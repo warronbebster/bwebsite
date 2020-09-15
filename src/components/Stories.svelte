@@ -104,7 +104,7 @@
 
   function pushHandler(project, story) {
     //something in this router
-    console.log("pushHandler :" + project + ", " + story);
+    // console.log("pushHandler :" + project + ", " + story);
     push(`/${project.toString()}/${story.toString()}`);
     if (storyTimer) storyTimer.reset();
   }
@@ -197,12 +197,9 @@
 
   onMount(() => {
     //when first mounts; basically on page load
-    console.log("onMount");
-    console.log(storyTimer);
     storyTimer = new Timer(() => {
       handleProjects("next");
     }, storyTimerTime);
-    console.log(storyTimer);
 
     function callback(e) {
       var e = window.e || e;
