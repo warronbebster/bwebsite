@@ -48,7 +48,7 @@
     storyTimer.pause();
   };
 
-  const Timer = function(callback, delay) {
+  function Timer(callback, delay) {
     var timerId,
       start,
       delayStore = delay,
@@ -76,13 +76,13 @@
       timerId = window.setTimeout(callback, remaining);
     };
 
-    // this.resume();
-  };
+    this.resume();
+  }
 
-  const handleNavProject = function(event) {
+  function handleNavProject(event) {
     pushHandler(event.detail, 0);
     storyTimer.resume();
-  };
+  }
 
   //if the project has changed since router push went through
   $: if (parseInt(params.project) != bufferProject) {
@@ -102,12 +102,12 @@
     bufferProject = parseInt(params.project);
   }
 
-  const pushHandler = function(project, story) {
+  function pushHandler(project, story) {
     //something in this router
     console.log("pushHandler :" + project + ", " + story);
     push(`/${project.toString()}/${story.toString()}`);
     if (storyTimer) storyTimer.reset();
-  };
+  }
 
   function handleProjects(direction) {
     if (direction == "next") {

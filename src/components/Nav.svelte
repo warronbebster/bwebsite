@@ -25,7 +25,7 @@
     /* margin: 2px; */
     min-height: 28px;
     color: white;
-    top: 8px;
+    top: 2px;
     left: 2px;
     /* background-color: white; */
     border-radius: 4px;
@@ -42,7 +42,7 @@
 
   .navItem {
     margin: 2px;
-    padding: 3px 8px;
+    padding: 8px;
     overflow: hidden;
     text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
     /* border-radius: 4px; */
