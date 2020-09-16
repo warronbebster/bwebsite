@@ -5,6 +5,8 @@ html {
 *:before,
 *:after {
 	box-sizing: inherit;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: 500;
 }
 
 body {
@@ -14,8 +16,7 @@ body {
 	height: 100vh;
 	width: 100vw;
 	background-color: black;
-	font-family: 'IBM Plex Sans', sans-serif;
-	font-weight: 500;
+
 	font-size: 20px;
 	display: flex;
 	align-items: center;

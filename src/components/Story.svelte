@@ -1,11 +1,9 @@
 <script>
   import { beforeUpdate } from "svelte";
-  import Content from "./Content.svelte";
 
   export let storyContent = "<section>loading…</section"; //prop so that you can pass which project from App
   export let current = false;
   export let nextCover = false;
-  // export let prevCover = false;
   export let next = false;
   export let prev = false;
 
@@ -90,6 +88,8 @@
 
 <div class="story {displayPosition} ">
   {#if showStoryContent}
-    <Content {storyContent} />
+    {@html storyContent}
+  {:else}
+    <section>loading…</section>
   {/if}
 </div>
