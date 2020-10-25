@@ -31,16 +31,16 @@ jobs:
       # You may pin to the exact commit or the version.
       # uses: ad-m/github-push-action@40bf560936a8022e68a3c00e7d2abefaf01305a6
       uses: ad-m/github-push-action@v0.6.0
-#         with:
-#           # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
-#           github_token: 
-#           # Repository name to push. Default or empty value represents current github repository (${GITHUB_REPOSITORY})
-#           repository: # optional, default is 
-#           # Destination branch to push changes
-#           branch: # optional, default is master
-#           # Determines if force push is used
-#           force: # optional
-#           # Determines if --tags is used
-#           tags: # optional
-#           # Directory to change to before pushing.
-#           directory: # optional, default is .
+        with:
+          # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
+          github_token: $\{{ secrets.GITHUB_TOKEN }}
+          # Repository name to push. Default or empty value represents current github repository (${GITHUB_REPOSITORY})
+          repository: # optional, default is 
+          # Destination branch to push changes
+          branch: # optional, default is master
+          # Determines if force push is used
+          force: # optional
+          # Determines if --tags is used
+          tags: # optional
+          # Directory to change to before pushing.
+          directory: # optional, default is .
