@@ -27,11 +27,43 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm run figma
-    - name: GitHub Action for committing changes to a repository
-      uses: devops-infra/action-commit-push@0.1
+    - name: Git Auto Commit
+      # You may pin to the exact commit or the version.
+      # uses: stefanzweifel/git-auto-commit-action@bbd291750d2526367d915d5197485331dc2d8dc7
+      uses: stefanzweifel/git-auto-commit-action@v4.7.2
       with:
-        # Personal Access Token for GitHub for pushing the code
-        github_token: $\{{ secrets.GITHUB_TOKEN }}
+        # Commit message
+        commit_message: # optional, default is Apply automatic changes
+        # Git branch name, where changes should be pushed too. Required if Action is used on the `pull_request` event
+        branch: # optional, default is ${{ github.head_ref }}
+        # Commit options (eg. --no-verify)
+        commit_options: # optional, default is 
+        # File pattern used for `git add`. For example `src/\*.js`
+        file_pattern: # optional, default is .
+        # Local file path to the git repository. Defaults to the current directory (`.`)
+        repository: # optional, default is .
+        # Name used for the commit user
+        commit_user_name: # optional, default is GitHub Actions
+        # Email address used for the commit user
+        commit_user_email: # optional, default is actions@github.com
+        # Value used for the commit author. Defaults to the username of whoever triggered this workflow run.
+        commit_author: # optional, default is ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        # Message used to create a new git tag with the commit. Keep this empty, if no tag should be created.
+        tagging_message: # optional, default is 
+        # Push options (eg. --force)
+        push_options: # optional, default is 
+        # Skip the check if the git repository is dirty and always try to create a commit.
+        skip_dirty_check: # optional
+
+
+
+
+
+#     - name: GitHub Action for committing changes to a repository
+#       uses: devops-infra/action-commit-push@0.1
+#       with:
+#         # Personal Access Token for GitHub for pushing the code
+#         github_token: $\{{ secrets.PERSONAL_ACCESS_TOKEN }}
   
       
 
