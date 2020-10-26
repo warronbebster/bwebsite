@@ -9,6 +9,7 @@ on:
     - cron:  '0 0 * * *'
   repository_dispatch:
     types: figma_update
+  workflow_dispatch:
 
 jobs:
   build:
