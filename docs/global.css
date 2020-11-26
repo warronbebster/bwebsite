@@ -36,12 +36,12 @@ section {
 	-webkit-box-shadow: inset 0px 90px 50px -50px rgba(0, 0, 0, 0.35);
 }
 
-svg {
+/* svg {
 	overflow: visible;
 	position: absolute;
 	top: 0;
 	left: 0;
-}
+} */
 
 video {
 	content-visibility: auto;
