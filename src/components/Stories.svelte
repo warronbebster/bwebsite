@@ -12,7 +12,8 @@
 
   export let params = { project: 0, story: 0 };
 
-  //when params change, update activeStories
+  // when params change, update activeStories
+  // these $ variables recompute when stuff changes
   $: activeStories[parseInt(params.project)] = parseInt(params.story);
 
   $: next = getNext(params);
@@ -103,9 +104,9 @@
   }
 
   function pushHandler(project, story) {
-    //something in this router
+    //s omething in this router
     // console.log("pushHandler :" + project + ", " + story);
-    push(`/${project.toString()}/${story.toString()}`);
+    push(`/${project.toString()}/${story.toString()}`); //push to router
     if (storyTimer) storyTimer.reset();
   }
 
