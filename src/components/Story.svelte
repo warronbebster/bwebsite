@@ -39,7 +39,7 @@
     margin: 0;
     position: relative;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 8px;
   }
 
   @media screen and (max-width: 550px) {
