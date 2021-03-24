@@ -38,8 +38,12 @@
     padding: 0;
     margin: 0;
     position: relative;
+    /* z-index: 10; */
     overflow: hidden;
     border-radius: 8px;
+    /* this fixes border radius crop problem */
+    transform: translateY(0);
+    
   }
 
   @media screen and (max-width: 550px) {
