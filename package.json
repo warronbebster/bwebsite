@@ -4,7 +4,7 @@
 	"scripts": {
 		"build": "rollup -c",
 		"dev": "rollup -c -w",
-		"start": "sirv docs --single",
+		"start": "sirv docs -c --host --single",
 		"figma": "node nodeFigma.js Fgv9nN04eSsH7qJopKgUML"
 	},
 	"devDependencies": {
