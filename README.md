@@ -16,3 +16,5 @@ npm run dev
 ```
 
 Navigate to [localhost:5000](http://localhost:5000). You should see the site running.
+
+`node --inspect nodeFigma.js Fgv9nN04eSsH7qJopKgUML` to debug
