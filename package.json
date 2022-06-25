@@ -18,7 +18,7 @@
 		"svelte": "^3.0.0"
 	},
 	"dependencies": {
-		"node-fetch": "^2.6.1",
+		"node-fetch": "^2.6.7",
 		"sirv-cli": "^0.4.4",
 		"svelte-spa-router": "^2.2.0"
 	}
